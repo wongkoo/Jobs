@@ -16,6 +16,12 @@
 
 @implementation ViewController
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [_items removeObjectAtIndex:indexPath.row];
+    NSArray *indexPaths = @[indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 - (IBAction)addItem:(id)sender{
     NSInteger newRowIndex = [_items count];
     JobsItem *item = [[JobsItem alloc] init];
