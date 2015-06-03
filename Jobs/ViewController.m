@@ -16,6 +16,19 @@
 
 @implementation ViewController
 
+- (IBAction)addItem:(id)sender{
+    NSInteger newRowIndex = [_items count];
+    JobsItem *item = [[JobsItem alloc] init];
+    item.text = @"Hello+";
+    item.checked = NO;
+    [_items addObject:item];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+    NSArray *indexPaths = @[indexPath];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+}
+
 - (void)configureCheckmarkForCell:(UITableViewCell *)cell withJobsItem:(JobsItem *)item{
     
     if(item.checked){

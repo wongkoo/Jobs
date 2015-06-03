@@ -11,5 +11,7 @@
 @interface ViewController : UITableViewController
 
 
+- (IBAction)addItem:(id)sender;
+
 @end
 
