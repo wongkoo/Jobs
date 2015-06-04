@@ -16,6 +16,8 @@
 		7237F5D71B1EE68F00F1DFD9 /* JobsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5D61B1EE68F00F1DFD9 /* JobsTests.m */; };
 		7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E11B1F389F00F1DFD9 /* JobsItem.m */; };
 		7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */; };
+		7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */; };
+		7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EA1B20AE1A00F1DFD9 /* JobList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		7237F5E11B1F389F00F1DFD9 /* JobsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsItem.m; sourceTree = "<group>"; };
 		7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		7237F5E61B20A57A00F1DFD9 /* AllListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllListsViewController.h; path = ../AllListsViewController.h; sourceTree = "<group>"; };
+		7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllListsViewController.m; path = ../AllListsViewController.m; sourceTree = "<group>"; };
+		7237F5E91B20AE1A00F1DFD9 /* JobList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobList.h; sourceTree = "<group>"; };
+		7237F5EA1B20AE1A00F1DFD9 /* JobList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,18 +93,14 @@
 		7237F5B91B1EE68F00F1DFD9 /* Jobs */ = {
 			isa = PBXGroup;
 			children = (
+				7237F5ED1B20AE7E00F1DFD9 /* Controller */,
+				7237F5EC1B20AE5000F1DFD9 /* Model */,
 				7237F5BE1B1EE68F00F1DFD9 /* AppDelegate.h */,
 				7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */,
-				7237F5C11B1EE68F00F1DFD9 /* ViewController.h */,
-				7237F5C21B1EE68F00F1DFD9 /* ViewController.m */,
 				7237F5C41B1EE68F00F1DFD9 /* Main.storyboard */,
 				7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */,
 				7237F5C91B1EE68F00F1DFD9 /* LaunchScreen.xib */,
 				7237F5BA1B1EE68F00F1DFD9 /* Supporting Files */,
-				7237F5E01B1F389F00F1DFD9 /* JobsItem.h */,
-				7237F5E11B1F389F00F1DFD9 /* JobsItem.m */,
-				7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */,
-				7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */,
 			);
 			path = Jobs;
 			sourceTree = "<group>";
@@ -127,6 +129,30 @@
 				7237F5D51B1EE68F00F1DFD9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7237F5EC1B20AE5000F1DFD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7237F5E91B20AE1A00F1DFD9 /* JobList.h */,
+				7237F5EA1B20AE1A00F1DFD9 /* JobList.m */,
+				7237F5E01B1F389F00F1DFD9 /* JobsItem.h */,
+				7237F5E11B1F389F00F1DFD9 /* JobsItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7237F5ED1B20AE7E00F1DFD9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7237F5C11B1EE68F00F1DFD9 /* ViewController.h */,
+				7237F5C21B1EE68F00F1DFD9 /* ViewController.m */,
+				7237F5E61B20A57A00F1DFD9 /* AllListsViewController.h */,
+				7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */,
+				7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */,
+				7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +255,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
+				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
 				7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */,
