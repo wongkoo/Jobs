@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.itemToEdit != nil) {
+        self.title = @"Edit Item";
+        self.textField.text = self.itemToEdit.text;
+        self.saveBarButton.enabled = YES;
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -42,11 +47,17 @@
 
 - (IBAction)Save:(id)sender {
     NSLog(@"%@",self.textField.text);
-    JobsItem *item = [[JobsItem alloc] init];
-    item.text = self.textField.text;
-    item.checked = NO;
+
+    if (self.itemToEdit == nil) {
+        JobsItem *item = [[JobsItem alloc] init];
+        item.text = self.textField.text;
+        item.checked = NO;
+        [self.delegate addItemTableViewController:self didFinishAddingItem:item];
+    }else{
+        self.itemToEdit.text = self.textField.text;
+        [self.delegate addItemTableViewController:self didFinishEditingItem:self.itemToEdit];
+    }
     
-    [self.delegate addItemTableViewController:self didFinishAddingItem:item];
   //  [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 

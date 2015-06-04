@@ -14,10 +14,12 @@
 
 - (void) addItemTableViewControllerdidCancel:(AddItemTableViewController *)controller;
 - (void) addItemTableViewController:(AddItemTableViewController *)controller didFinishAddingItem:(JobsItem *)item;
-
+- (void) addItemTableViewController:(AddItemTableViewController *)controller didFinishEditingItem:(JobsItem *)item;
 @end
 
 @interface AddItemTableViewController : UITableViewController<UITextFieldDelegate>
+
+@property (strong, nonatomic) JobsItem *itemToEdit;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
 //2.在对象B的.h中声明⼀一个代理协议的属性变量
