@@ -112,43 +112,31 @@
     return cell;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    if ((self = [super initWithCoder:aDecoder])) {
+        [self loadJobsItems];
+    }
+    return self;
+}
+
+- (void)loadJobsItems{
+    NSString *path = [self dataFilePath];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc]initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        _items = [unarchiver decodeObjectForKey:@"JobsItems"];
+        [unarchiver finishDecoding];
+    }else{
+        _items = [[NSMutableArray alloc] initWithCapacity:20];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"文件夹的路径是：%@",[self documentsDirectory]);
-    NSLog(@"数据文件的最终路径是：%@",[self dataFilePath]);
-    
-    _items = [[NSMutableArray alloc]initWithCapacity:20];
-    
-    JobsItem *item;
-    
-    item = [[JobsItem alloc] init];
-    item.text =@"观看嫦娥⻜飞天";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[JobsItem alloc] init];
-    item.text =@"了解Sony a7和MBP";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[JobsItem alloc] init];
-    item.text =@"复习苍⽼老师";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[JobsItem alloc] init];
-    item.text =@"看⻄西甲巴萨新败";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[JobsItem alloc] init];
-    item.text =@"去电影院";
-    item.checked = NO;
-    [_items addObject:item];
-
-    
+//    NSLog(@"文件夹的路径是：%@",[self documentsDirectory]);
+//    NSLog(@"数据文件的最终路径是：%@",[self dataFilePath]);
+ 
     // Do any additional setup after loading the view, typically from a nib.
 }
 
