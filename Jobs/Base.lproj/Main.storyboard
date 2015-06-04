@@ -22,16 +22,16 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO3-xb-zuR">
                                             <rect key="frame" x="39" y="8" width="486" height="28"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="486" id="lzz-ww-nRm"/>
+                                                <constraint firstAttribute="width" constant="486" id="dHg-Rc-vHv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-8y-mqI">
-                                            <rect key="frame" x="8" y="8" width="23" height="28"/>
+                                            <rect key="frame" x="0.0" y="8" width="39" height="28"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="23" id="kwz-pD-HVb"/>
+                                                <constraint firstAttribute="width" constant="39" id="9UM-vd-GEW"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,13 +39,12 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="g8Q-8y-mqI" firstAttribute="top" secondItem="gO3-xb-zuR" secondAttribute="top" id="HUW-lF-c8D"/>
-                                        <constraint firstItem="g8Q-8y-mqI" firstAttribute="bottom" secondItem="gO3-xb-zuR" secondAttribute="bottom" id="S8t-hk-1cr"/>
-                                        <constraint firstItem="gO3-xb-zuR" firstAttribute="trailing" secondItem="t50-rG-kaK" secondAttribute="trailingMargin" id="TYK-XL-mfV"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="g8Q-8y-mqI" secondAttribute="bottom" constant="-0.5" id="bBw-G8-FMg"/>
-                                        <constraint firstItem="g8Q-8y-mqI" firstAttribute="leading" secondItem="t50-rG-kaK" secondAttribute="leadingMargin" id="bKN-SL-lbI"/>
-                                        <constraint firstItem="gO3-xb-zuR" firstAttribute="leading" secondItem="g8Q-8y-mqI" secondAttribute="trailing" constant="8" symbolic="YES" id="tzl-pX-Pdt"/>
-                                        <constraint firstItem="gO3-xb-zuR" firstAttribute="top" secondItem="t50-rG-kaK" secondAttribute="topMargin" id="vKF-FC-ZdY"/>
+                                        <constraint firstItem="g8Q-8y-mqI" firstAttribute="top" secondItem="t50-rG-kaK" secondAttribute="topMargin" id="Edd-Fd-vhO"/>
+                                        <constraint firstItem="gO3-xb-zuR" firstAttribute="leading" secondItem="g8Q-8y-mqI" secondAttribute="trailing" id="Ip3-kz-S9f"/>
+                                        <constraint firstItem="g8Q-8y-mqI" firstAttribute="leading" secondItem="t50-rG-kaK" secondAttribute="leading" id="J2b-E2-8nv"/>
+                                        <constraint firstItem="g8Q-8y-mqI" firstAttribute="top" secondItem="gO3-xb-zuR" secondAttribute="top" id="u93-mu-k5q"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="g8Q-8y-mqI" secondAttribute="bottom" constant="-0.5" id="v7s-XF-rQh"/>
+                                        <constraint firstItem="g8Q-8y-mqI" firstAttribute="bottom" secondItem="gO3-xb-zuR" secondAttribute="bottom" id="xJL-G6-xnQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -73,7 +72,7 @@
         <!--Add Item-->
         <scene sceneID="3HU-ia-18Y">
             <objects>
-                <tableViewController id="0Tk-RS-lIH" customClass="AddItemTableViewController" sceneMemberID="viewController">
+                <tableViewController id="0Tk-RS-lIH" customClass="ItemDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1y4-RO-eMi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

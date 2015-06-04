@@ -19,11 +19,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"AddItem"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        AddItemTableViewController *controller = (AddItemTableViewController *)navigationController.topViewController;
+        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
     }else if([segue.identifier isEqualToString:@"EditItem"]){
         UINavigationController *navigationController = segue.destinationViewController;
-        AddItemTableViewController *controller = (AddItemTableViewController *)navigationController.topViewController;
+        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.itemToEdit = _items[indexPath.row];
@@ -31,7 +31,7 @@
 }
 
 //5.通知对象B,对象A现在是它的代理。
-- (void)addItemTableViewController:(AddItemTableViewController *)controller didFinishAddingItem:(JobsItem *)item{
+- (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item{
     [self dismissViewControllerAnimated:YES completion:nil];
     NSInteger newRowIndex = [_items count];
     [_items addObject:item];
@@ -40,19 +40,20 @@
     
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    
+    [self saveJobsItems];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)addItemTableViewControllerdidCancel:(AddItemTableViewController *)controller{
+- (void)itemDetailViewControllerdidCancel:(ItemDetailViewController *)controller{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)addItemTableViewController:(AddItemTableViewController *)controller didFinishEditingItem:(JobsItem *)item{
+- (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishEditingItem:(JobsItem *)item{
     NSInteger index = [_items indexOfObject:item];
     NSIndexPath *indexPath =  [NSIndexPath indexPathForRow:index inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [self configureTextForCell:cell withJobsItem:item];
+    [self saveJobsItems];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -60,6 +61,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     [_items removeObjectAtIndex:indexPath.row];
+    [self saveJobsItems];
     NSArray *indexPaths = @[indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -90,6 +92,7 @@
     [item toggleChecked];
     
     [self configureCheckmarkForCell:cell withJobsItem:item];
+    [self saveJobsItems];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -112,6 +115,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"文件夹的路径是：%@",[self documentsDirectory]);
+    NSLog(@"数据文件的最终路径是：%@",[self dataFilePath]);
     
     _items = [[NSMutableArray alloc]initWithCapacity:20];
     
@@ -144,6 +150,25 @@
 
     
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (NSString *)documentsDirectory{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    return documentsDirectory;
+}
+
+- (NSString *)dataFilePath{
+    return [[self documentsDirectory]stringByAppendingPathComponent:@"Jobs.plist"];
+}
+
+- (void)saveJobsItems{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:_items forKey:@"JobsItems"];
+    [archiver finishEncoding];
+    [data writeToFile:[self dataFilePath] atomically:YES];
 }
 
 - (void)didReceiveMemoryWarning {

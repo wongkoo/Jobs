@@ -1,18 +1,18 @@
 //
-//  AddItemTableViewController.m
+//  ItemDetailViewController.m
 //  Jobs
 //
 //  Created by 王振辉 on 15/6/4.
 //  Copyright (c) 2015年 王振辉. All rights reserved.
 //
 
-#import "AddItemTableViewController.h"
+#import "ItemDetailViewController.h"
 #import "JobsItem.h"
-@interface AddItemTableViewController ()
+@interface ItemDetailViewController ()
 
 @end
 
-@implementation AddItemTableViewController
+@implementation ItemDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,7 +41,7 @@
 
 //3.让对象B在适当的时候向代理对象发送消息,⽐比如当⽤用户触碰cancel或done按钮时
 - (IBAction)cancel:(id)sender {
-    [self.delegate addItemTableViewControllerdidCancel:self];
+    [self.delegate itemDetailViewControllerdidCancel:self];
    // [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -52,10 +52,10 @@
         JobsItem *item = [[JobsItem alloc] init];
         item.text = self.textField.text;
         item.checked = NO;
-        [self.delegate addItemTableViewController:self didFinishAddingItem:item];
+        [self.delegate itemDetailViewController:self didFinishAddingItem:item];
     }else{
         self.itemToEdit.text = self.textField.text;
-        [self.delegate addItemTableViewController:self didFinishEditingItem:self.itemToEdit];
+        [self.delegate itemDetailViewController:self didFinishEditingItem:self.itemToEdit];
     }
     
   //  [self.parentViewController dismissViewControllerAnimated:YES completion:nil];

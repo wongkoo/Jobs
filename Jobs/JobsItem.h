@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JobsItem : NSObject
+@interface JobsItem : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString *text;
 @property (nonatomic,assign) BOOL checked;
