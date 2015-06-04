@@ -16,24 +16,40 @@
 
 @implementation ViewController
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"AddItem"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        AddItemTableViewController *controller = (AddItemTableViewController *)navigationController.topViewController;
+        controller.delegate = self;
+    }
+}
+
+//5.通知对象B,对象A现在是它的代理。
+- (void)addItemTableViewController:(AddItemTableViewController *)controller didFinishAddingItem:(JobsItem *)item{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSInteger newRowIndex = [_items count];
+    [_items addObject:item];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+    
+    NSArray *indexPaths = @[indexPath];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)addItemTableViewControllerdidCancel:(AddItemTableViewController *)controller{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     [_items removeObjectAtIndex:indexPath.row];
     NSArray *indexPaths = @[indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (IBAction)addItem:(id)sender{
-    NSInteger newRowIndex = [_items count];
-    JobsItem *item = [[JobsItem alloc] init];
-    item.text = @"Hello+";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
-    NSArray *indexPaths = @[indexPath];
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-}
 
 - (void)configureCheckmarkForCell:(UITableViewCell *)cell withJobsItem:(JobsItem *)item{
     

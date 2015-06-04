@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" title="JobsItems" id="bG1-bg-awP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PJd-He-GV6">
                             <connections>
-                                <segue destination="myE-dy-ck1" kind="presentation" id="VoS-tP-IlR"/>
+                                <segue destination="myE-dy-ck1" kind="presentation" identifier="AddItem" id="VoS-tP-IlR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -65,7 +65,11 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9R-cD-po6">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="Save:" destination="0Tk-RS-lIH" eventType="editingDidEndOnExit" id="ogx-yL-0uO"/>
+                                                        <outlet property="delegate" destination="0Tk-RS-lIH" id="kzC-4x-Vh4"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -90,13 +94,14 @@
                                 <action selector="cancel:" destination="0Tk-RS-lIH" id="Ugz-Gl-um7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ggh-7U-mXQ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="Ggh-7U-mXQ">
                             <connections>
                                 <action selector="Save:" destination="0Tk-RS-lIH" id="HpK-M7-XmW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveBarButton" destination="Ggh-7U-mXQ" id="o1R-fH-Ny3"/>
                         <outlet property="textField" destination="j9R-cD-po6" id="P48-fK-15j"/>
                     </connections>
                 </tableViewController>
