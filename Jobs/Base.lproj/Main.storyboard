@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="neA-TX-uY2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--JobsItems-->
@@ -36,7 +37,7 @@
                     <navigationItem key="navigationItem" title="JobsItems" id="bG1-bg-awP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PJd-He-GV6">
                             <connections>
-                                <action selector="addItem:" destination="GHa-u7-5dq" id="6Ui-uB-Glk"/>
+                                <segue destination="myE-dy-ck1" kind="presentation" id="VoS-tP-IlR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -44,6 +45,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3z-rw-imm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1641" y="190"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="3HU-ia-18Y">
+            <objects>
+                <tableViewController id="0Tk-RS-lIH" customClass="AddItemTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1y4-RO-eMi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="vNY-Cs-GjY">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="lo4-LE-ocf">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lo4-LE-ocf" id="3gF-Y9-P0n">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9R-cD-po6">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="j9R-cD-po6" firstAttribute="top" secondItem="3gF-Y9-P0n" secondAttribute="top" id="7Xo-Sl-ujp"/>
+                                                <constraint firstItem="j9R-cD-po6" firstAttribute="leading" secondItem="3gF-Y9-P0n" secondAttribute="leadingMargin" id="Nsf-eq-CNS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="j9R-cD-po6" secondAttribute="bottom" constant="-8.5" id="QoU-Ke-wwZ"/>
+                                                <constraint firstItem="j9R-cD-po6" firstAttribute="centerX" secondItem="3gF-Y9-P0n" secondAttribute="centerX" id="hdo-Ky-ZJa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="0Tk-RS-lIH" id="DNq-m1-ler"/>
+                            <outlet property="delegate" destination="0Tk-RS-lIH" id="uT3-ND-PpE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Item" id="tHG-Ya-EOw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BdX-RJ-VFX">
+                            <connections>
+                                <action selector="cancel:" destination="0Tk-RS-lIH" id="Ugz-Gl-um7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ggh-7U-mXQ">
+                            <connections>
+                                <action selector="Save:" destination="0Tk-RS-lIH" id="HpK-M7-XmW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="j9R-cD-po6" id="P48-fK-15j"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x0N-Ai-wD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3287" y="190"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uzp-yj-8c3">
@@ -62,6 +121,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vv6-zh-eve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="829" y="190"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xQ3-Rl-VNx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="myE-dy-ck1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OJk-hk-uwl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Tk-RS-lIH" kind="relationship" relationship="rootViewController" id="ji1-PH-VRz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mci-xI-dcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2475" y="190"/>
         </scene>
     </scenes>
 </document>

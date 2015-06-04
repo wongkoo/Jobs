@@ -15,6 +15,7 @@
 		7237F5CB1B1EE68F00F1DFD9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7237F5C91B1EE68F00F1DFD9 /* LaunchScreen.xib */; };
 		7237F5D71B1EE68F00F1DFD9 /* JobsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5D61B1EE68F00F1DFD9 /* JobsTests.m */; };
 		7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E11B1F389F00F1DFD9 /* JobsItem.m */; };
+		7237F5E51B1FE92300F1DFD9 /* AddItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E41B1FE92300F1DFD9 /* AddItemTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		7237F5D61B1EE68F00F1DFD9 /* JobsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsTests.m; sourceTree = "<group>"; };
 		7237F5E01B1F389F00F1DFD9 /* JobsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsItem.h; sourceTree = "<group>"; };
 		7237F5E11B1F389F00F1DFD9 /* JobsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsItem.m; sourceTree = "<group>"; };
+		7237F5E31B1FE92300F1DFD9 /* AddItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemTableViewController.h; sourceTree = "<group>"; };
+		7237F5E41B1FE92300F1DFD9 /* AddItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				7237F5BA1B1EE68F00F1DFD9 /* Supporting Files */,
 				7237F5E01B1F389F00F1DFD9 /* JobsItem.h */,
 				7237F5E11B1F389F00F1DFD9 /* JobsItem.m */,
+				7237F5E31B1FE92300F1DFD9 /* AddItemTableViewController.h */,
+				7237F5E41B1FE92300F1DFD9 /* AddItemTableViewController.m */,
 			);
 			path = Jobs;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
+				7237F5E51B1FE92300F1DFD9 /* AddItemTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +428,7 @@
 				7237F5DC1B1EE68F00F1DFD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7237F5DD1B1EE68F00F1DFD9 /* Build configuration list for PBXNativeTarget "JobsTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				7237F5DF1B1EE68F00F1DFD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
