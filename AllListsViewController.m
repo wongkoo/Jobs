@@ -17,6 +17,15 @@
 
 @implementation AllListsViewController
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
+    ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
+    controller.delegate = self;
+    JobList *jobList = _lists[indexPath.row];
+    controller.jobListToEdit = jobList;
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder{
     if ((self = [super initWithCoder:aDecoder])) {
         _lists = [[NSMutableArray alloc] initWithCapacity:20];
@@ -59,7 +68,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JobList *jobList = _lists[indexPath.row];
-    [tableView deselectRowAtIndexPath:indexPath animated:NO]; 
+  //  [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
 }
 
