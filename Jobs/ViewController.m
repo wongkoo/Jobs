@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "JobsItem.h"
+#import "JobList.h"
 @interface ViewController (){
     NSMutableArray *_items;
 }
@@ -133,7 +134,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = self.jobList.name;
 //    NSLog(@"文件夹的路径是：%@",[self documentsDirectory]);
 //    NSLog(@"数据文件的最终路径是：%@",[self dataFilePath]);
  

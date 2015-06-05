@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemDetailViewController.h"
+
+
+@class JobList;
 //4.让对象A遵从代理协议,在@interface声明部分添加⼀一个尖括号包含协议
 @interface ViewController : UITableViewController <ItemDetailViewControllerDelegate>
 
+@property (nonatomic, strong)JobList *jobList;
 
 @end
 

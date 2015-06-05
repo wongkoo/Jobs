@@ -67,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3z-rw-imm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="190"/>
+            <point key="canvasLocation" x="1385" y="-434"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="3HU-ia-18Y">
@@ -130,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0N-Ai-wD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3287" y="190"/>
+            <point key="canvasLocation" x="3073" y="-434"/>
         </scene>
         <!--JobLists-->
         <scene sceneID="2U7-0b-e4v">
@@ -145,14 +145,20 @@
                             <outlet property="delegate" destination="v42-OH-GJd" id="H4S-sV-h2l"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="JobLists" id="hbE-si-xgk"/>
+                    <navigationItem key="navigationItem" title="JobLists" id="hbE-si-xgk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ccj-ZF-3M8">
+                            <connections>
+                                <segue destination="cd7-Zc-b8a" kind="presentation" identifier="AddJobList" id="NnO-vn-QSk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="GHa-u7-5dq" kind="show" identifier="ShowJobList" id="wjb-dL-X8q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ew3-cn-Knc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="895" y="190"/>
+            <point key="canvasLocation" x="467" y="230"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uzp-yj-8c3">
@@ -170,7 +176,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vv6-zh-eve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="190"/>
+            <point key="canvasLocation" x="-235" y="230"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xQ3-Rl-VNx">
@@ -188,10 +194,89 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mci-xI-dcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2475" y="190"/>
+            <point key="canvasLocation" x="2343" y="-434"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nur-bS-mU0">
+            <objects>
+                <navigationController id="cd7-Zc-b8a" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aWQ-1K-xe3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AW3-EZ-QfR" kind="relationship" relationship="rootViewController" id="pQ9-Id-Ffm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9do-ea-Y0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2343" y="593"/>
+        </scene>
+        <!--Add JobList-->
+        <scene sceneID="gtV-vz-Anv">
+            <objects>
+                <tableViewController id="AW3-EZ-QfR" customClass="ListDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yrR-m1-TUb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="4Dl-ue-99V">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="PTu-JL-ncf">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PTu-JL-ncf" id="W1D-kG-Bhg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the List" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-kr-vfP">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="Save:" destination="AW3-EZ-QfR" eventType="editingDidEndOnExit" id="h8n-3C-sWc"/>
+                                                        <outlet property="delegate" destination="AW3-EZ-QfR" id="bvC-UR-3VT"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dhH-kr-vfP" firstAttribute="top" secondItem="W1D-kG-Bhg" secondAttribute="top" id="4aY-Rc-TdQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dhH-kr-vfP" secondAttribute="bottom" constant="-8.5" id="Per-NV-8Os"/>
+                                                <constraint firstItem="dhH-kr-vfP" firstAttribute="centerX" secondItem="W1D-kG-Bhg" secondAttribute="centerX" id="fdK-qw-0Ev"/>
+                                                <constraint firstItem="dhH-kr-vfP" firstAttribute="leading" secondItem="W1D-kG-Bhg" secondAttribute="leadingMargin" id="wzz-hl-aVq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="AW3-EZ-QfR" id="wSW-5j-6Ez"/>
+                            <outlet property="delegate" destination="AW3-EZ-QfR" id="59I-L0-6YA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add JobList" id="3GS-Qf-lYG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Chz-TV-Dec">
+                            <connections>
+                                <action selector="cancel:" destination="AW3-EZ-QfR" id="lV8-9n-orn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="Yut-1f-IkU">
+                            <connections>
+                                <action selector="save:" destination="AW3-EZ-QfR" id="Keb-Yy-n8g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveBarButton" destination="Yut-1f-IkU" id="njN-Q6-Zeo"/>
+                        <outlet property="textField" destination="dhH-kr-vfP" id="8ka-kj-wjc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYM-H1-quG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3085" y="593"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="o0j-0C-Ird"/>
+        <segue reference="VoS-tP-IlR"/>
     </inferredMetricsTieBreakers>
 </document>

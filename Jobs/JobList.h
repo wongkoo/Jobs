@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface JobList : NSObject
-
+@property (nonatomic,copy)NSString *name;
 @end
