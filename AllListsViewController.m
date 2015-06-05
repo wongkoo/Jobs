@@ -9,6 +9,7 @@
 #import "AllListsViewController.h"
 #import "JobList.h"
 #import "ViewController.h"
+#import "jobsItem.h"
 @interface AllListsViewController (){
     NSMutableArray *_lists;
 }
@@ -17,7 +18,8 @@
 
 @implementation AllListsViewController
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
     UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
     ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
     controller.delegate = self;
@@ -45,6 +47,12 @@
         list = [[JobList alloc]init];
         list.name = @"家庭";
         [_lists addObject:list];
+        
+        for (JobList *list in _lists) {
+            JobsItem *item = [[JobsItem alloc] init];
+            item.text = [NSString stringWithFormat:@"item for: %@", list.name];
+            [list.items addObject:item];
+        }
     }
     return self;
 }
@@ -123,9 +131,10 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;  ///////
     JobList *jobList = _lists[indexPath.row];
     cell.textLabel.text = jobList.name;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  //  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
