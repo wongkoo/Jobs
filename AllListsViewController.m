@@ -59,6 +59,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JobList *jobList = _lists[indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO]; 
     [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
 }
 
