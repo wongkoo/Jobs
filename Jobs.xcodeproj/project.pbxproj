@@ -19,6 +19,7 @@
 		7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */; };
 		7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EA1B20AE1A00F1DFD9 /* JobList.m */; };
 		7237F5F01B212AF300F1DFD9 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */; };
+		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		7237F5EA1B20AE1A00F1DFD9 /* JobList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobList.m; sourceTree = "<group>"; };
 		7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
 		7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
+		7237F5F11B2202B500F1DFD9 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		7237F5F21B2202B500F1DFD9 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				7237F5EA1B20AE1A00F1DFD9 /* JobList.m */,
 				7237F5E01B1F389F00F1DFD9 /* JobsItem.h */,
 				7237F5E11B1F389F00F1DFD9 /* JobsItem.m */,
+				7237F5F11B2202B500F1DFD9 /* DataModel.h */,
+				7237F5F21B2202B500F1DFD9 /* DataModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			files = (
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
+				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				7237F5F01B212AF300F1DFD9 /* ListDetailViewController.m in Sources */,
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,

@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ScappleDocument Version="1.1" ID="C64E2F9F-19CD-4975-8560-36EBFAB222A0">
+    <Notes>
+        <Note ID="0" FontSize="12.0" Position="1526.76853,922.314631" Width="78.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>DataModel</String>
+            <ConnectedNoteIDs>3-4, 56, 111</ConnectedNoteIDs>
+        </Note>
+        <Note ID="1" FontSize="12.0" Position="1688.071596,988.322004" Width="127.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>NSMutableArray *jobs</String>
+            <ConnectedNoteIDs>3</ConnectedNoteIDs>
+        </Note>
+        <Note ID="2" FontSize="12.0" Position="1700.396373,946.322004" Width="97.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (void)saveJobs</String>
+            <ConnectedNoteIDs>3</ConnectedNoteIDs>
+        </Note>
+        <Note ID="3" FontSize="12.0" Position="1641.14442,941.709281" Width="20.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>0-2</ConnectedNoteIDs>
+            <PointsToNoteIDs>1-2</PointsToNoteIDs>
+        </Note>
+        <Note ID="4" FontSize="12.0" Position="1604.649674,870.441386" Width="22.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>0, 7-11</ConnectedNoteIDs>
+        </Note>
+        <Note ID="7" FontSize="12.0" Position="1761.392652,911.444546" Width="49.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (id)init</String>
+            <ConnectedNoteIDs>4, 11</ConnectedNoteIDs>
+            <PointsToNoteIDs>11</PointsToNoteIDs>
+        </Note>
+        <Note ID="8" FontSize="12.0" Position="1690.004353,758.566145" Width="187.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (NSString *)documentsDirectory</String>
+            <ConnectedNoteIDs>4, 9</ConnectedNoteIDs>
+        </Note>
+        <Note ID="9" FontSize="12.0" Position="1819.211384,808.116926" Width="147.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (NSString *)dataFilePath</String>
+            <ConnectedNoteIDs>4, 8, 10-11</ConnectedNoteIDs>
+            <PointsToNoteIDs>8</PointsToNoteIDs>
+        </Note>
+        <Note ID="10" FontSize="12.0" Position="1674.274148,814.752131" Width="100.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (void) saveJobs</String>
+            <ConnectedNoteIDs>4, 9</ConnectedNoteIDs>
+            <PointsToNoteIDs>9</PointsToNoteIDs>
+        </Note>
+        <Note ID="11" FontSize="12.0" Position="1757.513965,863.356063" Width="94.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (void)loadJobs</String>
+            <ConnectedNoteIDs>4, 7, 9</ConnectedNoteIDs>
+            <PointsToNoteIDs>9</PointsToNoteIDs>
+        </Note>
+        <Note ID="12" FontSize="12.0" Position="3025.593262,1014.841553" Width="57.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>JobsItem</String>
+            <ConnectedNoteIDs>13-14, 40</ConnectedNoteIDs>
+        </Note>
+        <Note ID="13" FontSize="12.0" Position="2977.990967,935.153076" Width="34.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>12, 15-17</ConnectedNoteIDs>
+        </Note>
+        <Note ID="14" FontSize="12.0" Position="3024.727295,926.757568" Width="27.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>12, 18-20</ConnectedNoteIDs>
+        </Note>
+        <Note ID="15" FontSize="12.0" Position="2915.202637,880.980713" Width="84.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>NSString *text</String>
+            <ConnectedNoteIDs>13</ConnectedNoteIDs>
+        </Note>
+        <Note ID="16" FontSize="12.0" Position="2899.390346,917.020586" Width="81.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>Bool checked</String>
+            <ConnectedNoteIDs>13</ConnectedNoteIDs>
+        </Note>
+        <Note ID="17" FontSize="12.0" Position="2901.810303,971.843994" Width="89.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>toggleChecked</String>
+            <ConnectedNoteIDs>13</ConnectedNoteIDs>
+        </Note>
+        <Note ID="18" FontSize="12.0" Position="2955.351449,839.0" Width="129.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (void) toggleChecked</String>
+            <ConnectedNoteIDs>14, 102</ConnectedNoteIDs>
+        </Note>
+        <Note ID="19" FontSize="12.0" Position="3066.529297,917.097168" Width="250.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (id)initWithCoder:(NSCoder)aDecoder</String>
+            <ConnectedNoteIDs>14</ConnectedNoteIDs>
+        </Note>
+        <Note ID="20" FontSize="12.0" Position="3065.654541,963.665771" Width="274.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (void)encodeWithCoder:(NSCoder *)aCoder</String>
+            <ConnectedNoteIDs>14</ConnectedNoteIDs>
+        </Note>
+        <Note ID="21" FontSize="12.0" Position="2417.973011,1251.569602" Width="43.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>Joblist</String>
+            <ConnectedNoteIDs>22-23, 80, 94</ConnectedNoteIDs>
+        </Note>
+        <Note ID="22" FontSize="12.0" Position="2552.689808,1259.452415" Width="40.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>21, 24-25</ConnectedNoteIDs>
+        </Note>
+        <Note ID="23" FontSize="12.0" Position="2516.963246,1306.807884" Width="27.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>21, 26-28</ConnectedNoteIDs>
+        </Note>
+        <Note ID="24" FontSize="12.0" Position="2673.023793,1245.889915" Width="133.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>NSMutableArray *items</String>
+            <ConnectedNoteIDs>22</ConnectedNoteIDs>
+        </Note>
+        <Note ID="25" FontSize="12.0" Position="2660.570668,1209.188743" Width="118.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>NSString *name</String>
+            <ConnectedNoteIDs>22</ConnectedNoteIDs>
+        </Note>
+        <Note ID="26" FontSize="12.0" Position="2609.326527,1333.581321" Width="49.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (id)init</String>
+            <ConnectedNoteIDs>23</ConnectedNoteIDs>
+        </Note>
+        <Note ID="27" FontSize="12.0" Position="2481.952231,1367.311014" Width="272.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (id)initWithCoder:(NSCoder *)aDecoder</String>
+            <ConnectedNoteIDs>23</ConnectedNoteIDs>
+        </Note>
+        <Note ID="28" FontSize="12.0" Position="2494.827843,1407.025322" Width="282.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.756763 0.785592 0.373258</Border>
+                <Fill>0.906773 0.910625 0.634363</Fill>
+            </Appearance>
+            <String>- (void)encodeWithCoder:(NSCoder *)aCoder</String>
+            <ConnectedNoteIDs>23</ConnectedNoteIDs>
+        </Note>
+        <Note ID="33" FontSize="28.0" Position="3364.48331,473.242898" Width="339.0" Shadow="Yes">
+            <Appearance>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>ItemDetailViewController</String>
+            <ConnectedNoteIDs>34-35</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,24</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="34" FontSize="12.0" Position="3541.612571,1008.575639" Width="37.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>33, 36, 40-45</ConnectedNoteIDs>
+        </Note>
+        <Note ID="35" FontSize="12.0" Position="3793.95419,483.037642" Width="59.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>33, 46-52</ConnectedNoteIDs>
+        </Note>
+        <Note ID="36" FontSize="12.0" Position="3278.818892,859.450284" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <TextColor>0.666667 0.05098 0.568627</TextColor>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>@protocol ItemDetailViewControllerDelegate</String>
+            <ConnectedNoteIDs>34, 37-39, 93</ConnectedNoteIDs>
+            <PointsToNoteIDs>37-39, 93</PointsToNoteIDs>
+        </Note>
+        <Note ID="37" FontSize="12.0" Position="3219.203125,799.392578" Width="244.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void) itemDetailViewControllerdidCancel:(ItemDetailViewController *)controller</String>
+            <ConnectedNoteIDs>36</ConnectedNoteIDs>
+        </Note>
+        <Note ID="38" FontSize="12.0" Position="3194.634766,731.439453" Width="232.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void) itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item;</String>
+            <ConnectedNoteIDs>36</ConnectedNoteIDs>
+        </Note>
+        <Note ID="39" FontSize="12.0" Position="3184.208984,643.076172" Width="244.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void) itemDetailViewController:(ItemDetailViewController *)controller didFinishEditingItem:(JobsItem *)item;</String>
+            <ConnectedNoteIDs>36</ConnectedNoteIDs>
+        </Note>
+        <Note ID="40" FontSize="12.0" Position="3415.534091,1083.887074" Width="121.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.477193 0.557066 0.76433</Border>
+                <Fill>0.840969 0.866828 0.925903</Fill>
+            </Appearance>
+            <String>JobsItem *itemToEdit</String>
+            <ConnectedNoteIDs>12, 34, 118</ConnectedNoteIDs>
+            <PointsToNoteIDs>12</PointsToNoteIDs>
+        </Note>
+        <Note ID="41" FontSize="12.0" Position="3801.192649,1054.086648" Width="122.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>UITextField *textField</String>
+            <ConnectedNoteIDs>34</ConnectedNoteIDs>
+        </Note>
+        <Note ID="42" FontSize="12.0" Position="3773.048828,963.765625" Width="184.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>UIBarButtonItem *saveBarButton</String>
+            <ConnectedNoteIDs>34</ConnectedNoteIDs>
+        </Note>
+        <Note ID="43" FontSize="12.0" Position="3787.501598,1024.577415" Width="164.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)cancel:(id)sender;</String>
+            <ConnectedNoteIDs>34</ConnectedNoteIDs>
+        </Note>
+        <Note ID="44" FontSize="12.0" Position="3783.048828,991.765625" Width="157.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)Save:(id)sender;</String>
+            <ConnectedNoteIDs>34</ConnectedNoteIDs>
+        </Note>
+        <Note ID="45" FontSize="12.0" Position="3958.463778,759.551491" Width="131.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>&lt;UITextFieldDelegate&gt;</String>
+            <ConnectedNoteIDs>34, 47</ConnectedNoteIDs>
+        </Note>
+        <Note ID="46" FontSize="12.0" Position="3998.54794,198.910511" Width="115.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)viewDidLoad</String>
+            <ConnectedNoteIDs>35</ConnectedNoteIDs>
+        </Note>
+        <Note ID="47" FontSize="12.0" Position="3903.17081,700.419744" Width="193.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)didReceiveMemoryWarning</String>
+            <ConnectedNoteIDs>35, 45</ConnectedNoteIDs>
+            <PointsToNoteIDs>45</PointsToNoteIDs>
+        </Note>
+        <Note ID="48" FontSize="12.0" Position="3941.181108,573.930043" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>35</ConnectedNoteIDs>
+        </Note>
+        <Note ID="49" FontSize="12.0" Position="3960.255327,521.656605" Width="164.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)cancel:(id)sender </String>
+            <ConnectedNoteIDs>35</ConnectedNoteIDs>
+        </Note>
+        <Note ID="50" FontSize="12.0" Position="3969.555043,471.98402" Width="157.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)Save:(id)sender </String>
+            <ConnectedNoteIDs>35</ConnectedNoteIDs>
+        </Note>
+        <Note ID="51" FontSize="12.0" Position="3967.03125,390.905895" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)viewWillAppear:(BOOL)animated</String>
+            <ConnectedNoteIDs>35</ConnectedNoteIDs>
+        </Note>
+        <Note ID="52" FontSize="12.0" Position="3984.270597,275.036932" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string</String>
+            <ConnectedNoteIDs>35</ConnectedNoteIDs>
+        </Note>
+        <Note ID="53" FontSize="28.0" Position="580.943537,906.0" Width="307.0">
+            <Appearance>
+                <Border Weight="1">0.290055 0.1523 0.182215</Border>
+                <Fill>0.940019 0.892907 0.779716</Fill>
+            </Appearance>
+            <String>AllListsViewController</String>
+            <ConnectedNoteIDs>54-55, 112</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,22</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="54" FontSize="12.0" Position="1220.428267,1041.740767" Width="37.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>53, 56-57</ConnectedNoteIDs>
+        </Note>
+        <Note ID="55" FontSize="12.0" Position="773.467913,1083.966518" Width="30.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>53, 58-68</ConnectedNoteIDs>
+        </Note>
+        <Note ID="56" FontSize="12.0" Position="1448.064453,1106.341797" Width="227.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.477193 0.557066 0.76433</Border>
+                <Fill>0.840969 0.866828 0.925903</Fill>
+            </Appearance>
+            <String>DataModel *dataModel</String>
+            <ConnectedNoteIDs>0, 54, 117</ConnectedNoteIDs>
+            <PointsToNoteIDs>0, 117</PointsToNoteIDs>
+        </Note>
+        <Note ID="57" FontSize="12.0" Position="1340.470703,1433.936523" Width="208.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>&lt;ListDetailViewControllerDelegate&gt;</String>
+            <ConnectedNoteIDs>54, 63-65, 72</ConnectedNoteIDs>
+            <PointsToNoteIDs>63-65</PointsToNoteIDs>
+        </Note>
+        <Note ID="58" FontSize="12.0" Position="883.248733,1522.258868" Width="239.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>55, 69</ConnectedNoteIDs>
+            <PointsToNoteIDs>69</PointsToNoteIDs>
+        </Note>
+        <Note ID="59" FontSize="12.0" Position="476.705078,1145.583426" Width="115.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)viewDidLoad</String>
+            <ConnectedNoteIDs>55</ConnectedNoteIDs>
+        </Note>
+        <Note ID="60" FontSize="12.0" Position="428.599234,1464.31994" Width="193.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)didReceiveMemoryWarning</String>
+            <ConnectedNoteIDs>55</ConnectedNoteIDs>
+        </Note>
+        <Note ID="61" FontSize="12.0" Position="1227.181166,675.386824" Width="240.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>55, 90</ConnectedNoteIDs>
+            <PointsToNoteIDs>90</PointsToNoteIDs>
+        </Note>
+        <Note ID="62" FontSize="12.0" Position="668.587333,1327.68192" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender</String>
+            <ConnectedNoteIDs>55</ConnectedNoteIDs>
+        </Note>
+        <Note ID="63" FontSize="12.0" Position="992.018581,1185.891892" Width="229.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)listDetailViewControllerDidCancel:(ListDetailViewController *)controller</String>
+            <ConnectedNoteIDs>55, 57</ConnectedNoteIDs>
+        </Note>
+        <Note ID="64" FontSize="12.0" Position="1038.437922,1264.850084" Width="256.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList</String>
+            <ConnectedNoteIDs>55, 57</ConnectedNoteIDs>
+        </Note>
+        <Note ID="65" FontSize="12.0" Position="1103.047607,1359.0" Width="249.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList</String>
+            <ConnectedNoteIDs>55, 57</ConnectedNoteIDs>
+        </Note>
+        <Note ID="66" FontSize="12.0" Position="443.847479,1200.351892" Width="202.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>55</ConnectedNoteIDs>
+        </Note>
+        <Note ID="67" FontSize="12.0" Position="433.044635,1300.822398" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section </String>
+            <ConnectedNoteIDs>55</ConnectedNoteIDs>
+        </Note>
+        <Note ID="68" FontSize="12.0" Position="430.705731,1377.092619" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>55</ConnectedNoteIDs>
+        </Note>
+        <Note ID="69" FontSize="28.0" Position="1773.866399,1710.435559" Width="332.0" Shadow="Yes">
+            <Appearance>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>ListDetailViewController</String>
+            <ConnectedNoteIDs>58, 70-71</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,24</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="70" FontSize="12.0" Position="2124.779867,1609.833897" Width="20.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>69, 72, 76-82</ConnectedNoteIDs>
+        </Note>
+        <Note ID="71" FontSize="12.0" Position="2005.910657,1990.427056" Width="22.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>69, 83-89</ConnectedNoteIDs>
+        </Note>
+        <Note ID="72" FontSize="12.0" Position="1650.074951,1429.811523" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <TextColor>0.666667 0.05098 0.568627</TextColor>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>@protocol ListDetailViewControllerDelegate</String>
+            <ConnectedNoteIDs>57, 70, 73-75</ConnectedNoteIDs>
+            <PointsToNoteIDs>57, 73-75</PointsToNoteIDs>
+        </Note>
+        <Note ID="73" FontSize="12.0" Position="1494.157939,1212.326436" Width="245.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)listDetailViewControllerDidCancel:(ListDetailViewController *)controller;</String>
+            <ConnectedNoteIDs>72</ConnectedNoteIDs>
+        </Note>
+        <Note ID="74" FontSize="12.0" Position="1579.069679,1266.065034" Width="231.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList;</String>
+            <ConnectedNoteIDs>72</ConnectedNoteIDs>
+        </Note>
+        <Note ID="75" FontSize="12.0" Position="1610.961182,1354.518555" Width="246.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList;</String>
+            <ConnectedNoteIDs>72</ConnectedNoteIDs>
+        </Note>
+        <Note ID="76" FontSize="12.0" Position="2216.759853,1779.002787" Width="131.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>&lt;UITextFieldDelegate&gt;</String>
+            <ConnectedNoteIDs>70, 84</ConnectedNoteIDs>
+        </Note>
+        <Note ID="77" FontSize="12.0" Position="2215.678744,1647.820554" Width="122.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>UITextField *textField</String>
+            <ConnectedNoteIDs>70</ConnectedNoteIDs>
+        </Note>
+        <Note ID="78" FontSize="12.0" Position="2220.315858,1674.243131" Width="184.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>UIBarButtonItem *saveBarButton</String>
+            <ConnectedNoteIDs>70</ConnectedNoteIDs>
+        </Note>
+        <Note ID="79" FontSize="12.0" Position="2199.822353,1615.850751" Width="276.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>&lt;ListDetailViewControllerDelegate&gt;delegate</String>
+            <ConnectedNoteIDs>70</ConnectedNoteIDs>
+        </Note>
+        <Note ID="80" FontSize="12.0" Position="2130.385882,1407.214286" Width="123.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.477193 0.557066 0.76433</Border>
+                <Fill>0.840969 0.866828 0.925903</Fill>
+            </Appearance>
+            <String>JobList *jobListToEdit</String>
+            <ConnectedNoteIDs>21, 70, 117</ConnectedNoteIDs>
+            <PointsToNoteIDs>21</PointsToNoteIDs>
+        </Note>
+        <Note ID="81" FontSize="12.0" Position="2214.059186,1709.261916" Width="164.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)cancel:(id)sender;</String>
+            <ConnectedNoteIDs>70</ConnectedNoteIDs>
+        </Note>
+        <Note ID="82" FontSize="12.0" Position="2213.486328,1741.841797" Width="155.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)save:(id)sender;</String>
+            <ConnectedNoteIDs>70</ConnectedNoteIDs>
+        </Note>
+        <Note ID="83" FontSize="12.0" Position="2115.829723,1933.319437" Width="359.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>71</ConnectedNoteIDs>
+        </Note>
+        <Note ID="84" FontSize="12.0" Position="2137.11782,1859.147562" Width="339.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string</String>
+            <ConnectedNoteIDs>71, 76</ConnectedNoteIDs>
+            <PointsToNoteIDs>76</PointsToNoteIDs>
+        </Note>
+        <Note ID="85" FontSize="12.0" Position="2193.97421,1985.846649" Width="115.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)viewDidLoad</String>
+            <ConnectedNoteIDs>71</ConnectedNoteIDs>
+        </Note>
+        <Note ID="86" FontSize="12.0" Position="2130.863958,2029.16898" Width="278.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)viewWillAppear:(BOOL)animated</String>
+            <ConnectedNoteIDs>71</ConnectedNoteIDs>
+        </Note>
+        <Note ID="87" FontSize="12.0" Position="2216.561357,2152.511553" Width="193.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)didReceiveMemoryWarning</String>
+            <ConnectedNoteIDs>71</ConnectedNoteIDs>
+        </Note>
+        <Note ID="88" FontSize="12.0" Position="2224.308656,2059.82523" Width="161.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)cancel:(id)sender</String>
+            <ConnectedNoteIDs>71</ConnectedNoteIDs>
+        </Note>
+        <Note ID="89" FontSize="12.0" Position="2222.836921,2096.646859" Width="151.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (IBAction)save:(id)sender</String>
+            <ConnectedNoteIDs>71</ConnectedNoteIDs>
+        </Note>
+        <Note ID="90" FontSize="28.0" Position="2031.605469,626.291016" Width="206.0" Shadow="Yes">
+            <Appearance>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>ViewController</String>
+            <ConnectedNoteIDs>61, 91-92</ConnectedNoteIDs>
+            <Formatting>
+                <FormatRange Bold="Yes">0,14</FormatRange>
+            </Formatting>
+        </Note>
+        <Note ID="91" FontSize="12.0" Position="2354.181108,829.529119" Width="20.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>90, 93-94</ConnectedNoteIDs>
+        </Note>
+        <Note ID="92" FontSize="12.0" Position="2441.681108,600.247869" Width="31.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>90, 95-105</ConnectedNoteIDs>
+        </Note>
+        <Note ID="93" FontSize="12.0" Position="2894.562145,692.416193" Width="256.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String> &lt;ItemDetailViewControllerDelegate&gt;</String>
+            <ConnectedNoteIDs>36, 91, 96-98</ConnectedNoteIDs>
+            <PointsToNoteIDs>96-98</PointsToNoteIDs>
+        </Note>
+        <Note ID="94" FontSize="12.0" Position="2277.105824,1071.848011" Width="89.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.477193 0.557066 0.76433</Border>
+                <Fill>0.840969 0.866828 0.925903</Fill>
+            </Appearance>
+            <String>JobList *jobList</String>
+            <ConnectedNoteIDs>21, 91, 117-118</ConnectedNoteIDs>
+            <PointsToNoteIDs>21, 118</PointsToNoteIDs>
+        </Note>
+        <Note ID="95" FontSize="12.0" Position="2638.647727,179.518466" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender</String>
+            <ConnectedNoteIDs>92</ConnectedNoteIDs>
+        </Note>
+        <Note ID="96" FontSize="12.0" Position="2729.79794,373.0" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item</String>
+            <ConnectedNoteIDs>92-93</ConnectedNoteIDs>
+        </Note>
+        <Note ID="97" FontSize="12.0" Position="2877.955256,549.330256" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)itemDetailViewControllerdidCancel:(ItemDetailViewController *)controller</String>
+            <ConnectedNoteIDs>92-93, 98</ConnectedNoteIDs>
+        </Note>
+        <Note ID="98" FontSize="12.0" Position="2808.356889,461.745384" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishEditingItem:(JobsItem *)item</String>
+            <ConnectedNoteIDs>92-93, 97</ConnectedNoteIDs>
+        </Note>
+        <Note ID="99" FontSize="12.0" Position="2612.275568,262.067472" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>92</ConnectedNoteIDs>
+        </Note>
+        <Note ID="100" FontSize="12.0" Position="2288.064112,423.996422" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)configureCheckmarkForCell:(UITableViewCell *)cell withJobsItem:(JobsItem *)item</String>
+            <ConnectedNoteIDs>92</ConnectedNoteIDs>
+        </Note>
+        <Note ID="101" FontSize="12.0" Position="2292.26768,356.73818" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)configureTextForCell:(UITableViewCell *)cell withJobsItem:(JobsItem *)item</String>
+            <ConnectedNoteIDs>92</ConnectedNoteIDs>
+        </Note>
+        <Note ID="102" FontSize="12.0" Position="2535.600852,652.740767" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>18, 92</ConnectedNoteIDs>
+            <PointsToNoteIDs>18</PointsToNoteIDs>
+        </Note>
+        <Note ID="103" FontSize="12.0" Position="2294.462713,216.427912" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section</String>
+            <ConnectedNoteIDs>92</ConnectedNoteIDs>
+        </Note>
+        <Note ID="104" FontSize="12.0" Position="2289.539443,289.449954" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</String>
+            <ConnectedNoteIDs>92</ConnectedNoteIDs>
+        </Note>
+        <Note ID="105" FontSize="12.0" Position="2418.60633,185.808471" Width="115.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)viewDidLoad</String>
+            <ConnectedNoteIDs>92</ConnectedNoteIDs>
+        </Note>
+        <Note ID="106" FontSize="12.0" Position="53.234375,706.82511" Width="78.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>AppDelegate</String>
+            <ConnectedNoteIDs>107-108</ConnectedNoteIDs>
+        </Note>
+        <Note ID="107" FontSize="12.0" Position="188.197643,594.379934" Width="20.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.h</String>
+            <ConnectedNoteIDs>106, 109-110</ConnectedNoteIDs>
+        </Note>
+        <Note ID="108" FontSize="12.0" Position="191.313322,741.108553" Width="22.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>.m</String>
+            <ConnectedNoteIDs>106, 111-115</ConnectedNoteIDs>
+        </Note>
+        <Note ID="109" FontSize="12.0" Position="246.401316,534.843202" Width="115.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>UIWindow *window;</String>
+            <ConnectedNoteIDs>107</ConnectedNoteIDs>
+        </Note>
+        <Note ID="110" FontSize="12.0" Position="248.405154,582.0" Width="141.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>&lt;UIApplicationDelegate&gt;</String>
+            <ConnectedNoteIDs>107</ConnectedNoteIDs>
+        </Note>
+        <Note ID="111" FontSize="12.0" Position="273.18284,656.066612" Width="137.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>DataModel *_dataModel</String>
+            <ConnectedNoteIDs>0, 108</ConnectedNoteIDs>
+            <PointsToNoteIDs>0</PointsToNoteIDs>
+        </Note>
+        <Note ID="112" FontSize="12.0" Position="250.935855,730.871162" Width="279.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</String>
+            <ConnectedNoteIDs>53, 108</ConnectedNoteIDs>
+            <PointsToNoteIDs>53</PointsToNoteIDs>
+        </Note>
+        <Note ID="113" FontSize="12.0" Position="308.424068,871.245614" Width="97.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)saveData</String>
+            <ConnectedNoteIDs>108, 114-115</ConnectedNoteIDs>
+        </Note>
+        <Note ID="114" FontSize="12.0" Position="258.836075,918.0" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)applicationDidEnterBackground:(UIApplication *)application</String>
+            <ConnectedNoteIDs>108, 113</ConnectedNoteIDs>
+            <PointsToNoteIDs>113</PointsToNoteIDs>
+        </Note>
+        <Note ID="115" FontSize="12.0" Position="255.362939,800.287007" Width="200.0" Shadow="Yes">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="2">0.077727 0.559807 0.805582</Border>
+            </Appearance>
+            <String>- (void)applicationWillTerminate:(UIApplication *)application </String>
+            <ConnectedNoteIDs>108, 113</ConnectedNoteIDs>
+            <PointsToNoteIDs>113</PointsToNoteIDs>
+        </Note>
+        <Note ID="117" FontSize="12.0" Position="1737.110085,1108.259233" Width="173.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.331867 0.609932 0.356197</Border>
+                <Fill>0.790123 0.882327 0.80198</Fill>
+            </Appearance>
+            <String>dataModel.jobs[indexPath.row]</String>
+            <ConnectedNoteIDs>56, 80, 94</ConnectedNoteIDs>
+            <PointsToNoteIDs>80, 94</PointsToNoteIDs>
+        </Note>
+        <Note ID="118" FontSize="12.0" Position="2396.799716,1061.463778" Width="158.0">
+            <Appearance>
+                <Alignment>Center</Alignment>
+                <Border Weight="1">0.331867 0.609932 0.356197</Border>
+                <Fill>0.790123 0.882327 0.80198</Fill>
+            </Appearance>
+            <String>jobList.items[indexPath.row]</String>
+            <ConnectedNoteIDs>40, 94</ConnectedNoteIDs>
+            <PointsToNoteIDs>40</PointsToNoteIDs>
+        </Note>
+    </Notes>
+    <BackgroundShapes></BackgroundShapes>
+    <AutoFit>1-4, 7-12, 15-18, 21, 24, 26, 33, 40-47, 49-50, 53, 59-60, 69-71, 76-78, 80-82, 85, 87-91, 94, 105-111, 113, 117-118</AutoFit>
+    <NoteStyles>
+        <Style Name="Title Text" ID="40819A75-0FF9-4F4A-BB94-3768491BC33C" AffectFontStyle="Yes" AffectAlignment="Yes" AffectTextColor="No" AffectNoteBody="No" AffectFade="No">
+            <FontSize>28.0</FontSize>
+            <IsBold>Yes</IsBold>
+        </Style>
+        <Style Name="Red Text" ID="B45D28B4-DC4B-4413-B49B-7CD78CAC07AB" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="Yes" AffectNoteBody="No" AffectFade="No">
+            <TextColor>1.0 0.0 0.0</TextColor>
+        </Style>
+        <Style Name="Brown Bubble" ID="1025F88F-C28B-48AF-A473-B2D0D3938233" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.290055 0.1523 0.182215</BorderColor>
+            <FillColor>0.940019 0.892907 0.779716</FillColor>
+        </Style>
+        <Style Name="Yellow Bubble" ID="02D2E1E3-ECF7-4E45-ABBF-3E14C24A7B85" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.756763 0.785592 0.373258</BorderColor>
+            <FillColor>0.906773 0.910625 0.634363</FillColor>
+        </Style>
+        <Style Name="Green Bubble" ID="83A18AE5-EF5E-47F4-9554-F3E4270F0561" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.331867 0.609932 0.356197</BorderColor>
+            <FillColor>0.790123 0.882327 0.80198</FillColor>
+        </Style>
+        <Style Name="Blue Bubble" ID="17BBDA77-A24E-4D82-962D-0D541C805769" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.477193 0.557066 0.76433</BorderColor>
+            <FillColor>0.840969 0.866828 0.925903</FillColor>
+        </Style>
+        <Style Name="Pink Bubble" ID="E633A1DC-37DF-48BC-A150-E4DE8D26777C" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.747881 0.366532 0.542813</BorderColor>
+            <FillColor>0.918452 0.807302 0.863467</FillColor>
+        </Style>
+    </NoteStyles>
+    <UISettings>
+        <BackgroundColor>0.999737 0.986332 0.931298</BackgroundColor>
+        <DefaultFont>Helvetica</DefaultFont>
+        <DefaultTextColor>0.0 0.0 0.0</DefaultTextColor>
+    </UISettings>
+    <PrintSettings PaperSize="595.0,842.0" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
+</ScappleDocument>

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JobList : NSObject
+@interface JobList : NSObject<NSCoding>
 @property (nonatomic,strong)NSMutableArray *items;
 @property (nonatomic,copy)NSString *name;
 

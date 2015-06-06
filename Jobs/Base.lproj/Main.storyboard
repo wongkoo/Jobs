@@ -140,6 +140,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="JobLists" id="YHM-sc-RdD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YHM-sc-RdD" id="nmc-NG-Rul">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1024" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzC-p3-Wtq">
+                                            <rect key="frame" x="8" y="8" width="517" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bzC-p3-Wtq" firstAttribute="top" secondItem="nmc-NG-Rul" secondAttribute="topMargin" id="13J-IL-0x6"/>
+                                        <constraint firstItem="bzC-p3-Wtq" firstAttribute="centerY" secondItem="nmc-NG-Rul" secondAttribute="centerY" id="PPT-ga-fn8"/>
+                                        <constraint firstItem="bzC-p3-Wtq" firstAttribute="trailing" secondItem="nmc-NG-Rul" secondAttribute="trailingMargin" id="gA2-tG-UCs"/>
+                                        <constraint firstItem="bzC-p3-Wtq" firstAttribute="centerX" secondItem="nmc-NG-Rul" secondAttribute="centerX" id="lRy-eN-kQI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="v42-OH-GJd" id="O6V-dn-7Az"/>
                             <outlet property="delegate" destination="v42-OH-GJd" id="H4S-sV-h2l"/>
@@ -277,6 +300,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VoS-tP-IlR"/>
+        <segue reference="o0j-0C-Ird"/>
     </inferredMetricsTieBreakers>
 </document>

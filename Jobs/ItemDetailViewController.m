@@ -46,8 +46,6 @@
 }
 
 - (IBAction)Save:(id)sender {
-    NSLog(@"%@",self.textField.text);
-
     if (self.itemToEdit == nil) {
         JobsItem *item = [[JobsItem alloc] init];
         item.text = self.textField.text;

@@ -17,5 +17,21 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    if ((self = [super init])) {
+        self.name = [aDecoder decodeObjectForKey:@"Name"];
+        self.items = [aDecoder decodeObjectForKey:@"Items"];
+//耻辱！！！！！！
+//        self.name = [aDecoder decodeObjectForKey:@"Name"];
+//        self.name = [aDecoder decodeObjectForKey:@"Items"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.name forKey:@"Name"];
+    [aCoder encodeObject:self.items forKey:@"Items"];
+}
+
 @end
 

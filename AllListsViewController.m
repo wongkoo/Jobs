@@ -10,52 +10,17 @@
 #import "JobList.h"
 #import "ViewController.h"
 #import "jobsItem.h"
+#import "DataModel.h"
 @interface AllListsViewController (){
-    NSMutableArray *_lists;
+   // NSMutableArray *_lists;
 }
 
 @end
 
 @implementation AllListsViewController
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
-    ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
-    controller.delegate = self;
-    JobList *jobList = _lists[indexPath.row];
-    controller.jobListToEdit = jobList;
-    [self presentViewController:navigationController animated:YES completion:nil];
-}
 
-- (id)initWithCoder:(NSCoder *)aDecoder{
-    if ((self = [super initWithCoder:aDecoder])) {
-        _lists = [[NSMutableArray alloc] initWithCapacity:20];
-        JobList *list;
-        list = [[JobList alloc]init];
-        list.name = @"娱乐";
-        [_lists addObject:list];
-        
-        list = [[JobList alloc]init];
-        list.name = @"工作";
-        [_lists addObject:list];
-        
-        list = [[JobList alloc]init];
-        list.name = @"学习";
-        [_lists addObject:list];
-        
-        list = [[JobList alloc]init];
-        list.name = @"家庭";
-        [_lists addObject:list];
-        
-        for (JobList *list in _lists) {
-            JobsItem *item = [[JobsItem alloc] init];
-            item.text = [NSString stringWithFormat:@"item for: %@", list.name];
-            [list.items addObject:item];
-        }
-    }
-    return self;
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,13 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobList *jobList = _lists[indexPath.row];
-  //  [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
-}
+#pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"ShowJobList"]) {
@@ -92,13 +51,63 @@
     }
 }
 
+#pragma mark - Action response
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    JobList *jobList = self.dataModel.jobs[indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
+}
+
+//DetailDisclosureButton
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
+    ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
+    controller.delegate = self;
+    JobList *jobList = self.dataModel.jobs[indexPath.row];
+    controller.jobListToEdit = jobList;
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+//Delete
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
+    NSArray *indexPaths = @[indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark - Table
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [self.dataModel.jobs count];
+}
+
+
+
+- (void)configureTextForCell:(UITableViewCell *)cell withJobsList:(JobList *)jobList{
+    UILabel *lable = (UILabel *)[cell viewWithTag:1024];
+    lable.text = jobList.name;
+}
+
+//tell the tableView to show how many rows
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"JobLists"];
+    JobList *jobList = self.dataModel.jobs[indexPath.row];
+    [self configureTextForCell:cell withJobsList:jobList];
+    return cell;
+}
+
+#pragma mark - ListDetailViewControllerDelegate
 - (void)listDetailViewControllerDidCancel:(ListDetailViewController *)controller{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList{
-    NSInteger newRowIndex = [_lists count];
-    [_lists addObject:jobList];
+    NSInteger newRowIndex = [self.dataModel.jobs count];
+    [self.dataModel.jobs addObject:jobList];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -106,37 +115,11 @@
 }
 
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList{
-    NSInteger index = [_lists indexOfObject:jobList];
+    NSInteger index = [self.dataModel.jobs indexOfObject:jobList];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.text = jobList.name;
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_lists removeObjectAtIndex:indexPath.row];
-    NSArray *indexPaths = @[indexPath];
-    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [_lists count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    // Configure the cell...
-    if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;  ///////
-    JobList *jobList = _lists[indexPath.row];
-    cell.textLabel.text = jobList.name;
-  //  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    return cell;
 }
 
 
