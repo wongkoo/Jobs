@@ -11,4 +11,6 @@
 @interface DataModel : NSObject
 @property(nonatomic, strong)NSMutableArray *jobs;
 - (void)saveJobs;
+- (NSInteger)indexOfSelectedJobList;
+- (void)setIndexOfSelectedJobList:(NSInteger)index;
 @end

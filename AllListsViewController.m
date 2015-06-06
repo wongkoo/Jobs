@@ -20,7 +20,15 @@
 @implementation AllListsViewController
 
 
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationController.delegate = self;
+    NSInteger index = [self.dataModel indexOfSelectedJobList];
+    if (index >=0 && index <[self.dataModel.jobs count]) {
+        JobList *jobList = self.dataModel.jobs[index];
+        [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +62,7 @@
 #pragma mark - Action response
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.dataModel setIndexOfSelectedJobList:indexPath.row];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
@@ -98,6 +107,13 @@
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     [self configureTextForCell:cell withJobsList:jobList];
     return cell;
+}
+
+#pragma mark -UINavigationControllerDelegate
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (viewController == self) {
+        [self.dataModel setIndexOfSelectedJobList:-1];
+    }
 }
 
 #pragma mark - ListDetailViewControllerDelegate

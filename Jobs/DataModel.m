@@ -11,11 +11,25 @@
 
 @implementation DataModel
 
+- (void)registerDefaults{
+    NSDictionary *dictionary = @{@"JobIndex":@-1};
+    [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
+}
+
 - (id)init{
     if ((self = [super init])) {
         [self loadJobs];
+        [self registerDefaults];
     }
     return self;
+}
+
+- (NSInteger)indexOfSelectedJobList{
+    return [[NSUserDefaults standardUserDefaults]integerForKey:@"JobIndex"];
+}
+
+- (void)setIndexOfSelectedJobList:(NSInteger)index{
+    [[NSUserDefaults standardUserDefaults]setInteger:index forKey:@"JobIndex"];
 }
 
 - (NSString *)documentsDirectory{
