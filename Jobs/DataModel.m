@@ -12,14 +12,26 @@
 @implementation DataModel
 
 - (void)registerDefaults{
-    NSDictionary *dictionary = @{@"JobIndex":@-1};
+    NSDictionary *dictionary = @{@"JobIndex":@-1,@"FirstTime":@YES};
     [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
+}
+
+- (void)handleFirstTime{
+    BOOL firstTime = [[NSUserDefaults standardUserDefaults]boolForKey:@"FirstTime"];
+    if(firstTime){
+        JobList *jobList = [[JobList alloc]init];
+        jobList.name = @"List";
+        [self.jobs addObject:jobList];
+        [self setIndexOfSelectedJobList:0];
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FirstTime"];
+    }
 }
 
 - (id)init{
     if ((self = [super init])) {
         [self loadJobs];
         [self registerDefaults];
+        [self handleFirstTime];
     }
     return self;
 }

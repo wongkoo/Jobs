@@ -19,6 +19,10 @@
 
 @implementation AllListsViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -94,10 +98,10 @@
 
 
 
-- (void)configureTextForCell:(UITableViewCell *)cell withJobsList:(JobList *)jobList{
-    UILabel *lable = (UILabel *)[cell viewWithTag:1024];
-    lable.text = jobList.name;
-}
+//- (void)configureTextForCell:(UITableViewCell *)cell withJobsList:(JobList *)jobList{
+//    UILabel *lable = (UILabel *)[cell viewWithTag:1024];
+//    lable.text = jobList.name;
+//}
 
 //tell the tableView to show how many rows
 
@@ -105,7 +109,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"JobLists"];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
-    [self configureTextForCell:cell withJobsList:jobList];
+    cell.textLabel.text = jobList.name;
+    
+    int count = [jobList countUncheckedItems];
+    
+    if ([jobList.items count] == 0) {
+        cell.detailTextLabel.text = @"(No items)";
+    }
+    else if(count == 0){
+        cell.detailTextLabel.text = @"Done!";
+    }
+    else{
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d Remaining",count];
+    }
+    cell.imageView.image = [UIImage imageNamed:jobList.iconName];
+//    [self configureTextForCell:cell withJobsList:jobList];
     return cell;
 }
 

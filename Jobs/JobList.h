@@ -11,5 +11,6 @@
 @interface JobList : NSObject<NSCoding>
 @property (nonatomic,strong)NSMutableArray *items;
 @property (nonatomic,copy)NSString *name;
-
+@property (nonatomic,copy)NSString *iconName;
+- (int)countUncheckedItems;
 @end
