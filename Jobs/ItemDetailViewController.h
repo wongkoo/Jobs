@@ -22,6 +22,8 @@
 @property (strong, nonatomic) JobsItem *itemToEdit;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
+@property (weak, nonatomic) IBOutlet UISwitch *switchControl;
+@property (weak, nonatomic) IBOutlet UILabel *dueDateLabel;
 //2.在对象B的.h中声明⼀一个代理协议的属性变量
 @property (weak, nonatomic) id <ItemDetailViewControllerDelegate> delegate;
 

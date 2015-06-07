@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "IconPickerViewController.h"
 
 @class ListDetailViewController;
 @class JobList;
@@ -19,7 +19,7 @@
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList;
 @end
 
-@interface ListDetailViewController : UITableViewController<UITextFieldDelegate>
+@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,IconPickerViewController>
 @property (nonatomic,weak)IBOutlet UITextField *textField;
 @property (nonatomic,weak)IBOutlet UIBarButtonItem *saveBarButton;
 @property (nonatomic,weak)id<ListDetailViewControllerDelegate>delegate;

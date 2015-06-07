@@ -11,8 +11,16 @@
 
 @implementation DataModel
 
++ (NSInteger)nextJobsItemId{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger itemLd = [userDefaults integerForKey:@"JobsItemId"];
+    [userDefaults setInteger:itemLd + 1 forKey:@"JobsItemId"];
+    [userDefaults synchronize];
+    return itemLd;
+}
+
 - (void)registerDefaults{
-    NSDictionary *dictionary = @{@"JobIndex":@-1,@"FirstTime":@YES};
+    NSDictionary *dictionary = @{@"JobIndex":@-1,@"FirstTime":@YES,@"JobsItemId":@0};
     [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
 }
 

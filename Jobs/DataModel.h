@@ -13,4 +13,5 @@
 - (void)saveJobs;
 - (NSInteger)indexOfSelectedJobList;
 - (void)setIndexOfSelectedJobList:(NSInteger)index;
++ (NSInteger)nextJobsItemId;
 @end

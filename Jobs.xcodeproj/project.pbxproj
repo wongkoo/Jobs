@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721ABEEF1B230F34008E25F2 /* IconPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721ABEEE1B230F34008E25F2 /* IconPickerViewController.m */; };
 		7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BC1B1EE68F00F1DFD9 /* main.m */; };
 		7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */; };
 		7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5C21B1EE68F00F1DFD9 /* ViewController.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		721ABEED1B230F34008E25F2 /* IconPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconPickerViewController.h; sourceTree = "<group>"; };
+		721ABEEE1B230F34008E25F2 /* IconPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconPickerViewController.m; sourceTree = "<group>"; };
 		7237F5B71B1EE68F00F1DFD9 /* Jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7237F5BB1B1EE68F00F1DFD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7237F5BC1B1EE68F00F1DFD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -140,10 +143,10 @@
 		7237F5EC1B20AE5000F1DFD9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7237F5E91B20AE1A00F1DFD9 /* JobList.h */,
-				7237F5EA1B20AE1A00F1DFD9 /* JobList.m */,
 				7237F5E01B1F389F00F1DFD9 /* JobsItem.h */,
 				7237F5E11B1F389F00F1DFD9 /* JobsItem.m */,
+				7237F5E91B20AE1A00F1DFD9 /* JobList.h */,
+				7237F5EA1B20AE1A00F1DFD9 /* JobList.m */,
 				7237F5F11B2202B500F1DFD9 /* DataModel.h */,
 				7237F5F21B2202B500F1DFD9 /* DataModel.m */,
 			);
@@ -161,6 +164,8 @@
 				7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */,
 				7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */,
 				7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */,
+				721ABEED1B230F34008E25F2 /* IconPickerViewController.h */,
+				721ABEEE1B230F34008E25F2 /* IconPickerViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
+				721ABEEF1B230F34008E25F2 /* IconPickerViewController.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,

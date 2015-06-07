@@ -24,7 +24,26 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     AllListsViewController *controller = navigationController.viewControllers[0];
     controller.dataModel = _dataModel;
+    
+//    //local notification;
+//    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:5];
+//    UILocalNotification *localNotification = [[UILocalNotification alloc]init];
+//
+//    localNotification.fireDate = date;
+//    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//    localNotification.alertBody = @"腾讯明天面试！";
+//    localNotification.soundName = UILocalNotificationDefaultSoundName;
+//    
+//    [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];
+//    
+//    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+//        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+//    }
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    NSLog(@"didReceivedLocalNotification %@",notification);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

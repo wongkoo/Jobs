@@ -65,11 +65,13 @@
     }else{
         label.text = @" ";
     }
+    label.textColor = self.view.tintColor;
 }
 
 - (void)configureTextForCell:(UITableViewCell *)cell withJobsItem:(JobsItem *)item{
     UILabel *lable = (UILabel *)[cell viewWithTag:1000];
-    lable.text = item.text;
+   lable.text = item.text;
+    //lable.text = [NSString stringWithFormat:@"%ld:%@",(long)item.itemId,item.text];
 }
 
 //tell the tableView to show how many rows
@@ -82,6 +84,8 @@
     JobsItem *item = self.jobList.items[indexPath.row];
     [self configureTextForCell:cell withJobsItem:item];
     [self configureCheckmarkForCell:cell withJobsItem:item];
+    
+    //cell.detailTextLabel.text = @"sadasdasd";
     return cell;
 }
 
