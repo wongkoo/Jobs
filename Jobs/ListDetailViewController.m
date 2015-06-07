@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.jobListToEdit != nil) {
-        self.title = @"Edit JobList";
+        self.title = @"编辑公司";
         self.textField.text = self.jobListToEdit.name;
         self.saveBarButton.enabled = YES;
         _iconName = self.jobListToEdit.iconName;

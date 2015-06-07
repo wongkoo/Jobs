@@ -59,19 +59,28 @@
 
 #pragma mark - TableView
 - (void)configureCheckmarkForCell:(UITableViewCell *)cell withJobsItem:(JobsItem *)item{
-    UILabel *label = (UILabel *)[cell viewWithTag:1001];
     if(item.checked){
-       label.text = @"√";
+        cell.textLabel.textColor = [UIColor grayColor];
+        cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.accessoryView.backgroundColor = [UIColor redColor];
+      // label.text = @"√";
     }else{
-        label.text = @" ";
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+        //label.text = @" ";
     }
-    label.textColor = self.view.tintColor;
+   // label.textColor = self.view.tintColor;
 }
 
 - (void)configureTextForCell:(UITableViewCell *)cell withJobsItem:(JobsItem *)item{
-    UILabel *lable = (UILabel *)[cell viewWithTag:1000];
-   lable.text = item.text;
-    //lable.text = [NSString stringWithFormat:@"%ld:%@",(long)item.itemId,item.text];
+
+    cell.textLabel.text = item.text;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy年MM月dd日hh时mm分"];
+    NSString *time = [dateFormatter stringFromDate:item.dueDate];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",time];
+
 }
 
 //tell the tableView to show how many rows

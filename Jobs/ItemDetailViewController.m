@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     if (self.itemToEdit != nil) {
-        self.title = @"Edit Item";
+        self.title = @"编辑事件";
         self.textField.text = self.itemToEdit.text;
         self.saveBarButton.enabled = YES;
         self.switchControl.on = self.itemToEdit.shouldRemind;
