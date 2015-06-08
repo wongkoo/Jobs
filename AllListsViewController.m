@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "jobsItem.h"
 #import "DataModel.h"
+#import "CellbackgroundVIew.h"
 @interface AllListsViewController (){
    // NSMutableArray *_lists;
 }
@@ -125,8 +126,18 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d Remaining",count];
     }
     cell.imageView.image = [UIImage imageNamed:jobList.iconName];
+   // cell.backgroundColor =[self randomColor];
+    [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
 //    [self configureTextForCell:cell withJobsList:jobList];
     return cell;
+}
+
+- (UIColor *)randomColor{
+    
+    CGFloat hue = ( arc4random() % 256 / 256.0 ); //0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5; // 0.5 to 1.0,away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5; //0.5 to 1.0,away from black
+    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 }
 
 // 行高。。。
@@ -148,9 +159,9 @@
 }
 
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList{
-    NSInteger newRowIndex = [self.dataModel.jobs count];
-    [self.dataModel.jobs addObject:jobList];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+  //  NSInteger newRowIndex = [self.dataModel.jobs count];
+    [self.dataModel.jobs insertObject:jobList atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     [self dismissViewControllerAnimated:YES completion:nil];

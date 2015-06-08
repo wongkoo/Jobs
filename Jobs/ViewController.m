@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "JobsItem.h"
 #import "JobList.h"
+#import "CellbackgroundVIew.h"
 @interface ViewController()
 @end
 
@@ -99,23 +100,27 @@
     JobsItem *item = self.jobList.items[indexPath.row];
     [self configureTextForCell:cell withJobsItem:item];
     [self configureCheckmarkForCell:cell withJobsItem:item];
-    
+    [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
     //cell.detailTextLabel.text = @"sadasdasd";
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
 }
 
 #pragma mark - ItemDetailViewControllerDelegate
 //5.通知对象B,对象A现在是它的代理。
 - (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item{
-    //[self dismissViewControllerAnimated:YES completion:nil];
-    NSInteger newRowIndex = [self.jobList.items count];
-    [self.jobList.items addObject:item];
+
+    [self.jobList.items insertObject:item atIndex:0];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    // [self saveJobsItems];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

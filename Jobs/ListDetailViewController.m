@@ -8,6 +8,7 @@
 
 #import "ListDetailViewController.h"
 #import "JobList.h"
+#import "CellbackgroundVIew.h"
 @interface ListDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
@@ -32,6 +33,29 @@
         return nil;
     }
 }
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+////    static NSString *cellIdentifier = @"cell";
+////    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+////    if (!cell) {
+////        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+////    }
+//    if (indexPath.section == 0) {
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"compony"];
+//        if (!cell) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"compony"];
+//        }
+//        [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
+//        return cell;
+//    }else{
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"icon"];
+//        if (!cell) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"icon"];
+//        }
+//        [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
+//        return cell;
+//    }
+//}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];

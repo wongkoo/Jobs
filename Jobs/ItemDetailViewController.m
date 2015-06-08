@@ -8,6 +8,7 @@
 
 #import "ItemDetailViewController.h"
 #import "JobsItem.h"
+#import "CellbackgroundVIew.h"
 @interface ItemDetailViewController ()
 
 @end
@@ -93,11 +94,12 @@
             //4
             [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
         }
-        
+        [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
         return cell;
         //5
     }else{
         UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+        [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
         return cell;
     }
 }
