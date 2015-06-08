@@ -26,7 +26,6 @@
 - (void)scheduleNotification{
     UILocalNotification *exitingNotification = [self notificationForThisItem];
     if (exitingNotification != nil) {
-        NSLog(@"Found an exisint notification %@", exitingNotification);
         [[UIApplication sharedApplication]cancelLocalNotification:exitingNotification];
     }
     if (self.shouldRemind && [self.dueDate compare:[NSDate date]]!=NSOrderedAscending) {
@@ -37,7 +36,6 @@
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         localNotification.userInfo = @{@"ItemId":@(self.itemId)};
         [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];
-        NSLog(@"Schedule notification %@ for itemLd %ld",localNotification,(long)self.itemId);
     }
 }
 
@@ -77,7 +75,6 @@
 - (void)dealloc{
     UILocalNotification *existingNotification = [self notificationForThisItem];
     if (existingNotification != nil) {
-        NSLog(@"Removing exit notification %@",existingNotification);
         [[UIApplication sharedApplication]cancelLocalNotification:existingNotification];
     }
 }

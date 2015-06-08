@@ -26,6 +26,9 @@
                     <color key="textColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="qu6-F7-WnS">
+                    <rect key="frame" x="210" y="72" width="60" height="60"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.57999999999999996" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -38,13 +41,16 @@
                 <constraint firstItem="7OF-vF-F1n" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SFj-gJ-gUG"/>
                 <constraint firstAttribute="bottom" secondItem="7OF-vF-F1n" secondAttribute="bottom" id="Z35-5L-zUu"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
+                <constraint firstItem="qu6-F7-WnS" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="f2J-Eo-ukd"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="qu6-F7-WnS" secondAttribute="bottom" constant="8" symbolic="YES" id="wfK-ls-r8R"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
+        <image name="icon-60" width="60" height="60"/>
         <image name="launch－background" width="960" height="552"/>
     </resources>
 </document>
