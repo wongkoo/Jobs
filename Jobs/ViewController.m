@@ -100,9 +100,9 @@
     JobsItem *item = self.jobList.items[indexPath.row];
     [self configureTextForCell:cell withJobsItem:item];
     [self configureCheckmarkForCell:cell withJobsItem:item];
-    CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
-    CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
-    [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
+//    CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
+//    CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
+//    [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
     //cell.detailTextLabel.text = @"sadasdasd";
     return cell;
 }

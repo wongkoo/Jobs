@@ -78,7 +78,7 @@
         self.jobs = [unarchiver decodeObjectForKey:@"Jobs"];
         [unarchiver finishDecoding];
     }else{
-        self.jobs = [[NSMutableArray alloc]initWithCapacity:20];
+        self.jobs = [[NSMutableArray alloc]initWithCapacity:10];
     }
 }
 

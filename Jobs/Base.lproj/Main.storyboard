@@ -248,25 +248,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="JobLists" rowHeight="80" id="YHM-sc-RdD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobLists" rowHeight="80" id="YHM-sc-RdD" customClass="MCSwipeTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YHM-sc-RdD" id="nmc-NG-Rul">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuk-sO-MuK">
-                                            <rect key="frame" x="8" y="10" width="517" height="60"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="uuk-sO-MuK" firstAttribute="top" secondItem="nmc-NG-Rul" secondAttribute="topMargin" constant="2" id="TrZ-1C-hhp"/>
-                                        <constraint firstItem="uuk-sO-MuK" firstAttribute="centerX" secondItem="nmc-NG-Rul" secondAttribute="centerX" id="kRk-ga-zuM"/>
-                                        <constraint firstItem="uuk-sO-MuK" firstAttribute="centerY" secondItem="nmc-NG-Rul" secondAttribute="centerY" id="l5w-TR-ma1"/>
-                                        <constraint firstItem="uuk-sO-MuK" firstAttribute="trailing" secondItem="nmc-NG-Rul" secondAttribute="trailingMargin" id="n1D-XY-UTt"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

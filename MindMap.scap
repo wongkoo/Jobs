@@ -123,7 +123,7 @@
             <String>.m</String>
             <ConnectedNoteIDs>12, 18-20</ConnectedNoteIDs>
         </Note>
-        <Note ID="15" FontSize="12.0" Position="2915.0,881.0" Width="84.0">
+        <Note ID="15" FontSize="12.0" Position="2803.330078,877.444425" Width="84.0">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="1">0.756763 0.785592 0.373258</Border>
@@ -132,7 +132,7 @@
             <String>NSString *text</String>
             <ConnectedNoteIDs>13</ConnectedNoteIDs>
         </Note>
-        <Note ID="16" FontSize="12.0" Position="2899.0,917.0" Width="81.0">
+        <Note ID="16" FontSize="12.0" Position="2787.330078,913.444425" Width="81.0">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="1">0.756763 0.785592 0.373258</Border>
@@ -965,7 +965,7 @@
             <ConnectedNoteIDs>40, 94</ConnectedNoteIDs>
             <PointsToNoteIDs>40</PointsToNoteIDs>
         </Note>
-        <Note ID="119" FontSize="12.0" Position="675.745739,125.036932" Width="200.0" Shadow="Yes">
+        <Note ID="119" FontSize="12.0" Position="676.0,125.0" Width="200.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>

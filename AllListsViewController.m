@@ -12,8 +12,10 @@
 #import "jobsItem.h"
 #import "DataModel.h"
 #import "CellbackgroundVIew.h"
+#import <MCSwipeTableViewCell.h>
 @interface AllListsViewController (){
    // NSMutableArray *_lists;
+    NSInteger cellHeight;
 }
 
 @end
@@ -38,9 +40,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    cellHeight = 80;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
+    [self.tableView setBackgroundView:backgroundView];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -81,22 +88,22 @@
 }
 
 //DetailDisclosureButton
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
-    ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
-    controller.delegate = self;
-    JobList *jobList = self.dataModel.jobs[indexPath.row];
-    controller.jobListToEdit = jobList;
-    [self presentViewController:navigationController animated:YES completion:nil];
-}
+//- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+//{
+//    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
+//    ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
+//    controller.delegate = self;
+//    JobList *jobList = self.dataModel.jobs[indexPath.row];
+//    controller.jobListToEdit = jobList;
+//    [self presentViewController:navigationController animated:YES completion:nil];
+//}
 
 //Delete
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
-    NSArray *indexPaths = @[indexPath];
-    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
+//    NSArray *indexPaths = @[indexPath];
+//    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -114,23 +121,141 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"JobLists"];
-    JobList *jobList = self.dataModel.jobs[indexPath.row];
+  
+    static NSString *CellIdentifier = @"Cell";
+    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    UILabel *textLabel = (UILabel *)[cell viewWithTag:2];
-    textLabel.text = jobList.name;
+    
 
-    CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
-    CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
-    [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
+    
+    if (!cell) {
+        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+        // iOS 7 separator
+                if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+                    cell.separatorInset = UIEdgeInsetsZero;
+                }
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+        
+        
+        CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
+        CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
+        CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, 80);
+        UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, cellHeight)];
+        backgroundView = (UIView *)[[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end andFrame:rect];
+        [cell.contentView addSubview:backgroundView];
+        
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, cell.bounds.size.width/4*1, 20)];
+        label.font = [UIFont boldSystemFontOfSize:18];
+        label.text=@"一面";
+         label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
+      //  label.backgroundColor = [UIColor redColor];
+        [cell.contentView addSubview:label];
+
+    }
+    
+    [self configureCell:cell forRowAtIndexPath:indexPath];
+    
+            JobList *jobList = self.dataModel.jobs[indexPath.row];
+        cell.textLabel.text = jobList.name;
+        cell.textLabel.font = [UIFont systemFontOfSize:22.0];
+        cell.textLabel.textColor = [UIColor colorWithRed:130.0/255.0 green:18.0/255.0 blue:13.0/255.0 alpha:1];
+
+        if ([jobList.items count] != 0) {
+            JobsItem *item = jobList.items[0];
+            cell.detailTextLabel.text = item.text;
+            cell.detailTextLabel.textColor =  [UIColor colorWithRed:121.0/255.0 green:67.0/255.0 blue:11.0/255.0 alpha:1];
+        }else{
+            cell.detailTextLabel.text =nil;
+        }
+
 
     return cell;
 }
 
+
+
+
+- (UIView *)viewWithImageName:(NSString *)imageName {
+    UIImage *image = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeCenter;
+    return imageView;
+}
+
+- (void)configureCell:(MCSwipeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    UIView *crossView = [self viewWithImageName:@"cross"];
+    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+    
+    UIView *listView = [self viewWithImageName:@"list"];
+    UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
+    
+    // Setting the default inactive state color to the tableView background color
+    [cell setDefaultColor:self.tableView.backgroundView.backgroundColor];
+    
+    [cell setDelegate:(id)self];
+    
+//    [cell.textLabel setText:@"Switch Mode Cell"];
+//    [cell.detailTextLabel setText:@"Swipe to switch"];
+    
+    [cell setSwipeGestureWithView:crossView
+                            color:redColor
+                             mode:MCSwipeTableViewCellModeSwitch
+                            state:MCSwipeTableViewCellState1
+                  completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
+                     
+                      [self deleteCell:cell];
+                    }];
+    [cell setSwipeGestureWithView:listView
+                            color:brownColor
+                             mode:MCSwipeTableViewCellModeExit
+                            state:MCSwipeTableViewCellState3
+                  completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+    
+                      UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
+                      ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
+                      controller.delegate = self;
+                      JobList *jobList = self.dataModel.jobs[indexPath.row];
+                      controller.jobListToEdit = jobList;
+                      [self presentViewController:navigationController animated:YES completion:nil];
+                  }];
+}
+
+- (void)deleteCell:(MCSwipeTableViewCell *)cell {
+    NSParameterAssert(cell);
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+   // [self.dataModel.deletedCompanys insertObject:[self.dataModel.jobs objectAtIndex:indexPath.row] atIndex:0];
+   // [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
+    JobList *jobList = self.dataModel.jobs[indexPath.row];
+    [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
+    [self.dataModel.jobs addObject:jobList];
+    NSIndexPath *bottomIndexPath = [NSIndexPath indexPathForRow:[self.dataModel.jobs count]-1 inSection:0];
+    [self.tableView moveRowAtIndexPath:indexPath toIndexPath:bottomIndexPath];
+  //  [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    
+  //  [self.dataModel.jobs insertObject:jobList atIndex:0];
+//   NSIndexPath *bottomIndexPath = [NSIndexPath indexPathForRow:[self.dataModel.jobs count] inSection:0];
+//    NSArray *indexPaths = @[bottomIndexPath];
+//
+//    NSLog(@"bottom.row=%d",bottomIndexPath.row);
+//    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+
+}
+
+
+
 // 行高。。。
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+        return cellHeight;
 }
 
 #pragma mark - UINavigationControllerDelegate
