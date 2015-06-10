@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1581B12034FCBE029AC05FA1 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0B5AF83DB51F4C0A3D9D8D /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */; };
+		5ACDCF6AC7679213DAADBE30 /* MCSwipeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CDDF7AA8F4E8ADC24E066A5D /* MCSwipeTableViewCell.h */; };
+		62654647A679B8B780FF8369 /* Pods-Jobs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A81050C33CC9ED144592570 /* Pods-Jobs-dummy.m */; };
+		882557310E3955AB880EE423 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22746F0F6404F0F9B4E16C89 /* Foundation.framework */; };
+		BAB3BB9BDF9AF6F34BBFE42D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22746F0F6404F0F9B4E16C89 /* Foundation.framework */; };
+		EF49F2DA39C2036CA16A3863 /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0122102B41FAC2455C2A291D /* MCSwipeTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6EB5FEEECC441836DBDED54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8FD643373BA38777936F5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F3EB3438B4FBCF3DC0638A8;
+			remoteInfo = "Pods-Jobs-MCSwipeTableViewCell";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0122102B41FAC2455C2A291D /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCSwipeTableViewCell.m; path = MCSwipeTableViewCell/MCSwipeTableViewCell.m; sourceTree = "<group>"; };
+		0A81050C33CC9ED144592570 /* Pods-Jobs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-dummy.m"; sourceTree = "<group>"; };
+		156F788B8F219DABE01B95C4 /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22746F0F6404F0F9B4E16C89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3DF48C2F3066076160A8F852 /* Pods-Jobs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-environment.h"; sourceTree = "<group>"; };
+		729A80ECAE6560C498BA8337 /* Pods-Jobs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jobs-acknowledgements.plist"; sourceTree = "<group>"; };
+		7D7F9E003D69870AFA102F65 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
+		81886F3BC33F1588BE3543E3 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell.xcconfig"; sourceTree = "<group>"; };
+		9E36ABFAB0E655AE4B64B1BE /* Pods-Jobs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jobs-resources.sh"; sourceTree = "<group>"; };
+		A03E7063D8206C4334CFFFCE /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-MCSwipeTableViewCell-prefix.pch"; sourceTree = "<group>"; };
+		AB0B5AF83DB51F4C0A3D9D8D /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-MCSwipeTableViewCell-dummy.m"; sourceTree = "<group>"; };
+		CDDF7AA8F4E8ADC24E066A5D /* MCSwipeTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCSwipeTableViewCell.h; path = MCSwipeTableViewCell/MCSwipeTableViewCell.h; sourceTree = "<group>"; };
+		D53F029D3A06A6E84C93A16F /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
+		DFE012DE9DDCCEE3585BA94F /* libPods-Jobs-MCSwipeTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-MCSwipeTableViewCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E55DFAE966E9E76BED2962CE /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EAD85E2DA5CD91F49AB49940 /* Pods-Jobs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jobs-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F22BC872C2F4B75DB974F94F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0C26B7EBAA279320FCCE4A96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB3BB9BDF9AF6F34BBFE42D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66B1ACCB03C9F67A2F54482E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				882557310E3955AB880EE423 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		29226BDB4B98D48C6B2643B2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				81886F3BC33F1588BE3543E3 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */,
+				F22BC872C2F4B75DB974F94F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */,
+				AB0B5AF83DB51F4C0A3D9D8D /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */,
+				A03E7063D8206C4334CFFFCE /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Jobs-MCSwipeTableViewCell";
+			sourceTree = "<group>";
+		};
+		2A43A4FFE2C060D6BB86F29B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				22746F0F6404F0F9B4E16C89 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		52DD955A8BD441C1AF91B84F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				156F788B8F219DABE01B95C4 /* libPods-Jobs.a */,
+				DFE012DE9DDCCEE3585BA94F /* libPods-Jobs-MCSwipeTableViewCell.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EA072D3792B9C37DF1AC2ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A43A4FFE2C060D6BB86F29B /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6513C200FC4B9B8089F5F5D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA14F898F6E994B8249B40CE /* MCSwipeTableViewCell */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C2570D40001FDA995F1AFDEB = {
+			isa = PBXGroup;
+			children = (
+				E55DFAE966E9E76BED2962CE /* Podfile */,
+				5EA072D3792B9C37DF1AC2ED /* Frameworks */,
+				6513C200FC4B9B8089F5F5D4 /* Pods */,
+				52DD955A8BD441C1AF91B84F /* Products */,
+				E7AE56CB335715761694EBC5 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DA14F898F6E994B8249B40CE /* MCSwipeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CDDF7AA8F4E8ADC24E066A5D /* MCSwipeTableViewCell.h */,
+				0122102B41FAC2455C2A291D /* MCSwipeTableViewCell.m */,
+				29226BDB4B98D48C6B2643B2 /* Support Files */,
+			);
+			path = MCSwipeTableViewCell;
+			sourceTree = "<group>";
+		};
+		DC142FF48A647457A31A1C72 /* Pods-Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				EAD85E2DA5CD91F49AB49940 /* Pods-Jobs-acknowledgements.markdown */,
+				729A80ECAE6560C498BA8337 /* Pods-Jobs-acknowledgements.plist */,
+				0A81050C33CC9ED144592570 /* Pods-Jobs-dummy.m */,
+				3DF48C2F3066076160A8F852 /* Pods-Jobs-environment.h */,
+				9E36ABFAB0E655AE4B64B1BE /* Pods-Jobs-resources.sh */,
+				7D7F9E003D69870AFA102F65 /* Pods-Jobs.debug.xcconfig */,
+				D53F029D3A06A6E84C93A16F /* Pods-Jobs.release.xcconfig */,
+			);
+			name = "Pods-Jobs";
+			path = "Target Support Files/Pods-Jobs";
+			sourceTree = "<group>";
+		};
+		E7AE56CB335715761694EBC5 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC142FF48A647457A31A1C72 /* Pods-Jobs */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0827E39CFB5DF653F6F70F63 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ACDCF6AC7679213DAADBE30 /* MCSwipeTableViewCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		06873709B9EA1A787EBD67EA /* Pods-Jobs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2D4CC3F0FF9C6FEAA432CE2 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */;
+			buildPhases = (
+				29F68DA7AE33BBC11EB8D85A /* Sources */,
+				0C26B7EBAA279320FCCE4A96 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2A0BE842EE4D882F835BF9E /* PBXTargetDependency */,
+			);
+			name = "Pods-Jobs";
+			productName = "Pods-Jobs";
+			productReference = 156F788B8F219DABE01B95C4 /* libPods-Jobs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5F3EB3438B4FBCF3DC0638A8 /* Pods-Jobs-MCSwipeTableViewCell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D7CC18186DF3B854DCE1EC7 /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */;
+			buildPhases = (
+				A082E4FDE0642458C5CA80DE /* Sources */,
+				66B1ACCB03C9F67A2F54482E /* Frameworks */,
+				0827E39CFB5DF653F6F70F63 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Jobs-MCSwipeTableViewCell";
+			productName = "Pods-Jobs-MCSwipeTableViewCell";
+			productReference = DFE012DE9DDCCEE3585BA94F /* libPods-Jobs-MCSwipeTableViewCell.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA8FD643373BA38777936F5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = B59F17E0FD2DC08D78D621F4 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C2570D40001FDA995F1AFDEB;
+			productRefGroup = 52DD955A8BD441C1AF91B84F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06873709B9EA1A787EBD67EA /* Pods-Jobs */,
+				5F3EB3438B4FBCF3DC0638A8 /* Pods-Jobs-MCSwipeTableViewCell */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29F68DA7AE33BBC11EB8D85A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62654647A679B8B780FF8369 /* Pods-Jobs-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A082E4FDE0642458C5CA80DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF49F2DA39C2036CA16A3863 /* MCSwipeTableViewCell.m in Sources */,
+				1581B12034FCBE029AC05FA1 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2A0BE842EE4D882F835BF9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Jobs-MCSwipeTableViewCell";
+			target = 5F3EB3438B4FBCF3DC0638A8 /* Pods-Jobs-MCSwipeTableViewCell */;
+			targetProxy = B6EB5FEEECC441836DBDED54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		003DB238B37E3D191E174EAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A75651C8BC7F5B5D58144AB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D53F029D3A06A6E84C93A16F /* Pods-Jobs.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AC6CE8AD8127437F4E405EB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F22BC872C2F4B75DB974F94F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-MCSwipeTableViewCell/Pods-Jobs-MCSwipeTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C6FC698ECBB8BF7E87CF0A6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7CA0EAE6537FB87E72AA6E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F22BC872C2F4B75DB974F94F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-MCSwipeTableViewCell/Pods-Jobs-MCSwipeTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E234D5D15CAB5336AB0A8442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D7F9E003D69870AFA102F65 /* Pods-Jobs.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D7CC18186DF3B854DCE1EC7 /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7CA0EAE6537FB87E72AA6E7 /* Debug */,
+				AC6CE8AD8127437F4E405EB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B59F17E0FD2DC08D78D621F4 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				003DB238B37E3D191E174EAB /* Debug */,
+				C6FC698ECBB8BF7E87CF0A6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2D4CC3F0FF9C6FEAA432CE2 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E234D5D15CAB5336AB0A8442 /* Debug */,
+				A75651C8BC7F5B5D58144AB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA8FD643373BA38777936F5A /* Project object */;
+}

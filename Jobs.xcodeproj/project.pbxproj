@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3713ED7A0A4BC8A1EAC421 /* libPods-Jobs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFBA60A62131608C25EDAC /* libPods-Jobs.a */; };
 		721ABEEF1B230F34008E25F2 /* IconPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721ABEEE1B230F34008E25F2 /* IconPickerViewController.m */; };
 		721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 721C419C1B25812F00947326 /* CellbackgroundVIew.m */; };
 		7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BC1B1EE68F00F1DFD9 /* main.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		527D57D792D2DB49EF4329E9 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
+		62DFBA60A62131608C25EDAC /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		721ABEED1B230F34008E25F2 /* IconPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconPickerViewController.h; sourceTree = "<group>"; };
 		721ABEEE1B230F34008E25F2 /* IconPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconPickerViewController.m; sourceTree = "<group>"; };
 		721C419B1B25812F00947326 /* CellbackgroundVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellbackgroundVIew.h; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
 		7237F5F11B2202B500F1DFD9 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		7237F5F21B2202B500F1DFD9 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A3713ED7A0A4BC8A1EAC421 /* libPods-Jobs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +95,8 @@
 				7237F5B91B1EE68F00F1DFD9 /* Jobs */,
 				7237F5D31B1EE68F00F1DFD9 /* JobsTests */,
 				7237F5B81B1EE68F00F1DFD9 /* Products */,
+				D88B71960B506843A7E0214A /* Pods */,
+				D779B1AC0DE4FF04D4C6710C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +182,23 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		D779B1AC0DE4FF04D4C6710C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62DFBA60A62131608C25EDAC /* libPods-Jobs.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D88B71960B506843A7E0214A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				527D57D792D2DB49EF4329E9 /* Pods-Jobs.debug.xcconfig */,
+				AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7237F5DA1B1EE68F00F1DFD9 /* Build configuration list for PBXNativeTarget "Jobs" */;
 			buildPhases = (
+				8F459059419E4A3BC75173D7 /* Check Pods Manifest.lock */,
 				7237F5B31B1EE68F00F1DFD9 /* Sources */,
 				7237F5B41B1EE68F00F1DFD9 /* Frameworks */,
 				7237F5B51B1EE68F00F1DFD9 /* Resources */,
+				AF092F57633D1B2BE0F39369 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,6 +295,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8F459059419E4A3BC75173D7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF092F57633D1B2BE0F39369 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jobs/Pods-Jobs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7237F5B31B1EE68F00F1DFD9 /* Sources */ = {
@@ -409,6 +468,7 @@
 		};
 		7237F5DB1B1EE68F00F1DFD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 527D57D792D2DB49EF4329E9 /* Pods-Jobs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Jobs/Info.plist;
@@ -419,6 +479,7 @@
 		};
 		7237F5DC1B1EE68F00F1DFD9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Jobs/Info.plist;
