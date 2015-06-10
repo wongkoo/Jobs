@@ -28,6 +28,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.navigationController.delegate = self;
+    self.tableView.showsVerticalScrollIndicator =NO; //去除右边滚动条！
     NSInteger index = [self.dataModel indexOfSelectedJobList];
     if (index >=0 && index <[self.dataModel.jobs count]) {
         JobList *jobList = self.dataModel.jobs[index];
@@ -40,12 +41,16 @@
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,7 +71,7 @@
     }
 }
 
-#pragma mark - Action response
+#pragma mark - tableView
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.dataModel setIndexOfSelectedJobList:indexPath.row];
@@ -93,7 +98,6 @@
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-#pragma mark - Table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [self.dataModel.jobs count];
@@ -112,32 +116,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"JobLists"];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
-    cell.textLabel.text = jobList.name;
     
-    int count = [jobList countUncheckedItems];
-    
-    if ([jobList.items count] == 0) {
-        cell.detailTextLabel.text = @"(No items)";
-    }
-    else if(count == 0){
-        cell.detailTextLabel.text = @"Done!";
-    }
-    else{
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d Remaining",count];
-    }
-    cell.imageView.image = [UIImage imageNamed:jobList.iconName];
-   // cell.backgroundColor =[self randomColor];
-    [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
-//    [self configureTextForCell:cell withJobsList:jobList];
-    return cell;
-}
+    UILabel *textLabel = (UILabel *)[cell viewWithTag:2];
+    textLabel.text = jobList.name;
 
-- (UIColor *)randomColor{
-    
-    CGFloat hue = ( arc4random() % 256 / 256.0 ); //0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5; // 0.5 to 1.0,away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5; //0.5 to 1.0,away from black
-    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
+    CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
+    [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
+
+    return cell;
 }
 
 // 行高。。。
@@ -146,7 +133,7 @@
     return 80;
 }
 
-#pragma mark -UINavigationControllerDelegate
+#pragma mark - UINavigationControllerDelegate
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     if (viewController == self) {
         [self.dataModel setIndexOfSelectedJobList:-1];
@@ -171,10 +158,17 @@
     NSInteger index = [self.dataModel.jobs indexOfObject:jobList];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.textLabel.text = jobList.name;
+    //cell.textLabel.text = jobList.name;
+    //JobList *jobList = self.dataModel.jobs[indexPath.row];
+    
+    UILabel *textLabel = (UILabel *)[cell viewWithTag:2];
+    textLabel.text = jobList.name;
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark -longPress
 - (IBAction)longPressGestureRecognized:(id)sender {
     
     UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;

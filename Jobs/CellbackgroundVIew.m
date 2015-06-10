@@ -7,16 +7,22 @@
 //
 
 #import "CellbackgroundVIew.h"
-
-@implementation CellbackgroundVIew
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+@interface CellbackgroundVIew(){
+    CGFloat begin[4];
+    CGFloat end[4];
 }
-*/
+
+@end
+@implementation CellbackgroundVIew
+- (id)initWithBeginRGBAFloatArray:(CGFloat *)beginRGBAFloatArray andEndRGBAFloatArray:(CGFloat *)endRGBAFloatArray{
+    if (self = [super init]) {
+        for (int i=0; i<4; ++i) {
+            begin[i] = beginRGBAFloatArray[i];
+            end[i] = endRGBAFloatArray[i];
+        }
+    }
+    return self;
+}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -24,11 +30,12 @@
     
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     // 创建起点颜色 白色
-    CGColorRef beginColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.94117f, 0.94117f, 0.94117f, 1.0f});
+    CGColorRef beginColor = CGColorCreate(colorSpaceRef,begin);
     // 创建终点颜色 灰色 RGB(212,212,212) 这个色值我们可以从chroma扩展插件中选择
-//    <pre class="brush:cpp; toolbar: true; auto-links: false;">
+    //    <pre class="brush:cpp; toolbar: true; auto-links: false;">
     //(CGFloat[]){0.83f, 0.83f, 0.83f, 1.0f} 0.83是 212/255的值</pre>
-    CGColorRef endColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.9686f, 0.9686f, 0.9686f, 1.0f});
+    CGColorRef endColor = CGColorCreate(colorSpaceRef,end);
+
 //    CGRect paperRect = self.bounds;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGFloat locations[] = {0.0,1.0};

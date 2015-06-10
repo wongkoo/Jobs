@@ -19,7 +19,7 @@
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList;
 @end
 
-@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,IconPickerViewController>
+@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,IconPickerViewControllerDelegate>
 @property (nonatomic,weak)IBOutlet UITextField *textField;
 @property (nonatomic,weak)IBOutlet UIBarButtonItem *saveBarButton;
 @property (nonatomic,weak)id<ListDetailViewControllerDelegate>delegate;

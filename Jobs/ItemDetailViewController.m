@@ -18,6 +18,7 @@
     BOOL _datePickerVisible;
 }
 
+#pragma mark - view
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,13 +33,31 @@
         _dueDate = [NSDate date];
     }
     [self updateDueDateLabel];
+    
+    UIControl *aControl;
+    [aControl addTarget:self action: @selector(touchSection) forControlEvents:UIControlEventTouchUpInside];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+-(void)touchSection{
+    [self.textField resignFirstResponder];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.textField becomeFirstResponder];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - handel
 - (void)updateDueDateLabel{
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -78,6 +97,17 @@
     }
 }
 
+
+
+- (void)dateChanged:(UIDatePicker *)datePicker{
+    _dueDate = datePicker.date;
+    [self updateDueDateLabel];
+}
+
+
+
+
+#pragma mark - tableView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //1
     if (indexPath.section == 1 && indexPath.row ==2) {
@@ -94,29 +124,46 @@
             //4
             [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
         }
-        [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
+        CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
+        CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
+        [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
+        
+        
+        
+//        cell.layer.shadowOffset = CGSizeMake(0, 15);
+//        cell.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell.layer.shadowRadius = 3;
+//        cell.layer.shadowOpacity = .75f;
+//        CGRect shadowFrame = cell.layer.bounds;
+//        CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+//        cell.layer.shadowPath = shadowPath;
+        
         return cell;
         //5
     }else{
         UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-        [cell setBackgroundView: [[CellbackgroundVIew alloc] init]];
+        
+        CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
+        CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
+        [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
+        
+//        cell.layer.shadowOffset = CGSizeMake(0, 15);
+//        cell.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell.layer.shadowRadius = 3;
+//        cell.layer.shadowOpacity = .75f;
+//        CGRect shadowFrame = cell.layer.bounds;
+//        CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+//        cell.layer.shadowPath = shadowPath;
+        
         return cell;
     }
-}
-
-- (void)dateChanged:(UIDatePicker *)datePicker{
-    _dueDate = datePicker.date;
-    [self updateDueDateLabel];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 1 && _datePickerVisible) {
         return 3;
+    }else if(section == 0){
+        return 2;
     }else{
         return [super tableView:tableView numberOfRowsInSection:section];
     }
@@ -143,9 +190,7 @@
     }
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    [self hideDatePicker];
-}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1 && indexPath.row == 2) {
@@ -155,15 +200,15 @@
     }
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 1 && indexPath.row == 1) {
-        return indexPath;
-    }else{
-        return nil;
-    }
-}
+//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 1 && indexPath.row == 1) {
+//        return indexPath;
+//    }else{
+//        return nil;
+//    }
+//}
 
-
+#pragma mark - action
 //3.让对象B在适当的时候向代理对象发送消息,⽐比如当⽤用户触碰cancel或done按钮时
 - (IBAction)cancel:(id)sender {
     [self.delegate itemDetailViewControllerdidCancel:self];
@@ -190,10 +235,11 @@
   //  [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.textField becomeFirstResponder];
+
+
+#pragma mark - text
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    [self hideDatePicker];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{

@@ -22,6 +22,16 @@
     // Override point for customization after application launch.
     _dataModel = [[DataModel alloc]init];
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    
+    
+    navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
+    navigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
+    navigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
+    navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
+    
+//    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
     AllListsViewController *controller = navigationController.viewControllers[0];
     controller.dataModel = _dataModel;
     

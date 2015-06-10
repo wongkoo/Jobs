@@ -10,12 +10,12 @@
 
 @class IconPickerViewController;
 
-@protocol IconPickerViewController <NSObject>
+@protocol IconPickerViewControllerDelegate <NSObject>
 
 - (void)iconPicker:(IconPickerViewController *)picker didPickIcon:(NSString *)iconName;
 
 @end
 
 @interface IconPickerViewController : UITableViewController
-@property(nonatomic,weak)id<IconPickerViewController>delegate;
+@property(nonatomic,weak)id<IconPickerViewControllerDelegate>delegate;
 @end
