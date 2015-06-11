@@ -273,6 +273,9 @@
             break;
         }
     }
+    if (disDeletedNum == 0) {
+        disDeletedNum =1;
+    }
     if (jobList.deletedFlag == 0) {
         jobList.deletedFlag =1;
         [self configureStateOfCell:cell forRowAtIndexPath:indexPath];

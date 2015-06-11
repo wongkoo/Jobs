@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Jobs-BFPaperCheckbox.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Jobs-MCSwipeTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Jobs-UIColor+BFPaperColors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06873709B9EA1A787EBD67EA</key>
+		<key>62343A1B11EC6CB09A7938D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F3EB3438B4FBCF3DC0638A8</key>
+		<key>A158707827B28945C2017A90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7F300D5F8D37E714DD20B90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D112B9D32375C7E6DEBE44F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

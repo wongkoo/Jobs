@@ -1,10 +1,16 @@
 PODS:
+  - BFPaperCheckbox (1.2.7):
+    - UIColor+BFPaperColors
   - MCSwipeTableViewCell (2.1.2)
+  - UIColor+BFPaperColors (1.7.1)
 
 DEPENDENCIES:
+  - BFPaperCheckbox
   - MCSwipeTableViewCell
 
 SPEC CHECKSUMS:
+  BFPaperCheckbox: 55670e5d8dc1e060972b0d1db6380771339451d8
   MCSwipeTableViewCell: 0fc22bd3635b9b5f4ce08675218b0a7278b6440f
+  UIColor+BFPaperColors: b1efa4320e2f56c4b14f73232faf967ba0e5b4a2
 
 COCOAPODS: 0.37.2

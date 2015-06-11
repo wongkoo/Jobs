@@ -12,10 +12,13 @@
 #import "JobList.h"
 #import "CellbackgroundVIew.h"
 #import <MCSwipeTableViewCell.h>
+#import <BFPaperCheckbox.h>
+#import "UIColor+BFPaperColors.h"
 @interface ViewController(){
     NSInteger cellHeight;
     NSInteger selectedRow;
 }
+@property (nonatomic, strong) NSMutableArray *checkboxs;
 @end
 
 @implementation ViewController
@@ -37,6 +40,25 @@
     [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
     [self.tableView setBackgroundView:backgroundView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.checkboxs = [[NSMutableArray alloc]initWithCapacity:20];
+    for (NSInteger i =0; i<[self.jobList.items count]; ++i) {
+        JobsItem *item =self.jobList.items[i];
+        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.tableView.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight)];
+        checkbox.tag = i;
+        if (item.checked == 0) {
+          // [checkbox uncheckAnimated:YES];
+            [self.checkboxs addObject:checkbox];
+            NSLog(@"0\n");
+            NSLog(@"checkboxsNum = %d",[self.checkboxs count]);
+        }else if(item.checked == 1){
+           [checkbox checkAnimated:YES];
+            [self.checkboxs addObject:checkbox];
+            NSLog(@"1");
+            NSLog(@"checkboxsNum = %d",[self.checkboxs count]);
+        }
+        
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -88,10 +110,27 @@
         cell.contentView.backgroundColor = [UIColor whiteColor];
         
         [self setBackgroundViewForCell:cell];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, cell.bounds.size.width/4*1, 20)];
+//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, cell.bounds.size.width/4*1, 20)];
+         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, cell.bounds.size.width/4*1, 20)];
+        label.center = CGPointMake(cell.bounds.size.width/8*6, cellHeight/2);
         label.font = [UIFont boldSystemFontOfSize:18];
         label.tag = 124;
         [cell.contentView addSubview:label];
+        
+        
+       // BFPaperCheckbox *paperCheckbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, 40, 40)];
+        //BFPaperCheckbox *paperCheckbox = [[BFPaperCheckbox alloc]init];
+        BFPaperCheckbox *paperCheckbox = self.checkboxs[indexPath.row];
+        paperCheckbox.frame =CGRectMake(cell.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight);
+        paperCheckbox.center = CGPointMake(cell.bounds.size.width/8*7, cellHeight/2);
+    //    paperCheckbox.tag = indexPath.row;
+        paperCheckbox.delegate = self;
+        paperCheckbox.rippleFromTapLocation = NO;
+        paperCheckbox.tapCirclePositiveColor = [UIColor paperColorAmber]; // We could use [UIColor colorWithAlphaComponent] here to make a better tap-circle.
+        paperCheckbox.tapCircleNegativeColor = [UIColor paperColorRed];   // We could use [UIColor colorWithAlphaComponent] here to make a better tap-circle.
+        paperCheckbox.checkmarkColor = [UIColor paperColorLightBlue];
+        [cell.contentView addSubview:paperCheckbox];
+        NSLog(@"xx\n");
         //  [self configureTextForCell:cell withIndexPath:indexPath];
     }
     
@@ -102,6 +141,14 @@
     return cell;
 
     
+}
+
+- (void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox
+{
+   // NSLog(@"checkbox.tag = %d",checkbox.tag);
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:checkbox.tag inSection:0];
+    MCSwipeTableViewCell *cell = (MCSwipeTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [self changeStateofCell:cell];
 }
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withJobsItem:(JobsItem *)item{
@@ -166,8 +213,8 @@
 - (void)configureCell:(MCSwipeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
    // JobList *jobList= self.dataModel.jobs[indexPath.row];
     JobsItem *jobsItem = self.jobList.items[indexPath.row];
-    UIView *checkView = [self viewWithImageName:@"check"];
-    UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
+//    UIView *checkView = [self viewWithImageName:@"check"];
+//    UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
     
     UIView *crossView = [self viewWithImageName:@"cross"];
     UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
@@ -182,21 +229,29 @@
     [cell setDelegate:(id)self];
     
     if (jobsItem.checked == 0) {
+//        [cell setSwipeGestureWithView:crossView
+//                                color:redColor
+//                                 mode:MCSwipeTableViewCellModeSwitch
+//                                state:MCSwipeTableViewCellState1
+//                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
+//                          
+//                          [self changeStateofCell:cell];
+//                      }];
+//        [cell setSwipeGestureWithView:crossView
+//                                color:redColor
+//                                 mode:MCSwipeTableViewCellModeSwitch
+//                                state:MCSwipeTableViewCellState2
+//                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
+//                          
+//                          [self changeStateofCell:cell];
+//                      }];
         [cell setSwipeGestureWithView:crossView
                                 color:redColor
-                                 mode:MCSwipeTableViewCellModeSwitch
+                                 mode:MCSwipeTableViewCellModeNone
                                 state:MCSwipeTableViewCellState1
                       completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
                           
-                          [self changeStateofCell:cell];
-                      }];
-        [cell setSwipeGestureWithView:crossView
-                                color:redColor
-                                 mode:MCSwipeTableViewCellModeSwitch
-                                state:MCSwipeTableViewCellState2
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-                          
-                          [self changeStateofCell:cell];
+                          [self deleteCell:cell];
                       }];
         
         [cell setSwipeGestureWithView:listView
@@ -214,18 +269,18 @@
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
     }else if(jobsItem.checked == 1){
-        [cell setSwipeGestureWithView:checkView
-                                color:greenColor
-                                 mode:MCSwipeTableViewCellModeSwitch
-                                state:MCSwipeTableViewCellState1
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-                          
-                          [self changeStateofCell:cell];
-                      }];
+//        [cell setSwipeGestureWithView:checkView
+//                                color:greenColor
+//                                 mode:MCSwipeTableViewCellModeSwitch
+//                                state:MCSwipeTableViewCellState1
+//                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
+//                          
+//                          [self changeStateofCell:cell];
+//                      }];
         [cell setSwipeGestureWithView:crossView
                                 color:redColor
                                  mode:MCSwipeTableViewCellModeExit
-                                state:MCSwipeTableViewCellState2
+                                state:MCSwipeTableViewCellState1
                       completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
                           
                           [self deleteCell:cell];
@@ -284,14 +339,24 @@
 - (void)deleteCell:(MCSwipeTableViewCell *)cell{
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.jobList.items removeObjectAtIndex:indexPath.row];
+    [self.checkboxs removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    
+    NSInteger sum = [self.tableView numberOfRowsInSection:0];
+    for (NSInteger i = 0; i < sum; ++i) {
+        
+        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc]init];
+        checkbox = self.checkboxs[i];
+        checkbox.tag = i;
+    }
 }
 
 - (void)changeStateofCell:(MCSwipeTableViewCell *)cell {
-    NSParameterAssert(cell);
+   // NSParameterAssert(cell);
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
    // JobList *jobList = self.dataModel.jobs[indexPath.row];
     JobsItem *jobsItem = self.jobList.items[indexPath.row];
+    BFPaperCheckbox *checkbox = self.checkboxs[indexPath.row];
     NSInteger disDeletedNum=0;
     //for(JobList *jobListTemp in self.dataModel.jobs){
     for(JobsItem *jobsItemTemp in self.jobList.items){
@@ -301,25 +366,46 @@
             break;
         }
     }
-    if (jobsItem.checked == 0) {
+    if (disDeletedNum == 0) {
+        disDeletedNum =1;
+    }
+        if (jobsItem.checked == 0) {
         jobsItem.checked =1;
+//            checkbox.delegate = nil;
+//        [checkbox checkAnimated:YES];
+//            checkbox.delegate = self;
+
         [self configureStateOfCell:cell forRowAtIndexPath:indexPath];
         [self.jobList.items removeObjectAtIndex:indexPath.row];
         [self.jobList.items insertObject:jobsItem atIndex:disDeletedNum-1];
+        
+        [self.checkboxs removeObjectAtIndex:indexPath.row];
+        [self.checkboxs insertObject:checkbox atIndex:disDeletedNum -1];
+        
         NSIndexPath *bottomIndexPath = [NSIndexPath indexPathForRow:disDeletedNum-1 inSection:0];
         [self.tableView moveRowAtIndexPath:indexPath toIndexPath:bottomIndexPath];
     }else if(jobsItem.checked == 1){
         jobsItem.checked = 0;
+//        checkbox.delegate = nil;
+//        [checkbox uncheckAnimated:YES];
+//        checkbox.delegate = self;
         [self configureStateOfCell:cell forRowAtIndexPath:indexPath];
         [self configureCell:cell forRowAtIndexPath:indexPath];
         [self.jobList.items removeObjectAtIndex:indexPath.row];
         [self.jobList.items insertObject:jobsItem atIndex:0];
+        [self.checkboxs removeObjectAtIndex:indexPath.row];
+        [self.checkboxs insertObject:checkbox atIndex:0];
         NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.tableView moveRowAtIndexPath:indexPath toIndexPath:firstIndexPath];
     }
     
     NSInteger sum = [self.tableView numberOfRowsInSection:0];
     for (NSInteger i = 0; i < sum; ++i) {
+        
+        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc]init];
+        checkbox = self.checkboxs[i];
+        checkbox.tag = i;
+        
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         MCSwipeTableViewCell *cell = (MCSwipeTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [self configureCell:cell forRowAtIndexPath:indexPath];
@@ -370,6 +456,20 @@
 - (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item{
 
     [self.jobList.items insertObject:item atIndex:0];
+    
+
+    BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.tableView.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight)];
+    checkbox.frame =CGRectMake(self.tableView.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight);
+    checkbox.center = CGPointMake(self.tableView.bounds.size.width/8*7, cellHeight/2);
+    [self.checkboxs insertObject:checkbox atIndex:0];
+    
+    NSInteger sum = [self.tableView numberOfRowsInSection:0];
+    for (NSInteger i = 0; i < sum; ++i) {
+        
+        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc]init];
+        checkbox = self.checkboxs[i];
+        checkbox.tag = i;
+    }
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
@@ -444,6 +544,14 @@
                 
                 // ... update data source.
                 [self.jobList.items exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
+                [self.checkboxs exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
+                NSInteger sum = [self.tableView numberOfRowsInSection:0];
+                for (NSInteger i = 0; i < sum; ++i) {
+                    
+                    BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc]init];
+                    checkbox = self.checkboxs[i];
+                    checkbox.tag = i;
+                }
                 
                 // ... move the rows.
                 [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];

@@ -3,6 +3,7 @@
 
 target 'Jobs' do
 pod 'MCSwipeTableViewCell'
+pod 'BFPaperCheckbox'
 end
 
 target 'JobsTests' do
