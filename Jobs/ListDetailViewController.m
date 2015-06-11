@@ -14,7 +14,7 @@
 @end
 
 @implementation ListDetailViewController{
-    NSString *_iconName;
+    //NSString *_iconName;
 }
 
 #pragma mark - view
@@ -23,9 +23,21 @@
     if (self.jobListToEdit != nil) {
         self.title = @"编辑公司";
         self.textField.text = self.jobListToEdit.name;
+        self.accountOfWebsiteTextField.text = self.jobListToEdit.accountOfWebsite;
+        self.reminderOfPasswordTextField.text = self.jobListToEdit.reminderOfPassword;
+        self.emailTextField.text = self.jobListToEdit.email;
         self.saveBarButton.enabled = YES;
-        _iconName = self.jobListToEdit.iconName;
+       // _iconName = self.jobListToEdit.iconName;
     }
+    self.textField.tag = 30;
+    self.accountOfWebsiteTextField.tag = 31;
+    self.reminderOfPasswordTextField.tag = 32;
+    self.emailTextField.tag = 33;
+    
+    self.textField.delegate = self;
+    self.accountOfWebsiteTextField.delegate = self;
+    self.reminderOfPasswordTextField.delegate = self;
+    self.emailTextField.delegate = self;
  //   self.iconImageView.image = [UIImage imageNamed:_iconName];
     
     self.navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
@@ -33,45 +45,25 @@
     self.navigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
     self.navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
     
-    
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureRecognized:)];
-//    [self.tableView addGestureRecognizer:tap];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-//- (IBAction)tapGestureRecognized:(id)sender{
-//    UITapGestureRecognizer *longPress = (UITapGestureRecognizer *)sender;
-//    // UITapGestureRecognizer *state = longPress.state;
-//    
-//    CGPoint location = [longPress locationInView:self.tableView];
-//    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
-//    if (indexPath == nil) {
-//        [self.textField resignFirstResponder];
-//    }else{
-//[self tableView:self.tableView willSelectRowAtIndexPath:indexPath];
-//    }
-//}
 
 - (void )tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 && indexPath.row==0) {
-        [self.textField resignFirstResponder];
-    }
-    //return indexPath;
+//    if (indexPath.section == 0 && indexPath.row==0) {
+//        [self.textField resignFirstResponder];
+//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.textField becomeFirstResponder];
+    //[self.textField becomeFirstResponder];
 }
+
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
     if ((self = [super initWithCoder:aDecoder])) {
-        _iconName = @"1";
+        //_iconName = @"1";
     }
     return self;
 }
@@ -97,23 +89,26 @@
     return YES;
 }
 
-
-
-
-#pragma mark - IconPickerViewControllerDelegate
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"PickIcon"]) {
-        IconPickerViewController *controller = segue.destinationViewController;
-        controller.delegate = self;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField.tag ==30) {
+        [self.accountOfWebsiteTextField becomeFirstResponder];
+    }else if (textField.tag == 31 ) {
+        [self.reminderOfPasswordTextField becomeFirstResponder];
+    }else if(textField.tag == 32){
+        [self.emailTextField becomeFirstResponder];
+    }else{
+        [self.view endEditing:YES];
     }
+    return YES;
 }
 
-#pragma mark - IconPickerViewControllerDelegate
-- (void)iconPicker:(IconPickerViewController *)picker didPickIcon:(NSString *)iconName{
-    _iconName = iconName;
-   // self.iconImageView.image = [UIImage imageNamed:_iconName];
-    [self.navigationController popViewControllerAnimated:YES];
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self.view endEditing:YES];
 }
+
+
 
 #pragma mark - IBAction
 
@@ -125,11 +120,15 @@
     if (self.jobListToEdit == nil) {
         JobList *jobList = [[JobList alloc]init];
         jobList.name = self.textField.text;
-        jobList.iconName = _iconName;
+        jobList.accountOfWebsite = self.accountOfWebsiteTextField.text;
+        jobList.reminderOfPassword = self.reminderOfPasswordTextField.text;
+        jobList.email = self.emailTextField.text;
         [self.delegate listDetailViewController:self didFinishAddingJoblist:jobList];
     }else{
         self.jobListToEdit.name = self.textField.text;
-        self.jobListToEdit.iconName = _iconName;
+        self.jobListToEdit.accountOfWebsite = self.accountOfWebsiteTextField.text;
+        self.jobListToEdit.reminderOfPassword = self.reminderOfPasswordTextField.text;
+        self.jobListToEdit.email = self.emailTextField.text;
         [self.delegate listDetailViewController:self didFinishEditingJobList:self.jobListToEdit];
     }
 }

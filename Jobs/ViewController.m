@@ -18,6 +18,9 @@
     NSInteger cellHeight;
     NSInteger selectedRow;
 }
+@property (weak, nonatomic) IBOutlet UILabel *detailTextView;
+//@property (weak, nonatomic) IBOutlet UITextView *detailTextView;
+//@property (weak, nonatomic) IBOutlet UITextField *detailTextView;
 @property (nonatomic, strong) NSMutableArray *checkboxs;
 @end
 
@@ -33,6 +36,7 @@
     cellHeight = 100;
     self.title = self.jobList.name;
     selectedRow = -1;
+    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
     
@@ -44,23 +48,35 @@
     self.checkboxs = [[NSMutableArray alloc]initWithCapacity:20];
     for (NSInteger i =0; i<[self.jobList.items count]; ++i) {
         JobsItem *item =self.jobList.items[i];
-        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.tableView.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight)];
+        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight)];
         checkbox.tag = i;
         if (item.checked == 0) {
           // [checkbox uncheckAnimated:YES];
             [self.checkboxs addObject:checkbox];
-            NSLog(@"0\n");
-            NSLog(@"checkboxsNum = %d",[self.checkboxs count]);
         }else if(item.checked == 1){
            [checkbox checkAnimated:YES];
             [self.checkboxs addObject:checkbox];
-            NSLog(@"1");
-            NSLog(@"checkboxsNum = %d",[self.checkboxs count]);
         }
         
     }
+    self.detailTextView.text = @" ";
+    if (self.jobList.accountOfWebsite != nil) {
+        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"官网账号：%@\n",self.jobList.accountOfWebsite];
+    }
+    if (self.jobList.reminderOfPassword != nil) {
+        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"密码提示：%@\n",self.jobList.reminderOfPassword];
+    }
+    if (self.jobList.email != nil) {
+        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"报名邮箱：%@",self.jobList.email];
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -111,8 +127,8 @@
         
         [self setBackgroundViewForCell:cell];
 //        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, cell.bounds.size.width/4*1, 20)];
-         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, cell.bounds.size.width/4*1, 20)];
-        label.center = CGPointMake(cell.bounds.size.width/8*6, cellHeight/2);
+         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4*1, 20)];
+        label.center = CGPointMake(self.view.bounds.size.width/8*6, cellHeight/2);
         label.font = [UIFont boldSystemFontOfSize:18];
         label.tag = 124;
         [cell.contentView addSubview:label];
@@ -121,8 +137,8 @@
        // BFPaperCheckbox *paperCheckbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, 40, 40)];
         //BFPaperCheckbox *paperCheckbox = [[BFPaperCheckbox alloc]init];
         BFPaperCheckbox *paperCheckbox = self.checkboxs[indexPath.row];
-        paperCheckbox.frame =CGRectMake(cell.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight);
-        paperCheckbox.center = CGPointMake(cell.bounds.size.width/8*7, cellHeight/2);
+        paperCheckbox.frame =CGRectMake(self.view.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight);
+        paperCheckbox.center = CGPointMake(self.view.bounds.size.width/8*7, cellHeight/2);
     //    paperCheckbox.tag = indexPath.row;
         paperCheckbox.delegate = self;
         paperCheckbox.rippleFromTapLocation = NO;
@@ -130,11 +146,9 @@
         paperCheckbox.tapCircleNegativeColor = [UIColor paperColorRed];   // We could use [UIColor colorWithAlphaComponent] here to make a better tap-circle.
         paperCheckbox.checkmarkColor = [UIColor paperColorLightBlue];
         [cell.contentView addSubview:paperCheckbox];
-        NSLog(@"xx\n");
         //  [self configureTextForCell:cell withIndexPath:indexPath];
     }
     
-    NSLog(@"cellforrow");
     [self configureTextForCell:cell withJobsItem:item];
     [self configureStateOfCell:cell forRowAtIndexPath:indexPath ];
     [self configureCell:cell forRowAtIndexPath:indexPath];
@@ -145,7 +159,6 @@
 
 - (void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox
 {
-   // NSLog(@"checkbox.tag = %d",checkbox.tag);
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:checkbox.tag inSection:0];
     MCSwipeTableViewCell *cell = (MCSwipeTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     [self changeStateofCell:cell];
@@ -156,8 +169,6 @@
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:124];
     label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
     label.text = @"一面";
-   // JobsItem *item = self.jobList.items[indexPath.row];
-    //JobList *jobList = self.dataModel.jobs[indexPath.row];
     
     cell.textLabel.text = item.text;
     cell.textLabel.font = [UIFont systemFontOfSize:22.0];

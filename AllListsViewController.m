@@ -18,12 +18,15 @@
     NSInteger cellHeight;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *allApplicationNumLabel;
+
 @end
 
 @implementation AllListsViewController
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self updateAllApplicationNum];
     [self.tableView reloadData];
 }
 
@@ -38,8 +41,26 @@
     }
 }
 
+- (void)updateAllApplicationNum{
+    NSInteger tempNum = 0;
+    for (JobList *jobList in self.dataModel.jobs){
+        if(jobList.deletedFlag == 0){
+            for(JobsItem *jobsItem in jobList.items){
+            if (jobsItem.checked == 0) {
+                 tempNum ++;
+                }
+            }
+        }
+    }
+    self.allApplicationNumLabel.text=[NSString stringWithFormat:@"%ld个职位正在进行中",tempNum];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self updateAllApplicationNum];
+   // self.allApplicationNumLabel.textAlignment = NSTextAlignmentCenter;
+    //self.allApplicationNumLabel.textColor = [UIColor grayColor];
+    
     cellHeight = 80;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
@@ -97,7 +118,7 @@
         cell.contentView.backgroundColor = [UIColor whiteColor];
         
         [self setBackgroundViewForCell:cell];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, cell.bounds.size.width/4*1, 20)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.bounds.size.width/4*3, cellHeight/2-10, self.view.bounds.size.width/4*1, 20)];
         label.font = [UIFont boldSystemFontOfSize:18];
         label.tag = 123;
         [cell.contentView addSubview:label];
@@ -117,7 +138,7 @@
 }
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath{
-    
+    [self updateAllApplicationNum];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
     label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
     
@@ -235,6 +256,7 @@
         cell.textLabel.textColor = [UIColor grayColor];
         cell.detailTextLabel.textColor =  [UIColor grayColor];
     }
+    [self updateAllApplicationNum];
 }
 
 - (void)setBackgroundViewForCell:(MCSwipeTableViewCell *)cell{

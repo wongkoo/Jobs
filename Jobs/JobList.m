@@ -14,7 +14,7 @@
     if((self = [super init])){
         self.items =[[NSMutableArray alloc] initWithCapacity:20];
         self.deletedFlag = 0;
-        self.iconName = @"Appointments";
+    //    self.iconName = @"Appointments";
     }
     return self;
 }
@@ -33,7 +33,10 @@
     if ((self = [super init])) {
         self.name = [aDecoder decodeObjectForKey:@"Name"];
         self.items = [aDecoder decodeObjectForKey:@"Items"];
-        self.iconName = [aDecoder decodeObjectForKey:@"IconName"];
+        self.accountOfWebsite = [aDecoder decodeObjectForKey:@"AccountOfWebsite"];
+        self.reminderOfPassword = [aDecoder decodeObjectForKey:@"ReminderOfPassword"];
+        self.email = [aDecoder decodeObjectForKey:@"Email"];
+     //   self.iconName = [aDecoder decodeObjectForKey:@"IconName"];
         self.deletedFlag = [aDecoder decodeIntegerForKey:@"DeletedFlag"];
 //耻辱！！！！！！
 //        self.name = [aDecoder decodeObjectForKey:@"Name"];
@@ -45,7 +48,10 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.name forKey:@"Name"];
     [aCoder encodeObject:self.items forKey:@"Items"];
-    [aCoder encodeObject:self.iconName forKey:@"IconName"];
+    [aCoder encodeObject:self.accountOfWebsite forKey:@"AccountOfWebsite"];
+    [aCoder encodeObject:self.reminderOfPassword forKey:@"ReminderOfPassword"];
+    [aCoder encodeObject:self.email forKey:@"Email"];
+  //  [aCoder encodeObject:self.iconName forKey:@"IconName"];
     [aCoder encodeInteger:self.deletedFlag forKey:@"DeletedFlag"];
 }
 

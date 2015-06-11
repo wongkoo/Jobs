@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IconPickerViewController.h"
 
 @class ListDetailViewController;
 @class JobList;
@@ -19,8 +18,13 @@
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList;
 @end
 
-@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,IconPickerViewControllerDelegate>
+@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,UIScrollViewDelegate>
 @property (nonatomic,weak)IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *accountOfWebsiteTextField;
+@property (weak, nonatomic) IBOutlet UITextField *reminderOfPasswordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+
+
 @property (nonatomic,weak)IBOutlet UIBarButtonItem *saveBarButton;
 @property (nonatomic,weak)id<ListDetailViewControllerDelegate>delegate;
 @property (nonatomic,strong)JobList *jobListToEdit;
