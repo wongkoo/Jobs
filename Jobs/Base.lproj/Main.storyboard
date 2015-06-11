@@ -302,7 +302,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xQ3-Rl-VNx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="myE-dy-ck1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ItemNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="myE-dy-ck1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OJk-hk-uwl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

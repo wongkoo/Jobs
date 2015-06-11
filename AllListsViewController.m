@@ -240,7 +240,7 @@
 - (void)setBackgroundViewForCell:(MCSwipeTableViewCell *)cell{
     CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
     CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
-    CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, 80);
+    CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, cellHeight);
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, cellHeight)];
     backgroundView = (UIView *)[[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end andFrame:rect];
     [cell.contentView addSubview:backgroundView];
