@@ -52,7 +52,7 @@
             }
         }
     }
-    self.allApplicationNumLabel.text=[NSString stringWithFormat:@"%ld个职位正在进行中",tempNum];
+    self.allApplicationNumLabel.text=[NSString stringWithFormat:@"%d个职位正在进行中",tempNum];
 }
 
 - (void)viewDidLoad {
@@ -151,11 +151,24 @@
     
     if ([jobList.items count] != 0) {
         JobsItem *jobsItem = jobList.items[0];
-        label.text= @"Offer";
+        
+        NSDate *  senddate=[NSDate date];
+//        NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"MMddhhmm"];
+//        NSString *now=[dateFormatter stringFromDate:senddate];
+//        NSString *targetTime = [dateFormatter stringFromDate:jobsItem.dueDate];
+//        NSInteger nowValue = [now integerValue];
+//        NSInteger targetTimeValue = [targetTime integerValue];
+        NSTimeInterval time = [jobsItem.dueDate timeIntervalSinceDate:senddate];
+        NSLog(@"time:%f",time/60/60/24);
+        
+        
+        label.text= jobsItem.nextTask;
         cell.detailTextLabel.text = jobsItem.text;
         
     }else{
-        label.text=@"二面";
+        label.text=@"";
+       // label.textColor = [UIColor grayColor];
         cell.detailTextLabel.text = @"暂未申请职位";
     }
 }

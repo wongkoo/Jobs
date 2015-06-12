@@ -25,6 +25,7 @@
     if (self.itemToEdit != nil) {
         self.title = @"编辑事件";
         self.textField.text = self.itemToEdit.text;
+        [self initNextTaskSegmentedControl];
         self.saveBarButton.enabled = YES;
         self.switchControl.on = self.itemToEdit.shouldRemind;
         _dueDate = self.itemToEdit.dueDate;
@@ -41,6 +42,21 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (void)initNextTaskSegmentedControl{
+    if ([self.itemToEdit.nextTask isEqualToString:@"报名"]) {
+        self.nextTaskTextField.selectedSegmentIndex = 0;
+    }else if([self.itemToEdit.nextTask isEqualToString:@"宣讲"]){
+        self.nextTaskTextField.selectedSegmentIndex = 1;
+    }else if([self.itemToEdit.nextTask isEqualToString:@"笔试"]){
+        self.nextTaskTextField.selectedSegmentIndex = 2;
+    }else if([self.itemToEdit.nextTask isEqualToString:@"一面"]){
+        self.nextTaskTextField.selectedSegmentIndex = 3;
+    }else if([self.itemToEdit.nextTask isEqualToString:@"二面"]){
+        self.nextTaskTextField.selectedSegmentIndex = 4;
+    }else if([self.itemToEdit.nextTask isEqualToString:@"三面"]){
+        self.nextTaskTextField.selectedSegmentIndex = 5;
+    }
 }
 -(void)touchSection{
     [self.textField resignFirstResponder];
@@ -190,6 +206,13 @@
     }
 }
 
+- (IBAction)chooseNextTask:(id)sender {
+    if (self.textField.text != nil) {
+        self.saveBarButton.enabled = YES;
+    }else{
+        self.saveBarButton.enabled = NO;
+    }
+}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -208,6 +231,10 @@
 //    }
 //}
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    return YES;
+}
 #pragma mark - action
 //3.让对象B在适当的时候向代理对象发送消息,⽐比如当⽤用户触碰cancel或done按钮时
 - (IBAction)cancel:(id)sender {
@@ -222,10 +249,12 @@
         item.checked = NO;
         item.shouldRemind =self.switchControl.on;
         item.dueDate = _dueDate;
+        item.nextTask = [self.nextTaskTextField titleForSegmentAtIndex:[self.nextTaskTextField selectedSegmentIndex]];
         [item scheduleNotification];
         [self.delegate itemDetailViewController:self didFinishAddingItem:item];
     }else{
         self.itemToEdit.text = self.textField.text;
+        self.itemToEdit.nextTask= [self.nextTaskTextField titleForSegmentAtIndex:[self.nextTaskTextField selectedSegmentIndex]];
         self.itemToEdit.shouldRemind = self.switchControl.on;
         self.itemToEdit.dueDate = _dueDate;
         [self.itemToEdit scheduleNotification];
@@ -244,7 +273,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if ([newText length]>0) {
+    if ([newText length]>0 && self.nextTaskTextField.selectedSegmentIndex!= -1) {
         self.saveBarButton.enabled = YES;
     }else{
         self.saveBarButton.enabled = NO;

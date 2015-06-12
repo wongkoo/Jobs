@@ -60,13 +60,13 @@
         
     }
     self.detailTextView.text = @" ";
-    if (self.jobList.accountOfWebsite != nil) {
+    if (![self.jobList.accountOfWebsite isEqualToString:@""]) {
         self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"官网账号：%@\n",self.jobList.accountOfWebsite];
     }
-    if (self.jobList.reminderOfPassword != nil) {
+    if (![self.jobList.reminderOfPassword isEqualToString:@""]) {
         self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"密码提示：%@\n",self.jobList.reminderOfPassword];
     }
-    if (self.jobList.email != nil) {
+    if (![self.jobList.email isEqualToString:@""]) {
         self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"报名邮箱：%@",self.jobList.email];
     }
     // Do any additional setup after loading the view, typically from a nib.
@@ -168,7 +168,7 @@
     
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:124];
     label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
-    label.text = @"一面";
+    label.text = item.nextTask;
     
     cell.textLabel.text = item.text;
     cell.textLabel.font = [UIFont systemFontOfSize:22.0];
@@ -178,7 +178,7 @@
     //cell.textLabel.text = item.text;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy年MM月dd日hh时mm分"];
+    [dateFormatter setDateFormat:@"M月dd日hh时mm分"];
     NSString *time = [dateFormatter stringFromDate:item.dueDate];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",time];
     

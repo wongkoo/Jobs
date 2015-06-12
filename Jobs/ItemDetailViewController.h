@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) JobsItem *itemToEdit;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *nextTaskTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
 @property (weak, nonatomic) IBOutlet UISwitch *switchControl;
 @property (weak, nonatomic) IBOutlet UILabel *dueDateLabel;

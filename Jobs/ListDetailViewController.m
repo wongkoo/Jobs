@@ -84,8 +84,10 @@
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    self.saveBarButton.enabled = ([newText length]>0);
+    if (textField.tag == 30) {
+        NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        self.saveBarButton.enabled = ([newText length]>0);
+    }
     return YES;
 }
 

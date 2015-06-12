@@ -55,6 +55,7 @@
 {
     if( (self = [super init]) ) {
         self.text = [aDecoder decodeObjectForKey:@"Text"];
+        self.nextTask = [aDecoder decodeObjectForKey:@"NextTask"];
         self.checked =[aDecoder decodeBoolForKey:@"Checked"];
         self.dueDate = [aDecoder decodeObjectForKey:@"DueDate"];
         self.shouldRemind = [aDecoder decodeBoolForKey:@"ShouldRemind"];
@@ -66,6 +67,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.text forKey:@"Text"];
+    [aCoder encodeObject:self.nextTask forKey:@"NextTask"];
     [aCoder encodeBool:self.checked forKey:@"Checked"];
     [aCoder encodeObject:self.dueDate forKey:@"DueDate"];
     [aCoder encodeBool:self.shouldRemind forKey:@"ShouldRemind"];
