@@ -14,6 +14,7 @@
 		7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */; };
 		7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5C21B1EE68F00F1DFD9 /* ViewController.m */; };
 		7237F5C61B1EE68F00F1DFD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7237F5C41B1EE68F00F1DFD9 /* Main.storyboard */; };
+		7237F5C81B1EE68F00F1DFD9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */; };
 		7237F5CB1B1EE68F00F1DFD9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7237F5C91B1EE68F00F1DFD9 /* LaunchScreen.xib */; };
 		7237F5D71B1EE68F00F1DFD9 /* JobsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5D61B1EE68F00F1DFD9 /* JobsTests.m */; };
 		7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E11B1F389F00F1DFD9 /* JobsItem.m */; };
@@ -49,6 +50,7 @@
 		7237F5C11B1EE68F00F1DFD9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7237F5C21B1EE68F00F1DFD9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7237F5C51B1EE68F00F1DFD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7237F5CA1B1EE68F00F1DFD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7237F5D01B1EE68F00F1DFD9 /* JobsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7237F5D51B1EE68F00F1DFD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				7237F5ED1B20AE7E00F1DFD9 /* Controller */,
 				7237F5EC1B20AE5000F1DFD9 /* Model */,
 				7237F5C41B1EE68F00F1DFD9 /* Main.storyboard */,
+				7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */,
 				7237F5C91B1EE68F00F1DFD9 /* LaunchScreen.xib */,
 				7237F5BA1B1EE68F00F1DFD9 /* Supporting Files */,
 			);
@@ -280,6 +283,7 @@
 			files = (
 				7237F5C61B1EE68F00F1DFD9 /* Main.storyboard in Resources */,
 				7237F5CB1B1EE68F00F1DFD9 /* LaunchScreen.xib in Resources */,
+				7237F5C81B1EE68F00F1DFD9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
