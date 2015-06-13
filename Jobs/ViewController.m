@@ -48,7 +48,7 @@
     self.checkboxs = [[NSMutableArray alloc]initWithCapacity:20];
     for (NSInteger i =0; i<[self.jobList.items count]; ++i) {
         JobsItem *item =self.jobList.items[i];
-        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight)];
+        BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.view.bounds.size.width-cellHeight, 0, cellHeight, cellHeight)];
         checkbox.tag = i;
         if (item.checked == 0) {
           // [checkbox uncheckAnimated:YES];
@@ -128,7 +128,7 @@
         [self setBackgroundViewForCell:cell];
 //        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, cell.bounds.size.width/4*1, 20)];
          UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4*1, 20)];
-        label.center = CGPointMake(self.view.bounds.size.width/8*6, cellHeight/2);
+        label.center = CGPointMake(self.view.bounds.size.width-cellHeight/3*2, cellHeight/2);
         label.font = [UIFont boldSystemFontOfSize:18];
         label.tag = 124;
         [cell.contentView addSubview:label];
@@ -137,8 +137,8 @@
        // BFPaperCheckbox *paperCheckbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(cell.bounds.size.width/4*3, cellHeight/2-10, 40, 40)];
         //BFPaperCheckbox *paperCheckbox = [[BFPaperCheckbox alloc]init];
         BFPaperCheckbox *paperCheckbox = self.checkboxs[indexPath.row];
-        paperCheckbox.frame =CGRectMake(self.view.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight);
-        paperCheckbox.center = CGPointMake(self.view.bounds.size.width/8*7, cellHeight/2);
+        paperCheckbox.frame =CGRectMake(self.view.bounds.size.width-cellHeight, 0, cellHeight, cellHeight);
+        paperCheckbox.center = CGPointMake(self.view.bounds.size.width-cellHeight/2, cellHeight/2);
     //    paperCheckbox.tag = indexPath.row;
         paperCheckbox.delegate = self;
         paperCheckbox.rippleFromTapLocation = NO;
@@ -146,6 +146,9 @@
         paperCheckbox.tapCircleNegativeColor = [UIColor paperColorRed];   // We could use [UIColor colorWithAlphaComponent] here to make a better tap-circle.
         paperCheckbox.checkmarkColor = [UIColor paperColorLightBlue];
         [cell.contentView addSubview:paperCheckbox];
+        
+        
+        
         //  [self configureTextForCell:cell withIndexPath:indexPath];
     }
     

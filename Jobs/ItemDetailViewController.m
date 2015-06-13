@@ -23,13 +23,15 @@
     [super viewDidLoad];
     
     if (self.itemToEdit != nil) {
-        self.title = @"编辑事件";
+        self.title = @"编辑应聘职位";
         self.textField.text = self.itemToEdit.text;
         [self initNextTaskSegmentedControl];
         self.saveBarButton.enabled = YES;
         self.switchControl.on = self.itemToEdit.shouldRemind;
         _dueDate = self.itemToEdit.dueDate;
     }else{
+        self.title = @"添加应聘职位";
+        self.textField.text = nil;
         self.switchControl.on = NO;
         _dueDate = [NSDate date];
     }
@@ -207,7 +209,7 @@
 }
 
 - (IBAction)chooseNextTask:(id)sender {
-    if (self.textField.text != nil) {
+    if (![self.textField.text  isEqual: @""]) {
         self.saveBarButton.enabled = YES;
     }else{
         self.saveBarButton.enabled = NO;

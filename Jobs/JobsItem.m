@@ -33,6 +33,7 @@
         localNotification.fireDate = self.dueDate;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         localNotification.alertBody = self.text;
+        localNotification.applicationIconBadgeNumber = 1;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         localNotification.userInfo = @{@"ItemId":@(self.itemId)};
         [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];

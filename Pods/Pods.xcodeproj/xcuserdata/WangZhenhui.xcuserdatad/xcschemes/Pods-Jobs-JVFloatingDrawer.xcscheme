@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6EDB9C5EB05E35706FEBBD73"
-               BuildableName = "libPods-Jobs.a"
-               BlueprintName = "Pods-Jobs"
+               BlueprintIdentifier = "DBFDA52B14B54A47B11014FD"
+               BuildableName = "libPods-Jobs-JVFloatingDrawer.a"
+               BlueprintName = "Pods-Jobs-JVFloatingDrawer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
