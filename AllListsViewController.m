@@ -13,6 +13,7 @@
 #import "DataModel.h"
 #import "CellbackgroundVIew.h"
 #import <MCSwipeTableViewCell.h>
+#import "AppDelegate.h"
 @interface AllListsViewController (){
    // NSMutableArray *_lists;
     NSInteger cellHeight;
@@ -29,6 +30,14 @@
     [self updateAllApplicationNum];
     [self.tableView reloadData];
 }
+
+
+
+- (IBAction)actionToggleLeftDrawer:(id)sender {
+    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+}
+
+
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -52,7 +61,7 @@
             }
         }
     }
-    self.allApplicationNumLabel.text=[NSString stringWithFormat:@"%d个职位正在进行中",tempNum];
+    self.allApplicationNumLabel.text=[NSString stringWithFormat:@"%ld个职位正在进行中",(long)tempNum];
 }
 
 - (void)viewDidLoad {
@@ -105,6 +114,7 @@
     
     static NSString *CellIdentifier = @"Cell";
     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     
     if (!cell) {
         cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -118,10 +128,27 @@
         cell.contentView.backgroundColor = [UIColor whiteColor];
         
         [self setBackgroundViewForCell:cell];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.bounds.size.width/4*3, cellHeight/2-10, self.view.bounds.size.width/4*1, 20)];
+        
+//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.bounds.size.width/4*3, cellHeight/2-10, self.view.bounds.size.width/4*1, 20)];
+//        label.font = [UIFont boldSystemFontOfSize:18];
+//        label.tag = 123;
+        UILabel *label =[[UILabel alloc]init];
         label.font = [UIFont boldSystemFontOfSize:18];
         label.tag = 123;
         [cell.contentView addSubview:label];
+        label.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        NSArray *constraints1 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[label]-|"
+                                                                        options:0
+                                                                        metrics:@{@"margin":@60}
+                                                                          views:NSDictionaryOfVariableBindings(label)];
+        NSArray *constraints2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label]|"
+                                                                        options:0
+                                                                        metrics:@{@"heigth":@40}
+                                                                          views:NSDictionaryOfVariableBindings(label)];
+        [cell.contentView addConstraints:constraints1];
+        [cell.contentView addConstraints:constraints2];
+
         //  [self configureTextForCell:cell withIndexPath:indexPath];
     }
     
@@ -153,17 +180,42 @@
         JobsItem *jobsItem = jobList.items[0];
         
         NSDate *  senddate=[NSDate date];
-//        NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
-//        [dateFormatter setDateFormat:@"MMddhhmm"];
-//        NSString *now=[dateFormatter stringFromDate:senddate];
-//        NSString *targetTime = [dateFormatter stringFromDate:jobsItem.dueDate];
-//        NSInteger nowValue = [now integerValue];
-//        NSInteger targetTimeValue = [targetTime integerValue];
-        NSTimeInterval time = [jobsItem.dueDate timeIntervalSinceDate:senddate];
-        NSLog(@"time:%f",time/60/60/24);
+        NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MMdd"];
+
+        NSString *now=[dateFormatter stringFromDate:senddate];
+        NSString *targetTime = [dateFormatter stringFromDate:jobsItem.dueDate];
+        
+        NSInteger nowValue = [now integerValue];
+        NSInteger targetTimeValue = [targetTime integerValue];
+        
+        if((targetTimeValue - nowValue) >= 31){
+            NSDateFormatter *dateFormatterToShow = [[NSDateFormatter alloc] init];
+            [dateFormatterToShow setDateFormat:@"M月d日 "];
+            NSString *showTime = [dateFormatterToShow stringFromDate:jobsItem.dueDate];
+             label.text = [showTime stringByAppendingString:jobsItem.nextTask];
+        }else if((targetTimeValue - nowValue) >= 3 && (targetTimeValue - nowValue) <= 30){
+            NSString *string = [NSString stringWithFormat:@"%ld天后 ",(long)(targetTimeValue - nowValue)];
+            label.text =[string stringByAppendingString:jobsItem.nextTask];
+        }else if((targetTimeValue - nowValue) == 2){
+            label.text = [@"后天 " stringByAppendingString:jobsItem.nextTask];
+        }else if((targetTimeValue - nowValue) == 1){
+            label.text = [@"明天 " stringByAppendingString:jobsItem.nextTask];
+        }else if((targetTimeValue - nowValue) == 0){
+            label.text = [@"今天 " stringByAppendingString:jobsItem.nextTask];
+        }else if((targetTimeValue - nowValue) == -1){
+            label.text=[@"昨天 " stringByAppendingString:jobsItem.nextTask];
+        }else if((targetTimeValue - nowValue) == -2){
+            label.text=[@"前天 " stringByAppendingString:jobsItem.nextTask];
+        }else if((targetTimeValue - nowValue) <= -3){
+            label.text=[@"几天前 " stringByAppendingString:jobsItem.nextTask];
+        }
+
+//        NSTimeInterval time = [jobsItem.dueDate timeIntervalSinceDate:senddate];
+//        NSLog(@"time:%f",time/60/60/24);
         
         
-        label.text= jobsItem.nextTask;
+      //  label.text= jobsItem.nextTask;
         cell.detailTextLabel.text = jobsItem.text;
         
     }else{

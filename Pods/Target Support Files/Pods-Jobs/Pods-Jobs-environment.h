@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_BFPaperCheckbox 2
 #define COCOAPODS_VERSION_PATCH_BFPaperCheckbox 7
 
+// JVFloatingDrawer
+#define COCOAPODS_POD_AVAILABLE_JVFloatingDrawer
+#define COCOAPODS_VERSION_MAJOR_JVFloatingDrawer 0
+#define COCOAPODS_VERSION_MINOR_JVFloatingDrawer 1
+#define COCOAPODS_VERSION_PATCH_JVFloatingDrawer 0
+
 // MCSwipeTableViewCell
 #define COCOAPODS_POD_AVAILABLE_MCSwipeTableViewCell
 #define COCOAPODS_VERSION_MAJOR_MCSwipeTableViewCell 2

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Jobs-JVFloatingDrawer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Jobs-MCSwipeTableViewCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>62343A1B11EC6CB09A7938D9</key>
+		<key>00F269B0D26219033F0A238B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A158707827B28945C2017A90</key>
+		<key>6A9DA0B6E320DD5F18D1AE61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7F300D5F8D37E714DD20B90</key>
+		<key>87DA38F9CE3F7D6DB6D9E20A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D112B9D32375C7E6DEBE44F4</key>
+		<key>A9B953BE9FD862685F3D095D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4A375F832F5CBFA96135325</key>
 		<dict>
 			<key>primary</key>
 			<true/>

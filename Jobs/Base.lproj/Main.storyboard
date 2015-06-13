@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="neA-TX-uY2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -321,6 +321,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="公司" id="hbE-si-xgk">
+                        <barButtonItem key="leftBarButtonItem" image="list" id="A8j-Zo-lMd">
+                            <connections>
+                                <action selector="actionToggleLeftDrawer:" destination="v42-OH-GJd" id="YdP-fL-2tb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ccj-ZF-3M8">
                             <connections>
                                 <segue destination="cd7-Zc-b8a" kind="presentation" identifier="AddJobList" id="NnO-vn-QSk"/>
@@ -336,10 +341,28 @@
             </objects>
             <point key="canvasLocation" x="467" y="230"/>
         </scene>
+        <!--Left Drawer View Controller-->
+        <scene sceneID="uY0-h3-GFZ">
+            <objects>
+                <viewController storyboardIdentifier="LeftDrawerViewController" id="DJf-Mc-HG5" customClass="LeftDrawerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uqt-Lw-L74"/>
+                        <viewControllerLayoutGuide type="bottom" id="gUj-Ya-VVt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DRc-fo-kEI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fkq-Yy-ghR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-991" y="230"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uzp-yj-8c3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="neA-TX-uY2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FirstNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="neA-TX-uY2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" alpha="0.5" contentMode="scaleToFill" id="DkE-gg-HeE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -602,5 +625,8 @@
             <point key="canvasLocation" x="3085" y="592.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="20" height="18"/>
+    </resources>
     <color key="tintColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

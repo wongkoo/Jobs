@@ -7,332 +7,390 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1504C5C144EA5317AD0AA5CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357DF65B0A71099E4EB77E75 /* Foundation.framework */; };
-		18E16A345D99FBE58C60D6FD /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4F4441103BAF4C31F8F60 /* MCSwipeTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1F9FF7C38586A6F7BB8D9CF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357DF65B0A71099E4EB77E75 /* Foundation.framework */; };
-		31052F528B581A0D4410CBAE /* MCSwipeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 78749E6ABB3A497E07FED071 /* MCSwipeTableViewCell.h */; };
-		5EEA35930E7DE4D8654C1052 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357DF65B0A71099E4EB77E75 /* Foundation.framework */; };
-		6B774212A6214D39B94DBA6D /* Pods-Jobs-BFPaperCheckbox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCFBF861803604F6AFB165E /* Pods-Jobs-BFPaperCheckbox-dummy.m */; };
-		8424352C787545B6164332BC /* Pods-Jobs-UIColor+BFPaperColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F384A1990FD11DD811F3534 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */; };
-		AB919A7EE02B8613763345D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357DF65B0A71099E4EB77E75 /* Foundation.framework */; };
-		C54E1E537A3B46364A3EA706 /* UIColor+BFPaperColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FA086B467AA22E2FEE9D41 /* UIColor+BFPaperColors.m */; };
-		C56882ED465AC789123C38C4 /* UIColor+BFPaperColors.h in Headers */ = {isa = PBXBuildFile; fileRef = D5CA24A7605BF00546F1FB28 /* UIColor+BFPaperColors.h */; };
-		ECF225D0F6FB8540E10220FA /* BFPaperCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A9E426A04EE5E74A81A773 /* BFPaperCheckbox.h */; };
-		F0393CE76529025B5B044F56 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C582B7A7C9E12E7AAB1D5DE3 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */; };
-		F743DAE17600A9D8BB680CE0 /* Pods-Jobs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E3B58FFEFDD5F0112FF625 /* Pods-Jobs-dummy.m */; };
-		FBB655BB3CEA63836BBA9CB6 /* BFPaperCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447A1DD48CD890786E8B03A /* BFPaperCheckbox.m */; };
+		01B9EC24FBDB22FFFC90A7D1 /* JVFloatingDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B15A9F69C89C58384F4D13 /* JVFloatingDrawerView.m */; };
+		06799E10CAE76B5BF0277ED4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B55B759EA4C4356F77DDC63 /* Foundation.framework */; };
+		1538DB9DCBB553296A0CCDC7 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59913AD7393493CE9CEABC6C /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */; };
+		1FCC6F905C69FE480DD2E275 /* BFPaperCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DED4BB3B046947DD0880BAA /* BFPaperCheckbox.m */; };
+		2604F69E8D1696A147C815BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B55B759EA4C4356F77DDC63 /* Foundation.framework */; };
+		280E7BE1DF1912F1517F342B /* MCSwipeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 150162C0F385C6122C192039 /* MCSwipeTableViewCell.h */; };
+		295C1EE4CEA98F4A0AA83C54 /* Pods-Jobs-JVFloatingDrawer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC338CD93F4FB792712FE4B6 /* Pods-Jobs-JVFloatingDrawer-dummy.m */; };
+		46D707122A908766435427C7 /* JVFloatingDrawerSpringAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EBD5C89DA2B4382D690C643 /* JVFloatingDrawerSpringAnimator.h */; };
+		49D38D84B545930FE978E15A /* JVFloatingDrawerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB46E1088717CD5502977486 /* JVFloatingDrawerViewController.h */; };
+		4A0ECE06BEE05113A1C32863 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B55B759EA4C4356F77DDC63 /* Foundation.framework */; };
+		4BE10AC906B604FDAEF3C072 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E10D67B4E67FA68C07A86 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */; };
+		4D882C4F26FA4AFC9831CAE1 /* BFPaperCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BB87CD976DA761A51C06CFF /* BFPaperCheckbox.h */; };
+		5CAFF256B1CBE1B7D5094152 /* JVFloatingDrawerAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = AC3A90EE937AEEB823EF7413 /* JVFloatingDrawerAnimation.h */; };
+		7CB4FF54CA9A02E1DB4E65D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B55B759EA4C4356F77DDC63 /* Foundation.framework */; };
+		8714DF378CBC4043922A49FA /* Pods-Jobs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 50400900945FCE73F86E0D22 /* Pods-Jobs-dummy.m */; };
+		88252F359A7BFCF6F69F2587 /* JVFloatingDrawerView.h in Headers */ = {isa = PBXBuildFile; fileRef = F78AEECEB5A9B87B555DA49F /* JVFloatingDrawerView.h */; };
+		A7C1F8255C1E251FBEC89AE7 /* JVFloatingDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE9DE6E0862043916EF3B7E /* JVFloatingDrawerViewController.m */; };
+		ACAFAD19FE0A9FB37571456C /* UIColor+BFPaperColors.h in Headers */ = {isa = PBXBuildFile; fileRef = E77CAEC4A81404E81B05FE89 /* UIColor+BFPaperColors.h */; };
+		BCEB73F56B77338982FD6F89 /* UIColor+BFPaperColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 2315C53443E39325A0CAC23F /* UIColor+BFPaperColors.m */; };
+		C60258D4A1527F9816A92AFF /* Pods-Jobs-BFPaperCheckbox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D53A8771076A30419A1C8 /* Pods-Jobs-BFPaperCheckbox-dummy.m */; };
+		E8655CF31300B6D36EA42661 /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CA1239E82B64141BEF02CA /* MCSwipeTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F354F05D0ED9F74E6EDB9C5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B55B759EA4C4356F77DDC63 /* Foundation.framework */; };
+		F95EE6AFC1F7BDC8A111DF6C /* JVFloatingDrawerSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472D4C6A170DD4D95D29B06 /* JVFloatingDrawerSpringAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		01065D44FD8CE4520D55D355 /* PBXContainerItemProxy */ = {
+		0385F312EB3F521CB4EB4313 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E8F89C463B969DFC42A094F7 /* Project object */;
+			containerPortal = FF51BB49406946D07884EA63 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A158707827B28945C2017A90;
+			remoteGlobalIDString = 6A9DA0B6E320DD5F18D1AE61;
+			remoteInfo = "Pods-Jobs-MCSwipeTableViewCell";
+		};
+		65A075E5BDD2E2DFD14E746B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF51BB49406946D07884EA63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4A375F832F5CBFA96135325;
 			remoteInfo = "Pods-Jobs-BFPaperCheckbox";
 		};
-		3D348F45C719E1B0C8324B44 /* PBXContainerItemProxy */ = {
+		78BEFC22A076E6A2B58FBB34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E8F89C463B969DFC42A094F7 /* Project object */;
+			containerPortal = FF51BB49406946D07884EA63 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 62343A1B11EC6CB09A7938D9;
+			remoteGlobalIDString = A9B953BE9FD862685F3D095D;
 			remoteInfo = "Pods-Jobs-UIColor+BFPaperColors";
 		};
-		77F887BE07CCCAFE93568B87 /* PBXContainerItemProxy */ = {
+		78DD2B762458EFB71AD2B023 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E8F89C463B969DFC42A094F7 /* Project object */;
+			containerPortal = FF51BB49406946D07884EA63 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 62343A1B11EC6CB09A7938D9;
+			remoteGlobalIDString = A9B953BE9FD862685F3D095D;
 			remoteInfo = "Pods-Jobs-UIColor+BFPaperColors";
 		};
-		D45A8F92B3D0609D00EB64C3 /* PBXContainerItemProxy */ = {
+		78FFEC80324CECF35738919D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E8F89C463B969DFC42A094F7 /* Project object */;
+			containerPortal = FF51BB49406946D07884EA63 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C7F300D5F8D37E714DD20B90;
-			remoteInfo = "Pods-Jobs-MCSwipeTableViewCell";
+			remoteGlobalIDString = 00F269B0D26219033F0A238B;
+			remoteInfo = "Pods-Jobs-JVFloatingDrawer";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0447A1DD48CD890786E8B03A /* BFPaperCheckbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFPaperCheckbox.m; path = Classes/BFPaperCheckbox.m; sourceTree = "<group>"; };
-		057607D8DD9C58D6E4A1D5EE /* Pods-Jobs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jobs-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0FE69C0BE087E6B9C35DA425 /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2934F89424F7658F3615FE7A /* libPods-Jobs-MCSwipeTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-MCSwipeTableViewCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		32FA086B467AA22E2FEE9D41 /* UIColor+BFPaperColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+BFPaperColors.m"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.m"; sourceTree = "<group>"; };
-		357DF65B0A71099E4EB77E75 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4F75FE9EA566A38B6BBF6722 /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig"; sourceTree = "<group>"; };
-		54B03BE798EF468E229878C3 /* Pods-Jobs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jobs-resources.sh"; sourceTree = "<group>"; };
-		567EB544F867E8B69034487F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		578C76827A947DA2043BFB45 /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
-		5F384A1990FD11DD811F3534 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-UIColor+BFPaperColors-dummy.m"; sourceTree = "<group>"; };
-		6A32073B4020676FD0A2C294 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell.xcconfig"; sourceTree = "<group>"; };
-		6E0593241F7CB2C66EAED682 /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-MCSwipeTableViewCell-prefix.pch"; sourceTree = "<group>"; };
-		78749E6ABB3A497E07FED071 /* MCSwipeTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCSwipeTableViewCell.h; path = MCSwipeTableViewCell/MCSwipeTableViewCell.h; sourceTree = "<group>"; };
-		81CC69F81B5E46C7443E58F7 /* libPods-Jobs-BFPaperCheckbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-BFPaperCheckbox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		827BB9674E5B3F5F34C8BA11 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-BFPaperCheckbox-Private.xcconfig"; sourceTree = "<group>"; };
-		841B70BAE37DD4DD9D294245 /* libPods-Jobs-UIColor+BFPaperColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-UIColor+BFPaperColors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		87E3B58FFEFDD5F0112FF625 /* Pods-Jobs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-dummy.m"; sourceTree = "<group>"; };
-		8C758BE75E6CF074036C28EA /* Pods-Jobs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-environment.h"; sourceTree = "<group>"; };
-		8FCFBF861803604F6AFB165E /* Pods-Jobs-BFPaperCheckbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-BFPaperCheckbox-dummy.m"; sourceTree = "<group>"; };
-		96A6B25AA7981B5150B6A91D /* Pods-Jobs-BFPaperCheckbox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-BFPaperCheckbox.xcconfig"; sourceTree = "<group>"; };
-		ADC080FB063EA4622DEF785C /* Pods-Jobs-UIColor+BFPaperColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-UIColor+BFPaperColors.xcconfig"; sourceTree = "<group>"; };
-		B1449345730A06BC37D12603 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
-		B9A9E426A04EE5E74A81A773 /* BFPaperCheckbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFPaperCheckbox.h; path = Classes/BFPaperCheckbox.h; sourceTree = "<group>"; };
-		BB244CE54A3176998C6E3493 /* Pods-Jobs-BFPaperCheckbox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-BFPaperCheckbox-prefix.pch"; sourceTree = "<group>"; };
-		C47A78A76C998ABC057A85AC /* Pods-Jobs-UIColor+BFPaperColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-UIColor+BFPaperColors-prefix.pch"; sourceTree = "<group>"; };
-		C582B7A7C9E12E7AAB1D5DE3 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-MCSwipeTableViewCell-dummy.m"; sourceTree = "<group>"; };
-		CC11069F601293AF9F8E6946 /* Pods-Jobs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jobs-acknowledgements.plist"; sourceTree = "<group>"; };
-		CDF4F4441103BAF4C31F8F60 /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCSwipeTableViewCell.m; path = MCSwipeTableViewCell/MCSwipeTableViewCell.m; sourceTree = "<group>"; };
-		CFC1A57FCBB3152B297B64D7 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
-		D5CA24A7605BF00546F1FB28 /* UIColor+BFPaperColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+BFPaperColors.h"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.h"; sourceTree = "<group>"; };
+		0472D4C6A170DD4D95D29B06 /* JVFloatingDrawerSpringAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JVFloatingDrawerSpringAnimator.m; path = Pod/Classes/JVFloatingDrawerSpringAnimator.m; sourceTree = "<group>"; };
+		0D49A289B9A3EEB7188D6485 /* Pods-Jobs-BFPaperCheckbox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-BFPaperCheckbox-prefix.pch"; sourceTree = "<group>"; };
+		0E89B7E36057FB649F1478EE /* Pods-Jobs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jobs-resources.sh"; sourceTree = "<group>"; };
+		150162C0F385C6122C192039 /* MCSwipeTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCSwipeTableViewCell.h; path = MCSwipeTableViewCell/MCSwipeTableViewCell.h; sourceTree = "<group>"; };
+		191CA96694474556E760AA19 /* Pods-Jobs-JVFloatingDrawer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-JVFloatingDrawer.xcconfig"; sourceTree = "<group>"; };
+		204ED3DE39D7C19E95AC59D6 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
+		2315C53443E39325A0CAC23F /* UIColor+BFPaperColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+BFPaperColors.m"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.m"; sourceTree = "<group>"; };
+		25805260BD9D332E4060DE0C /* libPods-Jobs-UIColor+BFPaperColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-UIColor+BFPaperColors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3E7DE50FF1CD30A5582DEE /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig"; sourceTree = "<group>"; };
+		2BB87CD976DA761A51C06CFF /* BFPaperCheckbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFPaperCheckbox.h; path = Classes/BFPaperCheckbox.h; sourceTree = "<group>"; };
+		2FBCC3B8F12893AC63CA6EE3 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3A219CACB05A1189686FA464 /* libPods-Jobs-JVFloatingDrawer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-JVFloatingDrawer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B5541E7943BB3A939A5BCC0 /* Pods-Jobs-BFPaperCheckbox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-BFPaperCheckbox.xcconfig"; sourceTree = "<group>"; };
+		3B55B759EA4C4356F77DDC63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4022A2BAA70E99BE385E9A07 /* Pods-Jobs-JVFloatingDrawer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-JVFloatingDrawer-prefix.pch"; sourceTree = "<group>"; };
+		42EE2CF03E594D2A6A493AE4 /* Pods-Jobs-JVFloatingDrawer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-JVFloatingDrawer-Private.xcconfig"; sourceTree = "<group>"; };
+		444345CD27FD49AFA2756802 /* libPods-Jobs-BFPaperCheckbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-BFPaperCheckbox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50400900945FCE73F86E0D22 /* Pods-Jobs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-dummy.m"; sourceTree = "<group>"; };
+		5150DE9E544E2D20B4B11F4F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
+		59913AD7393493CE9CEABC6C /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-UIColor+BFPaperColors-dummy.m"; sourceTree = "<group>"; };
+		5A8E10D67B4E67FA68C07A86 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-MCSwipeTableViewCell-dummy.m"; sourceTree = "<group>"; };
+		5EBD5C89DA2B4382D690C643 /* JVFloatingDrawerSpringAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JVFloatingDrawerSpringAnimator.h; path = Pod/Classes/JVFloatingDrawerSpringAnimator.h; sourceTree = "<group>"; };
+		60EF093C811E5F4E5A9002E8 /* libPods-Jobs-MCSwipeTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-MCSwipeTableViewCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		691C6911D77BBAA9EF0A01A8 /* Pods-Jobs-UIColor+BFPaperColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-UIColor+BFPaperColors.xcconfig"; sourceTree = "<group>"; };
+		7DED4BB3B046947DD0880BAA /* BFPaperCheckbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFPaperCheckbox.m; path = Classes/BFPaperCheckbox.m; sourceTree = "<group>"; };
+		93CA1239E82B64141BEF02CA /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCSwipeTableViewCell.m; path = MCSwipeTableViewCell/MCSwipeTableViewCell.m; sourceTree = "<group>"; };
+		96CD736ACBDFF7F62F19D926 /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B15A9F69C89C58384F4D13 /* JVFloatingDrawerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JVFloatingDrawerView.m; path = Pod/Classes/JVFloatingDrawerView.m; sourceTree = "<group>"; };
+		A67E9A81A579DAF83473FC33 /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-MCSwipeTableViewCell-prefix.pch"; sourceTree = "<group>"; };
+		A98D53A8771076A30419A1C8 /* Pods-Jobs-BFPaperCheckbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-BFPaperCheckbox-dummy.m"; sourceTree = "<group>"; };
+		AC3A90EE937AEEB823EF7413 /* JVFloatingDrawerAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JVFloatingDrawerAnimation.h; path = Pod/Classes/JVFloatingDrawerAnimation.h; sourceTree = "<group>"; };
+		BB0B30F4CA1623E897844910 /* Pods-Jobs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jobs-acknowledgements.plist"; sourceTree = "<group>"; };
+		BB744FBF405F71E56C91C552 /* Pods-Jobs-UIColor+BFPaperColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-UIColor+BFPaperColors-prefix.pch"; sourceTree = "<group>"; };
+		CB46E1088717CD5502977486 /* JVFloatingDrawerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JVFloatingDrawerViewController.h; path = Pod/Classes/JVFloatingDrawerViewController.h; sourceTree = "<group>"; };
+		CC338CD93F4FB792712FE4B6 /* Pods-Jobs-JVFloatingDrawer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-JVFloatingDrawer-dummy.m"; sourceTree = "<group>"; };
+		CE93151730BCEE0DFB349C3D /* Pods-Jobs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jobs-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DCCC97F8D470A51D70A59F60 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell.xcconfig"; sourceTree = "<group>"; };
+		E3474AE0EF69150816142C37 /* Pods-Jobs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-environment.h"; sourceTree = "<group>"; };
+		E77CAEC4A81404E81B05FE89 /* UIColor+BFPaperColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+BFPaperColors.h"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.h"; sourceTree = "<group>"; };
+		EA2FB26BED2AA750BA25DAE2 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
+		EEE9DE6E0862043916EF3B7E /* JVFloatingDrawerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JVFloatingDrawerViewController.m; path = Pod/Classes/JVFloatingDrawerViewController.m; sourceTree = "<group>"; };
+		F655A24165955A60209038B1 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-BFPaperCheckbox-Private.xcconfig"; sourceTree = "<group>"; };
+		F78AEECEB5A9B87B555DA49F /* JVFloatingDrawerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JVFloatingDrawerView.h; path = Pod/Classes/JVFloatingDrawerView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		33CA7FC093BD5DFB85B4D251 /* Frameworks */ = {
+		3101B1300E8CA3B9E39C1326 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB919A7EE02B8613763345D7 /* Foundation.framework in Frameworks */,
+				4A0ECE06BEE05113A1C32863 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		472A3E29663848D9A629FC70 /* Frameworks */ = {
+		559EB6145CF8969C329879C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EEA35930E7DE4D8654C1052 /* Foundation.framework in Frameworks */,
+				2604F69E8D1696A147C815BE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66347BBFF25E44AF2F9E08F5 /* Frameworks */ = {
+		87CF0EB09D514B119D973A9D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9FF7C38586A6F7BB8D9CF6 /* Foundation.framework in Frameworks */,
+				7CB4FF54CA9A02E1DB4E65D8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D86444C87F7B3A8E6557CF78 /* Frameworks */ = {
+		A711BE826DA0C549243FE6E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1504C5C144EA5317AD0AA5CC /* Foundation.framework in Frameworks */,
+				06799E10CAE76B5BF0277ED4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8BC4287A4D7750FB05E98CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F354F05D0ED9F74E6EDB9C5D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0170A3E4823E93A35B767177 /* iOS */ = {
+		048853D9D5622C87DFBFC84A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				357DF65B0A71099E4EB77E75 /* Foundation.framework */,
+				BC27ADE1AE92598BF3BE6FFA /* Pods-Jobs */,
 			);
-			name = iOS;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		050AA76A96F9617D7DB2A159 /* Pods-Jobs */ = {
+		1E0B20683B5D296185C6B28C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				057607D8DD9C58D6E4A1D5EE /* Pods-Jobs-acknowledgements.markdown */,
-				CC11069F601293AF9F8E6946 /* Pods-Jobs-acknowledgements.plist */,
-				87E3B58FFEFDD5F0112FF625 /* Pods-Jobs-dummy.m */,
-				8C758BE75E6CF074036C28EA /* Pods-Jobs-environment.h */,
-				54B03BE798EF468E229878C3 /* Pods-Jobs-resources.sh */,
-				CFC1A57FCBB3152B297B64D7 /* Pods-Jobs.debug.xcconfig */,
-				B1449345730A06BC37D12603 /* Pods-Jobs.release.xcconfig */,
-			);
-			name = "Pods-Jobs";
-			path = "Target Support Files/Pods-Jobs";
-			sourceTree = "<group>";
-		};
-		0EB6CE53BFD2747FC109C2F7 /* UIColor+BFPaperColors */ = {
-			isa = PBXGroup;
-			children = (
-				D5CA24A7605BF00546F1FB28 /* UIColor+BFPaperColors.h */,
-				32FA086B467AA22E2FEE9D41 /* UIColor+BFPaperColors.m */,
-				97416EC9A26DAE59B017D9E8 /* Support Files */,
-			);
-			path = "UIColor+BFPaperColors";
-			sourceTree = "<group>";
-		};
-		12A145728DE07A633649D045 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0170A3E4823E93A35B767177 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4856695A2EF2C6E7CD5E855F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0FE69C0BE087E6B9C35DA425 /* libPods-Jobs.a */,
-				81CC69F81B5E46C7443E58F7 /* libPods-Jobs-BFPaperCheckbox.a */,
-				2934F89424F7658F3615FE7A /* libPods-Jobs-MCSwipeTableViewCell.a */,
-				841B70BAE37DD4DD9D294245 /* libPods-Jobs-UIColor+BFPaperColors.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		522BF9BFA2390EE725C09BD5 = {
-			isa = PBXGroup;
-			children = (
-				567EB544F867E8B69034487F /* Podfile */,
-				12A145728DE07A633649D045 /* Frameworks */,
-				725CFB92A6CEC7F5EC815428 /* Pods */,
-				4856695A2EF2C6E7CD5E855F /* Products */,
-				BC746A2B4421FC7863E8F03D /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		5BF8E6B274BF1B0CF42EC5F6 /* BFPaperCheckbox */ = {
-			isa = PBXGroup;
-			children = (
-				B9A9E426A04EE5E74A81A773 /* BFPaperCheckbox.h */,
-				0447A1DD48CD890786E8B03A /* BFPaperCheckbox.m */,
-				6472BE5F97FB54DC043419DF /* Support Files */,
-			);
-			path = BFPaperCheckbox;
-			sourceTree = "<group>";
-		};
-		6472BE5F97FB54DC043419DF /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				96A6B25AA7981B5150B6A91D /* Pods-Jobs-BFPaperCheckbox.xcconfig */,
-				827BB9674E5B3F5F34C8BA11 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */,
-				8FCFBF861803604F6AFB165E /* Pods-Jobs-BFPaperCheckbox-dummy.m */,
-				BB244CE54A3176998C6E3493 /* Pods-Jobs-BFPaperCheckbox-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Jobs-BFPaperCheckbox";
-			sourceTree = "<group>";
-		};
-		725CFB92A6CEC7F5EC815428 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5BF8E6B274BF1B0CF42EC5F6 /* BFPaperCheckbox */,
-				7E708F71C6C96AEBE65DE00B /* MCSwipeTableViewCell */,
-				0EB6CE53BFD2747FC109C2F7 /* UIColor+BFPaperColors */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7E708F71C6C96AEBE65DE00B /* MCSwipeTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				78749E6ABB3A497E07FED071 /* MCSwipeTableViewCell.h */,
-				CDF4F4441103BAF4C31F8F60 /* MCSwipeTableViewCell.m */,
-				857BF459E615C06649F0730B /* Support Files */,
-			);
-			path = MCSwipeTableViewCell;
-			sourceTree = "<group>";
-		};
-		857BF459E615C06649F0730B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6A32073B4020676FD0A2C294 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */,
-				578C76827A947DA2043BFB45 /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */,
-				C582B7A7C9E12E7AAB1D5DE3 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */,
-				6E0593241F7CB2C66EAED682 /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */,
+				DCCC97F8D470A51D70A59F60 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */,
+				5150DE9E544E2D20B4B11F4F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */,
+				5A8E10D67B4E67FA68C07A86 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */,
+				A67E9A81A579DAF83473FC33 /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Jobs-MCSwipeTableViewCell";
 			sourceTree = "<group>";
 		};
-		97416EC9A26DAE59B017D9E8 /* Support Files */ = {
+		402520C60B0EAE2707368DBF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ADC080FB063EA4622DEF785C /* Pods-Jobs-UIColor+BFPaperColors.xcconfig */,
-				4F75FE9EA566A38B6BBF6722 /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */,
-				5F384A1990FD11DD811F3534 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */,
-				C47A78A76C998ABC057A85AC /* Pods-Jobs-UIColor+BFPaperColors-prefix.pch */,
+				4E131C9190EC7373B31C13A5 /* BFPaperCheckbox */,
+				7B0654A3EDD2F0D5C5FABE6A /* JVFloatingDrawer */,
+				4DAF3402B18607A7D58F1FCB /* MCSwipeTableViewCell */,
+				46FA58C03D4CAB7B93AE2095 /* UIColor+BFPaperColors */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		46FA58C03D4CAB7B93AE2095 /* UIColor+BFPaperColors */ = {
+			isa = PBXGroup;
+			children = (
+				E77CAEC4A81404E81B05FE89 /* UIColor+BFPaperColors.h */,
+				2315C53443E39325A0CAC23F /* UIColor+BFPaperColors.m */,
+				475CB1A277E279E38E9AA03E /* Support Files */,
+			);
+			path = "UIColor+BFPaperColors";
+			sourceTree = "<group>";
+		};
+		475CB1A277E279E38E9AA03E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				691C6911D77BBAA9EF0A01A8 /* Pods-Jobs-UIColor+BFPaperColors.xcconfig */,
+				2A3E7DE50FF1CD30A5582DEE /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */,
+				59913AD7393493CE9CEABC6C /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */,
+				BB744FBF405F71E56C91C552 /* Pods-Jobs-UIColor+BFPaperColors-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Jobs-UIColor+BFPaperColors";
 			sourceTree = "<group>";
 		};
-		BC746A2B4421FC7863E8F03D /* Targets Support Files */ = {
+		4DAF3402B18607A7D58F1FCB /* MCSwipeTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				050AA76A96F9617D7DB2A159 /* Pods-Jobs */,
+				150162C0F385C6122C192039 /* MCSwipeTableViewCell.h */,
+				93CA1239E82B64141BEF02CA /* MCSwipeTableViewCell.m */,
+				1E0B20683B5D296185C6B28C /* Support Files */,
 			);
-			name = "Targets Support Files";
+			path = MCSwipeTableViewCell;
+			sourceTree = "<group>";
+		};
+		4E131C9190EC7373B31C13A5 /* BFPaperCheckbox */ = {
+			isa = PBXGroup;
+			children = (
+				2BB87CD976DA761A51C06CFF /* BFPaperCheckbox.h */,
+				7DED4BB3B046947DD0880BAA /* BFPaperCheckbox.m */,
+				D894FC644CED723427C17E7A /* Support Files */,
+			);
+			path = BFPaperCheckbox;
+			sourceTree = "<group>";
+		};
+		7B0654A3EDD2F0D5C5FABE6A /* JVFloatingDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				AC3A90EE937AEEB823EF7413 /* JVFloatingDrawerAnimation.h */,
+				5EBD5C89DA2B4382D690C643 /* JVFloatingDrawerSpringAnimator.h */,
+				0472D4C6A170DD4D95D29B06 /* JVFloatingDrawerSpringAnimator.m */,
+				F78AEECEB5A9B87B555DA49F /* JVFloatingDrawerView.h */,
+				A1B15A9F69C89C58384F4D13 /* JVFloatingDrawerView.m */,
+				CB46E1088717CD5502977486 /* JVFloatingDrawerViewController.h */,
+				EEE9DE6E0862043916EF3B7E /* JVFloatingDrawerViewController.m */,
+				9DA2336904D6C47B5D8AD67B /* Support Files */,
+			);
+			path = JVFloatingDrawer;
+			sourceTree = "<group>";
+		};
+		992496E16447A12AFA0828AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96CD736ACBDFF7F62F19D926 /* libPods-Jobs.a */,
+				444345CD27FD49AFA2756802 /* libPods-Jobs-BFPaperCheckbox.a */,
+				3A219CACB05A1189686FA464 /* libPods-Jobs-JVFloatingDrawer.a */,
+				60EF093C811E5F4E5A9002E8 /* libPods-Jobs-MCSwipeTableViewCell.a */,
+				25805260BD9D332E4060DE0C /* libPods-Jobs-UIColor+BFPaperColors.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DA2336904D6C47B5D8AD67B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				191CA96694474556E760AA19 /* Pods-Jobs-JVFloatingDrawer.xcconfig */,
+				42EE2CF03E594D2A6A493AE4 /* Pods-Jobs-JVFloatingDrawer-Private.xcconfig */,
+				CC338CD93F4FB792712FE4B6 /* Pods-Jobs-JVFloatingDrawer-dummy.m */,
+				4022A2BAA70E99BE385E9A07 /* Pods-Jobs-JVFloatingDrawer-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Jobs-JVFloatingDrawer";
+			sourceTree = "<group>";
+		};
+		BC27ADE1AE92598BF3BE6FFA /* Pods-Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				CE93151730BCEE0DFB349C3D /* Pods-Jobs-acknowledgements.markdown */,
+				BB0B30F4CA1623E897844910 /* Pods-Jobs-acknowledgements.plist */,
+				50400900945FCE73F86E0D22 /* Pods-Jobs-dummy.m */,
+				E3474AE0EF69150816142C37 /* Pods-Jobs-environment.h */,
+				0E89B7E36057FB649F1478EE /* Pods-Jobs-resources.sh */,
+				204ED3DE39D7C19E95AC59D6 /* Pods-Jobs.debug.xcconfig */,
+				EA2FB26BED2AA750BA25DAE2 /* Pods-Jobs.release.xcconfig */,
+			);
+			name = "Pods-Jobs";
+			path = "Target Support Files/Pods-Jobs";
+			sourceTree = "<group>";
+		};
+		C0E44E0FA53210CE421718A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9BD7E8E9262C53205B675F7 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9BD7E8E9262C53205B675F7 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3B55B759EA4C4356F77DDC63 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D894FC644CED723427C17E7A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B5541E7943BB3A939A5BCC0 /* Pods-Jobs-BFPaperCheckbox.xcconfig */,
+				F655A24165955A60209038B1 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */,
+				A98D53A8771076A30419A1C8 /* Pods-Jobs-BFPaperCheckbox-dummy.m */,
+				0D49A289B9A3EEB7188D6485 /* Pods-Jobs-BFPaperCheckbox-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Jobs-BFPaperCheckbox";
+			sourceTree = "<group>";
+		};
+		E3FF0179675F78A5AE1581D7 = {
+			isa = PBXGroup;
+			children = (
+				2FBCC3B8F12893AC63CA6EE3 /* Podfile */,
+				C0E44E0FA53210CE421718A4 /* Frameworks */,
+				402520C60B0EAE2707368DBF /* Pods */,
+				992496E16447A12AFA0828AE /* Products */,
+				048853D9D5622C87DFBFC84A /* Targets Support Files */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		9CB54C9734C5152F6C5E5F95 /* Headers */ = {
+		4BFE22373D88A0B7F0C759C7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECF225D0F6FB8540E10220FA /* BFPaperCheckbox.h in Headers */,
+				ACAFAD19FE0A9FB37571456C /* UIColor+BFPaperColors.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A37D71BCA29DB423BD4F2839 /* Headers */ = {
+		965D613EB7AA861E85859CE8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31052F528B581A0D4410CBAE /* MCSwipeTableViewCell.h in Headers */,
+				4D882C4F26FA4AFC9831CAE1 /* BFPaperCheckbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F10C8EDFBA73DA3F9A2B63EB /* Headers */ = {
+		AF5834685109EAEBDAC472EC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C56882ED465AC789123C38C4 /* UIColor+BFPaperColors.h in Headers */,
+				280E7BE1DF1912F1517F342B /* MCSwipeTableViewCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C064C3E452965106332069CC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CAFF256B1CBE1B7D5094152 /* JVFloatingDrawerAnimation.h in Headers */,
+				46D707122A908766435427C7 /* JVFloatingDrawerSpringAnimator.h in Headers */,
+				88252F359A7BFCF6F69F2587 /* JVFloatingDrawerView.h in Headers */,
+				49D38D84B545930FE978E15A /* JVFloatingDrawerViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		62343A1B11EC6CB09A7938D9 /* Pods-Jobs-UIColor+BFPaperColors */ = {
+		00F269B0D26219033F0A238B /* Pods-Jobs-JVFloatingDrawer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E323EAF862B729496EC0249 /* Build configuration list for PBXNativeTarget "Pods-Jobs-UIColor+BFPaperColors" */;
+			buildConfigurationList = 5A5AED335895F4CD9EDDBFFB /* Build configuration list for PBXNativeTarget "Pods-Jobs-JVFloatingDrawer" */;
 			buildPhases = (
-				6ABFDE6C7004EE93333DA31C /* Sources */,
-				33CA7FC093BD5DFB85B4D251 /* Frameworks */,
-				F10C8EDFBA73DA3F9A2B63EB /* Headers */,
+				31AA3552435B6D2715A6D266 /* Sources */,
+				A711BE826DA0C549243FE6E2 /* Frameworks */,
+				C064C3E452965106332069CC /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-Jobs-UIColor+BFPaperColors";
-			productName = "Pods-Jobs-UIColor+BFPaperColors";
-			productReference = 841B70BAE37DD4DD9D294245 /* libPods-Jobs-UIColor+BFPaperColors.a */;
+			name = "Pods-Jobs-JVFloatingDrawer";
+			productName = "Pods-Jobs-JVFloatingDrawer";
+			productReference = 3A219CACB05A1189686FA464 /* libPods-Jobs-JVFloatingDrawer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A158707827B28945C2017A90 /* Pods-Jobs-BFPaperCheckbox */ = {
+		6A9DA0B6E320DD5F18D1AE61 /* Pods-Jobs-MCSwipeTableViewCell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80DF280D118B3213DA3824DD /* Build configuration list for PBXNativeTarget "Pods-Jobs-BFPaperCheckbox" */;
+			buildConfigurationList = 8F9058DDE1C2BA1C3CE72AF4 /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */;
 			buildPhases = (
-				0670CA5D2A85224E3DE14DCE /* Sources */,
-				472A3E29663848D9A629FC70 /* Frameworks */,
-				9CB54C9734C5152F6C5E5F95 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7591790244A93DF6E4F0D6E1 /* PBXTargetDependency */,
-			);
-			name = "Pods-Jobs-BFPaperCheckbox";
-			productName = "Pods-Jobs-BFPaperCheckbox";
-			productReference = 81CC69F81B5E46C7443E58F7 /* libPods-Jobs-BFPaperCheckbox.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C7F300D5F8D37E714DD20B90 /* Pods-Jobs-MCSwipeTableViewCell */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0ADDB8EB6183809DD4A87C65 /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */;
-			buildPhases = (
-				3C9717B4EED1D8A57C24DB49 /* Sources */,
-				D86444C87F7B3A8E6557CF78 /* Frameworks */,
-				A37D71BCA29DB423BD4F2839 /* Headers */,
+				B20B8ACF66461E382F7C7961 /* Sources */,
+				559EB6145CF8969C329879C5 /* Frameworks */,
+				AF5834685109EAEBDAC472EC /* Headers */,
 			);
 			buildRules = (
 			);
@@ -340,125 +398,307 @@
 			);
 			name = "Pods-Jobs-MCSwipeTableViewCell";
 			productName = "Pods-Jobs-MCSwipeTableViewCell";
-			productReference = 2934F89424F7658F3615FE7A /* libPods-Jobs-MCSwipeTableViewCell.a */;
+			productReference = 60EF093C811E5F4E5A9002E8 /* libPods-Jobs-MCSwipeTableViewCell.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D112B9D32375C7E6DEBE44F4 /* Pods-Jobs */ = {
+		87DA38F9CE3F7D6DB6D9E20A /* Pods-Jobs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C78C73B824687D2DDEC2BEF6 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */;
+			buildConfigurationList = 334663B7ACCBACA1B7F94DC8 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */;
 			buildPhases = (
-				365789FDDFEEA9C5C9F44EC6 /* Sources */,
-				66347BBFF25E44AF2F9E08F5 /* Frameworks */,
+				16DEF9B7DCF20E2E9C9C9E01 /* Sources */,
+				87CF0EB09D514B119D973A9D /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BD9A584ACC9055D90F7F3BAB /* PBXTargetDependency */,
-				2450956974E045E906FB4F6E /* PBXTargetDependency */,
-				29A8B8D0C2A6848716252768 /* PBXTargetDependency */,
+				DBE914B529A3CCE715AB804A /* PBXTargetDependency */,
+				1C673378946D878F6580A17F /* PBXTargetDependency */,
+				5605B8A2904FDCF46CEC9274 /* PBXTargetDependency */,
+				0F3D8BAFEC7A1A8F164D8CDC /* PBXTargetDependency */,
 			);
 			name = "Pods-Jobs";
 			productName = "Pods-Jobs";
-			productReference = 0FE69C0BE087E6B9C35DA425 /* libPods-Jobs.a */;
+			productReference = 96CD736ACBDFF7F62F19D926 /* libPods-Jobs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A9B953BE9FD862685F3D095D /* Pods-Jobs-UIColor+BFPaperColors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E58F763E7E59ADB4AA8CEB4B /* Build configuration list for PBXNativeTarget "Pods-Jobs-UIColor+BFPaperColors" */;
+			buildPhases = (
+				BEB0ED1BB74C7E15E09DEBB5 /* Sources */,
+				D8BC4287A4D7750FB05E98CE /* Frameworks */,
+				4BFE22373D88A0B7F0C759C7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Jobs-UIColor+BFPaperColors";
+			productName = "Pods-Jobs-UIColor+BFPaperColors";
+			productReference = 25805260BD9D332E4060DE0C /* libPods-Jobs-UIColor+BFPaperColors.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B4A375F832F5CBFA96135325 /* Pods-Jobs-BFPaperCheckbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E26F2C354A723FB1B8C24828 /* Build configuration list for PBXNativeTarget "Pods-Jobs-BFPaperCheckbox" */;
+			buildPhases = (
+				76A5D145DC93B4E370ECA079 /* Sources */,
+				3101B1300E8CA3B9E39C1326 /* Frameworks */,
+				965D613EB7AA861E85859CE8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71FAAAF90FE9A560B3475215 /* PBXTargetDependency */,
+			);
+			name = "Pods-Jobs-BFPaperCheckbox";
+			productName = "Pods-Jobs-BFPaperCheckbox";
+			productReference = 444345CD27FD49AFA2756802 /* libPods-Jobs-BFPaperCheckbox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E8F89C463B969DFC42A094F7 /* Project object */ = {
+		FF51BB49406946D07884EA63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 23485A8A50889A79C40B193B /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 16DC8C8C945E3E51B919345C /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 522BF9BFA2390EE725C09BD5;
-			productRefGroup = 4856695A2EF2C6E7CD5E855F /* Products */;
+			mainGroup = E3FF0179675F78A5AE1581D7;
+			productRefGroup = 992496E16447A12AFA0828AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D112B9D32375C7E6DEBE44F4 /* Pods-Jobs */,
-				A158707827B28945C2017A90 /* Pods-Jobs-BFPaperCheckbox */,
-				C7F300D5F8D37E714DD20B90 /* Pods-Jobs-MCSwipeTableViewCell */,
-				62343A1B11EC6CB09A7938D9 /* Pods-Jobs-UIColor+BFPaperColors */,
+				87DA38F9CE3F7D6DB6D9E20A /* Pods-Jobs */,
+				B4A375F832F5CBFA96135325 /* Pods-Jobs-BFPaperCheckbox */,
+				00F269B0D26219033F0A238B /* Pods-Jobs-JVFloatingDrawer */,
+				6A9DA0B6E320DD5F18D1AE61 /* Pods-Jobs-MCSwipeTableViewCell */,
+				A9B953BE9FD862685F3D095D /* Pods-Jobs-UIColor+BFPaperColors */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0670CA5D2A85224E3DE14DCE /* Sources */ = {
+		16DEF9B7DCF20E2E9C9C9E01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBB655BB3CEA63836BBA9CB6 /* BFPaperCheckbox.m in Sources */,
-				6B774212A6214D39B94DBA6D /* Pods-Jobs-BFPaperCheckbox-dummy.m in Sources */,
+				8714DF378CBC4043922A49FA /* Pods-Jobs-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		365789FDDFEEA9C5C9F44EC6 /* Sources */ = {
+		31AA3552435B6D2715A6D266 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F743DAE17600A9D8BB680CE0 /* Pods-Jobs-dummy.m in Sources */,
+				F95EE6AFC1F7BDC8A111DF6C /* JVFloatingDrawerSpringAnimator.m in Sources */,
+				01B9EC24FBDB22FFFC90A7D1 /* JVFloatingDrawerView.m in Sources */,
+				A7C1F8255C1E251FBEC89AE7 /* JVFloatingDrawerViewController.m in Sources */,
+				295C1EE4CEA98F4A0AA83C54 /* Pods-Jobs-JVFloatingDrawer-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3C9717B4EED1D8A57C24DB49 /* Sources */ = {
+		76A5D145DC93B4E370ECA079 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E16A345D99FBE58C60D6FD /* MCSwipeTableViewCell.m in Sources */,
-				F0393CE76529025B5B044F56 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */,
+				1FCC6F905C69FE480DD2E275 /* BFPaperCheckbox.m in Sources */,
+				C60258D4A1527F9816A92AFF /* Pods-Jobs-BFPaperCheckbox-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6ABFDE6C7004EE93333DA31C /* Sources */ = {
+		B20B8ACF66461E382F7C7961 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8424352C787545B6164332BC /* Pods-Jobs-UIColor+BFPaperColors-dummy.m in Sources */,
-				C54E1E537A3B46364A3EA706 /* UIColor+BFPaperColors.m in Sources */,
+				E8655CF31300B6D36EA42661 /* MCSwipeTableViewCell.m in Sources */,
+				4BE10AC906B604FDAEF3C072 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEB0ED1BB74C7E15E09DEBB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1538DB9DCBB553296A0CCDC7 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m in Sources */,
+				BCEB73F56B77338982FD6F89 /* UIColor+BFPaperColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2450956974E045E906FB4F6E /* PBXTargetDependency */ = {
+		0F3D8BAFEC7A1A8F164D8CDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Jobs-UIColor+BFPaperColors";
+			target = A9B953BE9FD862685F3D095D /* Pods-Jobs-UIColor+BFPaperColors */;
+			targetProxy = 78DD2B762458EFB71AD2B023 /* PBXContainerItemProxy */;
+		};
+		1C673378946D878F6580A17F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Jobs-JVFloatingDrawer";
+			target = 00F269B0D26219033F0A238B /* Pods-Jobs-JVFloatingDrawer */;
+			targetProxy = 78FFEC80324CECF35738919D /* PBXContainerItemProxy */;
+		};
+		5605B8A2904FDCF46CEC9274 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Jobs-MCSwipeTableViewCell";
-			target = C7F300D5F8D37E714DD20B90 /* Pods-Jobs-MCSwipeTableViewCell */;
-			targetProxy = D45A8F92B3D0609D00EB64C3 /* PBXContainerItemProxy */;
+			target = 6A9DA0B6E320DD5F18D1AE61 /* Pods-Jobs-MCSwipeTableViewCell */;
+			targetProxy = 0385F312EB3F521CB4EB4313 /* PBXContainerItemProxy */;
 		};
-		29A8B8D0C2A6848716252768 /* PBXTargetDependency */ = {
+		71FAAAF90FE9A560B3475215 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Jobs-UIColor+BFPaperColors";
-			target = 62343A1B11EC6CB09A7938D9 /* Pods-Jobs-UIColor+BFPaperColors */;
-			targetProxy = 3D348F45C719E1B0C8324B44 /* PBXContainerItemProxy */;
+			target = A9B953BE9FD862685F3D095D /* Pods-Jobs-UIColor+BFPaperColors */;
+			targetProxy = 78BEFC22A076E6A2B58FBB34 /* PBXContainerItemProxy */;
 		};
-		7591790244A93DF6E4F0D6E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Jobs-UIColor+BFPaperColors";
-			target = 62343A1B11EC6CB09A7938D9 /* Pods-Jobs-UIColor+BFPaperColors */;
-			targetProxy = 77F887BE07CCCAFE93568B87 /* PBXContainerItemProxy */;
-		};
-		BD9A584ACC9055D90F7F3BAB /* PBXTargetDependency */ = {
+		DBE914B529A3CCE715AB804A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Jobs-BFPaperCheckbox";
-			target = A158707827B28945C2017A90 /* Pods-Jobs-BFPaperCheckbox */;
-			targetProxy = 01065D44FD8CE4520D55D355 /* PBXContainerItemProxy */;
+			target = B4A375F832F5CBFA96135325 /* Pods-Jobs-BFPaperCheckbox */;
+			targetProxy = 65A075E5BDD2E2DFD14E746B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0303EEF2808C40C6DCF0A94F /* Release */ = {
+		055CAFECA68C1003110233DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 578C76827A947DA2043BFB45 /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
+			baseConfigurationReference = 42EE2CF03E594D2A6A493AE4 /* Pods-Jobs-JVFloatingDrawer-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-JVFloatingDrawer/Pods-Jobs-JVFloatingDrawer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		075B27A3A15EA0B49AFDE38E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F655A24165955A60209038B1 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-BFPaperCheckbox/Pods-Jobs-BFPaperCheckbox-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4A8AA94C953D9AE8B425925B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 204ED3DE39D7C19E95AC59D6 /* Pods-Jobs.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5D4414C8814522F839800D0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42EE2CF03E594D2A6A493AE4 /* Pods-Jobs-JVFloatingDrawer-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-JVFloatingDrawer/Pods-Jobs-JVFloatingDrawer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		616EF23F546A9C31AA19A8E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A3E7DE50FF1CD30A5582DEE /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-UIColor+BFPaperColors/Pods-Jobs-UIColor+BFPaperColors-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7A2811DC1E9D220D638CF0EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5150DE9E544E2D20B4B11F4F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-MCSwipeTableViewCell/Pods-Jobs-MCSwipeTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AECAEA365826C5E7D5F25DE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A3E7DE50FF1CD30A5582DEE /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-UIColor+BFPaperColors/Pods-Jobs-UIColor+BFPaperColors-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B1CAAB7E8762E12AA5044D8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F655A24165955A60209038B1 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-BFPaperCheckbox/Pods-Jobs-BFPaperCheckbox-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B4AF1A7FBF937ACFBC723091 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5150DE9E544E2D20B4B11F4F /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-MCSwipeTableViewCell/Pods-Jobs-MCSwipeTableViewCell-prefix.pch";
@@ -472,7 +712,57 @@
 			};
 			name = Release;
 		};
-		0BF98EE846223C06C8F0BEBA /* Debug */ = {
+		CAE1AFF04F21920DA5BB8C0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA628FEB142ECEAEC374EEAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA2FB26BED2AA750BA25DAE2 /* Pods-Jobs.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FB5F8DA8DEBC9223AFCBF04B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -511,201 +801,64 @@
 			};
 			name = Debug;
 		};
-		241D00BC2E79EBF74D7DFDC1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 827BB9674E5B3F5F34C8BA11 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-BFPaperCheckbox/Pods-Jobs-BFPaperCheckbox-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		4264B669FF6FD2C007D0C349 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFC1A57FCBB3152B297B64D7 /* Pods-Jobs.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8FB163A154D0B7525FE9F66D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 827BB9674E5B3F5F34C8BA11 /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-BFPaperCheckbox/Pods-Jobs-BFPaperCheckbox-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9E28D7D879389C0B7DE90832 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F75FE9EA566A38B6BBF6722 /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-UIColor+BFPaperColors/Pods-Jobs-UIColor+BFPaperColors-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A6D14193B59917B1203D63E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 578C76827A947DA2043BFB45 /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-MCSwipeTableViewCell/Pods-Jobs-MCSwipeTableViewCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C9945F88DF56B36C44A9ACE4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E385F8FEC925FF9077941D8E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F75FE9EA566A38B6BBF6722 /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-UIColor+BFPaperColors/Pods-Jobs-UIColor+BFPaperColors-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		ED3DBF609CE3D5BACFB4920E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1449345730A06BC37D12603 /* Pods-Jobs.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0ADDB8EB6183809DD4A87C65 /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */ = {
+		16DC8C8C945E3E51B919345C /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A6D14193B59917B1203D63E6 /* Debug */,
-				0303EEF2808C40C6DCF0A94F /* Release */,
+				FB5F8DA8DEBC9223AFCBF04B /* Debug */,
+				CAE1AFF04F21920DA5BB8C0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23485A8A50889A79C40B193B /* Build configuration list for PBXProject "Pods" */ = {
+		334663B7ACCBACA1B7F94DC8 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0BF98EE846223C06C8F0BEBA /* Debug */,
-				C9945F88DF56B36C44A9ACE4 /* Release */,
+				4A8AA94C953D9AE8B425925B /* Debug */,
+				EA628FEB142ECEAEC374EEAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E323EAF862B729496EC0249 /* Build configuration list for PBXNativeTarget "Pods-Jobs-UIColor+BFPaperColors" */ = {
+		5A5AED335895F4CD9EDDBFFB /* Build configuration list for PBXNativeTarget "Pods-Jobs-JVFloatingDrawer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E28D7D879389C0B7DE90832 /* Debug */,
-				E385F8FEC925FF9077941D8E /* Release */,
+				5D4414C8814522F839800D0F /* Debug */,
+				055CAFECA68C1003110233DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80DF280D118B3213DA3824DD /* Build configuration list for PBXNativeTarget "Pods-Jobs-BFPaperCheckbox" */ = {
+		8F9058DDE1C2BA1C3CE72AF4 /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8FB163A154D0B7525FE9F66D /* Debug */,
-				241D00BC2E79EBF74D7DFDC1 /* Release */,
+				7A2811DC1E9D220D638CF0EE /* Debug */,
+				B4AF1A7FBF937ACFBC723091 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C78C73B824687D2DDEC2BEF6 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */ = {
+		E26F2C354A723FB1B8C24828 /* Build configuration list for PBXNativeTarget "Pods-Jobs-BFPaperCheckbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4264B669FF6FD2C007D0C349 /* Debug */,
-				ED3DBF609CE3D5BACFB4920E /* Release */,
+				075B27A3A15EA0B49AFDE38E /* Debug */,
+				B1CAAB7E8762E12AA5044D8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E58F763E7E59ADB4AA8CEB4B /* Build configuration list for PBXNativeTarget "Pods-Jobs-UIColor+BFPaperColors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AECAEA365826C5E7D5F25DE5 /* Debug */,
+				616EF23F546A9C31AA19A8E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E8F89C463B969DFC42A094F7 /* Project object */;
+	rootObject = FF51BB49406946D07884EA63 /* Project object */;
 }
