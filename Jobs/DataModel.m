@@ -25,14 +25,14 @@
 }
 
 - (void)handleFirstTime{
-    BOOL firstTime = [[NSUserDefaults standardUserDefaults]boolForKey:@"FirstTime"];
-    if(firstTime){
-        JobList *jobList = [[JobList alloc]init];
-        jobList.name = @"List";
-        [self.jobs addObject:jobList];
-        [self setIndexOfSelectedJobList:0];
-        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FirstTime"];
-    }
+//    BOOL firstTime = [[NSUserDefaults standardUserDefaults]boolForKey:@"FirstTime"];
+//    if(firstTime){
+//        JobList *jobList = [[JobList alloc]init];
+//        jobList.name = @"List";
+//        [self.jobs addObject:jobList];
+//        [self setIndexOfSelectedJobList:0];
+//        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FirstTime"];
+//    }
 }
 
 - (id)init{

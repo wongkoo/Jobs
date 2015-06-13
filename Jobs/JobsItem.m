@@ -23,7 +23,7 @@
     self.checked = !self.checked;
 }
 
-- (void)scheduleNotification{
+- (void)scheduleNotification:(NSString *)companyName{
     UILocalNotification *exitingNotification = [self notificationForThisItem];
     if (exitingNotification != nil) {
         [[UIApplication sharedApplication]cancelLocalNotification:exitingNotification];
@@ -32,7 +32,9 @@
         UILocalNotification *localNotification = [[UILocalNotification alloc]init];
         localNotification.fireDate = self.dueDate;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.alertBody = self.text;
+        NSString *string = [companyName stringByAppendingString:self.text];
+        NSString *string2 = [string stringByAppendingString:@" 即将 "];
+        localNotification.alertBody =[string2 stringByAppendingString:self.nextTask];
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         localNotification.userInfo = @{@"ItemId":@(self.itemId)};
         [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];

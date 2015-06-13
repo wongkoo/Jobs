@@ -20,6 +20,7 @@
 @interface ItemDetailViewController : UITableViewController<UITextFieldDelegate>
 
 @property (strong, nonatomic) JobsItem *itemToEdit;
+@property (strong, nonatomic) NSString *companyName;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *nextTaskTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;

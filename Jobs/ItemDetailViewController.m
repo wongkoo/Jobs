@@ -250,14 +250,14 @@
         item.shouldRemind =self.switchControl.on;
         item.dueDate = _dueDate;
         item.nextTask = [self.nextTaskTextField titleForSegmentAtIndex:[self.nextTaskTextField selectedSegmentIndex]];
-        [item scheduleNotification];
+        [item scheduleNotification:self.companyName];
         [self.delegate itemDetailViewController:self didFinishAddingItem:item];
     }else{
         self.itemToEdit.text = self.textField.text;
         self.itemToEdit.nextTask= [self.nextTaskTextField titleForSegmentAtIndex:[self.nextTaskTextField selectedSegmentIndex]];
         self.itemToEdit.shouldRemind = self.switchControl.on;
         self.itemToEdit.dueDate = _dueDate;
-        [self.itemToEdit scheduleNotification];
+        [self.itemToEdit scheduleNotification:self.companyName];
         [self.delegate itemDetailViewController:self didFinishEditingItem:self.itemToEdit];
     }
     

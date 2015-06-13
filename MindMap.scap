@@ -123,7 +123,7 @@
             <String>.m</String>
             <ConnectedNoteIDs>12, 18-20</ConnectedNoteIDs>
         </Note>
-        <Note ID="15" FontSize="12.0" Position="2803.0,877.0" Width="84.0">
+        <Note ID="15" FontSize="12.0" Position="2802.14159,877.0" Width="84.0">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="1">0.756763 0.785592 0.373258</Border>
@@ -204,7 +204,7 @@
             <String>.m</String>
             <ConnectedNoteIDs>21, 26-28</ConnectedNoteIDs>
         </Note>
-        <Note ID="24" FontSize="12.0" Position="2674.388889,1246.0" Width="133.0">
+        <Note ID="24" FontSize="12.0" Position="2674.0,1246.0" Width="133.0">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="1">0.756763 0.785592 0.373258</Border>
@@ -972,77 +972,77 @@
             </Appearance>
             <String>New Note</String>
         </Note>
-        <Note ID="123" FontSize="12.0" Position="3285.305352,1647.954289" Width="56.0" Shadow="Yes">
+        <Note ID="123" FontSize="12.0" Position="3285.0,1648.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>最近进度</String>
         </Note>
-        <Note ID="124" FontSize="12.0" Position="2649.683843,1638.157363" Width="56.0" Shadow="Yes">
+        <Note ID="124" FontSize="12.0" Position="2650.0,1638.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>公司名称</String>
         </Note>
-        <Note ID="125" FontSize="12.0" Position="2649.140791,1666.330734" Width="92.0" Shadow="Yes">
+        <Note ID="125" FontSize="12.0" Position="2649.0,1666.0" Width="92.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>最近申请的职位</String>
         </Note>
-        <Note ID="129" FontSize="12.0" Position="3120.931184,1635.0" Width="56.0" Shadow="Yes">
+        <Note ID="129" FontSize="12.0" Position="3121.0,1635.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>招聘职位</String>
         </Note>
-        <Note ID="134" FontSize="12.0" Position="3122.976895,1665.0" Width="56.0" Shadow="Yes">
+        <Note ID="134" FontSize="12.0" Position="3123.0,1665.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>提醒时间</String>
         </Note>
-        <Note ID="137" FontSize="12.0" Position="2857.14262,1645.092869" Width="56.0" Shadow="Yes">
+        <Note ID="137" FontSize="12.0" Position="2857.0,1645.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>最近进度</String>
         </Note>
-        <Note ID="138" FontSize="12.0" Position="3360.0,1648.871676" Width="20.0" Shadow="Yes">
+        <Note ID="138" FontSize="12.0" Position="3360.0,1649.0" Width="20.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>✔︎</String>
         </Note>
-        <Note ID="140" FontSize="12.0" Position="3111.39262,1735.264461" Width="56.0" Shadow="Yes">
+        <Note ID="140" FontSize="12.0" Position="3111.0,1735.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>官网账号</String>
         </Note>
-        <Note ID="141" FontSize="12.0" Position="3112.0,1765.068816" Width="104.0" Shadow="Yes">
+        <Note ID="141" FontSize="12.0" Position="3112.0,1765.0" Width="104.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>官网账号提示信息</String>
         </Note>
-        <Note ID="142" FontSize="12.0" Position="3111.74252,1798.742686" Width="56.0" Shadow="Yes">
+        <Note ID="142" FontSize="12.0" Position="3112.0,1799.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>报名邮箱</String>
         </Note>
-        <Note ID="143" FontSize="12.0" Position="3125.219415,1891.072307" Width="226.0" Shadow="Yes">
+        <Note ID="143" FontSize="12.0" Position="3125.0,1891.0" Width="226.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
@@ -1050,98 +1050,98 @@
             <String>放在表格最下面！！灰色背景的地方</String>
             <ConnectedNoteIDs>139</ConnectedNoteIDs>
         </Note>
-        <Note ID="148" FontSize="12.0" Position="3466.972656,1645.0" Width="56.0" Shadow="Yes">
+        <Note ID="148" FontSize="12.0" Position="3467.0,1645.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>职位名称</String>
         </Note>
-        <Note ID="149" FontSize="12.0" Position="3468.214286,1756.0" Width="44.0" Shadow="Yes">
+        <Note ID="149" FontSize="12.0" Position="3468.0,1756.0" Width="44.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>提醒我</String>
         </Note>
-        <Note ID="150" FontSize="12.0" Position="3469.428571,1793.0" Width="56.0" Shadow="Yes">
+        <Note ID="150" FontSize="12.0" Position="3469.0,1793.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>提醒时间</String>
         </Note>
-        <Note ID="151" FontSize="12.0" Position="3645.516741,1758.909319" Width="24.0" Shadow="Yes">
+        <Note ID="151" FontSize="12.0" Position="3646.0,1759.0" Width="24.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>⏰</String>
         </Note>
-        <Note ID="152" FontSize="12.0" Position="3535.428571,1644.0" Width="129.0" Shadow="Yes">
+        <Note ID="152" FontSize="12.0" Position="3535.0,1644.0" Width="129.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String><![CDATA[                                    ]]></String>
         </Note>
-        <Note ID="154" FontSize="12.0" Position="2646.18603,1914.550809" Width="56.0" Shadow="Yes">
+        <Note ID="154" FontSize="12.0" Position="2646.0,1915.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>公司名称</String>
         </Note>
-        <Note ID="155" FontSize="12.0" Position="2649.400791,1973.657026" Width="44.0" Shadow="Yes">
+        <Note ID="155" FontSize="12.0" Position="2649.0,1974.0" Width="44.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>可选：</String>
         </Note>
-        <Note ID="156" FontSize="12.0" Position="2648.081642,2020.921487" Width="68.0" Shadow="Yes">
+        <Note ID="156" FontSize="12.0" Position="2648.0,2021.0" Width="68.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>官网账号：</String>
         </Note>
-        <Note ID="157" FontSize="12.0" Position="2649.341948,2060.720855" Width="56.0" Shadow="Yes">
+        <Note ID="157" FontSize="12.0" Position="2649.0,2061.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>账号提示</String>
         </Note>
-        <Note ID="160" FontSize="12.0" Position="2649.273131,2094.625776" Width="56.0" Shadow="Yes">
+        <Note ID="160" FontSize="12.0" Position="2649.0,2095.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>通信邮箱</String>
         </Note>
-        <Note ID="161" FontSize="12.0" Position="3467.214286,1686.0" Width="32.0" Shadow="Yes">
+        <Note ID="161" FontSize="12.0" Position="3467.0,1686.0" Width="32.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>将要</String>
         </Note>
-        <Note ID="162" FontSize="12.0" Position="3537.547123,1681.405754" Width="157.0" Shadow="Yes">
+        <Note ID="162" FontSize="12.0" Position="3538.0,1681.0" Width="157.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>报名 宣讲会  笔试 一面 二面</String>
         </Note>
-        <Note ID="163" FontSize="12.0" Position="2648.443022,2123.513673" Width="32.0" Shadow="Yes">
+        <Note ID="163" FontSize="12.0" Position="2648.0,2124.0" Width="32.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
             </Appearance>
             <String>笔记</String>
         </Note>
-        <Note ID="164" FontSize="12.0" Position="2803.806083,1644.137556" Width="44.0" Shadow="Yes">
+        <Note ID="164" FontSize="12.0" Position="2804.0,1644.0" Width="44.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
@@ -1157,7 +1157,7 @@
             </Appearance>
             <String>3个职位正在进行</String>
         </Note>
-        <Note ID="167" FontSize="12.0" Position="3467.428571,1718.785714" Width="56.0" Shadow="Yes">
+        <Note ID="167" FontSize="12.0" Position="3467.0,1719.0" Width="56.0" Shadow="Yes">
             <Appearance>
                 <Alignment>Center</Alignment>
                 <Border Weight="2">0.077727 0.559807 0.805582</Border>
@@ -1166,46 +1166,46 @@
         </Note>
     </Notes>
     <BackgroundShapes>
-        <Shape ID="127" Sticky="No" Position="2632.0,1622.134425" Width="300.0" Height="78.150931">
+        <Shape ID="127" Sticky="No" Position="2632.0,1622.0" Width="300.0" Height="78.150932">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
             <ConnectedNoteIDs>164, 166</ConnectedNoteIDs>
             <PointsToNoteIDs>164</PointsToNoteIDs>
         </Shape>
-        <Shape ID="135" Sticky="No" Position="3092.06383,1624.310672" Width="300.0" Height="76.0">
+        <Shape ID="135" Sticky="No" Position="3092.0,1624.0" Width="300.0" Height="76.0">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
             <ConnectedNoteIDs>139, 147, 164</ConnectedNoteIDs>
             <PointsToNoteIDs>147</PointsToNoteIDs>
         </Shape>
-        <Shape ID="139" Sticky="No" Position="3091.803524,1715.680851" Width="300.0" Height="121.894614">
+        <Shape ID="139" Sticky="No" Position="3092.0,1716.0" Width="300.0" Height="121.894615">
             <Appearance>
                 <Border Weight="1">0.290055 0.1523 0.182215</Border>
                 <Fill>0.940019 0.892907 0.779716</Fill>
             </Appearance>
             <ConnectedNoteIDs>135, 143</ConnectedNoteIDs>
         </Shape>
-        <Shape ID="147" Sticky="No" Position="3441.241629,1617.214286" Width="278.0" Height="223.277902">
+        <Shape ID="147" Sticky="No" Position="3441.0,1617.0" Width="278.0" Height="223.277908">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
             <ConnectedNoteIDs>135</ConnectedNoteIDs>
         </Shape>
-        <Shape ID="153" Sticky="No" Position="2627.62004,1891.354167" Width="300.0" Height="68.0">
+        <Shape ID="153" Sticky="No" Position="2628.0,1891.0" Width="300.0" Height="68.0">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
             <ConnectedNoteIDs>158, 166</ConnectedNoteIDs>
         </Shape>
-        <Shape ID="158" Sticky="No" Position="2625.273131,2010.069724" Width="300.0" Height="149.587302">
+        <Shape ID="158" Sticky="No" Position="2625.0,2010.0" Width="300.0" Height="149.587296">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>
             <ConnectedNoteIDs>153</ConnectedNoteIDs>
         </Shape>
-        <Shape ID="166" Sticky="No" Position="2632.782853,1698.622863" Width="297.0" Height="88.377137">
+        <Shape ID="166" Sticky="No" Position="2633.0,1699.0" Width="297.0" Height="88.377136">
             <Appearance>
                 <Border Weight="1"></Border>
             </Appearance>

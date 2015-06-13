@@ -89,12 +89,14 @@
         UINavigationController *navigationController = segue.destinationViewController;
         ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
+        controller.companyName = self.jobList.name;
     }else if([segue.identifier isEqualToString:@"EditItem"]){
         UINavigationController *navigationController = segue.destinationViewController;
         ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.itemToEdit = self.jobList.items[indexPath.row];
+        controller.companyName = self.jobList.name;
     }
 }
 
