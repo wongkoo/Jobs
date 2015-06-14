@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface JobsItem : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString *text;
@@ -20,4 +20,5 @@
 @property (nonatomic,assign)NSInteger itemId;
 -(void)toggleChecked;
 - (void)scheduleNotification:(NSString *)companyName;
+- (UILocalNotification *)notificationForThisItem;
 @end

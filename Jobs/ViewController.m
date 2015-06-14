@@ -280,7 +280,7 @@
                           ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
                           //JobList *jobList = self.dataModel.jobs[indexPath.row];
-                          
+                          controller.companyName = self.jobList.name;
                           controller.itemToEdit = jobsItem;
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
@@ -311,7 +311,7 @@
                           ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
                           //JobList *jobList = self.dataModel.jobs[indexPath.row];
-                          
+                          controller.companyName = self.jobList.name;
                           controller.itemToEdit = jobsItem;
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
@@ -354,7 +354,15 @@
 
 - (void)deleteCell:(MCSwipeTableViewCell *)cell{
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    JobsItem *temp = [self.jobList.items objectAtIndex:indexPath.row];
+    UILocalNotification *existingNotification = [temp notificationForThisItem];
+    if (existingNotification != nil) {
+        [[UIApplication sharedApplication]cancelLocalNotification:existingNotification];
+    }
+
     [self.jobList.items removeObjectAtIndex:indexPath.row];
+    
     [self.checkboxs removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     
