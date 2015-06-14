@@ -337,11 +337,24 @@
 
 - (void)deleteCell:(MCSwipeTableViewCell *)cell{
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self cancelLocalNotificationIndex:indexPath.row];
     [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
-
+- (void)cancelLocalNotificationIndex:(NSInteger)index{
+    JobList *jobList = self.dataModel.jobs[index];
+    for (JobsItem *temp in jobList.items){
+        if (temp.shouldRemind == YES) {
+            UILocalNotification *existingNotification = [temp notificationForThisItem];
+            if (existingNotification != nil) {
+                [[UIApplication sharedApplication]cancelLocalNotification:existingNotification];
+            }
+        }
+    }
+    NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
+    NSLog(@"%d",[allNotifications count]);
+}
 
 - (void)changeStateofCell:(MCSwipeTableViewCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];

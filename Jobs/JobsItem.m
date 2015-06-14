@@ -44,12 +44,12 @@
 - (UILocalNotification *)notificationForThisItem{
     NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
     for (UILocalNotification *notification in allNotifications) {
-        [[UIApplication sharedApplication]cancelLocalNotification:notification];
         NSNumber *number = [notification.userInfo objectForKey:@"ItemId"];
         if (number != nil && [number integerValue]==self.itemId) {
             return notification;
         }
     }
+    NSLog(@"%d",[allNotifications count]);
     return nil;
 }
 

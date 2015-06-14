@@ -267,6 +267,9 @@
         checkbox = self.checkboxs[i];
         checkbox.tag = i;
     }
+    
+    NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
+    NSLog(@"%d",[allNotifications count]);
 }
 
 - (void)cancelLocalNotificationIndex:(NSInteger)index{

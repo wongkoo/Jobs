@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "AllListsViewController.h"
 #import "DataModel.h"
+#import "JobList.h"
+#import "JobsItem.h"
 #import "JVFloatingDrawerViewController.h"
 #import "JVFloatingDrawerSpringAnimator.h"
 static NSString * const drawersStoryboardName = @"Main";
@@ -25,6 +27,15 @@ static NSString * const firstNavigationControllerID = @"FirstNavigationControlle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
+    if (sysVersion>=8.0) {
+        UIUserNotificationType type=UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+        UIUserNotificationSettings *setting=[UIUserNotificationSettings settingsForTypes:type categories:nil];
+        [[UIApplication sharedApplication]registerUserNotificationSettings:setting];
+    }
+//    else{
+//        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+//    }
     _dataModel = [[DataModel alloc]init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.drawerViewController;
@@ -33,26 +44,9 @@ static NSString * const firstNavigationControllerID = @"FirstNavigationControlle
     controller.dataModel = _dataModel;
     [self.window makeKeyAndVisible];
     return YES;
-    
-    
-    
-//    _dataModel = [[DataModel alloc]init];
-//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-//    
-//    
-//    navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
-//    navigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
-//    navigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
-//    navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
-//    
-////    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-////    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
-//    
-//    AllListsViewController *controller = navigationController.viewControllers[0];
-//    controller.dataModel = _dataModel;
-//    
-//    return YES;
 }
+
+
 
 - (void)configureDrawerViewController {
     self.drawerViewController.leftViewController = self.leftDrawerViewController;
@@ -76,8 +70,11 @@ static NSString * const firstNavigationControllerID = @"FirstNavigationControlle
 - (UINavigationController *)firstNavigationController {
     if (!_firstNavigationController) {
         _firstNavigationController = [self.drawersStoryboard instantiateViewControllerWithIdentifier:firstNavigationControllerID];
+        self.firstNavigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
+        self.firstNavigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
+        self.firstNavigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
+        self.firstNavigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
     }
-    
     return _firstNavigationController;
 }
 
@@ -140,6 +137,17 @@ static NSString * const firstNavigationControllerID = @"FirstNavigationControlle
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [self saveData];
+    NSInteger tempNum = 0;
+    for (JobList *jobList in _dataModel.jobs){
+        if(jobList.deletedFlag == 0){
+            for(JobsItem *jobsItem in jobList.items){
+                if (jobsItem.checked == 0) {
+                    tempNum ++;
+                }
+            }
+        }
+    }
+    [application setApplicationIconBadgeNumber:tempNum];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

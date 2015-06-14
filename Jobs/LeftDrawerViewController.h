@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeftDrawerViewController : UIViewController
+@interface LeftDrawerViewController : UIViewController<UITextViewDelegate>
 
 @end
