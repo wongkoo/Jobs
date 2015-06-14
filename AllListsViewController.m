@@ -211,16 +211,11 @@
             label.text=[@"几天前 " stringByAppendingString:jobsItem.nextTask];
         }
 
-//        NSTimeInterval time = [jobsItem.dueDate timeIntervalSinceDate:senddate];
-//        NSLog(@"time:%f",time/60/60/24);
-        
-        
-      //  label.text= jobsItem.nextTask;
+
         cell.detailTextLabel.text = jobsItem.text;
         
     }else{
         label.text=@"";
-       // label.textColor = [UIColor grayColor];
         cell.detailTextLabel.text = @"暂未申请职位";
     }
 }
@@ -349,7 +344,6 @@
 
 
 - (void)changeStateofCell:(MCSwipeTableViewCell *)cell {
-    NSParameterAssert(cell);
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     NSInteger disDeletedNum=0;
