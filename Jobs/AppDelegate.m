@@ -46,8 +46,6 @@ static NSString * const firstNavigationControllerID = @"FirstNavigationControlle
     return YES;
 }
 
-
-
 - (void)configureDrawerViewController {
     self.drawerViewController.leftViewController = self.leftDrawerViewController;
     self.drawerViewController.centerViewController = self.firstNavigationController;

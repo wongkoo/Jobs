@@ -353,7 +353,7 @@
         }
     }
     NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
-    NSLog(@"%d",[allNotifications count]);
+    //NSLog(@"%d",[allNotifications count]);
 }
 
 - (void)changeStateofCell:(MCSwipeTableViewCell *)cell {

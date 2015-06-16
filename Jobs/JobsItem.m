@@ -49,7 +49,7 @@
             return notification;
         }
     }
-    NSLog(@"%d",[allNotifications count]);
+   // NSLog(@"%d",[allNotifications count]);
     return nil;
 }
 
