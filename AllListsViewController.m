@@ -352,7 +352,7 @@
             }
         }
     }
-    NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
+    //NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
     //NSLog(@"%d",[allNotifications count]);
 }
 

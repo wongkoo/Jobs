@@ -16,7 +16,6 @@
 #import "UIColor+BFPaperColors.h"
 @interface ViewController(){
     NSInteger cellHeight;
- //   NSInteger selectedRow;
 }
 @property (weak, nonatomic) IBOutlet UILabel *detailTextView;
 @property (nonatomic, strong) NSMutableArray *checkboxs;
@@ -33,7 +32,6 @@
     [super viewDidLoad];
     cellHeight = 100;
     self.title = self.jobList.name;
-//    selectedRow = -1;
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
@@ -268,7 +266,7 @@
         checkbox.tag = i;
     }
     
-    NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
+    //NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
     //NSLog(@"%d",[allNotifications count]);
 }
 
@@ -328,8 +326,23 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self createView:indexPath];
+}
+
+- (void)createView:(NSIndexPath *)indexPath{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 250, 400)];
+    CGRect rect = view.frame;
+    CGPoint center = view.center;
+    center.x = self.tableView.center.x;
+    view.center = center;
+    view.backgroundColor = [UIColor grayColor];
+    self.tableView.userInteractionEnabled = NO;
+    [self.tableView addSubview:view];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return cellHeight;
+        return cellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

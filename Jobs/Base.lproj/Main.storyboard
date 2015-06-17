@@ -323,7 +323,7 @@
                     <navigationItem key="navigationItem" title="公司" id="hbE-si-xgk">
                         <barButtonItem key="leftBarButtonItem" image="399-list1" id="A8j-Zo-lMd">
                             <connections>
-                                <action selector="actionToggleLeftDrawer:" destination="v42-OH-GJd" id="YdP-fL-2tb"/>
+                                <action selector="actionToggleLeftDrawer:" destination="v42-OH-GJd" id="IHW-nq-5jR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ccj-ZF-3M8">
@@ -402,7 +402,7 @@ WeChat:wongkoo</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkq-Yy-ghR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-991" y="230"/>
+            <point key="canvasLocation" x="-951" y="222"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xQ3-Rl-VNx">
