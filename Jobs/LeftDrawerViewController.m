@@ -10,8 +10,6 @@
 #import "JVFloatingDrawerViewController.h"
 @interface LeftDrawerViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textiew;
-@property (weak, nonatomic) IBOutlet UISwitch *textSwitch;
-
 @end
 
 @implementation LeftDrawerViewController{
@@ -20,13 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.textiew.layer setCornerRadius:10];
-    CGRect textFrame= CGRectMake(16, 61, 245, 391);
-    self.textiew.frame = textFrame;
+    //CGRect textFrame= CGRectMake(16, 61, 245, 391);
+    //self.textiew.frame = textFrame;
     self.textiew.editable = NO;
     self.textiew.scrollEnabled = YES;
     self.textiew.layoutManager.allowsNonContiguousLayout = NO;
-    self.textSwitch.onTintColor = [UIColor colorWithRed:107.0/255.0 green:163.0/255.0 blue:187.0/255.0 alpha:1];
-    self.textSwitch.on = NO;
     // Do any additional setup after loading the view.
 }
 

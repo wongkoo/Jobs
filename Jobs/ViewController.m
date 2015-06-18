@@ -19,6 +19,7 @@
 }
 @property (weak, nonatomic) IBOutlet UILabel *detailTextView;
 @property (nonatomic, strong) NSMutableArray *checkboxs;
+
 @end
 
 @implementation ViewController
@@ -331,14 +332,29 @@
 }
 
 - (void)createView:(NSIndexPath *)indexPath{
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 250, 400)];
+    UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    visualEffectView.frame = self.view.bounds;
+    visualEffectView.alpha = 0;
+    [self.tableView addSubview:visualEffectView];
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 20, 250, 350)];
     CGRect rect = view.frame;
     CGPoint center = view.center;
     center.x = self.tableView.center.x;
     view.center = center;
+    view.alpha = 0;
+    view.layer.cornerRadius = 10;
     view.backgroundColor = [UIColor grayColor];
     self.tableView.userInteractionEnabled = NO;
     [self.tableView addSubview:view];
+    [UIView animateWithDuration:0.25 animations:^{
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationDuration:0.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        visualEffectView.alpha = 1;
+        view.alpha = 1;
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
