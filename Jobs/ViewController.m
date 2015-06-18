@@ -16,8 +16,13 @@
 #import "UIColor+BFPaperColors.h"
 @interface ViewController(){
     NSInteger cellHeight;
+    NSInteger differFromNowToTarget;
+    NSTimer *countDownTimer;
+    UIView *stageDetailView;
+    UIVisualEffectView *visualEffectView;
 }
 @property (weak, nonatomic) IBOutlet UILabel *detailTextView;
+@property (nonatomic, strong) UILabel *countDownTimerLabel;
 @property (nonatomic, strong) NSMutableArray *checkboxs;
 
 @end
@@ -333,28 +338,62 @@
 
 - (void)createView:(NSIndexPath *)indexPath{
     UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     visualEffectView.frame = self.view.bounds;
     visualEffectView.alpha = 0;
     [self.tableView addSubview:visualEffectView];
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 20, 250, 350)];
-    CGRect rect = view.frame;
-    CGPoint center = view.center;
-    center.x = self.tableView.center.x;
-    view.center = center;
-    view.alpha = 0;
-    view.layer.cornerRadius = 10;
-    view.backgroundColor = [UIColor grayColor];
-    self.tableView.userInteractionEnabled = NO;
-    [self.tableView addSubview:view];
+    CGFloat frameX = self.tableView.bounds.size.width *1/10;
+    CGFloat frameY = (self.view.bounds.size.height-self.navigationController.navigationBar.frame.size.height-[[UIApplication sharedApplication]statusBarFrame].size.height) *1/10;
+    CGFloat sizeWidth = self.tableView.bounds.size.width *4/5;
+    CGFloat sizeHeight = (self.view.bounds.size.height-self.navigationController.navigationBar.frame.size.height-[[UIApplication sharedApplication]statusBarFrame].size.height) *4/5;
+    stageDetailView= [[UIView alloc]initWithFrame:CGRectMake(frameX, 0, sizeWidth, sizeHeight)];
+    stageDetailView.alpha = 0;
+    stageDetailView.layer.cornerRadius = 10;
+    //rgb(189, 195, 199)  深灰
+    //rgb(236, 240, 241) 浅灰
+    //rgb(230, 126, 34) 橘黄
+    stageDetailView.backgroundColor = [UIColor colorWithRed:189.0/255.0 green:195.0/255.0 blue:199.0/255.0 alpha:1];
+    [self.tableView addSubview:stageDetailView];
+    
     [UIView animateWithDuration:0.25 animations:^{
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationDuration:0.25];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         visualEffectView.alpha = 1;
-        view.alpha = 1;
+        stageDetailView.alpha = 1;
+        stageDetailView.frame = CGRectMake(frameX, frameY, sizeWidth, sizeHeight);
     }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handTapFrom:)];
+    //tap.delegate = self;
+    [self.view addGestureRecognizer:tap];
+    differFromNowToTarget = 10;//60秒倒计时
+    countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+
+}
+
+-(void)timeFireMethod{
+    NSLog(@".");
+    differFromNowToTarget--;
+    if (differFromNowToTarget < 0) {
+        [countDownTimer invalidate];
+    }
+}
+
+- (void)handTapFrom:(UIGestureRecognizer *)gesture{
+    [UIView animateWithDuration:0.25
+                     animations:^{
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationDuration:0.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        visualEffectView.alpha = 0;
+        stageDetailView.alpha = 0;
+        stageDetailView.frame = CGRectMake(self.tableView.bounds.size.width *1/10, self.view.frame.size.height*3/4, self.tableView.bounds.size.width *4/5, (self.view.bounds.size.height-self.navigationController.navigationBar.frame.size.height-[[UIApplication sharedApplication]statusBarFrame].size.height) *4/5);
+                     }completion:^(BOOL finished) {
+           [stageDetailView removeFromSuperview];
+          [visualEffectView removeFromSuperview];}];
+    
+    [self.view removeGestureRecognizer:gesture];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
