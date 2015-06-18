@@ -20,9 +20,10 @@
     NSTimer *countDownTimer;
     UIView *stageDetailView;
     UIVisualEffectView *visualEffectView;
+    UILabel *countDownTimerLabel;
 }
 @property (weak, nonatomic) IBOutlet UILabel *detailTextView;
-@property (nonatomic, strong) UILabel *countDownTimerLabel;
+//@property (nonatomic, strong) UILabel *countDownTimerLabel;
 @property (nonatomic, strong) NSMutableArray *checkboxs;
 
 @end
@@ -364,10 +365,20 @@
         stageDetailView.alpha = 1;
         stageDetailView.frame = CGRectMake(frameX, frameY, sizeWidth, sizeHeight);
     }];
+    
+    JobsItem *item = self.jobList.items[indexPath.row];
+    CGFloat a = [item.dueDate timeIntervalSinceNow];
+    differFromNowToTarget = a;
+    
+    countDownTimerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 20)];
+    countDownTimerLabel.backgroundColor = [UIColor redColor];
+    countDownTimerLabel.text = [NSString stringWithFormat:@"%d",differFromNowToTarget];
+    [stageDetailView addSubview:countDownTimerLabel];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handTapFrom:)];
-    //tap.delegate = self;
     [self.view addGestureRecognizer:tap];
-    differFromNowToTarget = 10;//60秒倒计时
+    
+
     countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
 
 }
@@ -375,7 +386,8 @@
 -(void)timeFireMethod{
     NSLog(@".");
     differFromNowToTarget--;
-    if (differFromNowToTarget < 0) {
+    countDownTimerLabel.text = [NSString stringWithFormat:@"%d",differFromNowToTarget];
+    if (differFromNowToTarget <= 0) {
         [countDownTimer invalidate];
     }
 }
@@ -392,7 +404,7 @@
                      }completion:^(BOOL finished) {
            [stageDetailView removeFromSuperview];
           [visualEffectView removeFromSuperview];}];
-    
+    [countDownTimer invalidate];
     [self.view removeGestureRecognizer:gesture];
 }
 
