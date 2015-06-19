@@ -21,6 +21,7 @@
     UIView *stageDetailView;
     UIVisualEffectView *visualEffectView;
     UILabel *countDownTimerLabel;
+    NSInteger countDownTimerLabelType;
 }
 @property (weak, nonatomic) IBOutlet UILabel *detailTextView;
 //@property (nonatomic, strong) UILabel *countDownTimerLabel;
@@ -335,6 +336,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self createView:indexPath];
+    self.tableView.scrollEnabled = NO;
 }
 
 - (void)createView:(NSIndexPath *)indexPath{
@@ -351,10 +353,11 @@
     stageDetailView= [[UIView alloc]initWithFrame:CGRectMake(frameX, 0, sizeWidth, sizeHeight)];
     stageDetailView.alpha = 0;
     stageDetailView.layer.cornerRadius = 10;
-    //rgb(189, 195, 199)  深灰
-    //rgb(236, 240, 241) 浅灰
-    //rgb(230, 126, 34) 橘黄
-    stageDetailView.backgroundColor = [UIColor colorWithRed:189.0/255.0 green:195.0/255.0 blue:199.0/255.0 alpha:1];
+    stageDetailView.backgroundColor = [UIColor whiteColor];
+    stageDetailView.layer.shadowColor = [UIColor blackColor].CGColor;
+    stageDetailView.layer.shadowOffset = CGSizeMake(4, 4);
+    stageDetailView.layer.shadowOpacity = 0.6;
+    stageDetailView.layer.shadowRadius = 10;
     [self.tableView addSubview:stageDetailView];
     
     [UIView animateWithDuration:0.25 animations:^{
@@ -367,29 +370,152 @@
     }];
     
     JobsItem *item = self.jobList.items[indexPath.row];
-    CGFloat a = [item.dueDate timeIntervalSinceNow];
-    differFromNowToTarget = a;
     
-    countDownTimerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 20)];
-    countDownTimerLabel.backgroundColor = [UIColor redColor];
-    countDownTimerLabel.text = [NSString stringWithFormat:@"%d",differFromNowToTarget];
+    UILabel *companyLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    companyLabel.text = self.jobList.name;
+    companyLabel.textColor = [UIColor colorWithRed:255.0/255.0 green:77.0/255.0 blue:0.0 alpha:1];
+    companyLabel.font = [UIFont systemFontOfSize:33];
+    companyLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [stageDetailView addSubview:companyLabel];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:companyLabel
+                                                                attribute:NSLayoutAttributeCenterX
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:stageDetailView
+                                                                attribute:NSLayoutAttributeCenterX
+                                                               multiplier:1
+                                                                 constant:0]];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:companyLabel
+                                                                attribute:NSLayoutAttributeTop
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:stageDetailView
+                                                                attribute:NSLayoutAttributeTop
+                                                               multiplier:1
+                                                                 constant:40]];
+    
+    differFromNowToTarget = [item.dueDate timeIntervalSinceNow];
+    countDownTimerLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    countDownTimerLabel.textColor = [UIColor whiteColor];
+    countDownTimerLabel.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:77.0/255.0 blue:0.0 alpha:1];
+    
+    countDownTimerLabelType = -1;
+    [self UpdateCountDownLabel];
+    countDownTimerLabel.font = [UIFont systemFontOfSize:40];
+    countDownTimerLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [stageDetailView addSubview:countDownTimerLabel];
+    countDownTimerLabel.layer.cornerRadius = 10;
+    countDownTimerLabel.clipsToBounds = YES;
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:countDownTimerLabel
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:stageDetailView
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                   multiplier:1
+                                                                     constant:0]];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:countDownTimerLabel
+                                                                attribute:NSLayoutAttributeCenterY
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:stageDetailView
+                                                                attribute:NSLayoutAttributeCenterY
+                                                               multiplier:1
+                                                                 constant:0]];
+    
+    UILabel *stageLabel = [[UILabel alloc]init];
+    stageLabel.text = item.nextTask;
+    stageLabel.textColor = [UIColor colorWithRed:255.0/255.0 green:77.0/255.0 blue:0.0 alpha:1];
+    stageLabel.font = [UIFont systemFontOfSize:40];
+    stageLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [stageDetailView addSubview:stageLabel];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:stageLabel
+                                                                attribute:NSLayoutAttributeCenterX
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:stageDetailView
+                                                                attribute:NSLayoutAttributeCenterX
+                                                               multiplier:1
+                                                                 constant:0]];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:stageLabel
+                                                                attribute:NSLayoutAttributeTop
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:countDownTimerLabel
+                                                                attribute:NSLayoutAttributeBottom
+                                                               multiplier:1
+                                                                 constant:0]];
+    
+    
+    UILabel *jobLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    jobLabel.text = item.text;
+    jobLabel.textColor = [UIColor colorWithRed:255.0/255.0 green:77.0/255.0 blue:0.0 alpha:1];
+    jobLabel.font = [UIFont systemFontOfSize:25];
+    jobLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [stageDetailView addSubview:jobLabel];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:jobLabel
+                                                                attribute:NSLayoutAttributeCenterX
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:stageDetailView
+                                                                attribute:NSLayoutAttributeCenterX
+                                                               multiplier:1
+                                                                 constant:0]];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:jobLabel
+                                                                attribute:NSLayoutAttributeTop
+                                                                relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                   toItem:companyLabel
+                                                                attribute:NSLayoutAttributeBottom
+                                                               multiplier:1
+                                                                 constant:0]];
+    [stageDetailView addConstraint:[NSLayoutConstraint constraintWithItem:jobLabel
+                                                                attribute:NSLayoutAttributeBottom
+                                                                relatedBy:NSLayoutRelationLessThanOrEqual
+                                                                   toItem:countDownTimerLabel
+                                                                attribute:NSLayoutAttributeTop
+                                                               multiplier:1
+                                                                 constant:0]];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handTapFrom:)];
     [self.view addGestureRecognizer:tap];
-    
-
+    [countDownTimerLabel addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(countDownTimerLabelTapped:)]];
+    countDownTimerLabel.userInteractionEnabled = YES;
     countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
 
 }
 
 -(void)timeFireMethod{
-    NSLog(@".");
     differFromNowToTarget--;
-    countDownTimerLabel.text = [NSString stringWithFormat:@"%d",differFromNowToTarget];
     if (differFromNowToTarget <= 0) {
         [countDownTimer invalidate];
+        return;
     }
+    [self UpdateCountDownLabel];
+}
+
+- (void)UpdateCountDownLabel{
+    if (countDownTimerLabelType == -1) {
+        if(differFromNowToTarget > 3600 ){
+            countDownTimerLabel.text = [NSString stringWithFormat:@"%ldhour后",(long)differFromNowToTarget/3600];
+            countDownTimerLabelType = 0;
+        }else if(differFromNowToTarget > 60 && differFromNowToTarget <=3600){
+            countDownTimerLabel.text = [NSString stringWithFormat:@"%ldmin后",(long)differFromNowToTarget/60];
+            countDownTimerLabelType = 1;
+        }else if(differFromNowToTarget >0 && differFromNowToTarget <= 60){
+            countDownTimerLabel.text = [NSString stringWithFormat:@"%lds后",(long)differFromNowToTarget];
+            countDownTimerLabelType = 2;
+        }else{
+            countDownTimerLabel.text = @"已结束";
+        }
+    }else if(countDownTimerLabelType == 0){
+        countDownTimerLabel.text = [NSString stringWithFormat:@"%fhour后",(double)differFromNowToTarget/3600.0];
+    }else if(countDownTimerLabelType == 1){
+        countDownTimerLabel.text = [NSString stringWithFormat:@"%ldmin后",(long)differFromNowToTarget/60];
+    }else if(countDownTimerLabelType == 2){
+        countDownTimerLabel.text = [NSString stringWithFormat:@"%lds后",(long)differFromNowToTarget];
+    }
+}
+- (void)countDownTimerLabelTapped:(UIGestureRecognizer *)gesture{
+    NSLog(@"sdf");
+    if (countDownTimerLabelType != 2) {
+        countDownTimerLabelType ++;
+    }else{
+        countDownTimerLabelType =0;
+    }
+    [self UpdateCountDownLabel];
 }
 
 - (void)handTapFrom:(UIGestureRecognizer *)gesture{
@@ -406,6 +532,7 @@
           [visualEffectView removeFromSuperview];}];
     [countDownTimer invalidate];
     [self.view removeGestureRecognizer:gesture];
+    self.tableView.scrollEnabled = YES;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
