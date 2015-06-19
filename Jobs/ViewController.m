@@ -501,7 +501,11 @@
             countDownTimerLabel.text = @"已结束";
         }
     }else if(countDownTimerLabelType == 0){
-        countDownTimerLabel.text = [NSString stringWithFormat:@"%fhour后",(double)differFromNowToTarget/3600.0];
+        if (differFromNowToTarget >3600) {
+            countDownTimerLabel.text = [NSString stringWithFormat:@"%ldhour后",(long)differFromNowToTarget/3600];
+        }else{
+            countDownTimerLabel.text = [NSString stringWithFormat:@"%.3fhour后",(double)differFromNowToTarget/3600.0];
+        }
     }else if(countDownTimerLabelType == 1){
         countDownTimerLabel.text = [NSString stringWithFormat:@"%ldmin后",(long)differFromNowToTarget/60];
     }else if(countDownTimerLabelType == 2){
@@ -533,6 +537,7 @@
     [countDownTimer invalidate];
     [self.view removeGestureRecognizer:gesture];
     self.tableView.scrollEnabled = YES;
+    countDownTimerLabelType = -1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
