@@ -514,10 +514,12 @@
 }
 - (void)countDownTimerLabelTapped:(UIGestureRecognizer *)gesture{
     NSLog(@"sdf");
-    if (countDownTimerLabelType != 2) {
+    if (countDownTimerLabelType == 0 || countDownTimerLabelType ==1) {
         countDownTimerLabelType ++;
-    }else{
+    }else if(countDownTimerLabelType == 2){
         countDownTimerLabelType =0;
+    }else if(countDownTimerLabelType == -1){
+        countDownTimerLabelType = -1;
     }
     [self UpdateCountDownLabel];
 }
