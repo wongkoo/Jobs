@@ -163,7 +163,11 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"M月dd日hh时mm分"];
     NSString *time = [dateFormatter stringFromDate:item.dueDate];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",time];
+    if(item.shouldRemind == YES){
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"⏰%@",time];
+    }else{
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",time];
+    }
 }
 
 - (void)configureCell:(MCSwipeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

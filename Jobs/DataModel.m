@@ -8,6 +8,7 @@
 
 #import "DataModel.h"
 #import "JobList.h"
+#import "JobsItem.h"
 
 @implementation DataModel
 
@@ -38,10 +39,21 @@
 - (id)init{
     if ((self = [super init])) {
         [self loadJobs];
+        [self updateShouldRemind];
         [self registerDefaults];
         [self handleFirstTime];
     }
     return self;
+}
+
+- (void)updateShouldRemind{
+    for (JobList *jobList in self.jobs){
+        for (JobsItem *jobsItem in jobList.items) {
+            if (jobsItem.shouldRemind == YES && [jobsItem.dueDate timeIntervalSinceNow] <= 0) {
+                    jobsItem.shouldRemind = NO;
+            }
+        }
+    }
 }
 
 - (NSInteger)indexOfSelectedJobList{
