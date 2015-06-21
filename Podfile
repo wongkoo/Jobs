@@ -5,7 +5,8 @@ target 'Jobs' do
 pod 'MCSwipeTableViewCell'
 pod 'BFPaperCheckbox'
 pod "JVFloatingDrawer"
-end
+pod 'EAIntroView'
+end 
 
 target 'JobsTests' do
 

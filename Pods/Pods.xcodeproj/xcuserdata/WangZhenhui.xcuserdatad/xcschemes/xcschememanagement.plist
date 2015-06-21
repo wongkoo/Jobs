@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Jobs-EAIntroView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Jobs-EARestrictedScrollView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Jobs-JVFloatingDrawer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00F269B0D26219033F0A238B</key>
+		<key>4C37235AC63E3FD39C35F978</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A9DA0B6E320DD5F18D1AE61</key>
+		<key>633584E6C0E049F28D0CE6F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87DA38F9CE3F7D6DB6D9E20A</key>
+		<key>76CA5E0DBF41F0FABCE27F00</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A9B953BE9FD862685F3D095D</key>
+		<key>81C09066946AE45A51F96270</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4A375F832F5CBFA96135325</key>
+		<key>865775923024DEF86EFAFBC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A9E3C129D741B4A8196D2413</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7C8ADDF7AE07A5742F4886A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

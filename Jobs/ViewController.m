@@ -517,7 +517,6 @@
     }
 }
 - (void)countDownTimerLabelTapped:(UIGestureRecognizer *)gesture{
-    NSLog(@"sdf");
     if (countDownTimerLabelType == 0 || countDownTimerLabelType ==1) {
         countDownTimerLabelType ++;
     }else if(countDownTimerLabelType == 2){
