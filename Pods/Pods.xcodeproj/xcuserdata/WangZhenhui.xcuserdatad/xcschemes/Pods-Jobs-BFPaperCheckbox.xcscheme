@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C37235AC63E3FD39C35F978"
+               BlueprintIdentifier = "FA37796B61AFEC93BB848AF3"
                BuildableName = "libPods-Jobs-BFPaperCheckbox.a"
                BlueprintName = "Pods-Jobs-BFPaperCheckbox"
                ReferencedContainer = "container:Pods.xcodeproj">

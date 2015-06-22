@@ -7,7 +7,7 @@
 //
 
 #import "LeftDrawerViewController.h"
-#import "JVFloatingDrawerViewController.h"
+//#import "JVFloatingDrawerViewController.h"
 @interface LeftDrawerViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textiew;
 @end
