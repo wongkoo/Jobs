@@ -33,9 +33,9 @@
 
 
 
-- (IBAction)actionToggleLeftDrawer:(id)sender {
-    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
-}
+//- (IBAction)actionToggleLeftDrawer:(id)sender {
+//    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+//}
 
 
 

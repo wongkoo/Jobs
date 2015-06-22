@@ -320,11 +320,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="公司" id="hbE-si-xgk">
-                        <barButtonItem key="leftBarButtonItem" image="399-list1" id="A8j-Zo-lMd">
-                            <connections>
-                                <action selector="actionToggleLeftDrawer:" destination="v42-OH-GJd" id="IHW-nq-5jR"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ccj-ZF-3M8">
                             <connections>
                                 <segue destination="cd7-Zc-b8a" kind="presentation" identifier="AddJobList" id="NnO-vn-QSk"/>
@@ -693,7 +688,6 @@ WeChat:wongkoo</string>
         </scene>
     </scenes>
     <resources>
-        <image name="399-list1" width="19" height="15"/>
         <image name="icon-60" width="60" height="60"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>

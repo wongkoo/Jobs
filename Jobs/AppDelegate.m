@@ -13,17 +13,21 @@
 #import "JobsItem.h"
 #import "JVFloatingDrawerViewController.h"
 #import "JVFloatingDrawerSpringAnimator.h"
+#import "IntroPageViewController.h"
 static NSString * const drawersStoryboardName = @"Main";
 static NSString * const leftDrawerStoryboardID = @"LeftDrawerViewController";
 static NSString * const firstNavigationControllerID = @"FirstNavigationController";
+
+
+
 @interface AppDelegate ()
-@property (nonatomic, strong, readonly) UIStoryboard *drawersStoryboard;
+//@property (nonatomic, strong, readonly) UIStoryboard *drawersStoryboard;
 @end
 
 @implementation AppDelegate{
     DataModel *_dataModel;
 }
-@synthesize drawersStoryboard = _drawersStoryboard;
+//@synthesize drawersStoryboard = _drawersStoryboard;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -33,56 +37,78 @@ static NSString * const firstNavigationControllerID = @"FirstNavigationControlle
         UIUserNotificationSettings *setting=[UIUserNotificationSettings settingsForTypes:type categories:nil];
         [[UIApplication sharedApplication]registerUserNotificationSettings:setting];
     }
-//    else{
-//        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-//    }
-    _dataModel = [[DataModel alloc]init];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.drawerViewController;
-    [self configureDrawerViewController];
-    AllListsViewController *controller = self.firstNavigationController.viewControllers[0];
-    controller.dataModel = _dataModel;
+
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        _dataModel = [[DataModel alloc]init];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        IntroPageViewController *introPageViewController = [[IntroPageViewController alloc]init];
+        introPageViewController._dataModel = _dataModel;
+        self.window.rootViewController = introPageViewController;
+    }else{
+        NSLog(@"not first");
+        _dataModel = [[DataModel alloc]init];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
+        navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
+        navigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
+        navigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
+        navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
+        
+        AllListsViewController *controller = navigationController.viewControllers[0];
+        controller.dataModel = _dataModel;
+        self.window.rootViewController = navigationController;
+        
+        
+//        self.window.rootViewController = self.drawerViewController;
+//        [self configureDrawerViewController];
+//        AllListsViewController *controller = self.firstNavigationController.viewControllers[0];
+//        controller.dataModel = _dataModel;
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (void)configureDrawerViewController {
-    self.drawerViewController.leftViewController = self.leftDrawerViewController;
-    self.drawerViewController.centerViewController = self.firstNavigationController;
-    self.drawerViewController.animator = self.drawerAnimator;
-    self.drawerViewController.backgroundImage = [UIImage imageNamed:@"launch－background"];
-}
+
+//- (void)configureDrawerViewController {
+//    self.drawerViewController.leftViewController = self.leftDrawerViewController;
+//    self.drawerViewController.centerViewController = self.firstNavigationController;
+//    self.drawerViewController.animator = self.drawerAnimator;
+//    self.drawerViewController.backgroundImage = [UIImage imageNamed:@"launch－background"];
+//}
 
 #pragma mark - Drawer View Controllers
 
-- (JVFloatingDrawerViewController *)drawerViewController {
-    if (!_drawerViewController) {
-        _drawerViewController = [[JVFloatingDrawerViewController alloc] init];
-    }
-    
-    return _drawerViewController;
-}
+//- (JVFloatingDrawerViewController *)drawerViewController {
+//    if (!_drawerViewController) {
+//        _drawerViewController = [[JVFloatingDrawerViewController alloc] init];
+//    }
+//    
+//    return _drawerViewController;
+//}
 
 #pragma mark Sides
 
-- (UINavigationController *)firstNavigationController {
-    if (!_firstNavigationController) {
-        _firstNavigationController = [self.drawersStoryboard instantiateViewControllerWithIdentifier:firstNavigationControllerID];
-        self.firstNavigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
-        self.firstNavigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
-        self.firstNavigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
-        self.firstNavigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
-    }
-    return _firstNavigationController;
-}
+//- (UINavigationController *)firstNavigationController {
+//    if (!_firstNavigationController) {
+//        _firstNavigationController = [self.drawersStoryboard instantiateViewControllerWithIdentifier:firstNavigationControllerID];
+//        self.firstNavigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
+//        self.firstNavigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
+//        self.firstNavigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
+//        self.firstNavigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
+//    }
+//    return _firstNavigationController;
+//}
 
-- (UITableViewController *)leftDrawerViewController {
-    if (!_leftDrawerViewController) {
-        _leftDrawerViewController = [self.drawersStoryboard instantiateViewControllerWithIdentifier:leftDrawerStoryboardID];
-    }
-    
-    return _leftDrawerViewController;
-}
+//- (UITableViewController *)leftDrawerViewController {
+//    if (!_leftDrawerViewController) {
+//        _leftDrawerViewController = [self.drawersStoryboard instantiateViewControllerWithIdentifier:leftDrawerStoryboardID];
+//    }
+//    
+//    return _leftDrawerViewController;
+//}
 
 
 
@@ -90,33 +116,33 @@ static NSString * const firstNavigationControllerID = @"FirstNavigationControlle
 
 
 
-- (JVFloatingDrawerSpringAnimator *)drawerAnimator {
-    if (!_drawerAnimator) {
-        _drawerAnimator = [[JVFloatingDrawerSpringAnimator alloc] init];
-    }
-    
-    return _drawerAnimator;
-}
-
-- (UIStoryboard *)drawersStoryboard {
-    if(!_drawersStoryboard) {
-        _drawersStoryboard = [UIStoryboard storyboardWithName:drawersStoryboardName bundle:nil];
-    }
-    
-    return _drawersStoryboard;
-}
+//- (JVFloatingDrawerSpringAnimator *)drawerAnimator {
+//    if (!_drawerAnimator) {
+//        _drawerAnimator = [[JVFloatingDrawerSpringAnimator alloc] init];
+//    }
+//    
+//    return _drawerAnimator;
+//}
+//
+//- (UIStoryboard *)drawersStoryboard {
+//    if(!_drawersStoryboard) {
+//        _drawersStoryboard = [UIStoryboard storyboardWithName:drawersStoryboardName bundle:nil];
+//    }
+//    
+//    return _drawersStoryboard;
+//}
 
 
 
 #pragma mark - Global Access Helper
 
-+ (AppDelegate *)globalDelegate {
-    return (AppDelegate *)[UIApplication sharedApplication].delegate;
-}
-
-- (void)toggleLeftDrawer:(id)sender animated:(BOOL)animated {
-    [self.drawerViewController toggleDrawerWithSide:JVFloatingDrawerSideLeft animated:animated completion:nil];
-}
+//+ (AppDelegate *)globalDelegate {
+//    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+//}
+//
+//- (void)toggleLeftDrawer:(id)sender animated:(BOOL)animated {
+//    [self.drawerViewController toggleDrawerWithSide:JVFloatingDrawerSideLeft animated:animated completion:nil];
+//}
 
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{

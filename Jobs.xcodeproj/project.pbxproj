@@ -23,6 +23,22 @@
 		7237F5F01B212AF300F1DFD9 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */; };
 		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
 		726534781B2C222A00045F20 /* LeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726534771B2C222A00045F20 /* LeftDrawerViewController.m */; };
+		72FC18841B37A48900920109 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18751B37A48900920109 /* bg1@2x.png */; };
+		72FC18851B37A48900920109 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18761B37A48900920109 /* bg2@2x.png */; };
+		72FC18861B37A48900920109 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18771B37A48900920109 /* bg3@2x.png */; };
+		72FC18871B37A48900920109 /* bg4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18781B37A48900920109 /* bg4@2x.png */; };
+		72FC18881B37A48900920109 /* bigLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18791B37A48900920109 /* bigLogo@2x.png */; };
+		72FC18891B37A48900920109 /* icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC187A1B37A48900920109 /* icon1@2x.png */; };
+		72FC188A1B37A48900920109 /* icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC187B1B37A48900920109 /* icon2@2x.png */; };
+		72FC188B1B37A48900920109 /* icon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC187C1B37A48900920109 /* icon3@2x.png */; };
+		72FC188C1B37A48900920109 /* pageDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC187D1B37A48900920109 /* pageDot.png */; };
+		72FC188D1B37A48900920109 /* pageDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC187E1B37A48900920109 /* pageDot@2x.png */; };
+		72FC188E1B37A48900920109 /* skipButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC187F1B37A48900920109 /* skipButton@2x.png */; };
+		72FC188F1B37A48900920109 /* title1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18801B37A48900920109 /* title1@2x.png */; };
+		72FC18901B37A48900920109 /* title2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18811B37A48900920109 /* title2@2x.png */; };
+		72FC18911B37A48900920109 /* title3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18821B37A48900920109 /* title3@2x.png */; };
+		72FC18921B37A48900920109 /* title4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18831B37A48900920109 /* title4@2x.png */; };
+		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +83,23 @@
 		7237F5F21B2202B500F1DFD9 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		726534761B2C222A00045F20 /* LeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftDrawerViewController.h; sourceTree = "<group>"; };
 		726534771B2C222A00045F20 /* LeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerViewController.m; sourceTree = "<group>"; };
+		72FC18751B37A48900920109 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
+		72FC18761B37A48900920109 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg2@2x.png"; sourceTree = "<group>"; };
+		72FC18771B37A48900920109 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg3@2x.png"; sourceTree = "<group>"; };
+		72FC18781B37A48900920109 /* bg4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg4@2x.png"; sourceTree = "<group>"; };
+		72FC18791B37A48900920109 /* bigLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bigLogo@2x.png"; sourceTree = "<group>"; };
+		72FC187A1B37A48900920109 /* icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1@2x.png"; sourceTree = "<group>"; };
+		72FC187B1B37A48900920109 /* icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2@2x.png"; sourceTree = "<group>"; };
+		72FC187C1B37A48900920109 /* icon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon3@2x.png"; sourceTree = "<group>"; };
+		72FC187D1B37A48900920109 /* pageDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageDot.png; sourceTree = "<group>"; };
+		72FC187E1B37A48900920109 /* pageDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageDot@2x.png"; sourceTree = "<group>"; };
+		72FC187F1B37A48900920109 /* skipButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skipButton@2x.png"; sourceTree = "<group>"; };
+		72FC18801B37A48900920109 /* title1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title1@2x.png"; sourceTree = "<group>"; };
+		72FC18811B37A48900920109 /* title2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title2@2x.png"; sourceTree = "<group>"; };
+		72FC18821B37A48900920109 /* title3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title3@2x.png"; sourceTree = "<group>"; };
+		72FC18831B37A48900920109 /* title4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title4@2x.png"; sourceTree = "<group>"; };
+		72FC18931B37A81600920109 /* IntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroPageViewController.h; sourceTree = "<group>"; };
+		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +145,7 @@
 		7237F5B91B1EE68F00F1DFD9 /* Jobs */ = {
 			isa = PBXGroup;
 			children = (
+				72FC18741B37A48900920109 /* Intro */,
 				7237F5ED1B20AE7E00F1DFD9 /* Controller */,
 				7237F5EC1B20AE5000F1DFD9 /* Model */,
 				7237F5C41B1EE68F00F1DFD9 /* Main.storyboard */,
@@ -125,8 +159,6 @@
 		7237F5BA1B1EE68F00F1DFD9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7237F5BE1B1EE68F00F1DFD9 /* AppDelegate.h */,
-				7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */,
 				7237F5BB1B1EE68F00F1DFD9 /* Info.plist */,
 				7237F5BC1B1EE68F00F1DFD9 /* main.m */,
 			);
@@ -166,6 +198,10 @@
 		7237F5ED1B20AE7E00F1DFD9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7237F5BE1B1EE68F00F1DFD9 /* AppDelegate.h */,
+				7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */,
+				72FC18931B37A81600920109 /* IntroPageViewController.h */,
+				72FC18941B37A81600920109 /* IntroPageViewController.m */,
 				7237F5C11B1EE68F00F1DFD9 /* ViewController.h */,
 				7237F5C21B1EE68F00F1DFD9 /* ViewController.m */,
 				7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */,
@@ -180,6 +216,28 @@
 				726534771B2C222A00045F20 /* LeftDrawerViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		72FC18741B37A48900920109 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				72FC18751B37A48900920109 /* bg1@2x.png */,
+				72FC18761B37A48900920109 /* bg2@2x.png */,
+				72FC18771B37A48900920109 /* bg3@2x.png */,
+				72FC18781B37A48900920109 /* bg4@2x.png */,
+				72FC18791B37A48900920109 /* bigLogo@2x.png */,
+				72FC187A1B37A48900920109 /* icon1@2x.png */,
+				72FC187B1B37A48900920109 /* icon2@2x.png */,
+				72FC187C1B37A48900920109 /* icon3@2x.png */,
+				72FC187D1B37A48900920109 /* pageDot.png */,
+				72FC187E1B37A48900920109 /* pageDot@2x.png */,
+				72FC187F1B37A48900920109 /* skipButton@2x.png */,
+				72FC18801B37A48900920109 /* title1@2x.png */,
+				72FC18811B37A48900920109 /* title2@2x.png */,
+				72FC18821B37A48900920109 /* title3@2x.png */,
+				72FC18831B37A48900920109 /* title4@2x.png */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		D779B1AC0DE4FF04D4C6710C /* Frameworks */ = {
@@ -281,9 +339,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72FC18921B37A48900920109 /* title4@2x.png in Resources */,
 				7237F5C61B1EE68F00F1DFD9 /* Main.storyboard in Resources */,
+				72FC18871B37A48900920109 /* bg4@2x.png in Resources */,
+				72FC18861B37A48900920109 /* bg3@2x.png in Resources */,
+				72FC188D1B37A48900920109 /* pageDot@2x.png in Resources */,
+				72FC18841B37A48900920109 /* bg1@2x.png in Resources */,
+				72FC18891B37A48900920109 /* icon1@2x.png in Resources */,
 				7237F5CB1B1EE68F00F1DFD9 /* LaunchScreen.xib in Resources */,
 				7237F5C81B1EE68F00F1DFD9 /* Images.xcassets in Resources */,
+				72FC18881B37A48900920109 /* bigLogo@2x.png in Resources */,
+				72FC188B1B37A48900920109 /* icon3@2x.png in Resources */,
+				72FC18911B37A48900920109 /* title3@2x.png in Resources */,
+				72FC188F1B37A48900920109 /* title1@2x.png in Resources */,
+				72FC188A1B37A48900920109 /* icon2@2x.png in Resources */,
+				72FC188E1B37A48900920109 /* skipButton@2x.png in Resources */,
+				72FC188C1B37A48900920109 /* pageDot.png in Resources */,
+				72FC18901B37A48900920109 /* title2@2x.png in Resources */,
+				72FC18851B37A48900920109 /* bg2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +415,7 @@
 				7237F5F01B212AF300F1DFD9 /* ListDetailViewController.m in Sources */,
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
 				721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */,
+				72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
 				7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */,
