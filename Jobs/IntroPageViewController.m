@@ -40,9 +40,9 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page2.desc = sampleDescription2;
     page2.bgImage = [UIImage imageNamed:@"bg2"];
     page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title2"]];
-    page2.onPageDidAppear = ^{
-        NSLog(@"Page 2 did appear block");
-    };
+//    page2.onPageDidAppear = ^{
+//        NSLog(@"Page 2 did appear block");
+//    };
     
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"This is page 3";
@@ -62,18 +62,18 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     // show skipButton only on 3rd page + animation
     intro.skipButton.alpha = 0.f;
     intro.skipButton.enabled = NO;
-    page3.onPageDidAppear = ^{
-        intro.skipButton.enabled = YES;
-        [UIView animateWithDuration:0.3f animations:^{
-            intro.skipButton.alpha = 1.f;
-        }];
-    };
-    page3.onPageDidDisappear = ^{
-        intro.skipButton.enabled = NO;
-        [UIView animateWithDuration:0.3f animations:^{
-            intro.skipButton.alpha = 0.f;
-        }];
-    };
+//    page3.onPageDidAppear = ^{
+//        intro.skipButton.enabled = YES;
+//        [UIView animateWithDuration:0.3f animations:^{
+//            intro.skipButton.alpha = 1.f;
+//        }];
+//    };
+//    page3.onPageDidDisappear = ^{
+//        intro.skipButton.enabled = NO;
+//        [UIView animateWithDuration:0.3f animations:^{
+//            intro.skipButton.alpha = 0.f;
+//        }];
+//    };
     
     [intro setPages:@[page1,page2,page3,page4]];
     
@@ -83,7 +83,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 }
 
 - (void)introDidFinish:(EAIntroView *)introView{
-    NSLog(@"introDidFinish");
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
     navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
@@ -93,12 +92,10 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     AllListsViewController *controller = navigationController.viewControllers[0];
     controller.dataModel = self._dataModel;
-    
+
     [self addChildViewController:navigationController];
     [self.view addSubview:navigationController.view];
-//    AllListsViewController *allListViewController = [[AllListsViewController alloc]init];
-//   // [self addChildViewController:allListViewController];
-//    [self.view addSubview:allListViewController.view];
+    
 }
 
 - (void)didReceiveMemoryWarning {
