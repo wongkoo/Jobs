@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>5D7F09E9-316D-42CF-B119-A3F754349A89</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Jobs</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>7560B4ADE029E278431AFA12687E3902E5F7C6B6</key>
 		<string>https://github.com/wongkoo/Jobs.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Jobs.xcodeproj</string>
+	<string>Jobs.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>7560B4ADE029E278431AFA12687E3902E5F7C6B6</key>
