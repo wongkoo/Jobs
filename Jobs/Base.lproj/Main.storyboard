@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wUc-E8-8oq">
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" id="wUc-E8-8oq">
                             <rect key="frame" x="0.0" y="64" width="600" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -295,7 +296,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gCl-bN-Wxf">
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" id="gCl-bN-Wxf">
                             <rect key="frame" x="0.0" y="-21" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -334,96 +335,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ew3-cn-Knc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="521" y="222"/>
-        </scene>
-        <!--Left Drawer View Controller-->
-        <scene sceneID="uY0-h3-GFZ">
-            <objects>
-                <viewController storyboardIdentifier="LeftDrawerViewController" id="DJf-Mc-HG5" customClass="LeftDrawerViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Uqt-Lw-L74"/>
-                        <viewControllerLayoutGuide type="bottom" id="gUj-Ya-VVt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DRc-fo-kEI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.79999999999999982" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hdF-SU-NdY">
-                                <rect key="frame" x="16" y="61" width="245" height="391"/>
-                                <color key="backgroundColor" red="0.41960784309999999" green="0.63529411759999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="245" id="CWQ-I5-DWy"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="391" id="cX1-W2-0EY"/>
-                                </constraints>
-                                <string key="text">《从前慢》木心
-
-记得早先少年时 
-大家诚诚恳恳 
-说一句 是一句 
-　　 
-清早上火车站 
-长街黑暗无行人 
-卖豆浆的小店冒着热气 
-　　 
-从前的日色变得慢 
-车，马，邮件都慢 
-一生只够爱一个人 
-　　 
-从前的锁也好看 
-钥匙精美有样子 
-你锁了 人家就懂了 </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="cpV-qG-Dfk">
-                                <rect key="frame" x="26" y="500" width="50" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="pWF-4f-eZ3"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FX3-aQ-Ot8">
-                                <rect key="frame" x="16" y="20" width="42" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="IYk-OP-Nit"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ou0-H3-X0c">
-                                <rect key="frame" x="16" y="473" width="298" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="mAp-r4-4p6"/>
-                                    <constraint firstAttribute="width" constant="298" id="xuq-dK-M0Q"/>
-                                </constraints>
-                                <string key="text">GitHub-wongkoo
-©wongkoo.HUST
-WeChat:wongkoo</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cpV-qG-Dfk" firstAttribute="top" secondItem="hdF-SU-NdY" secondAttribute="bottom" constant="48" id="45Q-vv-8un"/>
-                            <constraint firstItem="gUj-Ya-VVt" firstAttribute="top" secondItem="cpV-qG-Dfk" secondAttribute="bottom" constant="53" id="5Lx-rV-Ooc"/>
-                            <constraint firstItem="cpV-qG-Dfk" firstAttribute="leading" secondItem="DRc-fo-kEI" secondAttribute="leadingMargin" constant="10" id="7ds-Dg-MzG"/>
-                            <constraint firstItem="hdF-SU-NdY" firstAttribute="top" secondItem="FX3-aQ-Ot8" secondAttribute="bottom" constant="20" id="BSK-Qs-B4u"/>
-                            <constraint firstItem="FX3-aQ-Ot8" firstAttribute="leading" secondItem="ou0-H3-X0c" secondAttribute="leading" id="BWK-Xq-E6N"/>
-                            <constraint firstItem="ou0-H3-X0c" firstAttribute="top" secondItem="hdF-SU-NdY" secondAttribute="bottom" constant="21" id="Fzy-et-rVg"/>
-                            <constraint firstItem="ou0-H3-X0c" firstAttribute="leading" secondItem="DRc-fo-kEI" secondAttribute="leadingMargin" id="ni4-k0-u5j"/>
-                            <constraint firstItem="FX3-aQ-Ot8" firstAttribute="leading" secondItem="hdF-SU-NdY" secondAttribute="leading" id="uLf-Ai-U3b"/>
-                            <constraint firstAttribute="bottom" secondItem="ou0-H3-X0c" secondAttribute="bottom" constant="20" symbolic="YES" id="ve4-lI-9U7"/>
-                            <constraint firstItem="FX3-aQ-Ot8" firstAttribute="top" secondItem="Uqt-Lw-L74" secondAttribute="bottom" id="wVA-HZ-YuM"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textiew" destination="hdF-SU-NdY" id="Rvj-R0-BWL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fkq-Yy-ghR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-880" y="233"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xQ3-Rl-VNx">
@@ -687,8 +598,5 @@ WeChat:wongkoo</string>
             <point key="canvasLocation" x="-207" y="222"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon-60" width="60" height="60"/>
-    </resources>
     <color key="tintColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

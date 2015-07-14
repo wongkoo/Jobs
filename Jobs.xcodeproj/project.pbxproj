@@ -22,7 +22,6 @@
 		7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EA1B20AE1A00F1DFD9 /* JobList.m */; };
 		7237F5F01B212AF300F1DFD9 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */; };
 		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
-		726534781B2C222A00045F20 /* LeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726534771B2C222A00045F20 /* LeftDrawerViewController.m */; };
 		72FC18841B37A48900920109 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18751B37A48900920109 /* bg1@2x.png */; };
 		72FC18851B37A48900920109 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18761B37A48900920109 /* bg2@2x.png */; };
 		72FC18861B37A48900920109 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FC18771B37A48900920109 /* bg3@2x.png */; };
@@ -74,8 +73,6 @@
 		7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
 		7237F5F11B2202B500F1DFD9 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		7237F5F21B2202B500F1DFD9 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
-		726534761B2C222A00045F20 /* LeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftDrawerViewController.h; sourceTree = "<group>"; };
-		726534771B2C222A00045F20 /* LeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerViewController.m; sourceTree = "<group>"; };
 		72FC18751B37A48900920109 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
 		72FC18761B37A48900920109 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg2@2x.png"; sourceTree = "<group>"; };
 		72FC18771B37A48900920109 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg3@2x.png"; sourceTree = "<group>"; };
@@ -198,8 +195,6 @@
 				7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */,
 				721C419B1B25812F00947326 /* CellbackgroundVIew.h */,
 				721C419C1B25812F00947326 /* CellbackgroundVIew.m */,
-				726534761B2C222A00045F20 /* LeftDrawerViewController.h */,
-				726534771B2C222A00045F20 /* LeftDrawerViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -287,9 +282,11 @@
 				TargetAttributes = {
 					7237F5B61B1EE68F00F1DFD9 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 546HJ5BCYA;
 					};
 					7237F5CF1B1EE68F00F1DFD9 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 546HJ5BCYA;
 						TestTargetID = 7237F5B61B1EE68F00F1DFD9;
 					};
 				};
@@ -379,7 +376,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				726534781B2C222A00045F20 /* LeftDrawerViewController.m in Sources */,
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
@@ -449,7 +445,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -468,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -492,7 +489,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -505,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -517,9 +515,14 @@
 			baseConfigurationReference = 527D57D792D2DB49EF4329E9 /* Pods-Jobs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				INFOPLIST_FILE = Jobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ede94b43-bee0-46c9-bc82-d1b0552985b6";
 			};
 			name = Debug;
 		};
@@ -528,9 +531,14 @@
 			baseConfigurationReference = AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				INFOPLIST_FILE = Jobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ede94b43-bee0-46c9-bc82-d1b0552985b6";
 			};
 			name = Release;
 		};
@@ -538,6 +546,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -549,6 +559,7 @@
 				INFOPLIST_FILE = JobsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jobs.app/Jobs";
 			};
 			name = Debug;
@@ -557,6 +568,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -564,6 +577,7 @@
 				INFOPLIST_FILE = JobsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jobs.app/Jobs";
 			};
 			name = Release;
