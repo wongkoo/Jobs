@@ -13,7 +13,16 @@ Jobs，让求职清醒而高效。**
 ![5](http://a4.mzstatic.com/us/r30/Purple1/v4/03/e2/98/03e29836-28a8-36ba-22fa-47f47e8fb4d8/screen322x572.jpeg)
 ##iTunesPreview
 [URL](https://itunes.apple.com/us/app/jobs/id1016317328?l=zh&ls=1&mt=8)
-
+##Detail
+> Free 
+> Category: Productivity 
+> Updated: Jul 18, 2015 
+> Version: 1.0.1 
+> Size: 5.5 MB 
+> Language: English 
+> Seller: ZhenHui Wang 
+> © wongkoo 
+> Rated 4+ 
 
 
 
