@@ -15,7 +15,6 @@
 #import <MCSwipeTableViewCell.h>
 #import "AppDelegate.h"
 @interface AllListsViewController (){
-   // NSMutableArray *_lists;
     NSInteger cellHeight;
 }
 
@@ -30,14 +29,6 @@
     [self updateAllApplicationNum];
     [self.tableView reloadData];
 }
-
-
-
-//- (IBAction)actionToggleLeftDrawer:(id)sender {
-//    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
-//}
-
-
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -67,9 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self updateAllApplicationNum];
-   // self.allApplicationNumLabel.textAlignment = NSTextAlignmentCenter;
-    //self.allApplicationNumLabel.textColor = [UIColor grayColor];
-    
+
     cellHeight = 80;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
@@ -78,12 +67,6 @@
     [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
     [self.tableView setBackgroundView:backgroundView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -115,7 +98,6 @@
     static NSString *CellIdentifier = @"Cell";
     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    
     if (!cell) {
         cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         
@@ -129,9 +111,6 @@
         
         [self setBackgroundViewForCell:cell];
         
-//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.bounds.size.width/4*3, cellHeight/2-10, self.view.bounds.size.width/4*1, 20)];
-//        label.font = [UIFont boldSystemFontOfSize:18];
-//        label.tag = 123;
         UILabel *label =[[UILabel alloc]init];
         label.font = [UIFont boldSystemFontOfSize:18];
         label.tag = 123;
@@ -149,7 +128,6 @@
         [cell.contentView addConstraints:constraints1];
         [cell.contentView addConstraints:constraints2];
 
-        //  [self configureTextForCell:cell withIndexPath:indexPath];
     }
     
     
@@ -230,9 +208,7 @@
     
     UIView *listView = [self viewWithImageName:@"list"];
     UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
-    
-  //  UIView *upView = [self viewWithImageName:@"up"];
-    
+
     // Setting the default inactive state color to the tableView background color
     [cell setDefaultColor:self.tableView.backgroundView.backgroundColor];
     [cell setDelegate:(id)self];
@@ -352,8 +328,6 @@
             }
         }
     }
-    //NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
-    //NSLog(@"%d",[allNotifications count]);
 }
 
 - (void)changeStateofCell:(MCSwipeTableViewCell *)cell {
@@ -534,6 +508,7 @@
         }
     }
 }
+
 - (UIView *)customSnapshoFromView:(UIView *)inputView {
     
     // Make an image from the input view.
@@ -552,50 +527,5 @@
     
     return snapshot;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

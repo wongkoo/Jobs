@@ -10,8 +10,8 @@
 //1.在对象B的.h中定义⼀一个@protocol 代理
 @class ItemDetailViewController;
 @class JobsItem;
-@protocol ItemDetailViewControllerDelegate <NSObject>
 
+@protocol ItemDetailViewControllerDelegate <NSObject>
 - (void) itemDetailViewControllerdidCancel:(ItemDetailViewController *)controller;
 - (void) itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item;
 - (void) itemDetailViewController:(ItemDetailViewController *)controller didFinishEditingItem:(JobsItem *)item;
@@ -19,15 +19,15 @@
 
 @interface ItemDetailViewController : UITableViewController<UITextFieldDelegate>
 
-@property (strong, nonatomic) JobsItem *itemToEdit;
-@property (strong, nonatomic) NSString *companyName;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *nextTaskTextField;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
-@property (weak, nonatomic) IBOutlet UISwitch *switchControl;
-@property (weak, nonatomic) IBOutlet UILabel *dueDateLabel;
-//2.在对象B的.h中声明⼀一个代理协议的属性变量
-@property (weak, nonatomic) id <ItemDetailViewControllerDelegate> delegate;
+@property (nonatomic, strong) JobsItem *itemToEdit;
+@property (nonatomic, strong) NSString *companyName;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *nextTaskTextField;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
+@property (nonatomic, weak) IBOutlet UISwitch *switchControl;
+@property (nonatomic, weak) IBOutlet UILabel *dueDateLabel;
+
+@property (nonatomic, weak) id <ItemDetailViewControllerDelegate> delegate;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)Save:(id)sender;

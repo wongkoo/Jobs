@@ -14,6 +14,7 @@
 #import <MCSwipeTableViewCell.h>
 #import <BFPaperCheckbox.h>
 #import "UIColor+BFPaperColors.h"
+
 @interface ViewController(){
     NSInteger cellHeight;
     NSInteger differFromNowToTarget;
@@ -23,10 +24,9 @@
     UILabel *countDownTimerLabel;
     NSInteger countDownTimerLabelType;
 }
-@property (weak, nonatomic) IBOutlet UILabel *detailTextView;
-//@property (nonatomic, strong) UILabel *countDownTimerLabel;
-@property (nonatomic, strong) NSMutableArray *checkboxs;
 
+@property (nonatomic, weak) IBOutlet UILabel *detailTextView;
+@property (nonatomic, strong) NSMutableArray *checkboxs;
 @end
 
 @implementation ViewController
@@ -158,8 +158,6 @@
     cell.textLabel.textColor = [UIColor colorWithRed:130.0/255.0 green:18.0/255.0 blue:13.0/255.0 alpha:1];
     cell.detailTextLabel.textColor =  [UIColor colorWithRed:121.0/255.0 green:67.0/255.0 blue:11.0/255.0 alpha:1];
     
-    //cell.textLabel.text = item.text;
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"M月dd日hh时mm分"];
     NSString *time = [dateFormatter stringFromDate:item.dueDate];
@@ -277,9 +275,6 @@
         checkbox = self.checkboxs[i];
         checkbox.tag = i;
     }
-    
-    //NSArray *allNotifications = [[UIApplication sharedApplication]scheduledLocalNotifications];
-    //NSLog(@"%d",[allNotifications count]);
 }
 
 - (void)cancelLocalNotificationIndex:(NSInteger)index{
@@ -492,6 +487,7 @@
 
 - (void)UpdateCountDownLabel{
     if (countDownTimerLabelType == -1) {
+        
         if(differFromNowToTarget > 3600 ){
             countDownTimerLabel.text = [NSString stringWithFormat:@"%ldhour后",(long)differFromNowToTarget/3600];
             countDownTimerLabelType = 0;
@@ -504,16 +500,23 @@
         }else{
             countDownTimerLabel.text = @"已结束";
         }
+        
     }else if(countDownTimerLabelType == 0){
+        
         if (differFromNowToTarget >3600) {
             countDownTimerLabel.text = [NSString stringWithFormat:@"%ldhour后",(long)differFromNowToTarget/3600];
         }else{
             countDownTimerLabel.text = [NSString stringWithFormat:@"%.3fhour后",(double)differFromNowToTarget/3600.0];
         }
+        
     }else if(countDownTimerLabelType == 1){
+        
         countDownTimerLabel.text = [NSString stringWithFormat:@"%ldmin后",(long)differFromNowToTarget/60];
+        
     }else if(countDownTimerLabelType == 2){
+        
         countDownTimerLabel.text = [NSString stringWithFormat:@"%lds后",(long)differFromNowToTarget];
+        
     }
 }
 - (void)countDownTimerLabelTapped:(UIGestureRecognizer *)gesture{
@@ -524,6 +527,7 @@
     }else if(countDownTimerLabelType == -1){
         countDownTimerLabelType = -1;
     }
+    
     [self UpdateCountDownLabel];
 }
 
@@ -587,10 +591,9 @@
     }
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
     NSArray *indexPaths = @[indexPath];
+    
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -598,8 +601,8 @@
     NSInteger index = [self.jobList.items indexOfObject:item];
     NSIndexPath *indexPath =  [NSIndexPath indexPathForRow:index inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
     [self configureTextForCell:(MCSwipeTableViewCell *)cell withJobsItem:item];
-    // [self saveJobsItems];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

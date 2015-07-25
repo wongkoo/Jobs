@@ -10,7 +10,6 @@
 #import "JobsItem.h"
 #import "CellbackgroundVIew.h"
 @interface ItemDetailViewController ()
-
 @end
 
 @implementation ItemDetailViewController{
@@ -33,16 +32,12 @@
         self.switchControl.on = NO;
         _dueDate = [NSDate date];
     }
-    [self updateDueDateLabel];
     
+    [self updateDueDateLabel];
     UIControl *aControl;
     [aControl addTarget:self action: @selector(touchSection) forControlEvents:UIControlEventTouchUpInside];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 - (void)initNextTaskSegmentedControl{
     if ([self.itemToEdit.nextTask isEqualToString:@"报名"]) {
         self.nextTaskTextField.selectedSegmentIndex = 0;
@@ -58,6 +53,7 @@
         self.nextTaskTextField.selectedSegmentIndex = 5;
     }
 }
+
 -(void)touchSection{
     [self.textField resignFirstResponder];
 }
@@ -120,57 +116,26 @@
     [self updateDueDateLabel];
 }
 
-
-
-
 #pragma mark - tableView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //1
+
     if (indexPath.section == 1 && indexPath.row ==2) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DatePickerCell"];
-        //2
+ 
         if (cell == nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DatePickerCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            //3
+
             UIDatePicker *datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 216.0f)];
             datePicker.tag = 100;
             [cell.contentView addSubview:datePicker];
-            
-            //4
+
             [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
         }
-//        CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
-//        CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
-//        [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
-        
-        
-        
-//        cell.layer.shadowOffset = CGSizeMake(0, 15);
-//        cell.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell.layer.shadowRadius = 3;
-//        cell.layer.shadowOpacity = .75f;
-//        CGRect shadowFrame = cell.layer.bounds;
-//        CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-//        cell.layer.shadowPath = shadowPath;
-        
         return cell;
-        //5
+        
     }else{
         UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-        
-//        CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
-//        CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
-//        [cell setBackgroundView: [[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end]];
-        
-//        cell.layer.shadowOffset = CGSizeMake(0, 15);
-//        cell.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell.layer.shadowRadius = 3;
-//        cell.layer.shadowOpacity = .75f;
-//        CGRect shadowFrame = cell.layer.bounds;
-//        CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-//        cell.layer.shadowPath = shadowPath;
-        
         return cell;
     }
 }
@@ -223,23 +188,15 @@
     }
 }
 
-//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.section == 1 && indexPath.row == 1) {
-//        return indexPath;
-//    }else{
-//        return nil;
-//    }
-//}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.view endEditing:YES];
     return YES;
 }
+
 #pragma mark - action
-//3.让对象B在适当的时候向代理对象发送消息,⽐比如当⽤用户触碰cancel或done按钮时
 - (IBAction)cancel:(id)sender {
     [self.delegate itemDetailViewControllerdidCancel:self];
-   // [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)Save:(id)sender {
@@ -260,11 +217,7 @@
         [self.itemToEdit scheduleNotification:self.companyName];
         [self.delegate itemDetailViewController:self didFinishEditingItem:self.itemToEdit];
     }
-    
-  //  [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 #pragma mark - text
 - (void)textFieldDidBeginEditing:(UITextField *)textField{

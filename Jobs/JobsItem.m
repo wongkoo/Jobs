@@ -49,7 +49,6 @@
             return notification;
         }
     }
-   // NSLog(@"%d",[allNotifications count]);
     return nil;
 }
 

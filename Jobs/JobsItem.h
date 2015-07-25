@@ -11,14 +11,14 @@
 @interface JobsItem : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString *text;
-
 @property (nonatomic,copy) NSString *nextTask;
-
 @property (nonatomic,assign) BOOL checked;
 @property (nonatomic,copy)NSDate *dueDate;
 @property (nonatomic,assign)BOOL shouldRemind;
 @property (nonatomic,assign)NSInteger itemId;
--(void)toggleChecked;
+
+- (void)toggleChecked;
 - (void)scheduleNotification:(NSString *)companyName;
 - (UILocalNotification *)notificationForThisItem;
+
 @end

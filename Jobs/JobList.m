@@ -14,7 +14,6 @@
     if((self = [super init])){
         self.items =[[NSMutableArray alloc] initWithCapacity:20];
         self.deletedFlag = 0;
-    //    self.iconName = @"Appointments";
     }
     return self;
 }
@@ -36,7 +35,6 @@
         self.accountOfWebsite = [aDecoder decodeObjectForKey:@"AccountOfWebsite"];
         self.reminderOfPassword = [aDecoder decodeObjectForKey:@"ReminderOfPassword"];
         self.email = [aDecoder decodeObjectForKey:@"Email"];
-     //   self.iconName = [aDecoder decodeObjectForKey:@"IconName"];
         self.deletedFlag = [aDecoder decodeIntegerForKey:@"DeletedFlag"];
 //耻辱！！！！！！
 //        self.name = [aDecoder decodeObjectForKey:@"Name"];
@@ -51,7 +49,6 @@
     [aCoder encodeObject:self.accountOfWebsite forKey:@"AccountOfWebsite"];
     [aCoder encodeObject:self.reminderOfPassword forKey:@"ReminderOfPassword"];
     [aCoder encodeObject:self.email forKey:@"Email"];
-  //  [aCoder encodeObject:self.iconName forKey:@"IconName"];
     [aCoder encodeInteger:self.deletedFlag forKey:@"DeletedFlag"];
 }
 

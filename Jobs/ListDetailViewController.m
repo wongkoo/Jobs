@@ -10,11 +10,9 @@
 #import "JobList.h"
 #import "CellbackgroundVIew.h"
 @interface ListDetailViewController ()
-//@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @end
 
 @implementation ListDetailViewController{
-    //NSString *_iconName;
 }
 
 #pragma mark - view
@@ -27,7 +25,6 @@
         self.reminderOfPasswordTextField.text = self.jobListToEdit.reminderOfPassword;
         self.emailTextField.text = self.jobListToEdit.email;
         self.saveBarButton.enabled = YES;
-       // _iconName = self.jobListToEdit.iconName;
     }
     self.textField.tag = 30;
     self.accountOfWebsiteTextField.tag = 31;
@@ -38,7 +35,6 @@
     self.accountOfWebsiteTextField.delegate = self;
     self.reminderOfPasswordTextField.delegate = self;
     self.emailTextField.delegate = self;
- //   self.iconImageView.image = [UIImage imageNamed:_iconName];
     
     self.navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
     self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
@@ -49,14 +45,10 @@
 
 
 - (void )tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.section == 0 && indexPath.row==0) {
-//        [self.textField resignFirstResponder];
-//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //[self.textField becomeFirstResponder];
 }
 
 
@@ -113,7 +105,6 @@
 
 
 #pragma mark - IBAction
-
 - (IBAction)cancel:(id)sender{
     [self.delegate listDetailViewControllerDidCancel:self];
 }

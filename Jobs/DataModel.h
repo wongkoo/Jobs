@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface DataModel : NSObject
+
 @property(nonatomic, strong)NSMutableArray *jobs;
+
 - (void)saveJobs;
 - (NSInteger)indexOfSelectedJobList;
 - (void)setIndexOfSelectedJobList:(NSInteger)index;
 + (NSInteger)nextJobsItemId;
+
 @end
