@@ -7,89 +7,40 @@
 //
 
 #import "CellbackgroundVIew.h"
-@interface CellbackgroundVIew(){
-    CGFloat begin[4];
-    CGFloat end[4];
-}
+@interface CellbackgroundVIew()
 
 @end
 @implementation CellbackgroundVIew
-- (id)initWithBeginRGBAFloatArray:(CGFloat *)beginRGBAFloatArray andEndRGBAFloatArray:(CGFloat *)endRGBAFloatArray andFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-        for (int i=0; i<4; ++i) {
-            begin[i] = beginRGBAFloatArray[i];
-            end[i] = endRGBAFloatArray[i];
-        }
-    }
-    return self;
-}
 
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    // 创建起点颜色 白色
-    CGColorRef beginColor = CGColorCreate(colorSpaceRef,begin);
-    // 创建终点颜色 灰色 RGB(212,212,212) 这个色值我们可以从chroma扩展插件中选择
-    //    <pre class="brush:cpp; toolbar: true; auto-links: false;">
-    //(CGFloat[]){0.83f, 0.83f, 0.83f, 1.0f} 0.83是 212/255的值</pre>
-    CGColorRef endColor = CGColorCreate(colorSpaceRef,end);
-
-//    CGRect paperRect = self.bounds;
+/*This caused memory leak*/
+//    // 创建起点颜色
+//    CGColorRef beginColor = CGColorCreate(colorSpaceRef, (CGFloat[]){243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f});
+//    // 创建终点颜色
+//    CGColorRef endColor = CGColorCreate(colorSpaceRef, (CGFloat[]){249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f});
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorRef startColor = [UIColor colorWithRed:243.0f/255.0 green:243.0f/255.0 blue:243.0f/255.0 alpha:1.0].CGColor;
+    CGColorRef endColor = [UIColor colorWithRed:249.0f/255.0 green:249.0f/255.0 blue:249.0f/255.0 alpha:1.0].CGColor;
+    CGRect paperRect = self.bounds;
+    
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGFloat locations[] = {0.0,1.0};
-    NSArray *colors = [NSArray arrayWithObjects:(__bridge id)beginColor,(__bridge id)endColor, nil];
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)CFBridgingRetain(colors), locations);
-    CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
-    CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
+    CGFloat locations[] = { 0.0, 1.0 };
+    NSArray *colors = [NSArray arrayWithObjects:(__bridge id)startColor, (__bridge id)endColor, nil];
+    
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace,(CFArrayRef) colors, locations);
+    CGPoint startPoint = CGPointMake(CGRectGetMidX(paperRect), CGRectGetMinY(paperRect));
+    CGPoint endPoint = CGPointMake(CGRectGetMidX(paperRect), CGRectGetMaxY(paperRect));
     CGContextSaveGState(context);
-    CGContextAddRect(context, rect);
+    CGContextAddRect(context, paperRect);
     CGContextClip(context);
     CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
     CGContextRestoreGState(context);
+    
     CGGradientRelease(gradient);
     CGColorSpaceRelease(colorSpace);
-    //add line stroke
-//    CGRect strokeRect = CGRectInset(paperRect, 5.0, 5.0);
-//    CGColorRef lineColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.83f, 0.83f, 0.83f, 1.0f});
-//    CGContextSetStrokeColorWithColor(context, lineColor);
-//    CGContextSetLineWidth(context, 1.0);
-//    CGContextStrokeRect(context, strokeRect);
-}
-
-- (void)drawRect:(CGRect)rect withBeginRGBAFloatArray:(CGFloat *)beginRGBAFloatArray andEndRGBAFloatArray:(CGFloat *)endRGBAFloatArray{
-    CGFloat begin1[4];
-    CGFloat end1[4];
-
-        for (int i=0; i<4; ++i) {
-            begin1[i] = beginRGBAFloatArray[i];
-            end1[i] = endRGBAFloatArray[i];
-        }
-    CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    // 创建起点颜色 白色
-    CGColorRef beginColor = CGColorCreate(colorSpaceRef,begin);
-    // 创建终点颜色 灰色 RGB(212,212,212) 这个色值我们可以从chroma扩展插件中选择
-    //    <pre class="brush:cpp; toolbar: true; auto-links: false;">
-    //(CGFloat[]){0.83f, 0.83f, 0.83f, 1.0f} 0.83是 212/255的值</pre>
-    CGColorRef endColor = CGColorCreate(colorSpaceRef,end);
-    
-    //    CGRect paperRect = self.bounds;
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGFloat locations[] = {0.0,1.0};
-    NSArray *colors = [NSArray arrayWithObjects:(__bridge id)beginColor,(__bridge id)endColor, nil];
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)CFBridgingRetain(colors), locations);
-    CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
-    CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
-    CGContextSaveGState(context);
-    CGContextAddRect(context, rect);
-    CGContextClip(context);
-    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
-    CGContextRestoreGState(context);
-    CGGradientRelease(gradient);
-    CGColorSpaceRelease(colorSpace);
 }
-
 @end

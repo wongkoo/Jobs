@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface CellbackgroundVIew : UIView
-- (id)initWithBeginRGBAFloatArray:(CGFloat *)beginRGBAFloatArray andEndRGBAFloatArray:(CGFloat *)endRGBAFloatArray andFrame:(CGRect)frame;
 @end

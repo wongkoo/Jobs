@@ -18,6 +18,7 @@
 #pragma mark - view
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if (self.jobListToEdit != nil) {
         self.title = @"编辑公司";
         self.textField.text = self.jobListToEdit.name;
@@ -26,6 +27,7 @@
         self.emailTextField.text = self.jobListToEdit.email;
         self.saveBarButton.enabled = YES;
     }
+    
     self.textField.tag = 30;
     self.accountOfWebsiteTextField.tag = 31;
     self.reminderOfPasswordTextField.tag = 32;
@@ -42,7 +44,6 @@
     self.navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
     
 }
-
 
 - (void )tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 }

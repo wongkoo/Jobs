@@ -105,10 +105,7 @@
         if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
             cell.separatorInset = UIEdgeInsetsZero;
         }
-        
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-        cell.contentView.backgroundColor = [UIColor whiteColor];
-        
         [self setBackgroundViewForCell:cell];
         
         UILabel *label =[[UILabel alloc]init];
@@ -117,6 +114,7 @@
         [cell.contentView addSubview:label];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         
+        //AutoLayout
         NSArray *constraints1 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[label]-|"
                                                                         options:0
                                                                         metrics:@{@"margin":@60}
@@ -296,12 +294,9 @@
 }
 
 - (void)setBackgroundViewForCell:(MCSwipeTableViewCell *)cell{
-    CGFloat begin[4]= {243.0f/255.0, 243.0f/255.0, 243.0f/255.0,1.0f};
-    CGFloat end[4] = {249.0f/255.0, 249.0f/255.0, 249.0f/255.0,1.0f};
-    CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, cellHeight);
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, cellHeight)];
-    backgroundView = (UIView *)[[CellbackgroundVIew alloc]initWithBeginRGBAFloatArray:begin andEndRGBAFloatArray:end andFrame:rect];
-    [cell.contentView addSubview:backgroundView];
+    //UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, cellHeight)];
+    //backgroundView = [(UIView *)[CellbackgroundVIew alloc]init];
+    [cell setBackgroundView:[[CellbackgroundVIew alloc]init]];
 }
 
 - (UIView *)viewWithImageName:(NSString *)imageName {
