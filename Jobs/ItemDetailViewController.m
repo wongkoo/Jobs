@@ -18,6 +18,16 @@
 }
 
 #pragma mark - view
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,7 +49,7 @@
     self.navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
     
     [self updateDueDateLabel];
-    UIControl *aControl;
+    UIControl *aControl = [[UIControl alloc]init];
     [aControl addTarget:self action: @selector(touchSection) forControlEvents:UIControlEventTouchUpInside];
 }
 
