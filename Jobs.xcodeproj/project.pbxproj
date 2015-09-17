@@ -22,6 +22,7 @@
 		7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EA1B20AE1A00F1DFD9 /* JobList.m */; };
 		7237F5F01B212AF300F1DFD9 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */; };
 		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
+		723E8EA41BAAADF2004D4E8C /* AddProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA31BAAADF2004D4E8C /* AddProcessView.m */; settings = {ASSET_TAGS = (); }; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -57,14 +58,16 @@
 		7237F5E11B1F389F00F1DFD9 /* JobsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsItem.m; sourceTree = "<group>"; };
 		7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
-		7237F5E61B20A57A00F1DFD9 /* AllListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllListsViewController.h; path = ../AllListsViewController.h; sourceTree = "<group>"; };
-		7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllListsViewController.m; path = ../AllListsViewController.m; sourceTree = "<group>"; };
+		7237F5E61B20A57A00F1DFD9 /* AllListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllListsViewController.h; sourceTree = "<group>"; };
+		7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllListsViewController.m; sourceTree = "<group>"; };
 		7237F5E91B20AE1A00F1DFD9 /* JobList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobList.h; sourceTree = "<group>"; };
 		7237F5EA1B20AE1A00F1DFD9 /* JobList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobList.m; sourceTree = "<group>"; };
 		7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
 		7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
 		7237F5F11B2202B500F1DFD9 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		7237F5F21B2202B500F1DFD9 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		723E8EA21BAAADF2004D4E8C /* AddProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProcessView.h; sourceTree = "<group>"; };
+		723E8EA31BAAADF2004D4E8C /* AddProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProcessView.m; sourceTree = "<group>"; };
 		72FC18931B37A81600920109 /* IntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroPageViewController.h; sourceTree = "<group>"; };
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 				7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */,
 				7237F5C41B1EE68F00F1DFD9 /* Main.storyboard */,
 				7237F5ED1B20AE7E00F1DFD9 /* Controller */,
+				723E8E9E1BAAACAE004D4E8C /* View */,
 				7237F5EC1B20AE5000F1DFD9 /* Model */,
 				7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */,
 				7237F5C91B1EE68F00F1DFD9 /* LaunchScreen.xib */,
@@ -160,7 +164,7 @@
 				7237F5F11B2202B500F1DFD9 /* DataModel.h */,
 				7237F5F21B2202B500F1DFD9 /* DataModel.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7237F5ED1B20AE7E00F1DFD9 /* Controller */ = {
@@ -169,10 +173,8 @@
 				723E8E9D1BAA9EEF004D4E8C /* IntroPage */,
 				723E8E9B1BAA9E8A004D4E8C /* FirstPageWithCompany */,
 				723E8E9C1BAA9EC7004D4E8C /* SecondPageInCompany */,
-				721C419B1B25812F00947326 /* CellbackgroundVIew.h */,
-				721C419C1B25812F00947326 /* CellbackgroundVIew.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		723E8E9B1BAA9E8A004D4E8C /* FirstPageWithCompany */ = {
@@ -183,7 +185,7 @@
 				7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */,
 				7237F5EF1B212AF300F1DFD9 /* ListDetailViewController.m */,
 			);
-			name = FirstPageWithCompany;
+			path = FirstPageWithCompany;
 			sourceTree = "<group>";
 		};
 		723E8E9C1BAA9EC7004D4E8C /* SecondPageInCompany */ = {
@@ -194,7 +196,7 @@
 				7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */,
 				7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */,
 			);
-			name = SecondPageInCompany;
+			path = SecondPageInCompany;
 			sourceTree = "<group>";
 		};
 		723E8E9D1BAA9EEF004D4E8C /* IntroPage */ = {
@@ -203,7 +205,18 @@
 				72FC18931B37A81600920109 /* IntroPageViewController.h */,
 				72FC18941B37A81600920109 /* IntroPageViewController.m */,
 			);
-			name = IntroPage;
+			path = IntroPage;
+			sourceTree = "<group>";
+		};
+		723E8E9E1BAAACAE004D4E8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				723E8EA21BAAADF2004D4E8C /* AddProcessView.h */,
+				723E8EA31BAAADF2004D4E8C /* AddProcessView.m */,
+				721C419B1B25812F00947326 /* CellbackgroundVIew.h */,
+				721C419C1B25812F00947326 /* CellbackgroundVIew.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D779B1AC0DE4FF04D4C6710C /* Frameworks */ = {
@@ -370,6 +383,7 @@
 				72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
+				723E8EA41BAAADF2004D4E8C /* AddProcessView.m in Sources */,
 				7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

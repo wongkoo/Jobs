@@ -569,6 +569,27 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="招聘流程" id="roE-ob-jKI">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="icon" rowHeight="80" id="T81-Ez-wEh">
+                                        <rect key="frame" x="0.0" y="503" width="600" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T81-Ez-wEh" id="GI0-ba-DgW">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psz-WW-oND">
+                                                    <rect key="frame" x="289" y="29" width="22" height="22"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="psz-WW-oND" firstAttribute="centerY" secondItem="GI0-ba-DgW" secondAttribute="centerY" id="54w-dd-hFm"/>
+                                                <constraint firstItem="psz-WW-oND" firstAttribute="centerX" secondItem="GI0-ba-DgW" secondAttribute="centerX" id="yWO-98-WQS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="AW3-EZ-QfR" id="wSW-5j-6Ez"/>
