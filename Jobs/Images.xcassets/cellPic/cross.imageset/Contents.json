@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "cross.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "launch－background.jpg",
+      "filename" : "cross@2x.png",
       "scale" : "2x"
     },
     {
