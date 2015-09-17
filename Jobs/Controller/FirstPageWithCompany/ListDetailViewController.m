@@ -9,7 +9,11 @@
 #import "ListDetailViewController.h"
 #import "JobList.h"
 #import "CellbackgroundVIew.h"
+#import "AddProcessView.h"
+
 @interface ListDetailViewController ()
+@property (weak     , nonatomic) IBOutlet UIButton *addProcess;
+@property (strong   , nonatomic) AddProcessView *processView;
 @end
 
 @implementation ListDetailViewController{
@@ -125,6 +129,33 @@
         self.jobListToEdit.email = self.emailTextField.text;
         [self.delegate listDetailViewController:self didFinishEditingJobList:self.jobListToEdit];
     }
+}
+
+- (IBAction)addProcessTapped:(id)sender {
+    [self addProcessView];
+}
+
+#pragma mark - AddProcessView
+- (void)addProcessView {
+    UIView *background = [[UIView alloc]initWithFrame:self.view.frame];
+    background.backgroundColor = [UIColor grayColor];
+    background.alpha = 0;
+    [self.view addSubview:background];
+    
+    _processView = [[AddProcessView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y +100, self.view.frame.size.width, self.view.frame.size.height/2)];
+    _processView.alpha = 0.1;
+    [self.view addSubview:_processView];
+    
+    [UIView animateWithDuration:0.4
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         background.alpha = 1;
+                         _processView.alpha = 1;
+                     }
+                     completion:^(BOOL finished) {}];
+    
+
 }
 
 @end
