@@ -1,6 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BFPaperCheckbox" "${PODS_ROOT}/Headers/Public/EAIntroView" "${PODS_ROOT}/Headers/Public/EARestrictedScrollView" "${PODS_ROOT}/Headers/Public/MCSwipeTableViewCell" "${PODS_ROOT}/Headers/Public/UIColor+BFPaperColors"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BFPaperCheckbox" -isystem "${PODS_ROOT}/Headers/Public/EAIntroView" -isystem "${PODS_ROOT}/Headers/Public/EARestrictedScrollView" -isystem "${PODS_ROOT}/Headers/Public/MCSwipeTableViewCell" -isystem "${PODS_ROOT}/Headers/Public/UIColor+BFPaperColors"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-Jobs-BFPaperCheckbox" -l"Pods-Jobs-EAIntroView" -l"Pods-Jobs-EARestrictedScrollView" -l"Pods-Jobs-MCSwipeTableViewCell" -l"Pods-Jobs-UIColor+BFPaperColors"
-OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+OTHER_LDFLAGS = $(inherited) -ObjC -l"BFPaperCheckbox" -l"EAIntroView" -l"EARestrictedScrollView" -l"MCSwipeTableViewCell" -l"UIColor+BFPaperColors"
 PODS_ROOT = ${SRCROOT}/Pods

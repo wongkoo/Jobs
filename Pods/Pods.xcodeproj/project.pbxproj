@@ -7,838 +7,661 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		035D381CE5745D47FCB7370B /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C04291854A581CA7598EC515 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */; };
-		04E4E420BD46407AEC99FF64 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DF301E78C35F6F481834 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */; };
-		0D369A257DFC305EFCD3AE47 /* BFPaperCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A877A8F81E4D26B1A061FA /* BFPaperCheckbox.m */; };
-		2847E8A2AB70FB73750B1DD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0657806C01316D8E96F808DF /* Foundation.framework */; };
-		4239064C10749503CDA82FF5 /* UIColor+BFPaperColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E22BE846C9A336ACDF2B78 /* UIColor+BFPaperColors.m */; };
-		56D3F20945CE6B15BC0FF0DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0657806C01316D8E96F808DF /* Foundation.framework */; };
-		5E9B90F0071BF502CB9E0905 /* Pods-Jobs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8316CDAA33A87381A1C210DA /* Pods-Jobs-dummy.m */; };
-		68175417D5C3AB2934DE028E /* EAIntroView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4844A1F74D11080E9D306551 /* EAIntroView.h */; };
-		7298BD2A3A65BBAE7A5462F6 /* Pods-Jobs-EARestrictedScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E929F6C748DDA61D73246D1D /* Pods-Jobs-EARestrictedScrollView-dummy.m */; };
-		7343FE51D2115401F1B55FA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0657806C01316D8E96F808DF /* Foundation.framework */; };
-		B16997EFEC5647C0E1A13AEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0657806C01316D8E96F808DF /* Foundation.framework */; };
-		B4371513EF3C5A7141EDADF0 /* Pods-Jobs-EAIntroView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D7CE84CB7165AC96B7319 /* Pods-Jobs-EAIntroView-dummy.m */; };
-		BCAE10CCDC784D7EC681EE72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0657806C01316D8E96F808DF /* Foundation.framework */; };
-		C0D8C505024BBD72A867D627 /* EARestrictedScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = C13874A23F971EDDC16418E1 /* EARestrictedScrollView.h */; };
-		C7ABB15DE10D26D2B396EB0A /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E9347E5330465EA60B6FD8 /* MCSwipeTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D636F23FBE83A8D81600C409 /* EARestrictedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C35C75EBDB7154811963B0 /* EARestrictedScrollView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		EBEA30CFF7C6D552E029F4EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0657806C01316D8E96F808DF /* Foundation.framework */; };
-		F0C3A3A6527121C9EC1D18E2 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2BF02FC302B5543A72FBB6 /* EAIntroView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F0F91760ECED29C2CC012938 /* Pods-Jobs-BFPaperCheckbox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BA6EA60544DF17CD52F4FB /* Pods-Jobs-BFPaperCheckbox-dummy.m */; };
-		F55AC8E55EA22E8C303EB1B4 /* EAIntroPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D042916C419C535CCD46F /* EAIntroPage.h */; };
-		FB7753CC8790280F91D267D7 /* BFPaperCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 466DA7B322138033E13D2FC5 /* BFPaperCheckbox.h */; };
-		FB9167D19D407B5082C11178 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D857A4EB669DE451A301FB /* EAIntroPage.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		FBF5610E635CB4EE66587A4E /* MCSwipeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F4D3FA785CDB2BDB196E3D80 /* MCSwipeTableViewCell.h */; };
-		FEA75CF1168FCBD4FB2C615F /* UIColor+BFPaperColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 75F894FE19812ED74AE5D478 /* UIColor+BFPaperColors.h */; };
+		0999A2394159936A1E00642EE7A165E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */; };
+		0C1CB37613966B323D6CDCC62F192EA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */; };
+		10BEC01CE7D84992FD964A8D4AB8CCC1 /* EAIntroView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 466AD79743209728A2EA5E090215030F /* EAIntroView-dummy.m */; };
+		20BEC089E86D6C20057EF611D5ECD446 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */; };
+		2DD56136AEBC35001D21EA2BFD7230DF /* MCSwipeTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0EC061BB0DFA2E13EBF92FE22BAB /* MCSwipeTableViewCell-dummy.m */; };
+		3304D2424F86B457F2395D77A1C3C5B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */; };
+		345ACFE502E96C449DDD853E80E0CB02 /* BFPaperCheckbox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A15C18AC20111B4CEE3BD0D45655871 /* BFPaperCheckbox-dummy.m */; };
+		4672085637F1AF538F4DFE40C41B114D /* Pods-Jobs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D95B88F732ABA93A6600EF5EFBC6C2 /* Pods-Jobs-dummy.m */; };
+		543B7B78D6D93F1E807F4DD6FFF9FCB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */; };
+		5C09642CEE7CF112588485D7AC1C374D /* EARestrictedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2586D2C3C8AA222CC3303B44EE0E5CA4 /* EARestrictedScrollView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		65B9E28890299E9DCB8753D6B6337572 /* EARestrictedScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF5C418C655B731EF15CD10C778A7F7 /* EARestrictedScrollView-dummy.m */; };
+		6635669D653F75D1855125778DEFAA5F /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E84F8226981742F908A7517558B288F0 /* MCSwipeTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6E03EDBD6B2582CF213C0F1472960AC5 /* UIColor+BFPaperColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D95B1810F81CC48789415060DA687CC /* UIColor+BFPaperColors.h */; };
+		75A0A60B78EC2B91BF9609CE71B3ECFE /* EAIntroView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B7CDC8314F27953FC3A6132192DB758 /* EAIntroView.h */; };
+		76DDEB06A1CB654EDE7991B1A9820B61 /* BFPaperCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 748569941B2C00581ED4F7A3F352A668 /* BFPaperCheckbox.h */; };
+		8847962A8A774E4DF6EE579DBB1E20A8 /* UIColor+BFPaperColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E9778394A6C4C280F81EC67FE1B270B6 /* UIColor+BFPaperColors.m */; };
+		98CE57F1D7CD49E3A21762C290DEEB20 /* BFPaperCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 39757BA6DBADFE6812F79E3AF5EF8494 /* BFPaperCheckbox.m */; };
+		BB4AA73D17DD3ADB97F59EC09DB02024 /* EARestrictedScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7381FE1DA9F938AF78B4DA845978406E /* EARestrictedScrollView.h */; };
+		BE7AADE26AC681E19FC8C36C0D306EDB /* UIColor+BFPaperColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 581D3DB5C367DB9FCB35180A4B4B2389 /* UIColor+BFPaperColors-dummy.m */; };
+		E2B31A9ECD6D514D5AF75809145B2389 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */; };
+		E8C7E56BA4449C0CDD92EC23C1EB18AE /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6031AC205BF4024163107255DE83720 /* EAIntroView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EB9355EE407BEA34E5503ECE07156D80 /* MCSwipeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D754E23434E4FEC5E93336A1D787EE9 /* MCSwipeTableViewCell.h */; };
+		F8CF1F654009820D6106BDD0285D8729 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C672B9CFDE7E08E424D8FC9BCF9D9 /* EAIntroPage.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FFEDE45176B5466F8CB70294D9DE91BE /* EAIntroPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 23ACEAF8AC5EF6FA033D368BCD9DE6EF /* EAIntroPage.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		24D0576FE28016DA633EED98 /* PBXContainerItemProxy */ = {
+		234E96DED4D39DDD7973D56211C2FD1F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0CBBEAE9054F22033BAE7515;
-			remoteInfo = "Pods-Jobs-UIColor+BFPaperColors";
+			remoteGlobalIDString = 7E3C6F0A72C3651985177ED6E6CB749E;
+			remoteInfo = EARestrictedScrollView;
 		};
-		83CED3191843969C19362D77 /* PBXContainerItemProxy */ = {
+		49FD9249EC71A88117F0548619FC21F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9B5CBD84539376DF6A7F44F2;
-			remoteInfo = "Pods-Jobs-EARestrictedScrollView";
+			remoteGlobalIDString = 04171959DA3FCFA4D942413C711C681E;
+			remoteInfo = EAIntroView;
 		};
-		953FFDAE02EBC66F7EE7AAC9 /* PBXContainerItemProxy */ = {
+		4DFEFA56788C06049098335E8B8103F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 42D5255BCAE7B66623A770DD;
-			remoteInfo = "Pods-Jobs-EAIntroView";
+			remoteGlobalIDString = F43885B233F4B9CCC43E1736A5087DD7;
+			remoteInfo = "UIColor+BFPaperColors";
 		};
-		C5786948A5FF944F6FD87496 /* PBXContainerItemProxy */ = {
+		5E61BE678DD56B7F9FBEDBC4783844D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9B5CBD84539376DF6A7F44F2;
-			remoteInfo = "Pods-Jobs-EARestrictedScrollView";
+			remoteGlobalIDString = 7E3C6F0A72C3651985177ED6E6CB749E;
+			remoteInfo = EARestrictedScrollView;
 		};
-		DDA8D85001128AEF1A816559 /* PBXContainerItemProxy */ = {
+		7B207F2CEC4F3A013AB7A83D661F12D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FA37796B61AFEC93BB848AF3;
-			remoteInfo = "Pods-Jobs-BFPaperCheckbox";
+			remoteGlobalIDString = F43885B233F4B9CCC43E1736A5087DD7;
+			remoteInfo = "UIColor+BFPaperColors";
 		};
-		E88849A3EAB623726427EB89 /* PBXContainerItemProxy */ = {
+		9A9057362F433E931A4A03362EC7B884 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 523BC5631603413E08A43860;
-			remoteInfo = "Pods-Jobs-MCSwipeTableViewCell";
+			remoteGlobalIDString = 1CC4CC78A6419B97BC748428CFBC4F74;
+			remoteInfo = BFPaperCheckbox;
 		};
-		F41B4A48103F62997F0003CC /* PBXContainerItemProxy */ = {
+		E4B975E160F91F73A8E45E820743B524 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0CBBEAE9054F22033BAE7515;
-			remoteInfo = "Pods-Jobs-UIColor+BFPaperColors";
+			remoteGlobalIDString = D40445CBAC754B06482E89348490512F;
+			remoteInfo = MCSwipeTableViewCell;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0612B7EBCA68DF78084FB8BC /* Pods-Jobs-UIColor+BFPaperColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-UIColor+BFPaperColors-prefix.pch"; sourceTree = "<group>"; };
-		0657806C01316D8E96F808DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		06C312954A1601398131C96D /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
-		07444187526908DA29A353C8 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		12FA945314010F0F7FB8337A /* Pods-Jobs-BFPaperCheckbox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-BFPaperCheckbox.xcconfig"; sourceTree = "<group>"; };
-		15C6BC3BB10C7FF32D80EBD1 /* Pods-Jobs-EARestrictedScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-EARestrictedScrollView-prefix.pch"; sourceTree = "<group>"; };
-		195D042916C419C535CCD46F /* EAIntroPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EAIntroPage.h; path = EAIntroView/EAIntroPage.h; sourceTree = "<group>"; };
-		1A34BBA3D1FB5BE4E110EB51 /* Pods-Jobs-EAIntroView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-EAIntroView-Private.xcconfig"; sourceTree = "<group>"; };
-		1D6D7CE84CB7165AC96B7319 /* Pods-Jobs-EAIntroView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-EAIntroView-dummy.m"; sourceTree = "<group>"; };
-		227C36C8D392E3F8A57AE95A /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig"; sourceTree = "<group>"; };
-		22A877A8F81E4D26B1A061FA /* BFPaperCheckbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFPaperCheckbox.m; path = Classes/BFPaperCheckbox.m; sourceTree = "<group>"; };
-		28AA807CA85B4D7F7247B991 /* libPods-Jobs-EAIntroView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-EAIntroView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		29884466C42F8699780D072B /* libPods-Jobs-MCSwipeTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-MCSwipeTableViewCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		301A75E36136BE8E409A780C /* libPods-Jobs-UIColor+BFPaperColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-UIColor+BFPaperColors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		31DD79D485611A3A8B09179C /* Pods-Jobs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jobs-resources.sh"; sourceTree = "<group>"; };
-		31E9347E5330465EA60B6FD8 /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCSwipeTableViewCell.m; path = MCSwipeTableViewCell/MCSwipeTableViewCell.m; sourceTree = "<group>"; };
-		4068AEBE0EF1197BDF9E529F /* libPods-Jobs-EARestrictedScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-EARestrictedScrollView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		45FCE9CF7390E8455D78BD95 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell.xcconfig"; sourceTree = "<group>"; };
-		466DA7B322138033E13D2FC5 /* BFPaperCheckbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFPaperCheckbox.h; path = Classes/BFPaperCheckbox.h; sourceTree = "<group>"; };
-		4844A1F74D11080E9D306551 /* EAIntroView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EAIntroView.h; path = EAIntroView/EAIntroView.h; sourceTree = "<group>"; };
-		4C7522FC66AE63B71AF8EF70 /* Pods-Jobs-EAIntroView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-EAIntroView-prefix.pch"; sourceTree = "<group>"; };
-		4D4FD4F98C07DCCE1876969E /* Pods-Jobs-EARestrictedScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-EARestrictedScrollView.xcconfig"; sourceTree = "<group>"; };
-		73C8CAD3141304BE8193AEE2 /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75F894FE19812ED74AE5D478 /* UIColor+BFPaperColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+BFPaperColors.h"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.h"; sourceTree = "<group>"; };
-		829292E71075A25F85D48DC4 /* Pods-Jobs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jobs-acknowledgements.plist"; sourceTree = "<group>"; };
-		8316CDAA33A87381A1C210DA /* Pods-Jobs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-dummy.m"; sourceTree = "<group>"; };
-		896AFCACB53BA0A7F0077C1E /* Pods-Jobs-EARestrictedScrollView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-EARestrictedScrollView-Private.xcconfig"; sourceTree = "<group>"; };
-		933C9758E093DEDDB4ADE217 /* Pods-Jobs-UIColor+BFPaperColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-UIColor+BFPaperColors.xcconfig"; sourceTree = "<group>"; };
-		950A6B8972A84E3D6747BF8A /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-MCSwipeTableViewCell-prefix.pch"; sourceTree = "<group>"; };
-		962A540A49E77AF79F77C510 /* Pods-Jobs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jobs-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A222A44455760ED509722952 /* Pods-Jobs-EAIntroView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-EAIntroView.xcconfig"; sourceTree = "<group>"; };
-		B14C989DF846FDC2747DA94B /* Pods-Jobs-BFPaperCheckbox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-BFPaperCheckbox-prefix.pch"; sourceTree = "<group>"; };
-		B65BBDF80D0FE0EAAB21C24D /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
-		C04291854A581CA7598EC515 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-MCSwipeTableViewCell-dummy.m"; sourceTree = "<group>"; };
-		C102CA6F2352249B26E8160A /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
-		C13874A23F971EDDC16418E1 /* EARestrictedScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EARestrictedScrollView.h; path = EARestrictedScrollView/EARestrictedScrollView.h; sourceTree = "<group>"; };
-		D171A671C35CAA145C6EFC6E /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs-BFPaperCheckbox-Private.xcconfig"; sourceTree = "<group>"; };
-		D79A23228ADD8930FB5B438E /* libPods-Jobs-BFPaperCheckbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs-BFPaperCheckbox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9848DAC749B1300E94581EE /* Pods-Jobs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jobs-environment.h"; sourceTree = "<group>"; };
-		E1BA6EA60544DF17CD52F4FB /* Pods-Jobs-BFPaperCheckbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-BFPaperCheckbox-dummy.m"; sourceTree = "<group>"; };
-		E1C35C75EBDB7154811963B0 /* EARestrictedScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EARestrictedScrollView.m; path = EARestrictedScrollView/EARestrictedScrollView.m; sourceTree = "<group>"; };
-		E1E22BE846C9A336ACDF2B78 /* UIColor+BFPaperColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+BFPaperColors.m"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.m"; sourceTree = "<group>"; };
-		E2D857A4EB669DE451A301FB /* EAIntroPage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EAIntroPage.m; path = EAIntroView/EAIntroPage.m; sourceTree = "<group>"; };
-		E929F6C748DDA61D73246D1D /* Pods-Jobs-EARestrictedScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-EARestrictedScrollView-dummy.m"; sourceTree = "<group>"; };
-		EF2BF02FC302B5543A72FBB6 /* EAIntroView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EAIntroView.m; path = EAIntroView/EAIntroView.m; sourceTree = "<group>"; };
-		F4D3FA785CDB2BDB196E3D80 /* MCSwipeTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCSwipeTableViewCell.h; path = MCSwipeTableViewCell/MCSwipeTableViewCell.h; sourceTree = "<group>"; };
-		F5C4DF301E78C35F6F481834 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-UIColor+BFPaperColors-dummy.m"; sourceTree = "<group>"; };
+		055D62DBE0005E467B385ADF91F031ED /* BFPaperCheckbox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BFPaperCheckbox.xcconfig; sourceTree = "<group>"; };
+		07041447E5A2722B5444F033BBF3027A /* Pods-Jobs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jobs-acknowledgements.plist"; sourceTree = "<group>"; };
+		0719340FDDA29B71536720D5BC8303D3 /* libBFPaperCheckbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBFPaperCheckbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B7CDC8314F27953FC3A6132192DB758 /* EAIntroView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EAIntroView.h; path = EAIntroView/EAIntroView.h; sourceTree = "<group>"; };
+		14C39AE6B4ACA34BBF50DD725D7FDE2A /* libEARestrictedScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEARestrictedScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		23ACEAF8AC5EF6FA033D368BCD9DE6EF /* EAIntroPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EAIntroPage.h; path = EAIntroView/EAIntroPage.h; sourceTree = "<group>"; };
+		2586D2C3C8AA222CC3303B44EE0E5CA4 /* EARestrictedScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EARestrictedScrollView.m; path = EARestrictedScrollView/EARestrictedScrollView.m; sourceTree = "<group>"; };
+		2E6C672B9CFDE7E08E424D8FC9BCF9D9 /* EAIntroPage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EAIntroPage.m; path = EAIntroView/EAIntroPage.m; sourceTree = "<group>"; };
+		33AB509E7611A0C858B2BCE1D9A43699 /* EAIntroView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "EAIntroView-Private.xcconfig"; sourceTree = "<group>"; };
+		33FF0EC061BB0DFA2E13EBF92FE22BAB /* MCSwipeTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MCSwipeTableViewCell-dummy.m"; sourceTree = "<group>"; };
+		39757BA6DBADFE6812F79E3AF5EF8494 /* BFPaperCheckbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFPaperCheckbox.m; path = Classes/BFPaperCheckbox.m; sourceTree = "<group>"; };
+		39C303BC4679EBF7CB4D75A4ACA6694C /* UIColor+BFPaperColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIColor+BFPaperColors-Private.xcconfig"; sourceTree = "<group>"; };
+		4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		466AD79743209728A2EA5E090215030F /* EAIntroView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EAIntroView-dummy.m"; sourceTree = "<group>"; };
+		46F59A6B9C3D49D130040E74A4DE375B /* EARestrictedScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EARestrictedScrollView-prefix.pch"; sourceTree = "<group>"; };
+		48E25A5000D09A44067006901BE07A31 /* EAIntroView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EAIntroView.xcconfig; sourceTree = "<group>"; };
+		490269351E9A5E9857A1DBD7FBC9FBBF /* MCSwipeTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MCSwipeTableViewCell-prefix.pch"; sourceTree = "<group>"; };
+		50D95B88F732ABA93A6600EF5EFBC6C2 /* Pods-Jobs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jobs-dummy.m"; sourceTree = "<group>"; };
+		51182EDB5B2353F6F43FC84DFB879D89 /* MCSwipeTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MCSwipeTableViewCell.xcconfig; sourceTree = "<group>"; };
+		581D3DB5C367DB9FCB35180A4B4B2389 /* UIColor+BFPaperColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BFPaperColors-dummy.m"; sourceTree = "<group>"; };
+		5CF5C418C655B731EF15CD10C778A7F7 /* EARestrictedScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EARestrictedScrollView-dummy.m"; sourceTree = "<group>"; };
+		649204C73B8BF5C2512198CBF873187F /* UIColor+BFPaperColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+BFPaperColors-prefix.pch"; sourceTree = "<group>"; };
+		670DC5D476517E5EF74EB8C523336ABB /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D754E23434E4FEC5E93336A1D787EE9 /* MCSwipeTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MCSwipeTableViewCell.h; path = MCSwipeTableViewCell/MCSwipeTableViewCell.h; sourceTree = "<group>"; };
+		7381FE1DA9F938AF78B4DA845978406E /* EARestrictedScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EARestrictedScrollView.h; path = EARestrictedScrollView/EARestrictedScrollView.h; sourceTree = "<group>"; };
+		748569941B2C00581ED4F7A3F352A668 /* BFPaperCheckbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFPaperCheckbox.h; path = Classes/BFPaperCheckbox.h; sourceTree = "<group>"; };
+		7C2A8E5747F4327A1AD4EE35FE77C8E5 /* Pods-Jobs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jobs-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8269546E4600E39EE5860333EB7AC063 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
+		839DD60FF43D6A7AC22AE9FDEE1F9697 /* UIColor+BFPaperColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIColor+BFPaperColors.xcconfig"; sourceTree = "<group>"; };
+		8A15C18AC20111B4CEE3BD0D45655871 /* BFPaperCheckbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BFPaperCheckbox-dummy.m"; sourceTree = "<group>"; };
+		8F947AC7587F6442B00EF2D2DBF97D08 /* Pods-Jobs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jobs-resources.sh"; sourceTree = "<group>"; };
+		9D95B1810F81CC48789415060DA687CC /* UIColor+BFPaperColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+BFPaperColors.h"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.h"; sourceTree = "<group>"; };
+		A0235604C51DDABCB79926E960433318 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
+		A243377FFA8B3064F320DA2ECAAB9B0F /* libMCSwipeTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMCSwipeTableViewCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6031AC205BF4024163107255DE83720 /* EAIntroView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EAIntroView.m; path = EAIntroView/EAIntroView.m; sourceTree = "<group>"; };
+		AF6FE2B82A0519FD14D58A5FDFC11AAA /* MCSwipeTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MCSwipeTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
+		B0F755FD98B717977E4405EE95A9721D /* libUIColor+BFPaperColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIColor+BFPaperColors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BE5448A8C358C56E74333B644F36E5D5 /* EARestrictedScrollView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EARestrictedScrollView.xcconfig; sourceTree = "<group>"; };
+		C00FA68DE6A24A708DA336B9CCDB2275 /* BFPaperCheckbox-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "BFPaperCheckbox-Private.xcconfig"; sourceTree = "<group>"; };
+		CA80B5368EE54121C99317F2DF29AAFB /* EAIntroView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EAIntroView-prefix.pch"; sourceTree = "<group>"; };
+		D48E26FD793FE84A769A7FB2798A5C83 /* EARestrictedScrollView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "EARestrictedScrollView-Private.xcconfig"; sourceTree = "<group>"; };
+		E84F8226981742F908A7517558B288F0 /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MCSwipeTableViewCell.m; path = MCSwipeTableViewCell/MCSwipeTableViewCell.m; sourceTree = "<group>"; };
+		E9778394A6C4C280F81EC67FE1B270B6 /* UIColor+BFPaperColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+BFPaperColors.m"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.m"; sourceTree = "<group>"; };
+		ED0DD1FBBA1E747B171517EAD5964E80 /* BFPaperCheckbox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BFPaperCheckbox-prefix.pch"; sourceTree = "<group>"; };
+		F7D5983AE3B7A06E9DD6C1493E537A77 /* libEAIntroView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEAIntroView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		019665668225910D5E333EEC /* Frameworks */ = {
+		1260314C11C597548B328379088D1ED2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBEA30CFF7C6D552E029F4EE /* Foundation.framework in Frameworks */,
+				3304D2424F86B457F2395D77A1C3C5B2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FD0D2054E25A7F4996FDD4B /* Frameworks */ = {
+		802CF53B066EC0E2B9BCE9EF05024D90 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7343FE51D2115401F1B55FA1 /* Foundation.framework in Frameworks */,
+				E2B31A9ECD6D514D5AF75809145B2389 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DFAA8C95FD8E42FD563DA24 /* Frameworks */ = {
+		B82FCF62D8DEBA8B8CECC91AB7E0B15D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2847E8A2AB70FB73750B1DD7 /* Foundation.framework in Frameworks */,
+				543B7B78D6D93F1E807F4DD6FFF9FCB1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79D62BC0D50FD310194D76E7 /* Frameworks */ = {
+		C76F4B44FA616B7E798BD49AE192FDD8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56D3F20945CE6B15BC0FF0DA /* Foundation.framework in Frameworks */,
+				20BEC089E86D6C20057EF611D5ECD446 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8AA26BCE908C9449805CC7EF /* Frameworks */ = {
+		CF1210B3DB88E955992382A59A773D29 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCAE10CCDC784D7EC681EE72 /* Foundation.framework in Frameworks */,
+				0999A2394159936A1E00642EE7A165E5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DF6CBF5CF99839647ED2DA38 /* Frameworks */ = {
+		F1ABCB57BDB0139C164A9ACC5FB43AFD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B16997EFEC5647C0E1A13AEA /* Foundation.framework in Frameworks */,
+				0C1CB37613966B323D6CDCC62F192EA5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1394C3ABC7ED42D0C41A29D5 = {
+		07967BF31B4FC3F18D5CCA33F0D4E445 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				07444187526908DA29A353C8 /* Podfile */,
-				E40A22F72C8C7DE64858F455 /* Frameworks */,
-				219F5D57DD2E1F11D82C9672 /* Pods */,
-				B9D70EDE00F2F4F21501FF3B /* Products */,
-				F14ABA689EB409D86D862539 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		219F5D57DD2E1F11D82C9672 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3054F4B9491FF396003819F1 /* BFPaperCheckbox */,
-				E33980F2C14B8A7E6ED997E5 /* EAIntroView */,
-				41868E9D42F6BF8E1BB76475 /* EARestrictedScrollView */,
-				490DB68AAC5E86882E46F54D /* MCSwipeTableViewCell */,
-				5216D020E435BCE2105E33B3 /* UIColor+BFPaperColors */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		21DF2967CA7F7D295BEFA803 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				933C9758E093DEDDB4ADE217 /* Pods-Jobs-UIColor+BFPaperColors.xcconfig */,
-				227C36C8D392E3F8A57AE95A /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */,
-				F5C4DF301E78C35F6F481834 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m */,
-				0612B7EBCA68DF78084FB8BC /* Pods-Jobs-UIColor+BFPaperColors-prefix.pch */,
+				839DD60FF43D6A7AC22AE9FDEE1F9697 /* UIColor+BFPaperColors.xcconfig */,
+				39C303BC4679EBF7CB4D75A4ACA6694C /* UIColor+BFPaperColors-Private.xcconfig */,
+				581D3DB5C367DB9FCB35180A4B4B2389 /* UIColor+BFPaperColors-dummy.m */,
+				649204C73B8BF5C2512198CBF873187F /* UIColor+BFPaperColors-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-Jobs-UIColor+BFPaperColors";
+			path = "../Target Support Files/UIColor+BFPaperColors";
 			sourceTree = "<group>";
 		};
-		3054F4B9491FF396003819F1 /* BFPaperCheckbox */ = {
+		0DEFCE904B040302466011C97C410C15 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				466DA7B322138033E13D2FC5 /* BFPaperCheckbox.h */,
-				22A877A8F81E4D26B1A061FA /* BFPaperCheckbox.m */,
-				D9218AC22FE58C0990CA14F4 /* Support Files */,
+				48E25A5000D09A44067006901BE07A31 /* EAIntroView.xcconfig */,
+				33AB509E7611A0C858B2BCE1D9A43699 /* EAIntroView-Private.xcconfig */,
+				466AD79743209728A2EA5E090215030F /* EAIntroView-dummy.m */,
+				CA80B5368EE54121C99317F2DF29AAFB /* EAIntroView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/EAIntroView";
+			sourceTree = "<group>";
+		};
+		39BECD5BC76ECB4A5D9217F121F0894F /* BFPaperCheckbox */ = {
+			isa = PBXGroup;
+			children = (
+				748569941B2C00581ED4F7A3F352A668 /* BFPaperCheckbox.h */,
+				39757BA6DBADFE6812F79E3AF5EF8494 /* BFPaperCheckbox.m */,
+				9C581E449789F86CE0C311AB3554E7F9 /* Support Files */,
 			);
 			path = BFPaperCheckbox;
 			sourceTree = "<group>";
 		};
-		41868E9D42F6BF8E1BB76475 /* EARestrictedScrollView */ = {
+		50ABCD3389FA2358299DCEA8C02D1610 /* Pods-Jobs */ = {
 			isa = PBXGroup;
 			children = (
-				C13874A23F971EDDC16418E1 /* EARestrictedScrollView.h */,
-				E1C35C75EBDB7154811963B0 /* EARestrictedScrollView.m */,
-				90DC397E2B109F012312A1BF /* Support Files */,
-			);
-			path = EARestrictedScrollView;
-			sourceTree = "<group>";
-		};
-		490DB68AAC5E86882E46F54D /* MCSwipeTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				F4D3FA785CDB2BDB196E3D80 /* MCSwipeTableViewCell.h */,
-				31E9347E5330465EA60B6FD8 /* MCSwipeTableViewCell.m */,
-				52BAE31A0F6BAA475515D79E /* Support Files */,
-			);
-			path = MCSwipeTableViewCell;
-			sourceTree = "<group>";
-		};
-		5216D020E435BCE2105E33B3 /* UIColor+BFPaperColors */ = {
-			isa = PBXGroup;
-			children = (
-				75F894FE19812ED74AE5D478 /* UIColor+BFPaperColors.h */,
-				E1E22BE846C9A336ACDF2B78 /* UIColor+BFPaperColors.m */,
-				21DF2967CA7F7D295BEFA803 /* Support Files */,
-			);
-			path = "UIColor+BFPaperColors";
-			sourceTree = "<group>";
-		};
-		52BAE31A0F6BAA475515D79E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				45FCE9CF7390E8455D78BD95 /* Pods-Jobs-MCSwipeTableViewCell.xcconfig */,
-				B65BBDF80D0FE0EAAB21C24D /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */,
-				C04291854A581CA7598EC515 /* Pods-Jobs-MCSwipeTableViewCell-dummy.m */,
-				950A6B8972A84E3D6747BF8A /* Pods-Jobs-MCSwipeTableViewCell-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Jobs-MCSwipeTableViewCell";
-			sourceTree = "<group>";
-		};
-		6D5FB2DFFAC11217CB089C22 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				0657806C01316D8E96F808DF /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		90DC397E2B109F012312A1BF /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4D4FD4F98C07DCCE1876969E /* Pods-Jobs-EARestrictedScrollView.xcconfig */,
-				896AFCACB53BA0A7F0077C1E /* Pods-Jobs-EARestrictedScrollView-Private.xcconfig */,
-				E929F6C748DDA61D73246D1D /* Pods-Jobs-EARestrictedScrollView-dummy.m */,
-				15C6BC3BB10C7FF32D80EBD1 /* Pods-Jobs-EARestrictedScrollView-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Jobs-EARestrictedScrollView";
-			sourceTree = "<group>";
-		};
-		95ED4A4C007318EA8F100C27 /* Pods-Jobs */ = {
-			isa = PBXGroup;
-			children = (
-				962A540A49E77AF79F77C510 /* Pods-Jobs-acknowledgements.markdown */,
-				829292E71075A25F85D48DC4 /* Pods-Jobs-acknowledgements.plist */,
-				8316CDAA33A87381A1C210DA /* Pods-Jobs-dummy.m */,
-				D9848DAC749B1300E94581EE /* Pods-Jobs-environment.h */,
-				31DD79D485611A3A8B09179C /* Pods-Jobs-resources.sh */,
-				06C312954A1601398131C96D /* Pods-Jobs.debug.xcconfig */,
-				C102CA6F2352249B26E8160A /* Pods-Jobs.release.xcconfig */,
+				7C2A8E5747F4327A1AD4EE35FE77C8E5 /* Pods-Jobs-acknowledgements.markdown */,
+				07041447E5A2722B5444F033BBF3027A /* Pods-Jobs-acknowledgements.plist */,
+				50D95B88F732ABA93A6600EF5EFBC6C2 /* Pods-Jobs-dummy.m */,
+				8F947AC7587F6442B00EF2D2DBF97D08 /* Pods-Jobs-resources.sh */,
+				A0235604C51DDABCB79926E960433318 /* Pods-Jobs.debug.xcconfig */,
+				8269546E4600E39EE5860333EB7AC063 /* Pods-Jobs.release.xcconfig */,
 			);
 			name = "Pods-Jobs";
 			path = "Target Support Files/Pods-Jobs";
 			sourceTree = "<group>";
 		};
-		B9D70EDE00F2F4F21501FF3B /* Products */ = {
+		5372DC3217B2AB62D4D1FFA7F191877A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				73C8CAD3141304BE8193AEE2 /* libPods-Jobs.a */,
-				D79A23228ADD8930FB5B438E /* libPods-Jobs-BFPaperCheckbox.a */,
-				28AA807CA85B4D7F7247B991 /* libPods-Jobs-EAIntroView.a */,
-				4068AEBE0EF1197BDF9E529F /* libPods-Jobs-EARestrictedScrollView.a */,
-				29884466C42F8699780D072B /* libPods-Jobs-MCSwipeTableViewCell.a */,
-				301A75E36136BE8E409A780C /* libPods-Jobs-UIColor+BFPaperColors.a */,
+				50ABCD3389FA2358299DCEA8C02D1610 /* Pods-Jobs */,
 			);
-			name = Products;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		D9218AC22FE58C0990CA14F4 /* Support Files */ = {
+		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				12FA945314010F0F7FB8337A /* Pods-Jobs-BFPaperCheckbox.xcconfig */,
-				D171A671C35CAA145C6EFC6E /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */,
-				E1BA6EA60544DF17CD52F4FB /* Pods-Jobs-BFPaperCheckbox-dummy.m */,
-				B14C989DF846FDC2747DA94B /* Pods-Jobs-BFPaperCheckbox-prefix.pch */,
+				4283CA0D399F2A6C6CB7A7CCE8526C15 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5639870FC85F7719341313B97E863F60 /* UIColor+BFPaperColors */ = {
+			isa = PBXGroup;
+			children = (
+				9D95B1810F81CC48789415060DA687CC /* UIColor+BFPaperColors.h */,
+				E9778394A6C4C280F81EC67FE1B270B6 /* UIColor+BFPaperColors.m */,
+				07967BF31B4FC3F18D5CCA33F0D4E445 /* Support Files */,
+			);
+			path = "UIColor+BFPaperColors";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				A9320E9DD0DC650E936A2DAFE8082075 /* Pods */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				5372DC3217B2AB62D4D1FFA7F191877A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9B0DB305C5237BE9BEB0753A5AE21313 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				51182EDB5B2353F6F43FC84DFB879D89 /* MCSwipeTableViewCell.xcconfig */,
+				AF6FE2B82A0519FD14D58A5FDFC11AAA /* MCSwipeTableViewCell-Private.xcconfig */,
+				33FF0EC061BB0DFA2E13EBF92FE22BAB /* MCSwipeTableViewCell-dummy.m */,
+				490269351E9A5E9857A1DBD7FBC9FBBF /* MCSwipeTableViewCell-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-Jobs-BFPaperCheckbox";
+			path = "../Target Support Files/MCSwipeTableViewCell";
 			sourceTree = "<group>";
 		};
-		DCAA88A2A38B60822E2DBD99 /* Support Files */ = {
+		9C581E449789F86CE0C311AB3554E7F9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A222A44455760ED509722952 /* Pods-Jobs-EAIntroView.xcconfig */,
-				1A34BBA3D1FB5BE4E110EB51 /* Pods-Jobs-EAIntroView-Private.xcconfig */,
-				1D6D7CE84CB7165AC96B7319 /* Pods-Jobs-EAIntroView-dummy.m */,
-				4C7522FC66AE63B71AF8EF70 /* Pods-Jobs-EAIntroView-prefix.pch */,
+				055D62DBE0005E467B385ADF91F031ED /* BFPaperCheckbox.xcconfig */,
+				C00FA68DE6A24A708DA336B9CCDB2275 /* BFPaperCheckbox-Private.xcconfig */,
+				8A15C18AC20111B4CEE3BD0D45655871 /* BFPaperCheckbox-dummy.m */,
+				ED0DD1FBBA1E747B171517EAD5964E80 /* BFPaperCheckbox-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-Jobs-EAIntroView";
+			path = "../Target Support Files/BFPaperCheckbox";
 			sourceTree = "<group>";
 		};
-		E33980F2C14B8A7E6ED997E5 /* EAIntroView */ = {
+		A243C3EF99A28479DCE001FD30EFE5BF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				195D042916C419C535CCD46F /* EAIntroPage.h */,
-				E2D857A4EB669DE451A301FB /* EAIntroPage.m */,
-				4844A1F74D11080E9D306551 /* EAIntroView.h */,
-				EF2BF02FC302B5543A72FBB6 /* EAIntroView.m */,
-				DCAA88A2A38B60822E2DBD99 /* Support Files */,
+				BE5448A8C358C56E74333B644F36E5D5 /* EARestrictedScrollView.xcconfig */,
+				D48E26FD793FE84A769A7FB2798A5C83 /* EARestrictedScrollView-Private.xcconfig */,
+				5CF5C418C655B731EF15CD10C778A7F7 /* EARestrictedScrollView-dummy.m */,
+				46F59A6B9C3D49D130040E74A4DE375B /* EARestrictedScrollView-prefix.pch */,
 			);
-			path = EAIntroView;
+			name = "Support Files";
+			path = "../Target Support Files/EARestrictedScrollView";
 			sourceTree = "<group>";
 		};
-		E40A22F72C8C7DE64858F455 /* Frameworks */ = {
+		A9320E9DD0DC650E936A2DAFE8082075 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6D5FB2DFFAC11217CB089C22 /* iOS */,
+				39BECD5BC76ECB4A5D9217F121F0894F /* BFPaperCheckbox */,
+				BCBE46594F296632D21C003F540D0D81 /* EAIntroView */,
+				D0B5EC6B19B16014D559183679065A05 /* EARestrictedScrollView */,
+				F7FDE1BF26E71F2DA30B108328D4C665 /* MCSwipeTableViewCell */,
+				5639870FC85F7719341313B97E863F60 /* UIColor+BFPaperColors */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F14ABA689EB409D86D862539 /* Targets Support Files */ = {
+		BCBE46594F296632D21C003F540D0D81 /* EAIntroView */ = {
 			isa = PBXGroup;
 			children = (
-				95ED4A4C007318EA8F100C27 /* Pods-Jobs */,
+				23ACEAF8AC5EF6FA033D368BCD9DE6EF /* EAIntroPage.h */,
+				2E6C672B9CFDE7E08E424D8FC9BCF9D9 /* EAIntroPage.m */,
+				0B7CDC8314F27953FC3A6132192DB758 /* EAIntroView.h */,
+				A6031AC205BF4024163107255DE83720 /* EAIntroView.m */,
+				0DEFCE904B040302466011C97C410C15 /* Support Files */,
 			);
-			name = "Targets Support Files";
+			path = EAIntroView;
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0719340FDDA29B71536720D5BC8303D3 /* libBFPaperCheckbox.a */,
+				F7D5983AE3B7A06E9DD6C1493E537A77 /* libEAIntroView.a */,
+				14C39AE6B4ACA34BBF50DD725D7FDE2A /* libEARestrictedScrollView.a */,
+				A243377FFA8B3064F320DA2ECAAB9B0F /* libMCSwipeTableViewCell.a */,
+				670DC5D476517E5EF74EB8C523336ABB /* libPods-Jobs.a */,
+				B0F755FD98B717977E4405EE95A9721D /* libUIColor+BFPaperColors.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0B5EC6B19B16014D559183679065A05 /* EARestrictedScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				7381FE1DA9F938AF78B4DA845978406E /* EARestrictedScrollView.h */,
+				2586D2C3C8AA222CC3303B44EE0E5CA4 /* EARestrictedScrollView.m */,
+				A243C3EF99A28479DCE001FD30EFE5BF /* Support Files */,
+			);
+			path = EARestrictedScrollView;
+			sourceTree = "<group>";
+		};
+		F7FDE1BF26E71F2DA30B108328D4C665 /* MCSwipeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6D754E23434E4FEC5E93336A1D787EE9 /* MCSwipeTableViewCell.h */,
+				E84F8226981742F908A7517558B288F0 /* MCSwipeTableViewCell.m */,
+				9B0DB305C5237BE9BEB0753A5AE21313 /* Support Files */,
+			);
+			path = MCSwipeTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1525F8819F1C3761674003E7 /* Headers */ = {
+		18D9D002C39D9AE8CB8D891439ECF873 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7753CC8790280F91D267D7 /* BFPaperCheckbox.h in Headers */,
+				6E03EDBD6B2582CF213C0F1472960AC5 /* UIColor+BFPaperColors.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AD7DA9823DBBC4A52BE14D7 /* Headers */ = {
+		71E8D3D0F720E04D2B92778C3BC44526 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBF5610E635CB4EE66587A4E /* MCSwipeTableViewCell.h in Headers */,
+				BB4AA73D17DD3ADB97F59EC09DB02024 /* EARestrictedScrollView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52CA38D204F01112A62FD031 /* Headers */ = {
+		935837C9F708D77800AE5FF3D386669D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEA75CF1168FCBD4FB2C615F /* UIColor+BFPaperColors.h in Headers */,
+				76DDEB06A1CB654EDE7991B1A9820B61 /* BFPaperCheckbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD48BEA2118B0D222A40416D /* Headers */ = {
+		C9CC6DA662FB0682E67D6821D5FF0425 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0D8C505024BBD72A867D627 /* EARestrictedScrollView.h in Headers */,
+				EB9355EE407BEA34E5503ECE07156D80 /* MCSwipeTableViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDF1E83DED15D7CCD85E47BA /* Headers */ = {
+		D52AF51FD09B42087ECF4EACB4D55191 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F55AC8E55EA22E8C303EB1B4 /* EAIntroPage.h in Headers */,
-				68175417D5C3AB2934DE028E /* EAIntroView.h in Headers */,
+				FFEDE45176B5466F8CB70294D9DE91BE /* EAIntroPage.h in Headers */,
+				75A0A60B78EC2B91BF9609CE71B3ECFE /* EAIntroView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0CBBEAE9054F22033BAE7515 /* Pods-Jobs-UIColor+BFPaperColors */ = {
+		04171959DA3FCFA4D942413C711C681E /* EAIntroView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E2FAC39DF73C9154F8E9FE6 /* Build configuration list for PBXNativeTarget "Pods-Jobs-UIColor+BFPaperColors" */;
+			buildConfigurationList = 64968C99245AE0740AFF938D7D3E3B0E /* Build configuration list for PBXNativeTarget "EAIntroView" */;
 			buildPhases = (
-				8E18520408E697150F5986EC /* Sources */,
-				2FD0D2054E25A7F4996FDD4B /* Frameworks */,
-				52CA38D204F01112A62FD031 /* Headers */,
+				3C7E492ED6031A13B53FBC466092FD8F /* Sources */,
+				802CF53B066EC0E2B9BCE9EF05024D90 /* Frameworks */,
+				D52AF51FD09B42087ECF4EACB4D55191 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D3A16C232E09B063FA1F35F1252519CD /* PBXTargetDependency */,
 			);
-			name = "Pods-Jobs-UIColor+BFPaperColors";
-			productName = "Pods-Jobs-UIColor+BFPaperColors";
-			productReference = 301A75E36136BE8E409A780C /* libPods-Jobs-UIColor+BFPaperColors.a */;
+			name = EAIntroView;
+			productName = EAIntroView;
+			productReference = F7D5983AE3B7A06E9DD6C1493E537A77 /* libEAIntroView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		42D5255BCAE7B66623A770DD /* Pods-Jobs-EAIntroView */ = {
+		1CC4CC78A6419B97BC748428CFBC4F74 /* BFPaperCheckbox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8785A156CADE56CE3798CFE /* Build configuration list for PBXNativeTarget "Pods-Jobs-EAIntroView" */;
+			buildConfigurationList = 457AAD4B86B09C21AB817C2B72DDE20D /* Build configuration list for PBXNativeTarget "BFPaperCheckbox" */;
 			buildPhases = (
-				EBB6E6E555C0D1AAC96AF6F2 /* Sources */,
-				DF6CBF5CF99839647ED2DA38 /* Frameworks */,
-				FDF1E83DED15D7CCD85E47BA /* Headers */,
+				ACB833DE5861195E7ECA76593EA89585 /* Sources */,
+				CF1210B3DB88E955992382A59A773D29 /* Frameworks */,
+				935837C9F708D77800AE5FF3D386669D /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BBE2DFB30ADA93E525FFE2B6 /* PBXTargetDependency */,
+				024D5FD61A7D54AA685D65F77FC7AF91 /* PBXTargetDependency */,
 			);
-			name = "Pods-Jobs-EAIntroView";
-			productName = "Pods-Jobs-EAIntroView";
-			productReference = 28AA807CA85B4D7F7247B991 /* libPods-Jobs-EAIntroView.a */;
+			name = BFPaperCheckbox;
+			productName = BFPaperCheckbox;
+			productReference = 0719340FDDA29B71536720D5BC8303D3 /* libBFPaperCheckbox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		4C01D3D13AB3449E5B42EC20 /* Pods-Jobs */ = {
+		2A801738EE6F4215B4C484A97924350F /* Pods-Jobs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 68D1B78ED5BA2A003C5DF5C0 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */;
+			buildConfigurationList = A4FDBF0C65FD9A121AED8B2F965EA3BA /* Build configuration list for PBXNativeTarget "Pods-Jobs" */;
 			buildPhases = (
-				709ABB06BE263A75AE996970 /* Sources */,
-				4DFAA8C95FD8E42FD563DA24 /* Frameworks */,
+				9C8E534E1E2E348C294084D032078995 /* Sources */,
+				B82FCF62D8DEBA8B8CECC91AB7E0B15D /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				161EC7C5EB51DD40C78734D4 /* PBXTargetDependency */,
-				68711D914B91C080ECB3DB23 /* PBXTargetDependency */,
-				F5E8E6DFD20B536CED42B10F /* PBXTargetDependency */,
-				07AE843EAD57C97E717439AD /* PBXTargetDependency */,
-				5CCF0406865CBBA291A1D0D7 /* PBXTargetDependency */,
+				DE01B8426E8171492D774AA690C0B631 /* PBXTargetDependency */,
+				6024487C1879C9005C6E9CF8315DFAD0 /* PBXTargetDependency */,
+				DA5727013A5CBD42E0E8DD2099667D9B /* PBXTargetDependency */,
+				1CDDF217A516FD9B8AC9C06A993E3C91 /* PBXTargetDependency */,
+				C53829D7C50ED50974EBF4FFBA05C638 /* PBXTargetDependency */,
 			);
 			name = "Pods-Jobs";
 			productName = "Pods-Jobs";
-			productReference = 73C8CAD3141304BE8193AEE2 /* libPods-Jobs.a */;
+			productReference = 670DC5D476517E5EF74EB8C523336ABB /* libPods-Jobs.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		523BC5631603413E08A43860 /* Pods-Jobs-MCSwipeTableViewCell */ = {
+		7E3C6F0A72C3651985177ED6E6CB749E /* EARestrictedScrollView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E015E417EA194CAD492E1AB /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */;
+			buildConfigurationList = 12C56F32F84454DCB664F5A13A288E87 /* Build configuration list for PBXNativeTarget "EARestrictedScrollView" */;
 			buildPhases = (
-				1FB85435B5E045FFBFF8163C /* Sources */,
-				019665668225910D5E333EEC /* Frameworks */,
-				3AD7DA9823DBBC4A52BE14D7 /* Headers */,
+				AD1422CA0C54AFAC6715B17D75E11A3A /* Sources */,
+				C76F4B44FA616B7E798BD49AE192FDD8 /* Frameworks */,
+				71E8D3D0F720E04D2B92778C3BC44526 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-Jobs-MCSwipeTableViewCell";
-			productName = "Pods-Jobs-MCSwipeTableViewCell";
-			productReference = 29884466C42F8699780D072B /* libPods-Jobs-MCSwipeTableViewCell.a */;
+			name = EARestrictedScrollView;
+			productName = EARestrictedScrollView;
+			productReference = 14C39AE6B4ACA34BBF50DD725D7FDE2A /* libEARestrictedScrollView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9B5CBD84539376DF6A7F44F2 /* Pods-Jobs-EARestrictedScrollView */ = {
+		D40445CBAC754B06482E89348490512F /* MCSwipeTableViewCell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7C0B2A8863C3CF67C718F440 /* Build configuration list for PBXNativeTarget "Pods-Jobs-EARestrictedScrollView" */;
+			buildConfigurationList = 760ABA12FF28EC3782C8174F07EA163D /* Build configuration list for PBXNativeTarget "MCSwipeTableViewCell" */;
 			buildPhases = (
-				D1866887573B87ED6C475119 /* Sources */,
-				79D62BC0D50FD310194D76E7 /* Frameworks */,
-				FD48BEA2118B0D222A40416D /* Headers */,
+				30B803416E9F339DDA56718DA4CC2A06 /* Sources */,
+				1260314C11C597548B328379088D1ED2 /* Frameworks */,
+				C9CC6DA662FB0682E67D6821D5FF0425 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-Jobs-EARestrictedScrollView";
-			productName = "Pods-Jobs-EARestrictedScrollView";
-			productReference = 4068AEBE0EF1197BDF9E529F /* libPods-Jobs-EARestrictedScrollView.a */;
+			name = MCSwipeTableViewCell;
+			productName = MCSwipeTableViewCell;
+			productReference = A243377FFA8B3064F320DA2ECAAB9B0F /* libMCSwipeTableViewCell.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		FA37796B61AFEC93BB848AF3 /* Pods-Jobs-BFPaperCheckbox */ = {
+		F43885B233F4B9CCC43E1736A5087DD7 /* UIColor+BFPaperColors */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A3793316CCE86BD34786131 /* Build configuration list for PBXNativeTarget "Pods-Jobs-BFPaperCheckbox" */;
+			buildConfigurationList = 3AACD109C910A80D931C67677CB9371C /* Build configuration list for PBXNativeTarget "UIColor+BFPaperColors" */;
 			buildPhases = (
-				7EFD0A0F21A241EEA08FE76B /* Sources */,
-				8AA26BCE908C9449805CC7EF /* Frameworks */,
-				1525F8819F1C3761674003E7 /* Headers */,
+				36553632CDC2C782A1B4ECF63800AD31 /* Sources */,
+				F1ABCB57BDB0139C164A9ACC5FB43AFD /* Frameworks */,
+				18D9D002C39D9AE8CB8D891439ECF873 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A91AD05B8AC455DAA6A6A482 /* PBXTargetDependency */,
 			);
-			name = "Pods-Jobs-BFPaperCheckbox";
-			productName = "Pods-Jobs-BFPaperCheckbox";
-			productReference = D79A23228ADD8930FB5B438E /* libPods-Jobs-BFPaperCheckbox.a */;
+			name = "UIColor+BFPaperColors";
+			productName = "UIColor+BFPaperColors";
+			productReference = B0F755FD98B717977E4405EE95A9721D /* libUIColor+BFPaperColors.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C8986C9DBD9E9C7D2B49A04E /* Project object */ = {
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 87BB52614089C972A347230E /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1394C3ABC7ED42D0C41A29D5;
-			productRefGroup = B9D70EDE00F2F4F21501FF3B /* Products */;
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C01D3D13AB3449E5B42EC20 /* Pods-Jobs */,
-				FA37796B61AFEC93BB848AF3 /* Pods-Jobs-BFPaperCheckbox */,
-				42D5255BCAE7B66623A770DD /* Pods-Jobs-EAIntroView */,
-				9B5CBD84539376DF6A7F44F2 /* Pods-Jobs-EARestrictedScrollView */,
-				523BC5631603413E08A43860 /* Pods-Jobs-MCSwipeTableViewCell */,
-				0CBBEAE9054F22033BAE7515 /* Pods-Jobs-UIColor+BFPaperColors */,
+				1CC4CC78A6419B97BC748428CFBC4F74 /* BFPaperCheckbox */,
+				04171959DA3FCFA4D942413C711C681E /* EAIntroView */,
+				7E3C6F0A72C3651985177ED6E6CB749E /* EARestrictedScrollView */,
+				D40445CBAC754B06482E89348490512F /* MCSwipeTableViewCell */,
+				2A801738EE6F4215B4C484A97924350F /* Pods-Jobs */,
+				F43885B233F4B9CCC43E1736A5087DD7 /* UIColor+BFPaperColors */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1FB85435B5E045FFBFF8163C /* Sources */ = {
+		30B803416E9F339DDA56718DA4CC2A06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7ABB15DE10D26D2B396EB0A /* MCSwipeTableViewCell.m in Sources */,
-				035D381CE5745D47FCB7370B /* Pods-Jobs-MCSwipeTableViewCell-dummy.m in Sources */,
+				2DD56136AEBC35001D21EA2BFD7230DF /* MCSwipeTableViewCell-dummy.m in Sources */,
+				6635669D653F75D1855125778DEFAA5F /* MCSwipeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		709ABB06BE263A75AE996970 /* Sources */ = {
+		36553632CDC2C782A1B4ECF63800AD31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E9B90F0071BF502CB9E0905 /* Pods-Jobs-dummy.m in Sources */,
+				BE7AADE26AC681E19FC8C36C0D306EDB /* UIColor+BFPaperColors-dummy.m in Sources */,
+				8847962A8A774E4DF6EE579DBB1E20A8 /* UIColor+BFPaperColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7EFD0A0F21A241EEA08FE76B /* Sources */ = {
+		3C7E492ED6031A13B53FBC466092FD8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D369A257DFC305EFCD3AE47 /* BFPaperCheckbox.m in Sources */,
-				F0F91760ECED29C2CC012938 /* Pods-Jobs-BFPaperCheckbox-dummy.m in Sources */,
+				F8CF1F654009820D6106BDD0285D8729 /* EAIntroPage.m in Sources */,
+				10BEC01CE7D84992FD964A8D4AB8CCC1 /* EAIntroView-dummy.m in Sources */,
+				E8C7E56BA4449C0CDD92EC23C1EB18AE /* EAIntroView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E18520408E697150F5986EC /* Sources */ = {
+		9C8E534E1E2E348C294084D032078995 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E4E420BD46407AEC99FF64 /* Pods-Jobs-UIColor+BFPaperColors-dummy.m in Sources */,
-				4239064C10749503CDA82FF5 /* UIColor+BFPaperColors.m in Sources */,
+				4672085637F1AF538F4DFE40C41B114D /* Pods-Jobs-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1866887573B87ED6C475119 /* Sources */ = {
+		ACB833DE5861195E7ECA76593EA89585 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D636F23FBE83A8D81600C409 /* EARestrictedScrollView.m in Sources */,
-				7298BD2A3A65BBAE7A5462F6 /* Pods-Jobs-EARestrictedScrollView-dummy.m in Sources */,
+				345ACFE502E96C449DDD853E80E0CB02 /* BFPaperCheckbox-dummy.m in Sources */,
+				98CE57F1D7CD49E3A21762C290DEEB20 /* BFPaperCheckbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBB6E6E555C0D1AAC96AF6F2 /* Sources */ = {
+		AD1422CA0C54AFAC6715B17D75E11A3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB9167D19D407B5082C11178 /* EAIntroPage.m in Sources */,
-				F0C3A3A6527121C9EC1D18E2 /* EAIntroView.m in Sources */,
-				B4371513EF3C5A7141EDADF0 /* Pods-Jobs-EAIntroView-dummy.m in Sources */,
+				65B9E28890299E9DCB8753D6B6337572 /* EARestrictedScrollView-dummy.m in Sources */,
+				5C09642CEE7CF112588485D7AC1C374D /* EARestrictedScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		07AE843EAD57C97E717439AD /* PBXTargetDependency */ = {
+		024D5FD61A7D54AA685D65F77FC7AF91 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Jobs-MCSwipeTableViewCell";
-			target = 523BC5631603413E08A43860 /* Pods-Jobs-MCSwipeTableViewCell */;
-			targetProxy = E88849A3EAB623726427EB89 /* PBXContainerItemProxy */;
+			name = "UIColor+BFPaperColors";
+			target = F43885B233F4B9CCC43E1736A5087DD7 /* UIColor+BFPaperColors */;
+			targetProxy = 4DFEFA56788C06049098335E8B8103F7 /* PBXContainerItemProxy */;
 		};
-		161EC7C5EB51DD40C78734D4 /* PBXTargetDependency */ = {
+		1CDDF217A516FD9B8AC9C06A993E3C91 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Jobs-BFPaperCheckbox";
-			target = FA37796B61AFEC93BB848AF3 /* Pods-Jobs-BFPaperCheckbox */;
-			targetProxy = DDA8D85001128AEF1A816559 /* PBXContainerItemProxy */;
+			name = MCSwipeTableViewCell;
+			target = D40445CBAC754B06482E89348490512F /* MCSwipeTableViewCell */;
+			targetProxy = E4B975E160F91F73A8E45E820743B524 /* PBXContainerItemProxy */;
 		};
-		5CCF0406865CBBA291A1D0D7 /* PBXTargetDependency */ = {
+		6024487C1879C9005C6E9CF8315DFAD0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Jobs-UIColor+BFPaperColors";
-			target = 0CBBEAE9054F22033BAE7515 /* Pods-Jobs-UIColor+BFPaperColors */;
-			targetProxy = F41B4A48103F62997F0003CC /* PBXContainerItemProxy */;
+			name = EAIntroView;
+			target = 04171959DA3FCFA4D942413C711C681E /* EAIntroView */;
+			targetProxy = 49FD9249EC71A88117F0548619FC21F1 /* PBXContainerItemProxy */;
 		};
-		68711D914B91C080ECB3DB23 /* PBXTargetDependency */ = {
+		C53829D7C50ED50974EBF4FFBA05C638 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Jobs-EAIntroView";
-			target = 42D5255BCAE7B66623A770DD /* Pods-Jobs-EAIntroView */;
-			targetProxy = 953FFDAE02EBC66F7EE7AAC9 /* PBXContainerItemProxy */;
+			name = "UIColor+BFPaperColors";
+			target = F43885B233F4B9CCC43E1736A5087DD7 /* UIColor+BFPaperColors */;
+			targetProxy = 7B207F2CEC4F3A013AB7A83D661F12D2 /* PBXContainerItemProxy */;
 		};
-		A91AD05B8AC455DAA6A6A482 /* PBXTargetDependency */ = {
+		D3A16C232E09B063FA1F35F1252519CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Jobs-UIColor+BFPaperColors";
-			target = 0CBBEAE9054F22033BAE7515 /* Pods-Jobs-UIColor+BFPaperColors */;
-			targetProxy = 24D0576FE28016DA633EED98 /* PBXContainerItemProxy */;
+			name = EARestrictedScrollView;
+			target = 7E3C6F0A72C3651985177ED6E6CB749E /* EARestrictedScrollView */;
+			targetProxy = 5E61BE678DD56B7F9FBEDBC4783844D1 /* PBXContainerItemProxy */;
 		};
-		BBE2DFB30ADA93E525FFE2B6 /* PBXTargetDependency */ = {
+		DA5727013A5CBD42E0E8DD2099667D9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Jobs-EARestrictedScrollView";
-			target = 9B5CBD84539376DF6A7F44F2 /* Pods-Jobs-EARestrictedScrollView */;
-			targetProxy = 83CED3191843969C19362D77 /* PBXContainerItemProxy */;
+			name = EARestrictedScrollView;
+			target = 7E3C6F0A72C3651985177ED6E6CB749E /* EARestrictedScrollView */;
+			targetProxy = 234E96DED4D39DDD7973D56211C2FD1F /* PBXContainerItemProxy */;
 		};
-		F5E8E6DFD20B536CED42B10F /* PBXTargetDependency */ = {
+		DE01B8426E8171492D774AA690C0B631 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Jobs-EARestrictedScrollView";
-			target = 9B5CBD84539376DF6A7F44F2 /* Pods-Jobs-EARestrictedScrollView */;
-			targetProxy = C5786948A5FF944F6FD87496 /* PBXContainerItemProxy */;
+			name = BFPaperCheckbox;
+			target = 1CC4CC78A6419B97BC748428CFBC4F74 /* BFPaperCheckbox */;
+			targetProxy = 9A9057362F433E931A4A03362EC7B884 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		43540A962D776827648E8C7E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C102CA6F2352249B26E8160A /* Pods-Jobs.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		4BF4BB29A252402E7CB6BD07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 896AFCACB53BA0A7F0077C1E /* Pods-Jobs-EARestrictedScrollView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-EARestrictedScrollView/Pods-Jobs-EARestrictedScrollView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		5063F22934CB09C9AF0D34B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B65BBDF80D0FE0EAAB21C24D /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-MCSwipeTableViewCell/Pods-Jobs-MCSwipeTableViewCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		62055A1E7B210F8BE2E4A335 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A34BBA3D1FB5BE4E110EB51 /* Pods-Jobs-EAIntroView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-EAIntroView/Pods-Jobs-EAIntroView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		69FEE10453549695C0DBDF4E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D171A671C35CAA145C6EFC6E /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-BFPaperCheckbox/Pods-Jobs-BFPaperCheckbox-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		79C55571E59C2DA63BF856D9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 227C36C8D392E3F8A57AE95A /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-UIColor+BFPaperColors/Pods-Jobs-UIColor+BFPaperColors-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8B1D64AEA54AF2343B3E0212 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D171A671C35CAA145C6EFC6E /* Pods-Jobs-BFPaperCheckbox-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-BFPaperCheckbox/Pods-Jobs-BFPaperCheckbox-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8CBD7CD3B7ED59B8ABFD356E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 227C36C8D392E3F8A57AE95A /* Pods-Jobs-UIColor+BFPaperColors-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-UIColor+BFPaperColors/Pods-Jobs-UIColor+BFPaperColors-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		96F077539EC88DF57B0D53BD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B65BBDF80D0FE0EAAB21C24D /* Pods-Jobs-MCSwipeTableViewCell-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-MCSwipeTableViewCell/Pods-Jobs-MCSwipeTableViewCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9A06122EF5CE390761F3C250 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A34BBA3D1FB5BE4E110EB51 /* Pods-Jobs-EAIntroView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-EAIntroView/Pods-Jobs-EAIntroView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A615187F82BB5AFB87B24415 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06C312954A1601398131C96D /* Pods-Jobs.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		AA56F2B03217E6254059265D /* Release */ = {
+		052A17875CB827423D627183396CEB60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -865,14 +688,158 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		B4A3CE3BDF2C1441785D5BF8 /* Debug */ = {
+		27C0BABBC245CE3256DB2525E3607BE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF6FE2B82A0519FD14D58A5FDFC11AAA /* MCSwipeTableViewCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MCSwipeTableViewCell/MCSwipeTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		52BA323D224A95705389203D154332CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF6FE2B82A0519FD14D58A5FDFC11AAA /* MCSwipeTableViewCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MCSwipeTableViewCell/MCSwipeTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6829B7F4DBF7678B918C455FC61FE637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0235604C51DDABCB79926E960433318 /* Pods-Jobs.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6E864700BEE8ACB76E1EE41A46539632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C00FA68DE6A24A708DA336B9CCDB2275 /* BFPaperCheckbox-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BFPaperCheckbox/BFPaperCheckbox-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		84B2B8C1391E8560E3025BFB0D536C68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33AB509E7611A0C858B2BCE1D9A43699 /* EAIntroView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/EAIntroView/EAIntroView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8B0BD1BFC24B9B55EF5EABF46AF21584 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39C303BC4679EBF7CB4D75A4ACA6694C /* UIColor+BFPaperColors-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIColor+BFPaperColors/UIColor+BFPaperColors-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AB077EC5F5C0ECFF8CB7630903FBB828 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39C303BC4679EBF7CB4D75A4ACA6694C /* UIColor+BFPaperColors-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIColor+BFPaperColors/UIColor+BFPaperColors-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ABCC83C1F4AD87A956F1E3FFBFE6CD18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C00FA68DE6A24A708DA336B9CCDB2275 /* BFPaperCheckbox-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BFPaperCheckbox/BFPaperCheckbox-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AF097A7D623C57EBDE61D11D8F92DC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33AB509E7611A0C858B2BCE1D9A43699 /* EAIntroView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/EAIntroView/EAIntroView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -904,20 +871,36 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		F719B7DD45FF35ECCA1C3452 /* Debug */ = {
+		D98740A623E84F8EF91823D4B24DA502 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 896AFCACB53BA0A7F0077C1E /* Pods-Jobs-EARestrictedScrollView-Private.xcconfig */;
+			baseConfigurationReference = 8269546E4600E39EE5860333EB7AC063 /* Pods-Jobs.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Jobs-EARestrictedScrollView/Pods-Jobs-EARestrictedScrollView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E0B1581DBCC637089D2088977A6F1D0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D48E26FD793FE84A769A7FB2798A5C83 /* EARestrictedScrollView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/EARestrictedScrollView/EARestrictedScrollView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -927,73 +910,89 @@
 			};
 			name = Debug;
 		};
+		F35573B594C9FA470B6F025FEDF02600 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D48E26FD793FE84A769A7FB2798A5C83 /* EARestrictedScrollView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/EARestrictedScrollView/EARestrictedScrollView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		68D1B78ED5BA2A003C5DF5C0 /* Build configuration list for PBXNativeTarget "Pods-Jobs" */ = {
+		12C56F32F84454DCB664F5A13A288E87 /* Build configuration list for PBXNativeTarget "EARestrictedScrollView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A615187F82BB5AFB87B24415 /* Debug */,
-				43540A962D776827648E8C7E /* Release */,
+				E0B1581DBCC637089D2088977A6F1D0C /* Debug */,
+				F35573B594C9FA470B6F025FEDF02600 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A3793316CCE86BD34786131 /* Build configuration list for PBXNativeTarget "Pods-Jobs-BFPaperCheckbox" */ = {
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B1D64AEA54AF2343B3E0212 /* Debug */,
-				69FEE10453549695C0DBDF4E /* Release */,
+				B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */,
+				052A17875CB827423D627183396CEB60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6E015E417EA194CAD492E1AB /* Build configuration list for PBXNativeTarget "Pods-Jobs-MCSwipeTableViewCell" */ = {
+		3AACD109C910A80D931C67677CB9371C /* Build configuration list for PBXNativeTarget "UIColor+BFPaperColors" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96F077539EC88DF57B0D53BD /* Debug */,
-				5063F22934CB09C9AF0D34B3 /* Release */,
+				8B0BD1BFC24B9B55EF5EABF46AF21584 /* Debug */,
+				AB077EC5F5C0ECFF8CB7630903FBB828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6E2FAC39DF73C9154F8E9FE6 /* Build configuration list for PBXNativeTarget "Pods-Jobs-UIColor+BFPaperColors" */ = {
+		457AAD4B86B09C21AB817C2B72DDE20D /* Build configuration list for PBXNativeTarget "BFPaperCheckbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				79C55571E59C2DA63BF856D9 /* Debug */,
-				8CBD7CD3B7ED59B8ABFD356E /* Release */,
+				ABCC83C1F4AD87A956F1E3FFBFE6CD18 /* Debug */,
+				6E864700BEE8ACB76E1EE41A46539632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7C0B2A8863C3CF67C718F440 /* Build configuration list for PBXNativeTarget "Pods-Jobs-EARestrictedScrollView" */ = {
+		64968C99245AE0740AFF938D7D3E3B0E /* Build configuration list for PBXNativeTarget "EAIntroView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F719B7DD45FF35ECCA1C3452 /* Debug */,
-				4BF4BB29A252402E7CB6BD07 /* Release */,
+				AF097A7D623C57EBDE61D11D8F92DC7B /* Debug */,
+				84B2B8C1391E8560E3025BFB0D536C68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87BB52614089C972A347230E /* Build configuration list for PBXProject "Pods" */ = {
+		760ABA12FF28EC3782C8174F07EA163D /* Build configuration list for PBXNativeTarget "MCSwipeTableViewCell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B4A3CE3BDF2C1441785D5BF8 /* Debug */,
-				AA56F2B03217E6254059265D /* Release */,
+				27C0BABBC245CE3256DB2525E3607BE8 /* Debug */,
+				52BA323D224A95705389203D154332CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F8785A156CADE56CE3798CFE /* Build configuration list for PBXNativeTarget "Pods-Jobs-EAIntroView" */ = {
+		A4FDBF0C65FD9A121AED8B2F965EA3BA /* Build configuration list for PBXNativeTarget "Pods-Jobs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A06122EF5CE390761F3C250 /* Debug */,
-				62055A1E7B210F8BE2E4A335 /* Release */,
+				6829B7F4DBF7678B918C455FC61FE637 /* Debug */,
+				D98740A623E84F8EF91823D4B24DA502 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C8986C9DBD9E9C7D2B49A04E /* Project object */;
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }

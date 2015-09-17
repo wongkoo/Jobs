@@ -4,27 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Jobs-BFPaperCheckbox.xcscheme</key>
+		<key>BFPaperCheckbox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Jobs-EAIntroView.xcscheme</key>
+		<key>EAIntroView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Jobs-EARestrictedScrollView.xcscheme</key>
+		<key>EARestrictedScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Jobs-MCSwipeTableViewCell.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Jobs-UIColor+BFPaperColors.xcscheme</key>
+		<key>MCSwipeTableViewCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,35 +29,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIColor+BFPaperColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0CBBEAE9054F22033BAE7515</key>
+		<key>04171959DA3FCFA4D942413C711C681E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42D5255BCAE7B66623A770DD</key>
+		<key>1CC4CC78A6419B97BC748428CFBC4F74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C01D3D13AB3449E5B42EC20</key>
+		<key>2A801738EE6F4215B4C484A97924350F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>523BC5631603413E08A43860</key>
+		<key>7E3C6F0A72C3651985177ED6E6CB749E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B5CBD84539376DF6A7F44F2</key>
+		<key>D40445CBAC754B06482E89348490512F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA37796B61AFEC93BB848AF3</key>
+		<key>F43885B233F4B9CCC43E1736A5087DD7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

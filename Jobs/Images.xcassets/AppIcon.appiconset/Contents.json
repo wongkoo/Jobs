@@ -73,24 +73,18 @@
       "scale" : "2x"
     },
     {
-      "size" : "120x120",
-      "idiom" : "car",
-      "filename" : "60x2-1.png",
-      "scale" : "1x"
-    },
-    {
       "size" : "24x24",
       "idiom" : "watch",
-      "scale" : "2x",
       "filename" : "48.png",
+      "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "38mm"
     },
     {
       "size" : "27.5x27.5",
       "idiom" : "watch",
-      "scale" : "2x",
       "filename" : "55.png",
+      "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "42mm"
     },
@@ -111,16 +105,16 @@
     {
       "size" : "40x40",
       "idiom" : "watch",
-      "scale" : "2x",
       "filename" : "40x2-2.png",
+      "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "38mm"
     },
     {
       "size" : "44x44",
       "idiom" : "watch",
-      "scale" : "2x",
       "filename" : "44x2.png",
+      "scale" : "2x",
       "role" : "longLook",
       "subtype" : "42mm"
     },
