@@ -180,10 +180,10 @@
 		723E8E9B1BAA9E8A004D4E8C /* FirstPageWithCompany */ = {
 			isa = PBXGroup;
 			children = (
-				7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */,
-				723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */,
 				7237F5E61B20A57A00F1DFD9 /* AllListsViewController.h */,
 				7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */,
+				7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */,
+				723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */,
 			);
 			path = FirstPageWithCompany;
 			sourceTree = "<group>";
