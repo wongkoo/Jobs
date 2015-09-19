@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddProcessView.h"
 
 @class ListDetailViewController;
 @class JobList;
@@ -17,7 +18,7 @@
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList;
 @end
 
-@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,UIScrollViewDelegate>
+@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,UIScrollViewDelegate,AddProcessViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UITextField *accountOfWebsiteTextField;

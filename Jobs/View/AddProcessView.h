@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddProcessView : UIView
+@protocol AddProcessViewDelegate <NSObject>
+
+- (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date;
+- (void)cancel;
+
+@end
+
+
+@interface AddProcessView : UIView <UITextFieldDelegate>
+
+@property (nonatomic, weak) id <AddProcessViewDelegate> delegate;
 
 @end

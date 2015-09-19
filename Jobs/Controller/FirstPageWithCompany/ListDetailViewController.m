@@ -101,6 +101,11 @@
     return YES;
 }
 
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    self.saveBarButton.enabled = NO;
+    return YES;
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
@@ -138,7 +143,22 @@
 #pragma mark - AddProcessView
 - (void)addProcessView {
     _processView = [[AddProcessView alloc]init];
+    _processView.delegate = self;
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [self.view addSubview:_processView];
+}
+
+#pragma mark - AddProcessDelegate
+- (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date {
+    
+}
+
+- (void)cancel {
+    self.navigationItem.leftBarButtonItem.enabled = YES;
+    if (_textField.text.length>0) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
 }
 
 @end

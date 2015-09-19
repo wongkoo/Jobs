@@ -14,7 +14,9 @@
 }
 
 @property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIButton *timeButton;
+@property (nonatomic, strong) UIButton *saveButton;
 @property (nonatomic, strong) UIView *dialogBackground;
 
 @end
@@ -65,11 +67,12 @@
     
     
     
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(_dialogBackground.frame.size.width/6, _dialogBackground.bounds.size.height/7, _dialogBackground.bounds.size.width*2/3, 40)];
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField.placeholder = @"填写流程";
-    [_dialogBackground addSubview:textField];
+    _textField = [[UITextField alloc]initWithFrame:CGRectMake(_dialogBackground.frame.size.width/6, _dialogBackground.bounds.size.height/7, _dialogBackground.bounds.size.width*2/3, 40)];
+    _textField.borderStyle = UITextBorderStyleRoundedRect;
+    _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _textField.placeholder = @"填写流程";
+    _textField.delegate = self;
+    [_dialogBackground addSubview:_textField];
 
     _timeButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _timeButton.frame = CGRectMake(_dialogBackground.bounds.size.width/2 -_dialogBackground.bounds.size.width/4, _dialogBackground.bounds.size.height/2, _dialogBackground.bounds.size.width/2, 30);
@@ -77,12 +80,24 @@
     [_timeButton addTarget:self action:@selector(showDatePicker) forControlEvents:UIControlEventTouchUpInside];
     [_dialogBackground addSubview:_timeButton];
     
-    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cancelButton.frame = CGRectMake(_dialogBackground.bounds.origin.x + _dialogBackground.bounds.size.width/6, _dialogBackground.bounds.size.height * 5/6, _dialogBackground.bounds.size.width/4, 40);
+    cancelButton.backgroundColor = [UIColor grayColor];
+    [cancelButton setTitleColor:[UIColor lightTextColor] forState:UIControlStateNormal];
+    cancelButton.layer.cornerRadius = 5;
     [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     [_dialogBackground addSubview:cancelButton];
     
+    _saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _saveButton.frame = CGRectMake(_dialogBackground.bounds.size.width/2 +_dialogBackground.bounds.size.width/12, _dialogBackground.bounds.size.height *5/6, _dialogBackground.bounds.size.width/4, 40);
+    _saveButton.backgroundColor = [UIColor grayColor];
+    [_saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _saveButton.layer.cornerRadius = 5;
+    [_saveButton setTitle:@"save" forState:UIControlStateNormal];
+    [_saveButton addTarget:self action:@selector(save) forControlEvents:UIControlEventTouchUpInside];
+    _saveButton.enabled = NO;
+    [_dialogBackground addSubview:_saveButton];
     
 }
 
@@ -102,13 +117,36 @@
 
 - (void)cancel {
     [self removeFromSuperview];
+    [self.delegate cancel];
 }
 
 - (void)closeDatePicker:(UIButton *)button {
     [button removeFromSuperview];
     [_datePicker removeFromSuperview];
+    _datePicker = nil;
     _timeButton.hidden = NO;
 }
 
+- (void)save {
+    [self removeFromSuperview];
+    [self.delegate addProcrssViewDidSavedWithString:_textField.text Date:_datePicker.date];
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    _saveButton.enabled = ([newText length]>0);
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self endEditing:YES];
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    _saveButton.enabled = NO;
+    return YES;
+}
 
 @end
