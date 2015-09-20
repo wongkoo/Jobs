@@ -11,13 +11,15 @@
 #import "CellbackgroundVIew.h"
 #import "AddProcessView.h"
 
-@interface ListDetailViewController ()
+@interface ListDetailViewController () {
+    NSInteger _numberOfProcess;
+    NSString *tempString;
+}
 @property (weak     , nonatomic) IBOutlet UIButton *addProcess;
 @property (strong   , nonatomic) AddProcessView *processView;
 @end
 
-@implementation ListDetailViewController{
-}
+@implementation ListDetailViewController
 
 #pragma mark - view
 - (void)viewDidLoad {
@@ -31,6 +33,8 @@
         self.emailTextField.text = self.jobListToEdit.email;
         self.saveBarButton.enabled = YES;
     }
+    
+    _numberOfProcess = 1;
     
     self.textField.tag = 30;
     self.accountOfWebsiteTextField.tag = 31;
@@ -70,14 +74,48 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - tableView
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 1) {
-        return indexPath;
-    }else{
-        return nil;
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }else if(section ==1) {
+        return 3;
+    }else {
+        return _numberOfProcess;
     }
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row > 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessCell"];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DatePickerCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.text = tempString;
+            
+        }
+        return cell;
+        
+    }else{
+        UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+        return cell;
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+//#pragma mark - tableView
+//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 1) {
+//        return indexPath;
+//    }else{
+//        return nil;
+//    }
+//}
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -151,7 +189,10 @@
 
 #pragma mark - AddProcessDelegate
 - (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date {
-    
+    tempString = [string copy];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_numberOfProcess++ inSection:2];
+    NSArray *indexPaths = @[indexPath];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)cancel {

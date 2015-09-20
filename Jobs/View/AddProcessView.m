@@ -101,34 +101,74 @@
     
 }
 
+#pragma mark - Action
 - (void)showDatePicker {
     _timeButton.hidden = YES;
     _datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(_dialogBackground.bounds.origin.x, _dialogBackground.bounds.size.height/3, _dialogBackground.frame.size.width, _dialogBackground.frame.size.height/2)];
     _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    _datePicker.alpha = 0;
     [_dialogBackground addSubview:_datePicker];
     
     UIButton *close = [UIButton buttonWithType:UIButtonTypeSystem];
     close.frame = CGRectMake(_datePicker.frame.origin.x +_datePicker.frame.size.width - 20, _datePicker.frame.origin.y, 20, 20);
     [close addTarget:self action:@selector(closeDatePicker:) forControlEvents:UIControlEventTouchUpInside];
     [close setBackgroundImage:[UIImage imageNamed:@"cross"] forState:UIControlStateNormal];
+    close.alpha = 1.0;
     [_dialogBackground addSubview:close];
+    
+    [UIView animateWithDuration:0.4
+                     animations:^(void){
+                         _datePicker.alpha = 1.0;
+                         close.alpha = 1.0;
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }];
     
 }
 
-- (void)cancel {
-    [self removeFromSuperview];
-    [self.delegate cancel];
-}
-
 - (void)closeDatePicker:(UIButton *)button {
-    [button removeFromSuperview];
-    [_datePicker removeFromSuperview];
+    [UIView animateWithDuration:0.4
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         button.alpha = 0;
+                         _datePicker.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         [button removeFromSuperview];
+                         [_datePicker removeFromSuperview];
+                     }];
+    
     _datePicker = nil;
     _timeButton.hidden = NO;
 }
 
+- (void)cancel {
+    [UIView animateWithDuration:0.4
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                        [self removeFromSuperview];
+                     }];
+    
+    [self.delegate cancel];
+}
+
 - (void)save {
-    [self removeFromSuperview];
+    [UIView animateWithDuration:0.4
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         [self removeFromSuperview];
+                     }];
+    
     [self.delegate addProcrssViewDidSavedWithString:_textField.text Date:_datePicker.date];
 }
 
