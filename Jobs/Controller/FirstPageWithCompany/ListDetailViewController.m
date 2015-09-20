@@ -115,6 +115,48 @@
     return 3;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row != _numberOfProcess) {
+        return YES;
+    }
+    return NO;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        return UITableViewCellEditingStyleDelete;
+    }else {
+        return UITableViewCellEditingStyleNone;
+    }
+}
+
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *layTopRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        _numberOfProcess--;
+        [tableView setEditing:NO animated:YES];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+    layTopRowAction1.backgroundColor = [UIColor redColor];
+    
+    UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        NSLog(@"点击了编辑");
+        [self addProcessViewWithString:@"笔试" Date:[NSDate date]];
+        [tableView setEditing:NO animated:YES];
+    }];
+    layTopRowAction2.backgroundColor = [UIColor orangeColor];
+    
+    NSArray *arr = @[layTopRowAction1,layTopRowAction2];
+    return arr;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        return;
+    }else{
+        return;
+    }
+}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
@@ -249,12 +291,14 @@
 }
 
 - (IBAction)addProcessTapped:(id)sender {
-    [self addProcessView];
+    [self addProcessViewWithString:NULL Date:NULL];
 }
 
 #pragma mark - AddProcessView
-- (void)addProcessView {
+- (void)addProcessViewWithString:(NSString *)string Date:(NSDate *)date {
     _processView = [[AddProcessView alloc]init];
+    _processView.string = string;
+    _processView.date = date;
     _processView.delegate = self;
     self.navigationItem.leftBarButtonItem.enabled = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;

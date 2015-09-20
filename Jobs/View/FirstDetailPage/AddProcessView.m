@@ -101,6 +101,23 @@
     
 }
 
+#pragma mark - ReWrite Setter
+- (void)setString:(NSString *)string {
+    _string = [string copy];
+    _textField.text = _string;
+    if (string.length > 0) {
+        _saveButton.enabled = YES;
+    }
+}
+
+- (void)setDate:(NSDate *)date {
+    _date = [date copy];
+    _datePicker.date = _date;
+    if (date != NULL) {
+        [self showDatePicker];
+    }
+}
+
 #pragma mark - Action
 - (void)showDatePicker {
     _timeButton.hidden = YES;

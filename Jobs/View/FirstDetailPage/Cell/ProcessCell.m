@@ -37,7 +37,7 @@
 
 - (void)initializer {
     _timeLabel = [[UILabel alloc]init];
-    _timeLabel.backgroundColor = [UIColor redColor];
+//    _timeLabel.backgroundColor = [UIColor redColor];
     _timeLabel.text = @"12月12日22:22";
     [self addSubview:_timeLabel];
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,7 +49,7 @@
     
     _processLabel = [[UILabel alloc]init];
     //_processLabel.textAlignment = NSTextAlignmentRight;
-    _processLabel.backgroundColor = [UIColor blueColor];
+//    _processLabel.backgroundColor = [UIColor blueColor];
     _processLabel.text = @"宣讲会";
     [self addSubview:_processLabel];
     [_processLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -70,7 +70,7 @@
     }];
     
     UIView *circle = [[UIView alloc]init];
-    circle.backgroundColor = [UIColor blackColor];
+    circle.backgroundColor = [UIColor grayColor];
     circle.layer.cornerRadius = 4;
     [self addSubview:circle];
     [circle mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -116,8 +116,8 @@
 		721243AF1BAE8BAB0046B060 /* FirstDetailPage */ = {
 			isa = PBXGroup;
 			children = (
-				721243B51BAE8D8D0046B060 /* AddProcessView.m */,
 				723E8EA21BAAADF2004D4E8C /* AddProcessView.h */,
+				721243B51BAE8D8D0046B060 /* AddProcessView.m */,
 				721243B11BAE8C0B0046B060 /* Cell */,
 			);
 			name = FirstDetailPage;
