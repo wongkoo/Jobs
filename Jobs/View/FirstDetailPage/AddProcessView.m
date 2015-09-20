@@ -104,6 +104,8 @@
 #pragma mark - Action
 - (void)showDatePicker {
     _timeButton.hidden = YES;
+    [self endEditing:YES];
+    
     _datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(_dialogBackground.bounds.origin.x, _dialogBackground.bounds.size.height/3, _dialogBackground.frame.size.width, _dialogBackground.frame.size.height/2)];
     _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     _datePicker.alpha = 0;

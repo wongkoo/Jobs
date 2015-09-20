@@ -11,6 +11,8 @@
 #import "CellbackgroundVIew.h"
 #import "AddProcessView.h"
 #import "LabelAndTextFieldCell.h"
+#import "AddButtonCell.h"
+#import "ProcessCell.h"
 
 @interface ListDetailViewController () {
     NSInteger _numberOfProcess;
@@ -31,7 +33,7 @@
         self.saveBarButton.enabled = YES;
     }
     
-    _numberOfProcess = 1;
+    _numberOfProcess = 0;
 }
 
 #pragma mark - UITableViewDataSource
@@ -41,22 +43,46 @@
     }else if(section ==1) {
         return 3;
     }else {
-        return _numberOfProcess;
+        return _numberOfProcess+1;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"LabelAndTextFieldCell";
-    LabelAndTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell) {
-        cell = [[LabelAndTextFieldCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
+    static NSString *LabelAndTextFieldCellIdentifier = @"LabelAndTextFieldCell";
+    static NSString *AddButtonCellIdentifier = @"AddButtonCell";
+    static NSString *ProcessCellIdentifier = @"ProcessCell";
+    if (indexPath.section == 2) {
+        
+        if (indexPath.row == _numberOfProcess) {
+            AddButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:AddButtonCellIdentifier];
+            if (!cell) {
+                cell = [[AddButtonCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AddButtonCellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            }
+            [cell.button addTarget:self action:@selector(addProcessTapped:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+            
+        }else{
+            ProcessCell *cell = [tableView dequeueReusableCellWithIdentifier:ProcessCellIdentifier];
+            if (!cell) {
+                cell = [[ProcessCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProcessCellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            }
+            return cell;
+        }
+
+        
+    }else{
+        LabelAndTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:LabelAndTextFieldCellIdentifier];
+        
+        if (!cell) {
+            cell = [[LabelAndTextFieldCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LabelAndTextFieldCellIdentifier];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
+        [self configureElementForCell:cell withIndexPath:indexPath];
+        return cell;
     }
-    
-    [self configureElementForCell:cell withIndexPath:indexPath];
-    
-    return cell;
 }
 
 - (void)configureElementForCell:(LabelAndTextFieldCell *)cell withIndexPath:(NSIndexPath *)indexPath {
@@ -117,7 +143,9 @@
     label.textColor = [UIColor grayColor];
     label.font = [UIFont systemFontOfSize:17.0];
     if (section == 1) {
-        label.text = @"选填";
+        label.text = @"选填*";
+    }else if(section == 2) {
+        label.text = @"招聘流程*";
     }
     label.backgroundColor = [UIColor clearColor];
     [view addSubview:label];
@@ -220,9 +248,9 @@
     }
 }
 
-//- (IBAction)addProcessTapped:(id)sender {
-//    [self addProcessView];
-//}
+- (IBAction)addProcessTapped:(id)sender {
+    [self addProcessView];
+}
 
 #pragma mark - AddProcessView
 - (void)addProcessView {
