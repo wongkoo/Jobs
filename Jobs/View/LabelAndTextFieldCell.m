@@ -7,7 +7,7 @@
 //
 
 #import "LabelAndTextFieldCell.h"
-
+#import "Masonry.h"
 @implementation LabelAndTextFieldCell
 
 #pragma mark - Initialization
@@ -37,10 +37,30 @@
 }
 
 - (void)initializer {
-    _label = [[UILabel alloc]init];
+    _label = [UILabel new];
+    _label.backgroundColor = [UIColor blueColor];
+    _label.text = @"公司名称";
+    [self addSubview:_label];
+    [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left).offset(16);
+        make.width.equalTo(@85);
+        make.height.equalTo(@28);
+        make.centerY.equalTo(self.mas_centerY);
+    }];
     
-    
-    _textField = [[UITextField alloc]init];
+    _textField = [UITextField new];
+    _textField.backgroundColor = [UIColor redColor];
+    _textField.borderStyle = UITextBorderStyleRoundedRect;
+    _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _textField.placeholder = @"填写流程";
+    //_textField.delegate = self;
+    [self addSubview:_textField];
+    [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_label.mas_right).offset(10);
+        make.right.equalTo(self.mas_right).offset(-16);
+        make.centerY.equalTo(self.mas_centerY);
+        make.height.equalTo(_label.mas_height);
+    }];
 }
 
 

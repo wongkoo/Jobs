@@ -20,10 +20,10 @@
 
 @interface ListDetailViewController : UITableViewController<UITextFieldDelegate,UIScrollViewDelegate,AddProcessViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UITextField *textField;
-@property (nonatomic, weak) IBOutlet UITextField *accountOfWebsiteTextField;
-@property (nonatomic, weak) IBOutlet UITextField *reminderOfPasswordTextField;
-@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
+//@property (nonatomic, weak) IBOutlet UITextField *textField;
+//@property (nonatomic, weak) IBOutlet UITextField *accountOfWebsiteTextField;
+//@property (nonatomic, weak) IBOutlet UITextField *reminderOfPasswordTextField;
+//@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
 
 @property (nonatomic, weak) id<ListDetailViewControllerDelegate>delegate;

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LabelAndTextFieldCell : UITableViewCell
-@property (nonatomic, copy)     UILabel *label;
+@property (nonatomic, strong)   UILabel *label;
 @property (nonatomic, strong)   UITextField *textField;
 @end
