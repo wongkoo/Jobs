@@ -39,7 +39,6 @@
 - (void)initializer {
     _label = [UILabel new];
     _label.backgroundColor = [UIColor clearColor];
-    //_label.text = @"公司名称";
     [self addSubview:_label];
     [_label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).offset(16);
@@ -52,8 +51,6 @@
     _textField.backgroundColor = [UIColor clearColor];
     _textField.borderStyle = UITextBorderStyleRoundedRect;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    //_textField.placeholder = @"填写流程";
-    //_textField.delegate = self;
     [self addSubview:_textField];
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_label.mas_right).offset(10);

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5A3713ED7A0A4BC8A1EAC421 /* libPods-Jobs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFBA60A62131608C25EDAC /* libPods-Jobs.a */; };
 		721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243A91BAE82450046B060 /* ShadowNavController.m */; settings = {ASSET_TAGS = (); }; };
+		721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B31BAE8CC60046B060 /* AddButtonCell.m */; settings = {ASSET_TAGS = (); }; };
+		721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B51BAE8D8D0046B060 /* AddProcessView.m */; settings = {ASSET_TAGS = (); }; };
 		721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 721C419C1B25812F00947326 /* CellbackgroundVIew.m */; };
 		722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */; settings = {ASSET_TAGS = (); }; };
 		7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BC1B1EE68F00F1DFD9 /* main.m */; };
@@ -23,8 +25,8 @@
 		7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */; };
 		7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EA1B20AE1A00F1DFD9 /* JobList.m */; };
 		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
-		723E8EA41BAAADF2004D4E8C /* AddProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA31BAAADF2004D4E8C /* AddProcessView.m */; settings = {ASSET_TAGS = (); }; };
 		723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFA1BAE8E2500F99325 /* ProcessCell.m */; settings = {ASSET_TAGS = (); }; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +45,13 @@
 		62DFBA60A62131608C25EDAC /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		721243A81BAE82450046B060 /* ShadowNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShadowNavController.h; path = NavigationController/ShadowNavController.h; sourceTree = "<group>"; };
 		721243A91BAE82450046B060 /* ShadowNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShadowNavController.m; path = NavigationController/ShadowNavController.m; sourceTree = "<group>"; };
-		721C419B1B25812F00947326 /* CellbackgroundVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellbackgroundVIew.h; sourceTree = "<group>"; };
-		721C419C1B25812F00947326 /* CellbackgroundVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellbackgroundVIew.m; sourceTree = "<group>"; };
-		722DED091BAE422A00FCA061 /* LabelAndTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAndTextFieldCell.h; sourceTree = "<group>"; };
-		722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelAndTextFieldCell.m; sourceTree = "<group>"; };
+		721243B21BAE8CC60046B060 /* AddButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddButtonCell.h; path = FirstDetailPage/Cell/AddButtonCell.h; sourceTree = "<group>"; };
+		721243B31BAE8CC60046B060 /* AddButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddButtonCell.m; path = FirstDetailPage/Cell/AddButtonCell.m; sourceTree = "<group>"; };
+		721243B51BAE8D8D0046B060 /* AddProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddProcessView.m; path = FirstDetailPage/AddProcessView.m; sourceTree = "<group>"; };
+		721C419B1B25812F00947326 /* CellbackgroundVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellbackgroundVIew.h; path = AllPageCellBackground/CellbackgroundVIew.h; sourceTree = "<group>"; };
+		721C419C1B25812F00947326 /* CellbackgroundVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellbackgroundVIew.m; path = AllPageCellBackground/CellbackgroundVIew.m; sourceTree = "<group>"; };
+		722DED091BAE422A00FCA061 /* LabelAndTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelAndTextFieldCell.h; path = FirstDetailPage/Cell/LabelAndTextFieldCell.h; sourceTree = "<group>"; };
+		722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelAndTextFieldCell.m; path = FirstDetailPage/Cell/LabelAndTextFieldCell.m; sourceTree = "<group>"; };
 		7237F5B71B1EE68F00F1DFD9 /* Jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7237F5BB1B1EE68F00F1DFD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7237F5BC1B1EE68F00F1DFD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,9 +76,10 @@
 		7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
 		7237F5F11B2202B500F1DFD9 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		7237F5F21B2202B500F1DFD9 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
-		723E8EA21BAAADF2004D4E8C /* AddProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProcessView.h; sourceTree = "<group>"; };
-		723E8EA31BAAADF2004D4E8C /* AddProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProcessView.m; sourceTree = "<group>"; };
+		723E8EA21BAAADF2004D4E8C /* AddProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddProcessView.h; path = FirstDetailPage/AddProcessView.h; sourceTree = "<group>"; };
 		723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
+		72913AF91BAE8E2500F99325 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessCell.h; path = FirstDetailPage/Cell/ProcessCell.h; sourceTree = "<group>"; };
+		72913AFA1BAE8E2500F99325 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessCell.m; path = FirstDetailPage/Cell/ProcessCell.m; sourceTree = "<group>"; };
 		72FC18931B37A81600920109 /* IntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroPageViewController.h; sourceTree = "<group>"; };
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +111,38 @@
 				721243A91BAE82450046B060 /* ShadowNavController.m */,
 			);
 			name = NavigationController;
+			sourceTree = "<group>";
+		};
+		721243AF1BAE8BAB0046B060 /* FirstDetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				721243B51BAE8D8D0046B060 /* AddProcessView.m */,
+				723E8EA21BAAADF2004D4E8C /* AddProcessView.h */,
+				721243B11BAE8C0B0046B060 /* Cell */,
+			);
+			name = FirstDetailPage;
+			sourceTree = "<group>";
+		};
+		721243B01BAE8BDB0046B060 /* AllPageCellBackground */ = {
+			isa = PBXGroup;
+			children = (
+				721C419B1B25812F00947326 /* CellbackgroundVIew.h */,
+				721C419C1B25812F00947326 /* CellbackgroundVIew.m */,
+			);
+			name = AllPageCellBackground;
+			sourceTree = "<group>";
+		};
+		721243B11BAE8C0B0046B060 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				721243B21BAE8CC60046B060 /* AddButtonCell.h */,
+				721243B31BAE8CC60046B060 /* AddButtonCell.m */,
+				722DED091BAE422A00FCA061 /* LabelAndTextFieldCell.h */,
+				722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */,
+				72913AF91BAE8E2500F99325 /* ProcessCell.h */,
+				72913AFA1BAE8E2500F99325 /* ProcessCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		7237F5AE1B1EE68F00F1DFD9 = {
@@ -227,12 +265,8 @@
 		723E8E9E1BAAACAE004D4E8C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				723E8EA21BAAADF2004D4E8C /* AddProcessView.h */,
-				723E8EA31BAAADF2004D4E8C /* AddProcessView.m */,
-				721C419B1B25812F00947326 /* CellbackgroundVIew.h */,
-				721C419C1B25812F00947326 /* CellbackgroundVIew.m */,
-				722DED091BAE422A00FCA061 /* LabelAndTextFieldCell.h */,
-				722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */,
+				721243AF1BAE8BAB0046B060 /* FirstDetailPage */,
+				721243B01BAE8BDB0046B060 /* AllPageCellBackground */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,11 +425,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */,
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
 				721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
+				721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
+				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
 				721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */,
 				722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */,
@@ -403,7 +440,6 @@
 				723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
-				723E8EA41BAAADF2004D4E8C /* AddProcessView.m in Sources */,
 				7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
