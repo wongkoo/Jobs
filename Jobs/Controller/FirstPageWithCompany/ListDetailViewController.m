@@ -28,53 +28,11 @@
     
     if (self.jobListToEdit != nil) {
         self.title = @"编辑公司";
-//        self.textField.text = self.jobListToEdit.name;
-//        self.accountOfWebsiteTextField.text = self.jobListToEdit.accountOfWebsite;
-//        self.reminderOfPasswordTextField.text = self.jobListToEdit.reminderOfPassword;
-//        self.emailTextField.text = self.jobListToEdit.email;
         self.saveBarButton.enabled = YES;
     }
     
     _numberOfProcess = 1;
-    
-//    self.textField.tag = 30;
-//    self.accountOfWebsiteTextField.tag = 31;
-//    self.reminderOfPasswordTextField.tag = 32;
-//    self.emailTextField.tag = 33;
-//    
-//    self.textField.delegate = self;
-//    self.accountOfWebsiteTextField.delegate = self;
-//    self.reminderOfPasswordTextField.delegate = self;
-//    self.emailTextField.delegate = self;
-    
-    self.navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
-    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
-    self.navigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
-    self.navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
-    
 }
-
-- (void )tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
-
-
-
-- (id)initWithCoder:(NSCoder *)aDecoder{
-    if ((self = [super initWithCoder:aDecoder])) {
-        //_iconName = @"1";
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -88,32 +46,48 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"LabelAndTextFieldCell";
     LabelAndTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[LabelAndTextFieldCell alloc]init];
+        cell = [[LabelAndTextFieldCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
-    cell.label.text = tempString;
+    [self configureElementForCell:cell withIndexPath:indexPath];
     
     return cell;
+}
+
+- (void)configureElementForCell:(LabelAndTextFieldCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        cell.label.text = @"公司";
+        cell.textField.placeholder = @"Mogujie";
+        cell.textField.text = self.jobListToEdit.name;
+    }else if(indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.label.text = @"官网帐号";
+            cell.textField.placeholder = @"WangMing";
+            cell.textField.text = self.jobListToEdit.accountOfWebsite;
+        }else if(indexPath.row == 1) {
+            cell.label.text = @"密码提示";
+            cell.textField.placeholder = @"DODO's Birthday";
+            cell.textField.text = self.jobListToEdit.reminderOfPassword;
+        }else {
+            cell.label.text = @"报名邮箱";
+            cell.textField.placeholder = @"WangMing@xmail.com";
+            cell.textField.text = self.jobListToEdit.email;
+        }
+    }else if(indexPath.section == 2) {
+        cell.label.text = @"test";
+    }
+
+    cell.textField.delegate = self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
-
-//- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    if (section == 0) {
-//        return @"必填";
-//    }else {
-//        return @"选填";
-//    }
-//}
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,19 +108,15 @@
                                                             self.view.bounds.size.width,
                                                             30)];
     view.backgroundColor = [UIColor clearColor];
-    
-    
-    // Create label with section title
+
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(16.0,
                              10.0,
                              100.0,
                              20.0);
-    label.textColor = [UIColor blackColor];
+    label.textColor = [UIColor grayColor];
     label.font = [UIFont systemFontOfSize:17.0];
-    if (section == 0) {
-        label.text = @"必填";
-    }else {
+    if (section == 1) {
         label.text = @"选填";
     }
     label.backgroundColor = [UIColor clearColor];
@@ -158,28 +128,48 @@
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if (textField.tag == 30) {
+    if ([textField.placeholder isEqualToString:@"Mogujie"]) {
         NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
         self.saveBarButton.enabled = ([newText length]>0);
     }
+    
+    if ([textField.placeholder isEqualToString:@"Mogujie"]) {
+        _companyNameString = textField.text;
+    }else if([textField.placeholder isEqualToString:@"WangMing"]) {
+        _accountOfWebsiteString = textField.text;
+    }else if([textField.placeholder isEqualToString:@"DODO's Birthday"]) {
+        _reminderOfPasswordString = textField.text;
+    }else if([textField.placeholder isEqualToString:@"WangMing@xmail.com"]) {
+        _emailString = textField.text;
+    }
+    
     return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if (textField.tag ==30) {
-//        [self.accountOfWebsiteTextField becomeFirstResponder];
-    }else if (textField.tag == 31 ) {
-//        [self.reminderOfPasswordTextField becomeFirstResponder];
-    }else if(textField.tag == 32){
-//        [self.emailTextField becomeFirstResponder];
-    }else{
+    if ([textField.placeholder isEqualToString:@"Mogujie"]) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+        LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [cell.textField becomeFirstResponder];
+    }else if([textField.placeholder isEqualToString:@"WangMing"]) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+        LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [cell.textField becomeFirstResponder];
+    }else if([textField.placeholder isEqualToString:@"DODO's Birthday"]) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+        LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [cell.textField becomeFirstResponder];
+    }else if([textField.placeholder isEqualToString:@"WangMing@xmail.com"]) {
         [self.view endEditing:YES];
     }
+    
     return YES;
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
-    self.saveBarButton.enabled = NO;
+    if ([textField.placeholder isEqualToString:@"Mogujie"]) {
+            self.saveBarButton.enabled = NO;
+    }
     return YES;
 }
 
@@ -197,18 +187,35 @@
 }
 
 - (IBAction)save:(id)sender{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *companyNameString = cell.textField.text;
+    
+    indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+    cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *accountOfWebsite = cell.textField.text;
+
+    indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+    cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *reminderOfPassword = cell.textField.text;
+    
+    indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+    cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *emailString = cell.textField.text;
+    
     if (self.jobListToEdit == nil) {
         JobList *jobList = [[JobList alloc]init];
-//        jobList.name = self.textField.text;
-//        jobList.accountOfWebsite = self.accountOfWebsiteTextField.text;
-//        jobList.reminderOfPassword = self.reminderOfPasswordTextField.text;
-//        jobList.email = self.emailTextField.text;
+        jobList.name = companyNameString;
+        jobList.accountOfWebsite = accountOfWebsite;
+        jobList.reminderOfPassword = reminderOfPassword;
+        jobList.email = emailString;
         [self.delegate listDetailViewController:self didFinishAddingJoblist:jobList];
     }else{
-//        self.jobListToEdit.name = self.textField.text;
-//        self.jobListToEdit.accountOfWebsite = self.accountOfWebsiteTextField.text;
-//        self.jobListToEdit.reminderOfPassword = self.reminderOfPasswordTextField.text;
-//        self.jobListToEdit.email = self.emailTextField.text;
+        self.jobListToEdit.name = companyNameString;
+        self.jobListToEdit.accountOfWebsite = accountOfWebsite;
+        self.jobListToEdit.reminderOfPassword = reminderOfPassword;
+        self.jobListToEdit.email = emailString;
         [self.delegate listDetailViewController:self didFinishEditingJobList:self.jobListToEdit];
     }
 }
@@ -236,9 +243,15 @@
 
 - (void)cancel {
     self.navigationItem.leftBarButtonItem.enabled = YES;
-//    if (_textField.text.length>0) {
-//        self.navigationItem.rightBarButtonItem.enabled = YES;
-//    }
+    if (_companyNameString.length>0) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
+}
+
+#pragma mark - MemoryWorning
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

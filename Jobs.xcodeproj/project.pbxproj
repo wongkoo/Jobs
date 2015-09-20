@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A3713ED7A0A4BC8A1EAC421 /* libPods-Jobs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFBA60A62131608C25EDAC /* libPods-Jobs.a */; };
+		721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243A91BAE82450046B060 /* ShadowNavController.m */; settings = {ASSET_TAGS = (); }; };
 		721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 721C419C1B25812F00947326 /* CellbackgroundVIew.m */; };
 		722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */; settings = {ASSET_TAGS = (); }; };
 		7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BC1B1EE68F00F1DFD9 /* main.m */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		527D57D792D2DB49EF4329E9 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
 		62DFBA60A62131608C25EDAC /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		721243A81BAE82450046B060 /* ShadowNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShadowNavController.h; path = NavigationController/ShadowNavController.h; sourceTree = "<group>"; };
+		721243A91BAE82450046B060 /* ShadowNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShadowNavController.m; path = NavigationController/ShadowNavController.m; sourceTree = "<group>"; };
 		721C419B1B25812F00947326 /* CellbackgroundVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellbackgroundVIew.h; sourceTree = "<group>"; };
 		721C419C1B25812F00947326 /* CellbackgroundVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellbackgroundVIew.m; sourceTree = "<group>"; };
 		722DED091BAE422A00FCA061 /* LabelAndTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAndTextFieldCell.h; sourceTree = "<group>"; };
@@ -95,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		721243AB1BAE824D0046B060 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				721243A81BAE82450046B060 /* ShadowNavController.h */,
+				721243A91BAE82450046B060 /* ShadowNavController.m */,
+			);
+			name = NavigationController;
+			sourceTree = "<group>";
+		};
 		7237F5AE1B1EE68F00F1DFD9 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +185,7 @@
 		7237F5ED1B20AE7E00F1DFD9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				721243AB1BAE824D0046B060 /* NavigationController */,
 				723E8E9D1BAA9EEF004D4E8C /* IntroPage */,
 				723E8E9B1BAA9E8A004D4E8C /* FirstPageWithCompany */,
 				723E8E9C1BAA9EC7004D4E8C /* SecondPageInCompany */,
@@ -379,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
+				721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,

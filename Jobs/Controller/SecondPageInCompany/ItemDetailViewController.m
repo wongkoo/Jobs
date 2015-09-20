@@ -43,11 +43,6 @@
         _dueDate = [NSDate date];
     }
     
-    self.navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
-    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
-    self.navigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
-    self.navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
-    
     [self updateDueDateLabel];
     UIControl *aControl = [[UIControl alloc]init];
     [aControl addTarget:self action: @selector(touchSection) forControlEvents:UIControlEventTouchUpInside];
