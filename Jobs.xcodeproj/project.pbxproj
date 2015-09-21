@@ -27,6 +27,7 @@
 		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
 		723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFA1BAE8E2500F99325 /* ProcessCell.m */; settings = {ASSET_TAGS = (); }; };
+		72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFD1BAED6C700F99325 /* DateAndProcess.m */; settings = {ASSET_TAGS = (); }; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
 		72913AF91BAE8E2500F99325 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessCell.h; path = FirstDetailPage/Cell/ProcessCell.h; sourceTree = "<group>"; };
 		72913AFA1BAE8E2500F99325 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessCell.m; path = FirstDetailPage/Cell/ProcessCell.m; sourceTree = "<group>"; };
+		72913AFC1BAED6C700F99325 /* DateAndProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndProcess.h; sourceTree = "<group>"; };
+		72913AFD1BAED6C700F99325 /* DateAndProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndProcess.m; sourceTree = "<group>"; };
 		72FC18931B37A81600920109 /* IntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroPageViewController.h; sourceTree = "<group>"; };
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 		7237F5EC1B20AE5000F1DFD9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				72913AFC1BAED6C700F99325 /* DateAndProcess.h */,
+				72913AFD1BAED6C700F99325 /* DateAndProcess.m */,
 				7237F5E01B1F389F00F1DFD9 /* JobsItem.h */,
 				7237F5E11B1F389F00F1DFD9 /* JobsItem.m */,
 				7237F5E91B20AE1A00F1DFD9 /* JobList.h */,
@@ -435,6 +440,7 @@
 				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
 				721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */,
+				72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */,
 				722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */,
 				72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */,
 				723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */,
@@ -520,9 +526,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "926d4a86-efd5-45d0-b749-01760effe171";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -558,8 +565,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "926d4a86-efd5-45d0-b749-01760effe171";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -571,15 +579,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				INFOPLIST_FILE = Jobs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wongkoo.Jobs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ede94b43-bee0-46c9-bc82-d1b0552985b6";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "926d4a86-efd5-45d0-b749-01760effe171";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -589,15 +597,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				INFOPLIST_FILE = Jobs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wongkoo.Jobs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ede94b43-bee0-46c9-bc82-d1b0552985b6";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "926d4a86-efd5-45d0-b749-01760effe171";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -605,8 +613,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -616,7 +624,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wongkoo.Jobs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "926d4a86-efd5-45d0-b749-01760effe171";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jobs.app/Jobs";
 			};
 			name = Debug;
@@ -625,14 +633,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZhenHui Wang (546HJ5BCYA)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = JobsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wongkoo.Jobs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "926d4a86-efd5-45d0-b749-01760effe171";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jobs.app/Jobs";
 			};
 			name = Release;

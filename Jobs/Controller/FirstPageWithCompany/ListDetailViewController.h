@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString *accountOfWebsiteString;
 @property (nonatomic, strong) NSString *reminderOfPasswordString;
 @property (nonatomic, strong) NSString *emailString;
+@property (nonatomic, strong) NSMutableArray *process;
 @property (nonatomic, weak)   IBOutlet UIBarButtonItem *saveBarButton;
 
 @property (nonatomic, weak) id<ListDetailViewControllerDelegate>delegate;

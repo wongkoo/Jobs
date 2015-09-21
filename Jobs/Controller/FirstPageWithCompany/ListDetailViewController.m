@@ -8,6 +8,7 @@
 
 #import "ListDetailViewController.h"
 #import "JobList.h"
+#import "DateAndProcess.h"
 #import "CellbackgroundVIew.h"
 #import "AddProcessView.h"
 #import "LabelAndTextFieldCell.h"
@@ -18,7 +19,6 @@
     NSInteger _numberOfProcess;
     NSString *tempString;
 }
-//@property (weak     , nonatomic) IBOutlet UIButton *addProcess;
 @property (strong   , nonatomic) AddProcessView *processView;
 @end
 
@@ -30,7 +30,16 @@
     
     if (self.jobListToEdit != nil) {
         self.title = @"编辑公司";
+        _companyNameString = self.jobListToEdit.name;
+        _accountOfWebsiteString = self.jobListToEdit.accountOfWebsite;
+        _emailString = self.jobListToEdit.email;
+        _process = self.jobListToEdit.process;
+        //self.jobListToEdit.items;
         self.saveBarButton.enabled = YES;
+    }else{
+        self.title = @"添加公司";
+        self.saveBarButton.enabled = NO;
+        _process = [[NSMutableArray alloc]initWithCapacity:3];
     }
     
     _numberOfProcess = 0;
@@ -43,7 +52,8 @@
     }else if(section ==1) {
         return 3;
     }else {
-        return _numberOfProcess+1;
+        return [_process count]+1;
+//        return _numberOfProcess+1;
     }
 }
 
@@ -54,7 +64,8 @@
     static NSString *ProcessCellIdentifier = @"ProcessCell";
     if (indexPath.section == 2) {
         
-        if (indexPath.row == _numberOfProcess) {
+//        if (indexPath.row == _numberOfProcess) {
+        if (indexPath.row == [_process count]) {
             AddButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:AddButtonCellIdentifier];
             if (!cell) {
                 cell = [[AddButtonCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AddButtonCellIdentifier];
@@ -69,6 +80,15 @@
                 cell = [[ProcessCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProcessCellIdentifier];
                 [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             }
+            
+            DateAndProcess *dateAndProcess = [_process objectAtIndex:indexPath.row];
+            
+            NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"MMddhhmm"];
+            NSString *dateString=[dateFormatter stringFromDate:dateAndProcess.date];
+            
+            cell.timeLabel.text = dateString;
+            cell.processLabel.text = dateAndProcess.string;
             return cell;
         }
 
@@ -104,9 +124,10 @@
             cell.textField.placeholder = @"WangMing@xmail.com";
             cell.textField.text = self.jobListToEdit.email;
         }
-    }else if(indexPath.section == 2) {
-        cell.label.text = @"test";
     }
+//    else if(indexPath.section == 2) {
+//        cell.label.text = @"test";
+//    }
 
     cell.textField.delegate = self;
 }
@@ -116,7 +137,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2 && indexPath.row != _numberOfProcess) {
+    if (indexPath.section == 2 && indexPath.row != [_process count]) {
         return YES;
     }
     return NO;
@@ -132,7 +153,8 @@
 
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewRowAction *layTopRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        _numberOfProcess--;
+//        _numberOfProcess--;
+        [_process removeObjectAtIndex:indexPath.row];
         [tableView setEditing:NO animated:YES];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }];
@@ -140,7 +162,8 @@
     
     UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         NSLog(@"点击了编辑");
-        [self addProcessViewWithString:@"笔试" Date:[NSDate date]];
+        DateAndProcess *dateAndProcess = [_process objectAtIndex:indexPath.row];
+        [self addProcessViewWithString:dateAndProcess.string Date:dateAndProcess.date];
         [tableView setEditing:NO animated:YES];
     }];
     layTopRowAction2.backgroundColor = [UIColor orangeColor];
@@ -202,7 +225,10 @@
         NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
         self.saveBarButton.enabled = ([newText length]>0);
     }
-    
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     if ([textField.placeholder isEqualToString:@"Mogujie"]) {
         _companyNameString = textField.text;
     }else if([textField.placeholder isEqualToString:@"WangMing"]) {
@@ -212,8 +238,6 @@
     }else if([textField.placeholder isEqualToString:@"WangMing@xmail.com"]) {
         _emailString = textField.text;
     }
-    
-    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -280,12 +304,14 @@
         jobList.accountOfWebsite = accountOfWebsite;
         jobList.reminderOfPassword = reminderOfPassword;
         jobList.email = emailString;
+        jobList.process = _process;
         [self.delegate listDetailViewController:self didFinishAddingJoblist:jobList];
     }else{
         self.jobListToEdit.name = companyNameString;
         self.jobListToEdit.accountOfWebsite = accountOfWebsite;
         self.jobListToEdit.reminderOfPassword = reminderOfPassword;
         self.jobListToEdit.email = emailString;
+        self.jobListToEdit.process = _process; //////????????
         [self.delegate listDetailViewController:self didFinishEditingJobList:self.jobListToEdit];
     }
 }
@@ -302,19 +328,31 @@
     _processView.delegate = self;
     self.navigationItem.leftBarButtonItem.enabled = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    self.tableView.scrollEnabled = NO;
     [self.view addSubview:_processView];
 }
 
 #pragma mark - AddProcessDelegate
 - (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date {
-    tempString = [string copy];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_numberOfProcess++ inSection:2];
+    [self cancel];
+    
+    DateAndProcess *dateAndProcess = [[DateAndProcess alloc]init];
+    dateAndProcess.string = string;
+    dateAndProcess.date = date;
+//    [_process insertObject:dateAndProcess atIndex:_process.count];
+    [_process addObject:dateAndProcess];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_process count]-1 inSection:2];
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)cancel {
     self.navigationItem.leftBarButtonItem.enabled = YES;
+    self.tableView.scrollEnabled = YES;
     if (_companyNameString.length>0) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }

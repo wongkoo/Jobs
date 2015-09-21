@@ -15,7 +15,7 @@
 
 @interface AddProcessView : UIView <UITextFieldDelegate>
 @property (nonatomic, strong)   NSDate *date;
-@property (nonatomic, copy)     NSString *string;
-@property (nonatomic, weak) id <AddProcessViewDelegate> delegate;
+@property (nonatomic, strong)   NSString *string;
+@property (nonatomic, weak)     id <AddProcessViewDelegate> delegate;
 
 @end

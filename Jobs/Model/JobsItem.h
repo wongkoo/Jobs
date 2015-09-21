@@ -10,10 +10,10 @@
 #import <UIKit/UIKit.h>
 @interface JobsItem : NSObject<NSCoding>
 
-@property (nonatomic,copy) NSString *text;
-@property (nonatomic,copy) NSString *nextTask;
-@property (nonatomic,assign) BOOL checked;
-@property (nonatomic,copy)NSDate *dueDate;
+@property (nonatomic,copy)  NSString *text;
+@property (nonatomic,copy)  NSString *nextTask;
+@property (nonatomic,assign)BOOL checked;
+@property (nonatomic,copy)  NSDate *dueDate;
 @property (nonatomic,assign)BOOL shouldRemind;
 @property (nonatomic,assign)NSInteger itemId;
 

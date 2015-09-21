@@ -15,6 +15,7 @@
 @property (nonatomic,copy   )NSString *accountOfWebsite;
 @property (nonatomic,copy   )NSString *reminderOfPassword;
 @property (nonatomic,copy   )NSString *email;
+@property (nonatomic,strong )NSMutableArray *process;
 @property (nonatomic,assign )BOOL deletedFlag;
 
 - (int)countUncheckedItems;

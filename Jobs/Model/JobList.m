@@ -13,6 +13,7 @@
 -(id)init{
     if((self = [super init])){
         self.items =[[NSMutableArray alloc] initWithCapacity:20];
+        self.process = [[NSMutableArray alloc] initWithCapacity:3];
         self.deletedFlag = 0;
     }
     return self;
@@ -35,6 +36,7 @@
         self.accountOfWebsite = [aDecoder decodeObjectForKey:@"AccountOfWebsite"];
         self.reminderOfPassword = [aDecoder decodeObjectForKey:@"ReminderOfPassword"];
         self.email = [aDecoder decodeObjectForKey:@"Email"];
+        self.process = [aDecoder decodeObjectForKey:@"Process"];
         self.deletedFlag = [aDecoder decodeIntegerForKey:@"DeletedFlag"];
 //耻辱！！！！！！
 //        self.name = [aDecoder decodeObjectForKey:@"Name"];
@@ -49,6 +51,7 @@
     [aCoder encodeObject:self.accountOfWebsite forKey:@"AccountOfWebsite"];
     [aCoder encodeObject:self.reminderOfPassword forKey:@"ReminderOfPassword"];
     [aCoder encodeObject:self.email forKey:@"Email"];
+    [aCoder encodeObject:self.process forKey:@"Process"];
     [aCoder encodeInteger:self.deletedFlag forKey:@"DeletedFlag"];
 }
 
