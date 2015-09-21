@@ -15,11 +15,8 @@
 #import "AddButtonCell.h"
 #import "ProcessCell.h"
 
-@interface ListDetailViewController () {
-    NSInteger _numberOfProcess;
-    NSString *tempString;
-}
-@property (strong   , nonatomic) AddProcessView *processView;
+@interface ListDetailViewController ()
+@property (strong, nonatomic) AddProcessView *processView;
 @end
 
 @implementation ListDetailViewController
@@ -41,8 +38,6 @@
         self.saveBarButton.enabled = NO;
         _process = [[NSMutableArray alloc]initWithCapacity:3];
     }
-    
-    _numberOfProcess = 0;
 }
 
 #pragma mark - UITableViewDataSource
@@ -53,7 +48,6 @@
         return 3;
     }else {
         return [_process count]+1;
-//        return _numberOfProcess+1;
     }
 }
 
@@ -63,8 +57,7 @@
     static NSString *AddButtonCellIdentifier = @"AddButtonCell";
     static NSString *ProcessCellIdentifier = @"ProcessCell";
     if (indexPath.section == 2) {
-        
-//        if (indexPath.row == _numberOfProcess) {
+
         if (indexPath.row == [_process count]) {
             AddButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:AddButtonCellIdentifier];
             if (!cell) {
@@ -125,10 +118,6 @@
             cell.textField.text = self.jobListToEdit.email;
         }
     }
-//    else if(indexPath.section == 2) {
-//        cell.label.text = @"test";
-//    }
-
     cell.textField.delegate = self;
 }
 
@@ -153,7 +142,6 @@
 
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewRowAction *layTopRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-//        _numberOfProcess--;
         [_process removeObjectAtIndex:indexPath.row];
         [tableView setEditing:NO animated:YES];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -341,7 +329,6 @@
     DateAndProcess *dateAndProcess = [[DateAndProcess alloc]init];
     dateAndProcess.string = string;
     dateAndProcess.date = date;
-//    [_process insertObject:dateAndProcess atIndex:_process.count];
     [_process addObject:dateAndProcess];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_process count]-1 inSection:2];

@@ -67,7 +67,10 @@
     
     
     
-    _textField = [[UITextField alloc]initWithFrame:CGRectMake(_dialogBackground.frame.size.width/6, _dialogBackground.bounds.size.height/7, _dialogBackground.bounds.size.width*2/3, 40)];
+    _textField = [[UITextField alloc]initWithFrame:CGRectMake(_dialogBackground.frame.size.width/6,
+                                                              _dialogBackground.bounds.size.height/7,
+                                                              _dialogBackground.bounds.size.width*2/3,
+                                                              40)];
     _textField.borderStyle = UITextBorderStyleRoundedRect;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _textField.placeholder = @"填写流程";
@@ -75,13 +78,19 @@
     [_dialogBackground addSubview:_textField];
 
     _timeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    _timeButton.frame = CGRectMake(_dialogBackground.bounds.size.width/2 -_dialogBackground.bounds.size.width/4, _dialogBackground.bounds.size.height/2, _dialogBackground.bounds.size.width/2, 30);
+    _timeButton.frame = CGRectMake(_dialogBackground.bounds.size.width/2 -_dialogBackground.bounds.size.width/4,
+                                   _dialogBackground.bounds.size.height/2,
+                                   _dialogBackground.bounds.size.width/2,
+                                   30);
     [_timeButton setTitle:@"*Time(Optional)" forState:UIControlStateNormal];
     [_timeButton addTarget:self action:@selector(showDatePicker) forControlEvents:UIControlEventTouchUpInside];
     [_dialogBackground addSubview:_timeButton];
     
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    cancelButton.frame = CGRectMake(_dialogBackground.bounds.origin.x + _dialogBackground.bounds.size.width/6, _dialogBackground.bounds.size.height * 5/6, _dialogBackground.bounds.size.width/4, 40);
+    cancelButton.frame = CGRectMake(_dialogBackground.bounds.origin.x + _dialogBackground.bounds.size.width/6,
+                                    _dialogBackground.bounds.size.height * 5/6,
+                                    _dialogBackground.bounds.size.width/4,
+                                    40);
     cancelButton.backgroundColor = [UIColor grayColor];
     [cancelButton setTitleColor:[UIColor lightTextColor] forState:UIControlStateNormal];
     cancelButton.layer.cornerRadius = 5;
@@ -90,7 +99,10 @@
     [_dialogBackground addSubview:cancelButton];
     
     _saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _saveButton.frame = CGRectMake(_dialogBackground.bounds.size.width/2 +_dialogBackground.bounds.size.width/12, _dialogBackground.bounds.size.height *5/6, _dialogBackground.bounds.size.width/4, 40);
+    _saveButton.frame = CGRectMake(_dialogBackground.bounds.size.width/2 +_dialogBackground.bounds.size.width/12,
+                                   _dialogBackground.bounds.size.height *5/6,
+                                   _dialogBackground.bounds.size.width/4,
+                                   40);
     _saveButton.backgroundColor = [UIColor grayColor];
     [_saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _saveButton.layer.cornerRadius = 5;
@@ -124,14 +136,19 @@
     [self endEditing:YES];
     
     _datePicker = [[UIDatePicker alloc]init];
-    _datePicker.frame = CGRectMake(_dialogBackground.bounds.origin.x, _dialogBackground.bounds.size.height/3, _dialogBackground.frame.size.width, _dialogBackground.frame.size.height/2);
+    _datePicker.frame = CGRectMake(_dialogBackground.bounds.origin.x,
+                                   _textField.frame.origin.y + _textField.frame.size.height,
+                                   _dialogBackground.frame.size.width,
+                                   _saveButton.frame.origin.y - _textField.frame.origin.y - _textField.frame.size.height);
     _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
-    
     _datePicker.alpha = 0;
     [_dialogBackground addSubview:_datePicker];
     
     UIButton *close = [UIButton buttonWithType:UIButtonTypeSystem];
-    close.frame = CGRectMake(_datePicker.frame.origin.x +_datePicker.frame.size.width - 20, _datePicker.frame.origin.y, 20, 20);
+    close.frame = CGRectMake(_datePicker.frame.origin.x +_datePicker.frame.size.width - 20,
+                             _datePicker.frame.origin.y,
+                             20,
+                             20);
     [close addTarget:self action:@selector(closeDatePicker:) forControlEvents:UIControlEventTouchUpInside];
     [close setBackgroundImage:[UIImage imageNamed:@"cross"] forState:UIControlStateNormal];
     close.alpha = 1.0;
