@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddButtonCell : UITableViewCell
-@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UIButton *addButton;
+@property (nonatomic, strong) UIButton *sortButton;
 @end

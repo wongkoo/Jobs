@@ -193,7 +193,7 @@
                         [self removeFromSuperview];
                      }];
     
-    [self.delegate cancel];
+    [self.delegate addProcrssViewDidCancel];
 }
 
 - (void)save {
@@ -207,7 +207,7 @@
                          [self removeFromSuperview];
                      }];
     
-    [self.delegate addProcrssViewDidSavedWithString:_textField.text Date:_datePicker.date];
+    [self.delegate addProcrssViewDidSavedWithString:_textField.text Date:_datePicker.date Index:_index];
 }
 
 #pragma mark - UITextFieldDelegate

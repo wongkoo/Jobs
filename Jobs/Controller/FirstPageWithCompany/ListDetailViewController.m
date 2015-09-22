@@ -64,7 +64,14 @@
                 cell = [[AddButtonCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AddButtonCellIdentifier];
                 [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             }
-            [cell.button addTarget:self action:@selector(addProcessTapped:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if ([_process count]>0) {
+                cell.sortButton.hidden = NO;
+            }else{
+                cell.sortButton.hidden = YES;
+            }
+            [cell.sortButton addTarget:self action:@selector(sortProcessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.addButton addTarget:self action:@selector(addProcessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
             
         }else{
@@ -77,7 +84,7 @@
             DateAndProcess *dateAndProcess = [_process objectAtIndex:indexPath.row];
             
             NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"MMddhhmm"];
+            [dateFormatter setDateFormat:@"MM月dd日hh:mm"];
             NSString *dateString=[dateFormatter stringFromDate:dateAndProcess.date];
             
             cell.timeLabel.text = dateString;
@@ -133,11 +140,7 @@
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2) {
-        return UITableViewCellEditingStyleDelete;
-    }else {
-        return UITableViewCellEditingStyleNone;
-    }
+    return UITableViewCellEditingStyleNone;
 }
 
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -151,7 +154,7 @@
     UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         NSLog(@"点击了编辑");
         DateAndProcess *dateAndProcess = [_process objectAtIndex:indexPath.row];
-        [self addProcessViewWithString:dateAndProcess.string Date:dateAndProcess.date];
+        [self addProcessViewWithString:dateAndProcess.string Date:dateAndProcess.date Index:indexPath.row];
         [tableView setEditing:NO animated:YES];
     }];
     layTopRowAction2.backgroundColor = [UIColor orangeColor];
@@ -165,6 +168,23 @@
         return;
     }else{
         return;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+    [_process exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
+}
+
+
+
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2 && indexPath.row != [_process count]) {
+        return YES;
+    }else{
+        return NO;
     }
 }
 
@@ -205,6 +225,14 @@
     
     return view;
     
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+    if (sourceIndexPath.section == proposedDestinationIndexPath.section && proposedDestinationIndexPath.row != [_process count]) {
+        return proposedDestinationIndexPath;
+    }else{
+        return sourceIndexPath;
+    }
 }
 
 #pragma mark - UITextFieldDelegate
@@ -299,21 +327,28 @@
         self.jobListToEdit.accountOfWebsite = accountOfWebsite;
         self.jobListToEdit.reminderOfPassword = reminderOfPassword;
         self.jobListToEdit.email = emailString;
-        self.jobListToEdit.process = _process; //////????????
+        self.jobListToEdit.process = _process;
         [self.delegate listDetailViewController:self didFinishEditingJobList:self.jobListToEdit];
     }
 }
 
-- (IBAction)addProcessTapped:(id)sender {
-    [self addProcessViewWithString:NULL Date:NULL];
+#pragma mark - Button Action
+- (void)addProcessButtonTapped:(id)sender {
+    [self addProcessViewWithString:NULL Date:NULL Index:-1];
 }
 
-#pragma mark - AddProcessView
-- (void)addProcessViewWithString:(NSString *)string Date:(NSDate *)date {
+- (void)sortProcessButtonTapped:(id)sender {
+    self.editing = YES;
+}
+
+#pragma mark - Subview AddProcessView
+- (void)addProcessViewWithString:(NSString *)string Date:(NSDate *)date Index:(NSInteger)index{
     _processView = [[AddProcessView alloc]init];
     _processView.string = string;
     _processView.date = date;
     _processView.delegate = self;
+    _processView.index = index;
+    
     self.navigationItem.leftBarButtonItem.enabled = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -323,21 +358,32 @@
 }
 
 #pragma mark - AddProcessDelegate
-- (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date {
-    [self cancel];
+- (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date Index:(NSInteger)index{
+    [self addProcrssViewDidCancel];
+    
+    NSIndexPath *buttonIndexPath = [NSIndexPath indexPathForRow:[_process count] inSection:2];
+    AddButtonCell *cell = [self.tableView cellForRowAtIndexPath:buttonIndexPath];
+    cell.sortButton.hidden = NO;
     
     DateAndProcess *dateAndProcess = [[DateAndProcess alloc]init];
     dateAndProcess.string = string;
     dateAndProcess.date = date;
-    [_process addObject:dateAndProcess];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_process count]-1 inSection:2];
-    NSArray *indexPaths = @[indexPath];
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if (index == -1) {
+        [_process addObject:dateAndProcess];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_process count]-1 inSection:2];
+        NSArray *indexPaths = @[indexPath];
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }else{
+        [_process removeObjectAtIndex:index];
+        [_process insertObject:dateAndProcess atIndex:index];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:2];
+        NSArray *indexPaths = @[indexPath];
+        [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+    }
 }
 
-- (void)cancel {
+- (void)addProcrssViewDidCancel {
     self.navigationItem.leftBarButtonItem.enabled = YES;
     self.tableView.scrollEnabled = YES;
     if (_companyNameString.length>0) {

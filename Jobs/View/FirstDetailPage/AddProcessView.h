@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @protocol AddProcessViewDelegate <NSObject>
-- (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date;
-- (void)cancel;
+- (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date Index:(NSInteger)index;
+- (void)addProcrssViewDidCancel;
 @end
 
 @interface AddProcessView : UIView <UITextFieldDelegate>
 @property (nonatomic, strong)   NSDate *date;
 @property (nonatomic, strong)   NSString *string;
+@property (nonatomic, assign)   NSInteger index;
 @property (nonatomic, weak)     id <AddProcessViewDelegate> delegate;
 
 @end
