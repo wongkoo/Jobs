@@ -37,8 +37,6 @@
 
 - (void)initializer {
     _timeLabel = [[UILabel alloc]init];
-//    _timeLabel.backgroundColor = [UIColor redColor];
-    _timeLabel.text = @"12月12日22:22";
     [self addSubview:_timeLabel];
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).offset(16);
@@ -48,8 +46,6 @@
     }];
     
     _processLabel = [[UILabel alloc]init];
-    //_processLabel.textAlignment = NSTextAlignmentRight;
-//    _processLabel.backgroundColor = [UIColor blueColor];
     _processLabel.text = @"宣讲会";
     [self addSubview:_processLabel];
     [_processLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -60,7 +56,7 @@
     }];
     
     UILabel *line = [[UILabel alloc]init];
-    line.backgroundColor = [UIColor orangeColor];
+    line.backgroundColor = [UIColor colorWithRed:230/255.0 green:126/255.0 blue:34/255.0 alpha:0.5];
     [self addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_timeLabel.mas_right).offset(3);
@@ -70,14 +66,16 @@
     }];
     
     UIView *circle = [[UIView alloc]init];
-    circle.backgroundColor = [UIColor grayColor];
-    circle.layer.cornerRadius = 4;
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Arrow"]];
+    imageView.frame = CGRectMake(0, 0, 12, 12);
+    [circle addSubview:imageView];
+    circle.layer.cornerRadius = 6;
     [self addSubview:circle];
     [circle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(line.mas_centerY);
         make.centerX.equalTo(line.mas_centerX);
-        make.height.equalTo(@8);
-        make.width.equalTo(@8);
+        make.height.equalTo(@12);
+        make.width.equalTo(@12);
     }];
 }
 

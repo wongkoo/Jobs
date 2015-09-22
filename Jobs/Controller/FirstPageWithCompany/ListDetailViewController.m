@@ -140,6 +140,9 @@
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        return UITableViewCellEditingStyleDelete;
+    }
     return UITableViewCellEditingStyleNone;
 }
 
@@ -338,7 +341,7 @@
 }
 
 - (void)sortProcessButtonTapped:(id)sender {
-    self.editing = YES;
+    self.editing = !self.editing;
 }
 
 #pragma mark - Subview AddProcessView
@@ -379,7 +382,7 @@
         [_process insertObject:dateAndProcess atIndex:index];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:2];
         NSArray *indexPaths = @[indexPath];
-        [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
