@@ -42,14 +42,13 @@
         make.left.equalTo(self.mas_left).offset(16);
         make.centerY.equalTo(self.mas_centerY);
         make.height.equalTo(@28);
-        make.width.equalTo(@120);
+        make.width.equalTo(@122);
     }];
     
     _processLabel = [[UILabel alloc]init];
-    _processLabel.text = @"宣讲会";
     [self addSubview:_processLabel];
     [_processLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_timeLabel.mas_right).offset(10);
+        make.left.equalTo(_timeLabel.mas_right).offset(12);
         make.right.equalTo(self.mas_right).offset(-16);
         make.height.equalTo(@28);
         make.centerY.equalTo(self.mas_centerY);

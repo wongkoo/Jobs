@@ -123,11 +123,11 @@
 }
 
 - (void)setDate:(NSDate *)date {
-    _date = [date copy];
-    _datePicker.date = _date;
     if (date != NULL) {
         [self showDatePicker];
     }
+    _date = date;
+    [_datePicker setDate:date animated:YES];
 }
 
 #pragma mark - Action
