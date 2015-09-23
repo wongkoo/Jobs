@@ -11,9 +11,11 @@
 #import "JobsItem.h"
 #import "JobList.h"
 #import "CellbackgroundVIew.h"
+#import "ProcessView.h"
 #import <MCSwipeTableViewCell.h>
 #import <BFPaperCheckbox.h>
 #import "UIColor+BFPaperColors.h"
+
 
 @interface ViewController(){
     NSInteger cellHeight;
@@ -547,7 +549,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-        return cellHeight;
+    return cellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 80;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    ProcessView *footerView = [[ProcessView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 40)];
+    footerView.process = self.jobList.process;
+    return footerView;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

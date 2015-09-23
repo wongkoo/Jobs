@@ -12,6 +12,7 @@
 		721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B31BAE8CC60046B060 /* AddButtonCell.m */; settings = {ASSET_TAGS = (); }; };
 		721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B51BAE8D8D0046B060 /* AddProcessView.m */; settings = {ASSET_TAGS = (); }; };
 		721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 721C419C1B25812F00947326 /* CellbackgroundVIew.m */; };
+		722BB0FF1BB24639005372A4 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722BB0FE1BB24639005372A4 /* ProcessView.m */; settings = {ASSET_TAGS = (); }; };
 		722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */; settings = {ASSET_TAGS = (); }; };
 		7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BC1B1EE68F00F1DFD9 /* main.m */; };
 		7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */; };
@@ -51,6 +52,8 @@
 		721243B51BAE8D8D0046B060 /* AddProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddProcessView.m; path = FirstDetailPage/AddProcessView.m; sourceTree = "<group>"; };
 		721C419B1B25812F00947326 /* CellbackgroundVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellbackgroundVIew.h; path = AllPageCellBackground/CellbackgroundVIew.h; sourceTree = "<group>"; };
 		721C419C1B25812F00947326 /* CellbackgroundVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellbackgroundVIew.m; path = AllPageCellBackground/CellbackgroundVIew.m; sourceTree = "<group>"; };
+		722BB0FD1BB24639005372A4 /* ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessView.h; path = SecondPage/ProcessView.h; sourceTree = "<group>"; };
+		722BB0FE1BB24639005372A4 /* ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessView.m; path = SecondPage/ProcessView.m; sourceTree = "<group>"; };
 		722DED091BAE422A00FCA061 /* LabelAndTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelAndTextFieldCell.h; path = FirstDetailPage/Cell/LabelAndTextFieldCell.h; sourceTree = "<group>"; };
 		722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelAndTextFieldCell.m; path = FirstDetailPage/Cell/LabelAndTextFieldCell.m; sourceTree = "<group>"; };
 		7237F5B71B1EE68F00F1DFD9 /* Jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +149,15 @@
 				72913AFA1BAE8E2500F99325 /* ProcessCell.m */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		722BB0FC1BB245A8005372A4 /* SecondPage */ = {
+			isa = PBXGroup;
+			children = (
+				722BB0FD1BB24639005372A4 /* ProcessView.h */,
+				722BB0FE1BB24639005372A4 /* ProcessView.m */,
+			);
+			name = SecondPage;
 			sourceTree = "<group>";
 		};
 		7237F5AE1B1EE68F00F1DFD9 = {
@@ -271,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				721243AF1BAE8BAB0046B060 /* FirstDetailPage */,
+				722BB0FC1BB245A8005372A4 /* SecondPage */,
 				721243B01BAE8BDB0046B060 /* AllPageCellBackground */,
 			);
 			path = View;
@@ -432,6 +445,7 @@
 			files = (
 				721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */,
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
+				722BB0FF1BB24639005372A4 /* ProcessView.m in Sources */,
 				721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
 				721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */,
