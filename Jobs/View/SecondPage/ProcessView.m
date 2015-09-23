@@ -14,6 +14,10 @@
     CGFloat _WIDTH;
     CGFloat _percentage;
     CGFloat _distanceBetweenPoints;
+    CGFloat _firstPointX;
+    CGFloat _yOfLine;
+    CGFloat _yOfProcessString;
+    CGFloat _yOfDate;
     NSInteger _numberOfLastHappened;
     NSInteger _numberOfPoint;
 }
@@ -42,6 +46,9 @@
     self.backgroundColor = [UIColor redColor];
     _HEIGHT = self.frame.size.height;
     _WIDTH = self.frame.size.width;
+    _yOfProcessString = _HEIGHT/6 - 5;
+    _yOfLine = _HEIGHT/2;
+    _yOfDate = _HEIGHT*2/3;
     _percentage = 0;
     _numberOfLastHappened = -1;
 }
@@ -51,7 +58,8 @@
 - (void)setProcess:(NSMutableArray *)process {
     _process = process;
     _numberOfPoint = [process count];
-    _distanceBetweenPoints = (_WIDTH - 60.0)/(_numberOfPoint - 1.0);
+    _distanceBetweenPoints = _WIDTH / _numberOfPoint;
+    _firstPointX = _distanceBetweenPoints/2;
     if (_numberOfPoint) {
         [self compareDate];
         [self drawProcess];
@@ -92,8 +100,8 @@
 
 - (void)drawLine {
     UIBezierPath *totalPath = [[UIBezierPath alloc]init];
-    [totalPath moveToPoint:CGPointMake(30, _HEIGHT*2/3)];
-    [totalPath addLineToPoint:CGPointMake(_WIDTH-30, _HEIGHT*2/3)];
+    [totalPath moveToPoint:CGPointMake(_firstPointX, _yOfLine)];
+    [totalPath addLineToPoint:CGPointMake(_WIDTH-_firstPointX, _yOfLine)];
     
     CAShapeLayer *totalLine = [CAShapeLayer layer];
     totalLine.strokeColor = [UIColor blackColor].CGColor;
@@ -106,8 +114,8 @@
     
     if (_numberOfLastHappened >= 0) {
         UIBezierPath *path = [[UIBezierPath alloc]init];
-        [path moveToPoint:CGPointMake(30, _HEIGHT*2/3)];
-        [path addLineToPoint:CGPointMake(30 + _distanceBetweenPoints * _numberOfLastHappened + _distanceBetweenPoints*_percentage, _HEIGHT*2/3)];
+        [path moveToPoint:CGPointMake(_firstPointX, _yOfLine)];
+        [path addLineToPoint:CGPointMake(_firstPointX + _distanceBetweenPoints * _numberOfLastHappened + _distanceBetweenPoints*_percentage, _yOfLine)];
         CAShapeLayer *line = [CAShapeLayer layer];
         line.strokeColor = [UIColor blueColor].CGColor;
         line.fillColor = [UIColor clearColor].CGColor;
@@ -125,16 +133,15 @@
         CALayer *point = [CALayer layer];
         point.backgroundColor = [UIColor cyanColor].CGColor;
         point.cornerRadius = 4;
-        point.position = CGPointMake(_WIDTH - 30, _HEIGHT*2/3);
+        point.position = CGPointMake(_WIDTH/2 -4, _yOfLine);
         point.bounds = CGRectMake(0, 0, 8, 8);
-        point.frame = CGRectMake(_WIDTH/2 - 4, _HEIGHT*2/3 - 4, 8, 8);
         [self.layer addSublayer:point];
     }else{
         for (NSInteger i = 0; i < _numberOfPoint; ++i) {
             CALayer *point = [[CALayer alloc]init];
             point.backgroundColor = [UIColor cyanColor].CGColor;
             point.cornerRadius = 4;
-            point.position = CGPointMake(30 + i*_distanceBetweenPoints, _HEIGHT*2/3);
+            point.position = CGPointMake(_firstPointX + i*_distanceBetweenPoints, _yOfLine);
             point.bounds = CGRectMake(0, 0, 8, 8);
             [self.layer addSublayer:point];
         }
@@ -142,7 +149,35 @@
 }
 
 - (void)drawLabel {
+    for (NSInteger i = 0; i < _numberOfPoint; ++i) {
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake( i*_distanceBetweenPoints, _yOfProcessString, _distanceBetweenPoints, _HEIGHT/3)];
+        label.backgroundColor = [UIColor orangeColor];
+        label.text = [_process[i] string];
+        label.textAlignment = NSTextAlignmentCenter;
+        if (i <= _numberOfLastHappened) {
+            label.textColor = [UIColor greenColor];
+        }else{
+            label.textColor = [UIColor blackColor];
+        }
+        [self addSubview:label];
+    }
     
+    if (_numberOfLastHappened == -1) {
+        return;
+    }
+    for (NSInteger i = _numberOfLastHappened+1; i < _numberOfPoint; ++i) {
+        
+        DateAndProcess *dateAndProcess = [_process objectAtIndex:i];
+        NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM月dd日"];
+        NSString *dateString=[dateFormatter stringFromDate:dateAndProcess.date];
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake( i*_distanceBetweenPoints, _yOfDate, _distanceBetweenPoints, _HEIGHT/3)];
+        label.backgroundColor = [UIColor lightGrayColor];
+        label.text = dateString;
+        label.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:label];
+    }
 }
 
 
