@@ -10,29 +10,36 @@
 
 @interface UIColor (WHColor)
 
-+ (instancetype)whLightBlue;
-+ (instancetype)whBlue;
++ (instancetype)whTurquoise;
++ (instancetype)whGreenSea;
 
-+ (instancetype)whGreen;
-+ (instancetype)whLightGreen;
++ (instancetype)whEmerald;
++ (instancetype)whNephritis;
 
-+ (instancetype)whClouds;
-+ (instancetype)whSilver;
-+ (instancetype)whSilverWithAlpha:(CGFloat)alpha;
++ (instancetype)whPeterRiver;
++ (instancetype)whBelizeHole;
 
-+ (instancetype)whAlizarin;
-+ (instancetype)whPomegranate;
++ (instancetype)whAmethyst;
++ (instancetype)whWisteria;
+
++ (instancetype)whWetAsphalt;
++ (instancetype)whMidnightBlue;
+
++ (instancetype)whSunFlower;
++ (instancetype)whOrange;
 
 + (instancetype)whCarrot;
 + (instancetype)whPumpkin;
 + (instancetype)whPumpkinWithAlpha:(CGFloat)alpha;
 
-+ (instancetype)whOrange;
++ (instancetype)whAlizarin;
++ (instancetype)whPomegranate;
+
++ (instancetype)whClouds;
++ (instancetype)whSilver;
++ (instancetype)whSilverWithAlpha:(CGFloat)alpha;
 
 + (instancetype)whConcrete;
 + (instancetype)whAsbestos;
-
-+ (instancetype)whWetAsphalt;
-+ (instancetype)whMidnightBlue;
 
 @end

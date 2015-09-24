@@ -112,7 +112,18 @@
     totalLine.lineJoin = kCALineJoinRound;
     totalLine.lineCap = kCALineCapRound;
     totalLine.path = totalPath.CGPath;
+    
+    CABasicAnimation *totalLineAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    totalLineAnimation.duration = 1.5;
+    totalLineAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    totalLineAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+    totalLineAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    totalLineAnimation.autoreverses = NO;
+    [totalLine addAnimation:totalLineAnimation forKey:@"totalLineAnimation"];
+    
     [self.layer addSublayer:totalLine];
+    
+
     
     if (_numberOfLastHappened >= 0) {
         UIBezierPath *path = [[UIBezierPath alloc]init];
@@ -125,6 +136,15 @@
         line.lineJoin = kCALineJoinRound;
         line.lineCap = kCALineCapRound;
         line.path = path.CGPath;
+        
+        CABasicAnimation *lineAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        lineAnimation.duration = 1.5;
+        lineAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        lineAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+        lineAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+        lineAnimation.autoreverses = NO;
+        [line addAnimation:lineAnimation forKey:@"lineAnimation"];
+        
         [self.layer addSublayer:line];
     }
 
@@ -133,18 +153,36 @@
 - (void)drawPoint {
     if (_numberOfPoint == 1) {
         CALayer *point = [CALayer layer];
-        point.backgroundColor = [UIColor whiteColor].CGColor;
+        point.backgroundColor = [UIColor whClouds].CGColor;
         point.cornerRadius = 4;
         point.position = CGPointMake(_WIDTH/2 -4, _yOfLine);
         point.bounds = CGRectMake(0, 0, 8, 8);
+        
+        CABasicAnimation *pointAnimation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+        pointAnimation.duration = 1.5;
+        pointAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        pointAnimation.fromValue = (__bridge id _Nullable)([UIColor clearColor].CGColor);
+        pointAnimation.toValue = (__bridge id _Nullable)([UIColor whClouds].CGColor);
+        pointAnimation.autoreverses = NO;
+        [point addAnimation:pointAnimation forKey:@"pointAnimation"];
+        
         [self.layer addSublayer:point];
     }else{
         for (NSInteger i = 0; i < _numberOfPoint; ++i) {
             CALayer *point = [[CALayer alloc]init];
-            point.backgroundColor = [UIColor whiteColor].CGColor;
+            point.backgroundColor = [UIColor whClouds].CGColor;
             point.cornerRadius = 4;
             point.position = CGPointMake(_firstPointX + i*_distanceBetweenPoints, _yOfLine);
             point.bounds = CGRectMake(0, 0, 8, 8);
+            
+            CABasicAnimation *pointAnimation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+            pointAnimation.duration = 1.5;
+            pointAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+            pointAnimation.fromValue = (__bridge id _Nullable)([UIColor clearColor].CGColor);
+            pointAnimation.toValue = (__bridge id _Nullable)([UIColor whClouds].CGColor);
+            pointAnimation.autoreverses = NO;
+            [point addAnimation:pointAnimation forKey:@"pointAnimation"];
+            
             [self.layer addSublayer:point];
         }
     }
