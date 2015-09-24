@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A3713ED7A0A4BC8A1EAC421 /* libPods-Jobs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFBA60A62131608C25EDAC /* libPods-Jobs.a */; };
+		720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */; settings = {ASSET_TAGS = (); }; };
 		721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243A91BAE82450046B060 /* ShadowNavController.m */; settings = {ASSET_TAGS = (); }; };
 		721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B31BAE8CC60046B060 /* AddButtonCell.m */; settings = {ASSET_TAGS = (); }; };
 		721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B51BAE8D8D0046B060 /* AddProcessView.m */; settings = {ASSET_TAGS = (); }; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		527D57D792D2DB49EF4329E9 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
 		62DFBA60A62131608C25EDAC /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		720DC2FE1BB2D23500B82B99 /* UIColor+WHColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WHColor.h"; sourceTree = "<group>"; };
+		720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WHColor.m"; sourceTree = "<group>"; };
 		721243A81BAE82450046B060 /* ShadowNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShadowNavController.h; path = NavigationController/ShadowNavController.h; sourceTree = "<group>"; };
 		721243A91BAE82450046B060 /* ShadowNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShadowNavController.m; path = NavigationController/ShadowNavController.m; sourceTree = "<group>"; };
 		721243B21BAE8CC60046B060 /* AddButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddButtonCell.h; path = FirstDetailPage/Cell/AddButtonCell.h; sourceTree = "<group>"; };
@@ -110,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		720DC2FD1BB2D23500B82B99 /* UIColorCategory */ = {
+			isa = PBXGroup;
+			children = (
+				720DC2FE1BB2D23500B82B99 /* UIColor+WHColor.h */,
+				720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */,
+			);
+			path = UIColorCategory;
+			sourceTree = "<group>";
+		};
 		721243AB1BAE824D0046B060 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +294,7 @@
 		723E8E9E1BAAACAE004D4E8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				720DC2FD1BB2D23500B82B99 /* UIColorCategory */,
 				721243AF1BAE8BAB0046B060 /* FirstDetailPage */,
 				722BB0FC1BB245A8005372A4 /* SecondPage */,
 				721243B01BAE8BDB0046B060 /* AllPageCellBackground */,
@@ -450,6 +463,7 @@
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
 				721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
+				720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,

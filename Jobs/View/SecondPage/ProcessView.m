@@ -9,6 +9,8 @@
 #import "ProcessView.h"
 #import "Masonry.h"
 #import "DateAndProcess.h"
+#import "UIColor+WHColor.h"
+
 @interface ProcessView() {
     CGFloat _HEIGHT;
     CGFloat _WIDTH;
@@ -43,12 +45,12 @@
 }
 
 - (void)defaultInit {
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = [UIColor clearColor];
     _HEIGHT = self.frame.size.height;
     _WIDTH = self.frame.size.width;
     _yOfProcessString = _HEIGHT/6 - 5;
     _yOfLine = _HEIGHT/2;
-    _yOfDate = _HEIGHT*2/3;
+    _yOfDate = _HEIGHT/2 + 5;
     _percentage = 0;
     _numberOfLastHappened = -1;
 }
@@ -104,7 +106,7 @@
     [totalPath addLineToPoint:CGPointMake(_WIDTH-_firstPointX, _yOfLine)];
     
     CAShapeLayer *totalLine = [CAShapeLayer layer];
-    totalLine.strokeColor = [UIColor blackColor].CGColor;
+    totalLine.strokeColor = [UIColor whSilver].CGColor;
     totalLine.fillColor = [UIColor clearColor].CGColor;
     totalLine.lineWidth = 6;
     totalLine.lineJoin = kCALineJoinRound;
@@ -117,7 +119,7 @@
         [path moveToPoint:CGPointMake(_firstPointX, _yOfLine)];
         [path addLineToPoint:CGPointMake(_firstPointX + _distanceBetweenPoints * _numberOfLastHappened + _distanceBetweenPoints*_percentage, _yOfLine)];
         CAShapeLayer *line = [CAShapeLayer layer];
-        line.strokeColor = [UIColor blueColor].CGColor;
+        line.strokeColor = [UIColor whPumpkin].CGColor;
         line.fillColor = [UIColor clearColor].CGColor;
         line.lineWidth = 6;
         line.lineJoin = kCALineJoinRound;
@@ -131,7 +133,7 @@
 - (void)drawPoint {
     if (_numberOfPoint == 1) {
         CALayer *point = [CALayer layer];
-        point.backgroundColor = [UIColor cyanColor].CGColor;
+        point.backgroundColor = [UIColor whiteColor].CGColor;
         point.cornerRadius = 4;
         point.position = CGPointMake(_WIDTH/2 -4, _yOfLine);
         point.bounds = CGRectMake(0, 0, 8, 8);
@@ -139,7 +141,7 @@
     }else{
         for (NSInteger i = 0; i < _numberOfPoint; ++i) {
             CALayer *point = [[CALayer alloc]init];
-            point.backgroundColor = [UIColor cyanColor].CGColor;
+            point.backgroundColor = [UIColor whiteColor].CGColor;
             point.cornerRadius = 4;
             point.position = CGPointMake(_firstPointX + i*_distanceBetweenPoints, _yOfLine);
             point.bounds = CGRectMake(0, 0, 8, 8);
@@ -151,13 +153,13 @@
 - (void)drawLabel {
     for (NSInteger i = 0; i < _numberOfPoint; ++i) {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake( i*_distanceBetweenPoints, _yOfProcessString, _distanceBetweenPoints, _HEIGHT/3)];
-        label.backgroundColor = [UIColor orangeColor];
+        label.backgroundColor = [UIColor clearColor];
         label.text = [_process[i] string];
         label.textAlignment = NSTextAlignmentCenter;
         if (i <= _numberOfLastHappened) {
-            label.textColor = [UIColor greenColor];
+            label.textColor = [UIColor whConcrete];
         }else{
-            label.textColor = [UIColor blackColor];
+            label.textColor = [UIColor whWetAsphalt];
         }
         [self addSubview:label];
     }
@@ -173,8 +175,10 @@
         NSString *dateString=[dateFormatter stringFromDate:dateAndProcess.date];
         
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake( i*_distanceBetweenPoints, _yOfDate, _distanceBetweenPoints, _HEIGHT/3)];
-        label.backgroundColor = [UIColor lightGrayColor];
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor whMidnightBlue];
         label.text = dateString;
+        label.font = [UIFont systemFontOfSize:15];
         label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
     }
