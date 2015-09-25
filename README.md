@@ -6,9 +6,9 @@
 
   **应届生们，面对各种公司各种职位，各种官网账号，不同的邮箱，当大家海投的时候，是否感到混乱难以梳理？**
 
-  **Jobs来了！哪个公司，哪个职位，面试笔试等提醒，轻松应对hr的突然来电，不再忘记当初自己报了哪个职位。选填官网账号、报名邮箱、密码提示，轻松存储本地。**
+  **Jobs来了！哪个公司，哪个职位，面试笔试等提醒，轻松应对hr的突然来电，不再忘记当初自己报了哪个职位。选填官网账号、报名邮箱、密码提示，轻松存储本地。**
 
-  **Jobs，让求职清醒而高效。**
+  **Jobs，让求职清醒而高效。**
 
 ## iPhone Screenshot
 
@@ -46,15 +46,15 @@
 
 Thanks for:
 
-'MCSwipeTableViewCell'
+[MCSwipeTableViewCell](https://github.com/alikaragoz/MCSwipeTableViewCell)
 
-'BFPaperCheckbox'
+[BFPaperCheckbox](https://github.com/bfeher/BFPaperCheckbox)
 
-'EAIntroView'
+[EAIntroView](https://github.com/ealeksandrov/EAIntroView)
 
-'Masonry'
+[Masonry](https://github.com/SnapKit/Masonry)
 
-'WHChartView'
+[WHChartView](https://github.com/wongkoo/WHChartView)
 
 ## License
 
