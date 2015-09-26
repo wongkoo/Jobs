@@ -6,6 +6,7 @@ pod 'MCSwipeTableViewCell'
 pod 'BFPaperCheckbox'
 pod 'EAIntroView'
 pod 'Masonry'
+pod 'pop'
 end 
 
 target 'JobsTests' do
