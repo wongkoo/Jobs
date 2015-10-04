@@ -40,7 +40,7 @@
     if ((self = [super init])) {
         [self loadJobs];
         [self updateShouldRemind];
-        [self registerDefaults];
+//        [self registerDefaults];
         [self handleFirstTime];
     }
     return self;

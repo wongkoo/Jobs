@@ -20,6 +20,20 @@
     DataModel *_dataModel;
 }
 
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler NS_AVAILABLE_IOS(9_0) {
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
+        return;
+    }else{
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
+        AllListsViewController *controller = navigationController.viewControllers[0];
+        controller.dataModel = _dataModel;
+        self.window.rootViewController = navigationController;
+        [controller performSegueWithIdentifier:@"AddJobList" sender:nil];
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
@@ -47,10 +61,28 @@
         self.window.rootViewController = navigationController;
     }
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
-
+- (void)createDynamicShortcutItems {
+    
+    UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd];
+    
+    // create several (dynamic) shortcut items
+    UIApplicationShortcutItem *item1 = [[UIApplicationShortcutItem alloc]initWithType:@"Item 1" localizedTitle:@"Item 1"];
+    UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc]initWithType:@"Type2"
+                                                                       localizedTitle:@"Hello"
+                                                                    localizedSubtitle:@"Go hello"
+                                                                                 icon:icon
+                                                                             userInfo:NULL];
+    
+    // add all items to an array
+    NSArray *items = @[item1, item2];
+    
+    // add the array to our app
+    [UIApplication sharedApplication].shortcutItems = items;
+}
 
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{

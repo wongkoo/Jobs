@@ -24,6 +24,7 @@ static NSString * const sampleDescription4 = @"简单，在细节中。向左滑
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor darkGrayColor];
     [self showIntro];
     // Do any additional setup after loading the view.
 }
@@ -63,10 +64,7 @@ static NSString * const sampleDescription4 = @"简单，在细节中。向左滑
     
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds];
     [intro setDelegate:self];
-
-    intro.skipButton.alpha = 0.f;
-    intro.skipButton.enabled = NO;
-    
+    intro.skipButton.hidden = YES;
     [intro setPages:@[page1,page2,page3,page4]];
     [intro showInView:self.view animateDuration:0.3];
 }
@@ -74,17 +72,11 @@ static NSString * const sampleDescription4 = @"简单，在细节中。向左滑
 - (void)introDidFinish:(EAIntroView *)introView{
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
-    navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor; //shadowColor阴影颜色
-    navigationController.navigationBar.layer.shadowOffset = CGSizeMake(2.0f , 2.0f); //shadowOffset阴影偏移x，y向(上/下)偏移(-/+)2
-    navigationController.navigationBar.layer.shadowOpacity = 0.25f;//阴影透明度，默认0
-    navigationController.navigationBar.layer.shadowRadius = 4.0f;//阴影半径
-    
+
     AllListsViewController *controller = navigationController.viewControllers[0];
     controller.dataModel = self._dataModel;
-
-    [self addChildViewController:navigationController];
-    [self.view addSubview:navigationController.view];
-    
+    navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
