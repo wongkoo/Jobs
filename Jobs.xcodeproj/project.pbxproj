@@ -30,6 +30,7 @@
 		723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFA1BAE8E2500F99325 /* ProcessCell.m */; settings = {ASSET_TAGS = (); }; };
 		72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFD1BAED6C700F99325 /* DateAndProcess.m */; settings = {ASSET_TAGS = (); }; };
+		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; settings = {ASSET_TAGS = (); }; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		72913AFA1BAE8E2500F99325 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessCell.m; path = FirstDetailPage/Cell/ProcessCell.m; sourceTree = "<group>"; };
 		72913AFC1BAED6C700F99325 /* DateAndProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndProcess.h; sourceTree = "<group>"; };
 		72913AFD1BAED6C700F99325 /* DateAndProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndProcess.m; sourceTree = "<group>"; };
+		72C884061BC284F00046DA81 /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountdownView.h; path = SecondPage/CountdownView.h; sourceTree = "<group>"; };
+		72C884071BC284F00046DA81 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountdownView.m; path = SecondPage/CountdownView.m; sourceTree = "<group>"; };
 		72FC18931B37A81600920109 /* IntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroPageViewController.h; sourceTree = "<group>"; };
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 			children = (
 				722BB0FD1BB24639005372A4 /* ProcessView.h */,
 				722BB0FE1BB24639005372A4 /* ProcessView.m */,
+				72C884061BC284F00046DA81 /* CountdownView.h */,
+				72C884071BC284F00046DA81 /* CountdownView.m */,
 			);
 			name = SecondPage;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */,
 				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
 				721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */,
+				72C884081BC284F00046DA81 /* CountdownView.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
 				720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,

@@ -8,7 +8,7 @@
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeAdd</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>company</string>
+			<string>AddJobList</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>添加公司</string>
 			<key>UIApplicationShortcutItemSubtitle</key>

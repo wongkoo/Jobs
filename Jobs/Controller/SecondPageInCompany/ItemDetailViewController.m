@@ -182,7 +182,7 @@
 }
 
 - (IBAction)chooseNextTask:(id)sender {
-    if (self.textField.text != nil) {
+    if (self.textField.text != nil && ![self.textField.text isEqualToString:@""]) {
         self.saveBarButton.enabled = YES;
     }else{
         self.saveBarButton.enabled = NO;

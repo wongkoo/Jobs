@@ -24,7 +24,9 @@
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
         return;
-    }else{
+    }
+    
+    if([shortcutItem.type isEqualToString:@"AddJobList"]){
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
         AllListsViewController *controller = navigationController.viewControllers[0];
