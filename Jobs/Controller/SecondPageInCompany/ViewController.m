@@ -325,6 +325,23 @@
     }
 }
 
+#pragma mark - Preview Actions
+
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
+    
+    // setup a list of preview actions
+    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"添加职位" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Action 1 triggered");
+    }];
+    
+    UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"删除本公司" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Destructive Action triggered");
+    }];
+    
+    NSArray *actions = @[action1, action2];
+    return actions;
+}
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

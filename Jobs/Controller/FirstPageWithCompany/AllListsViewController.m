@@ -16,13 +16,36 @@
 #import "AppDelegate.h"
 @interface AllListsViewController (){
     NSInteger cellHeight;
+    NSInteger rowOfForceTouch;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *allApplicationNumLabel;
+@property (nonatomic, weak) IBOutlet UILabel *allApplicationNumLabel;
+//@property (nonatomic, strong) UILongPressGestureRecognizer *longPressForForceTouch;
 
 @end
 
 @implementation AllListsViewController
+
+#pragma mark - View Life Cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self updateAllApplicationNum];
+    
+    cellHeight = 80;
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
+    [self.tableView addGestureRecognizer:longPress];
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
+    [self.tableView setBackgroundView:backgroundView];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    }else{
+        NSLog(@"3D Touch is not available on this device. Sorry!");
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -55,19 +78,7 @@
     self.allApplicationNumLabel.text=[NSString stringWithFormat:@"%ld个职位正在进行中",(long)tempNum];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self updateAllApplicationNum];
 
-    cellHeight = 80;
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
-    [self.tableView addGestureRecognizer:longPress];
-    
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
-    [self.tableView setBackgroundView:backgroundView];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
 
 
 
@@ -383,6 +394,34 @@
     if (viewController == self) {
         [self.dataModel setIndexOfSelectedJobList:-1];
     }
+}
+
+#pragma mark - UIViewControllerPreviewingDelegate
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    
+//    // check if we're not already displaying a preview controller
+//    if ([self.presentedViewController isKindOfClass:[UIPageViewController class]]) {
+//        return nil;
+//    }
+    
+    // shallow press: return the preview controller here (peek)
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *previewController = [storyboard instantiateViewControllerWithIdentifier:@"PreviewView"];
+    
+    ViewController *previewController = [[ViewController alloc]init];
+    rowOfForceTouch =[self.tableView indexPathForRowAtPoint:location].row;
+    JobList *jobList = self.dataModel.jobs[rowOfForceTouch];
+    previewController.jobList = jobList;
+    return previewController;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    
+    [self.dataModel setIndexOfSelectedJobList:rowOfForceTouch];
+    JobList *jobList = self.dataModel.jobs[rowOfForceTouch];
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
+
 }
 
 #pragma mark - ListDetailViewControllerDelegate
