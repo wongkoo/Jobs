@@ -37,7 +37,8 @@
         self.reminderOfPassword = [aDecoder decodeObjectForKey:@"ReminderOfPassword"];
         self.email = [aDecoder decodeObjectForKey:@"Email"];
         self.process = [aDecoder decodeObjectForKey:@"Process"];
-        self.deletedFlag = [aDecoder decodeIntegerForKey:@"DeletedFlag"];
+        self.deletedFlag = [aDecoder decodeBoolForKey:@"DeletedFlag"];
+        self.addPositionBy3DTouch = [aDecoder decodeBoolForKey:@"AddPositionBy3DTouch"];
 //耻辱！！！！！！
 //        self.name = [aDecoder decodeObjectForKey:@"Name"];
 //        self.name = [aDecoder decodeObjectForKey:@"Items"];
@@ -52,7 +53,8 @@
     [aCoder encodeObject:self.reminderOfPassword forKey:@"ReminderOfPassword"];
     [aCoder encodeObject:self.email forKey:@"Email"];
     [aCoder encodeObject:self.process forKey:@"Process"];
-    [aCoder encodeInteger:self.deletedFlag forKey:@"DeletedFlag"];
+    [aCoder encodeBool:self.deletedFlag forKey:@"DeletedFlag"];
+    [aCoder encodeBool:self.addPositionBy3DTouch forKey:@"AddPositionBy3DTouch"];
 }
 
 @end

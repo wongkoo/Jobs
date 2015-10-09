@@ -17,6 +17,7 @@
 @property (nonatomic,copy   )NSString *email;
 @property (nonatomic,strong )NSMutableArray *process;
 @property (nonatomic,assign )BOOL deletedFlag;
+@property (nonatomic,assign )BOOL addPositionBy3DTouch;
 
 - (int)countUncheckedItems;
 

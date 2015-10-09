@@ -463,11 +463,13 @@
     if ([self.presentedViewController isKindOfClass:[ViewController class]]) {
         ViewController *previewController = (ViewController *)self.presentedViewController;
         previewController.jobList = self.dataModel.jobs[_indexPathOfForceTouch.row];
+        previewController.delegate = self;
         return nil;
     }
     
     ViewController *previewController = [[ViewController alloc]init];
     previewController.jobList  = self.dataModel.jobs[_indexPathOfForceTouch.row];
+    previewController.delegate = self;
     return previewController;
 }
 
@@ -478,6 +480,21 @@
     [self.tableView deselectRowAtIndexPath:_indexPathOfForceTouch animated:NO];
     [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
 
+}
+
+#pragma mark - ViewController3DTouchDelegate
+- (void)deleteJoblist:(JobList *)joblist {
+    NSInteger index = [self.dataModel.jobs indexOfObject:joblist];
+    [self.dataModel.jobs removeObject:joblist];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+- (void)addPositionInJoblist:(JobList *)joblist {
+    NSInteger index = [self.dataModel.jobs indexOfObject:joblist];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    JobList *jobList = self.dataModel.jobs[indexPath.row];
+    joblist.addPositionBy3DTouch = YES;
+    [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
 }
 
 #pragma mark - ListDetailViewControllerDelegate

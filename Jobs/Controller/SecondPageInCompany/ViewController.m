@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ItemDetailViewController.h"
+#import "AllListsViewController.h"
 #import "JobsItem.h"
 #import "JobList.h"
 #import "CellbackgroundVIew.h"
@@ -45,6 +46,12 @@
     
     [self initCheckboxs];
     [self initDetailTextView];
+    
+    if (self.jobList.addPositionBy3DTouch == YES) {
+        [self performSegueWithIdentifier:@"AddItem" sender:nil];
+        self.jobList.addPositionBy3DTouch = NO;
+    }
+    
 }
 
 - (void)initCheckboxs{
@@ -331,11 +338,16 @@
     
     // setup a list of preview actions
     UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"添加职位" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        NSLog(@"Action 1 triggered");
+        
+        ViewController *viewController = (ViewController *)previewViewController;
+        [viewController.delegate addPositionInJoblist:viewController.jobList];
+
     }];
     
     UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"删除本公司" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        NSLog(@"Destructive Action triggered");
+        
+        ViewController *viewController = (ViewController *)previewViewController;
+        [viewController.delegate deleteJoblist:viewController.jobList];
     }];
     
     NSArray *actions = @[action1, action2];

@@ -10,10 +10,17 @@
 #import "ItemDetailViewController.h"
 #import <BFPaperCheckbox.h>
 
-
 @class JobList;
+
+@protocol ViewController3DTouchDelegate <NSObject>
+- (void)deleteJoblist:(JobList *)joblist;
+- (void)addPositionInJoblist:(JobList *)joblist;
+@end
+
 @interface ViewController : UITableViewController <ItemDetailViewControllerDelegate,BFPaperCheckboxDelegate>
 
 @property (nonatomic, strong)JobList *jobList;
+@property(nonatomic, weak)  id <ViewController3DTouchDelegate>delegate;
+
 @end
 
