@@ -37,7 +37,14 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    UIApplicationShortcutItem *item = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
+    if (item) {
+        NSLog(@"We've launched from shortcut item: %@", item.localizedTitle);
+    } else {
+        NSLog(@"We've launched properly.");
+    }
+    
     float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
     if (sysVersion>=8.0) {
         UIUserNotificationType type=UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
