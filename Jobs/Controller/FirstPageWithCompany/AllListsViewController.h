@@ -16,4 +16,6 @@
 
 @property(nonatomic, strong)DataModel *dataModel;
 
+- (IBAction)backToAllListsViewController:(UIStoryboardSegue *)segue;
+
 @end

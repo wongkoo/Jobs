@@ -12,7 +12,7 @@
 
 @implementation DataModel
 
-+ (NSInteger)nextJobsItemId{
++ (NSInteger)nextJobsItemId {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger itemLd = [userDefaults integerForKey:@"JobsItemId"];
     [userDefaults setInteger:itemLd + 1 forKey:@"JobsItemId"];
@@ -20,12 +20,18 @@
     return itemLd;
 }
 
-- (void)registerDefaults{
-    NSDictionary *dictionary = @{@"JobIndex":@-1,@"FirstTime":@YES,@"JobsItemId":@0};
-    [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
+- (void)registerDefaults {
+//    NSDictionary *dictionary = @{@"JobIndex":@-1,@"FirstTime":@YES,@"JobsItemId":@0};
+//    [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
+    [self setBOOLforPerformActionForShortcutItem:NO];
 }
 
-- (void)handleFirstTime{
+- (void)setBOOLforPerformActionForShortcutItem:(BOOL)bl {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:bl forKey:@"PerformActionForShortcutItem"];
+}
+
+- (void)handleFirstTime {
 //    BOOL firstTime = [[NSUserDefaults standardUserDefaults]boolForKey:@"FirstTime"];
 //    if(firstTime){
 //        JobList *jobList = [[JobList alloc]init];
@@ -36,17 +42,17 @@
 //    }
 }
 
-- (id)init{
+- (id)init {
     if ((self = [super init])) {
         [self loadJobs];
         [self updateShouldRemind];
-//        [self registerDefaults];
-        [self handleFirstTime];
+        [self registerDefaults];
+//        [self handleFirstTime];
     }
     return self;
 }
 
-- (void)updateShouldRemind{
+- (void)updateShouldRemind {
     for (JobList *jobList in self.jobs){
         for (JobsItem *jobsItem in jobList.items) {
             if (jobsItem.shouldRemind == YES && [jobsItem.dueDate timeIntervalSinceNow] <= 0) {
@@ -56,25 +62,25 @@
     }
 }
 
-- (NSInteger)indexOfSelectedJobList{
+- (NSInteger)indexOfSelectedJobList {
     return [[NSUserDefaults standardUserDefaults]integerForKey:@"JobIndex"];
 }
 
-- (void)setIndexOfSelectedJobList:(NSInteger)index{
+- (void)setIndexOfSelectedJobList:(NSInteger)index {
     [[NSUserDefaults standardUserDefaults]setInteger:index forKey:@"JobIndex"];
 }
 
-- (NSString *)documentsDirectory{
+- (NSString *)documentsDirectory {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
     return documentsDirectory;
 }
 
--(NSString *)dataFilePath{
+-(NSString *)dataFilePath {
     return [[self documentsDirectory]stringByAppendingPathComponent:@"Jobs.plist"];
 }
 
-- (void)saveJobs{
+- (void)saveJobs {
     NSMutableData *data = [[NSMutableData alloc]init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
     [archiver encodeObject:_jobs forKey:@"Jobs"];
@@ -82,7 +88,7 @@
     [data writeToFile:[self dataFilePath] atomically:YES];
 }
 
-- (void)loadJobs{
+- (void)loadJobs {
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager]fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc]initWithContentsOfFile:path];

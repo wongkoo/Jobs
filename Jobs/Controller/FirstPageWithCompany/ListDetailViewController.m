@@ -155,7 +155,7 @@
     layTopRowAction1.backgroundColor = [UIColor redColor];
     
     UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        NSLog(@"点击了编辑");
+//        NSLog(@"点击了编辑");
         DateAndProcess *dateAndProcess = [_process objectAtIndex:indexPath.row];
         [self addProcessViewWithString:dateAndProcess.string Date:dateAndProcess.date Index:indexPath.row];
         [tableView setEditing:NO animated:YES];

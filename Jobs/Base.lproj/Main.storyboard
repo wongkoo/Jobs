@@ -37,9 +37,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailTextView" destination="wUc-E8-8oq" id="OB2-U1-jNs"/>
+                        <segue destination="ucZ-nG-2Ul" kind="unwind" identifier="backToAllListsViewController" unwindAction="backToAllListsViewController:" id="UVb-CB-ZAT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3z-rw-imm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ucZ-nG-2Ul" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1385" y="-434"/>
         </scene>

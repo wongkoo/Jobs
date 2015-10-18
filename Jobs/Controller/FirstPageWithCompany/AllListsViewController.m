@@ -29,16 +29,19 @@
 
 @implementation AllListsViewController
 
+
+- (IBAction)backToAllListsViewController:(UIStoryboardSegue *)segue {
+    
+}
+
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
-    NSLog(@"didLoad");
+//    NSLog(@"AllListsViewController:didLoad");
     [super viewDidLoad];
     [self updateAllApplicationNum];
+
     
     cellHeight = 80;
-//    _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
-//    _longPress.minimumPressDuration = 0.7;
-//    [self.tableView addGestureRecognizer:_longPress];
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
@@ -47,7 +50,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    NSLog(@"will");
+//    NSLog(@"AllListsViewController:will");
+    
     [super viewWillAppear:animated];
     [self updateAllApplicationNum];
     [self.tableView reloadData];
@@ -55,7 +59,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    NSLog(@"didAppear");
+//    NSLog(@"AllListsViewController:didAppear");
     [super viewDidAppear:animated];
     self.navigationController.delegate = self;
     self.tableView.showsVerticalScrollIndicator =NO; //去除右边滚动条！

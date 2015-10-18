@@ -32,9 +32,12 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+//    NSLog(@"ViewController: viewWillAppear");
 }
 
 - (void)viewDidLoad {
+//    NSLog(@"ViewController: viewDidLoad");
+    [self popIfPerformActionForShortcutItem];
     [super viewDidLoad];
     cellHeight = 100;
     self.title = self.jobList.name;
@@ -47,11 +50,20 @@
     [self initCheckboxs];
     [self initDetailTextView];
     
+    //用于检测是否是公司Cell被重按之后 上移点击添加职位按钮。
     if (self.jobList.addPositionBy3DTouch == YES) {
         [self performSegueWithIdentifier:@"AddItem" sender:nil];
         self.jobList.addPositionBy3DTouch = NO;
     }
-    
+}
+
+- (void)popIfPerformActionForShortcutItem {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL bl = [userDefaults boolForKey:@"PerformActionForShortcutItem"];
+    if (bl) {
+        [userDefaults setBool:NO forKey:@"PerformActionForShortcutItem"];
+        [self performSegueWithIdentifier:@"backToAllListsViewController" sender:self];
+    }
 }
 
 - (void)initCheckboxs{
