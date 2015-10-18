@@ -20,6 +20,20 @@
     return itemLd;
 }
 
+- (NSInteger)numberOfUncheckedJobsItem {
+    NSInteger tempNum = 0;
+    for (JobList *jobList in self.jobs){
+        if(jobList.deletedFlag == 0){
+            for(JobsItem *jobsItem in jobList.items){
+                if (jobsItem.checked == 0) {
+                    tempNum ++;
+                }
+            }
+        }
+    }
+    return tempNum;
+}
+
 - (void)registerDefaults {
 //    NSDictionary *dictionary = @{@"JobIndex":@-1,@"FirstTime":@YES,@"JobsItemId":@0};
 //    [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];

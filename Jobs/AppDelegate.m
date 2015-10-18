@@ -109,17 +109,9 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [self saveData];
-    NSInteger tempNum = 0;
-    for (JobList *jobList in _dataModel.jobs){
-        if(jobList.deletedFlag == 0){
-            for(JobsItem *jobsItem in jobList.items){
-                if (jobsItem.checked == 0) {
-                    tempNum ++;
-                }
-            }
-        }
-    }
-    [application setApplicationIconBadgeNumber:tempNum];
+    [application setApplicationIconBadgeNumber:[_dataModel numberOfUncheckedJobsItem]];
+    
+//    [self createDynamicShortcutItems];
 
 //    NSLog(@"DidEnterBackground");
 }
