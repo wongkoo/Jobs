@@ -66,6 +66,11 @@
 }
 
 - (void)checkForceTouch {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 9.0) {
+        _forceTouchAvailable = NO;
+        return;
+    }
+    
     if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
         _forceTouchAvailable = YES;
     }else{
