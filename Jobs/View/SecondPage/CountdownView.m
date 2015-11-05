@@ -262,6 +262,7 @@
                          [stageDetailView removeFromSuperview];
                          [visualEffectView removeFromSuperview];
                          [self removeFromSuperview];
+                         [self.delegate countdownViewRemoved];
                      }];
     
     [countDownTimer invalidate];

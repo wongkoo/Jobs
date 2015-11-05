@@ -15,6 +15,7 @@
 #import <MCSwipeTableViewCell.h>
 #import "AppDelegate.h"
 #import "UIColor+WHColor.h"
+#import "Masonry.h"
 
 @interface AllListsViewController (){
     NSInteger cellHeight;
@@ -120,8 +121,17 @@
         if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
             cell.separatorInset = UIEdgeInsetsZero;
         }
-        [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
-        [cell setBackgroundView:[[CellbackgroundVIew alloc] initWithColor:CellColorWhite]];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        CellbackgroundVIew *backView = [[CellbackgroundVIew alloc] initWithColor:CellColorDarkGray];
+        backView.tag = 22;
+        [cell.contentView addSubview:backView];
+        [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(cell.mas_left);
+            make.right.equalTo(cell.mas_right);
+            make.top.equalTo(cell.mas_top);
+            make.bottom.equalTo(cell.mas_bottom);
+        }];
         
         UILabel *label =[[UILabel alloc]init];
         label.font = [UIFont boldSystemFontOfSize:18];
@@ -173,8 +183,8 @@
 }
 
 - (void)configureColorForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
-    CellbackgroundVIew *view = (CellbackgroundVIew *)cell.backgroundView;
-    [view setColor:CellColorDarkGray];
+    CellbackgroundVIew *view = [cell.contentView viewWithTag:22];
+    [view setColor:CellColorSliver];
 }
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath{

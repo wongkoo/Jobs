@@ -13,11 +13,10 @@
 #import "JobList.h"
 #import "CellbackgroundVIew.h"
 #import "ProcessView.h"
-#import "CountdownView.h"
 #import <MCSwipeTableViewCell.h>
 #import <BFPaperCheckbox.h>
 #import "UIColor+BFPaperColors.h"
-
+#import <Masonry.h>
 
 @interface ViewController(){
     NSInteger cellHeight;
@@ -137,7 +136,16 @@
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
         
-        [self setBackgroundViewForCell:cell];
+        CellbackgroundVIew *backView = [[CellbackgroundVIew alloc] initWithColor:CellColorWhite];
+        backView.tag = 22;
+        [cell.contentView addSubview:backView];
+        [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(cell.mas_left);
+            make.right.equalTo(cell.mas_right);
+            make.top.equalTo(cell.mas_top);
+            make.bottom.equalTo(cell.mas_bottom);
+        }];
+        
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4*1, 20)];
         label.center = CGPointMake(self.view.bounds.size.width-cellHeight/3*2, cellHeight/2);
         label.font = [UIFont boldSystemFontOfSize:18];
@@ -381,7 +389,9 @@
     countdownView.dueDate = item.dueDate;
     countdownView.nextTaskString = item.nextTask;
     countdownView.jobNameString = item.text;
+    countdownView.delegate = self;
     
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self.tableView addSubview:countdownView];
 }
 
@@ -404,6 +414,11 @@
     [self.jobList.items removeObjectAtIndex:indexPath.row];
     NSArray *indexPaths = @[indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark - CountdownDelegate
+- (void)countdownViewRemoved {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - BFPaperCheckboxDelegate
