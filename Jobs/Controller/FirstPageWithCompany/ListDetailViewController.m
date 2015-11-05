@@ -11,9 +11,11 @@
 #import "DateAndProcess.h"
 #import "CellbackgroundVIew.h"
 #import "AddProcessView.h"
+
 #import "LabelAndTextFieldCell.h"
 #import "AddButtonCell.h"
 #import "ProcessCell.h"
+#import "ColorSelectCell.h"
 
 @interface ListDetailViewController ()
 @property (strong, nonatomic) AddProcessView *processView;
@@ -43,7 +45,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        return 2;
     }else if(section ==1) {
         return 3;
     }else {
@@ -56,6 +58,9 @@
     static NSString *LabelAndTextFieldCellIdentifier = @"LabelAndTextFieldCell";
     static NSString *AddButtonCellIdentifier = @"AddButtonCell";
     static NSString *ProcessCellIdentifier = @"ProcessCell";
+    static NSString *ColorCellIdentifier = @"ColorCell";
+    
+    //processCell
     if (indexPath.section == 2) {
 
         if (indexPath.row == [_process count]) {
@@ -91,9 +96,22 @@
             cell.processLabel.text = dateAndProcess.string;
             return cell;
         }
-
-        
-    }else{
+    }
+    
+    //colorCell
+    else if (indexPath.section == 0 && indexPath.row == 1) {
+        ColorSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:ColorCellIdentifier];
+        if (!cell) {
+            cell = [[ColorSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ColorCellIdentifier];
+            cell.title = @"背景颜色";
+            [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+        }
+        [self configColorForCell:(ColorSelectCell *)cell withIndexPath:(NSIndexPath *)indexPath];
+        return cell;
+    }
+    
+    //LabelandTextCell
+    else {
         LabelAndTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:LabelAndTextFieldCellIdentifier];
         
         if (!cell) {
@@ -103,6 +121,10 @@
         [self configureElementForCell:cell withIndexPath:indexPath];
         return cell;
     }
+}
+
+- (void)configColorForCell:(ColorSelectCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+    cell.cellColor = CellColorDarkGray;
 }
 
 - (void)configureElementForCell:(LabelAndTextFieldCell *)cell withIndexPath:(NSIndexPath *)indexPath {
@@ -119,7 +141,7 @@
             cell.label.text = @"密码提示";
             cell.textField.placeholder = @"DODO's Birthday";
             cell.textField.text = self.jobListToEdit.reminderOfPassword;
-        }else {
+        }else if(indexPath.row == 2) {
             cell.label.text = @"报名邮箱";
             cell.textField.placeholder = @"WangMing@xmail.com";
             cell.textField.text = self.jobListToEdit.email;
@@ -236,6 +258,10 @@
     }else{
         return sourceIndexPath;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UITextFieldDelegate

@@ -120,8 +120,8 @@
         if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
             cell.separatorInset = UIEdgeInsetsZero;
         }
-        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-        [self setBackgroundViewForCell:cell];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+        [cell setBackgroundView:[[CellbackgroundVIew alloc] initWithColor:CellColorWhite]];
         
         UILabel *label =[[UILabel alloc]init];
         label.font = [UIFont boldSystemFontOfSize:18];
@@ -143,7 +143,7 @@
 
     }
     
-    
+    [self configureColorForCell:cell withIndexPath:indexPath];
     [self configureTextForCell:cell withIndexPath:indexPath];
     [self configureStateOfCell:cell forRowAtIndexPath:indexPath ];
     [self configureCell:cell forRowAtIndexPath:indexPath];
@@ -170,6 +170,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     editingStyle = UITableViewCellEditingStyleInsert;
+}
+
+- (void)configureColorForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+    CellbackgroundVIew *view = (CellbackgroundVIew *)cell.backgroundView;
+    [view setColor:CellColorDarkGray];
 }
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath{
@@ -354,12 +359,6 @@
     [self updateAllApplicationNum];
 }
 
-- (void)setBackgroundViewForCell:(MCSwipeTableViewCell *)cell{
-    //UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, cellHeight)];
-    //backgroundView = [(UIView *)[CellbackgroundVIew alloc]init];
-    [cell setBackgroundView:[[CellbackgroundVIew alloc]init]];
-}
-
 - (UIView *)viewWithImageName:(NSString *)imageName {
     UIImage *image = [UIImage imageNamed:imageName];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -430,7 +429,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.dataModel setIndexOfSelectedJobList:indexPath.row];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
 }
 

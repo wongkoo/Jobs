@@ -39,6 +39,7 @@
         self.process = [aDecoder decodeObjectForKey:@"Process"];
         self.deletedFlag = [aDecoder decodeBoolForKey:@"DeletedFlag"];
         self.addPositionBy3DTouch = [aDecoder decodeBoolForKey:@"AddPositionBy3DTouch"];
+        self.cellColor = [aDecoder decodeIntegerForKey:@"CellColor"];
 //耻辱！！！！！！
 //        self.name = [aDecoder decodeObjectForKey:@"Name"];
 //        self.name = [aDecoder decodeObjectForKey:@"Items"];
@@ -55,6 +56,7 @@
     [aCoder encodeObject:self.process forKey:@"Process"];
     [aCoder encodeBool:self.deletedFlag forKey:@"DeletedFlag"];
     [aCoder encodeBool:self.addPositionBy3DTouch forKey:@"AddPositionBy3DTouch"];
+    [aCoder encodeInteger:self.cellColor forKey:@"CellColor"];
 }
 
 @end

@@ -8,5 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, CellColor) {
+    CellColorWhite = 0,
+    CellColorSliver,
+    CellColorDarkGray
+};
+
 @interface CellbackgroundVIew : UIView
+
+- (id)initWithColor:(CellColor)cellColor;
+- (void)setColor:(CellColor)cellColor;
+
 @end

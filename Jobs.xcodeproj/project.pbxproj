@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5A3713ED7A0A4BC8A1EAC421 /* libPods-Jobs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFBA60A62131608C25EDAC /* libPods-Jobs.a */; };
-		720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */; settings = {ASSET_TAGS = (); }; };
-		721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243A91BAE82450046B060 /* ShadowNavController.m */; settings = {ASSET_TAGS = (); }; };
-		721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B31BAE8CC60046B060 /* AddButtonCell.m */; settings = {ASSET_TAGS = (); }; };
-		721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B51BAE8D8D0046B060 /* AddProcessView.m */; settings = {ASSET_TAGS = (); }; };
+		720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */; };
+		721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243A91BAE82450046B060 /* ShadowNavController.m */; };
+		721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B31BAE8CC60046B060 /* AddButtonCell.m */; };
+		721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 721243B51BAE8D8D0046B060 /* AddProcessView.m */; };
 		721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 721C419C1B25812F00947326 /* CellbackgroundVIew.m */; };
-		722BB0FF1BB24639005372A4 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722BB0FE1BB24639005372A4 /* ProcessView.m */; settings = {ASSET_TAGS = (); }; };
-		722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */; settings = {ASSET_TAGS = (); }; };
+		722BB0FF1BB24639005372A4 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722BB0FE1BB24639005372A4 /* ProcessView.m */; };
+		722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */; };
 		7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BC1B1EE68F00F1DFD9 /* main.m */; };
 		7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */; };
 		7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5C21B1EE68F00F1DFD9 /* ViewController.m */; };
@@ -27,11 +27,12 @@
 		7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */; };
 		7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EA1B20AE1A00F1DFD9 /* JobList.m */; };
 		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
-		723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFA1BAE8E2500F99325 /* ProcessCell.m */; settings = {ASSET_TAGS = (); }; };
-		72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFD1BAED6C700F99325 /* DateAndProcess.m */; settings = {ASSET_TAGS = (); }; };
-		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; settings = {ASSET_TAGS = (); }; };
+		723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */; };
+		72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFA1BAE8E2500F99325 /* ProcessCell.m */; };
+		72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFD1BAED6C700F99325 /* DateAndProcess.m */; };
+		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
+		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		72C884071BC284F00046DA81 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountdownView.m; path = SecondPage/CountdownView.m; sourceTree = "<group>"; };
 		72FC18931B37A81600920109 /* IntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroPageViewController.h; sourceTree = "<group>"; };
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
+		9B0551CB1BEB0A2700E09969 /* ColorSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSelectCell.h; path = FirstDetailPage/Cell/ColorSelectCell.h; sourceTree = "<group>"; };
+		9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectCell.m; path = FirstDetailPage/Cell/ColorSelectCell.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +165,8 @@
 				722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */,
 				72913AF91BAE8E2500F99325 /* ProcessCell.h */,
 				72913AFA1BAE8E2500F99325 /* ProcessCell.m */,
+				9B0551CB1BEB0A2700E09969 /* ColorSelectCell.h */,
+				9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -475,6 +480,7 @@
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
 				721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */,
 				72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */,
+				9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */,
 				722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */,
 				72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */,
 				723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */,
