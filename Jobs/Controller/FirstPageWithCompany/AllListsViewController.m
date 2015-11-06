@@ -124,7 +124,7 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         CellbackgroundVIew *backView = [[CellbackgroundVIew alloc] initWithColor:CellColorDarkGray];
-        backView.tag = 22;
+        backView.tag = 23;
         [cell.contentView addSubview:backView];
         [backView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(cell.mas_left);
@@ -183,8 +183,10 @@
 }
 
 - (void)configureColorForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
-    CellbackgroundVIew *view = [cell.contentView viewWithTag:22];
-    [view setColor:CellColorSliver];
+    JobList *jobList = self.dataModel.jobs[indexPath.row];
+    
+    CellbackgroundVIew *view = (CellbackgroundVIew *)[cell.contentView viewWithTag:23];
+    [view setColor:jobList.cellColor];
 }
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath{
@@ -299,7 +301,8 @@
                                 state:MCSwipeTableViewCellState4
                       completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                           NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-                          [self.dataModel.jobs insertObject:self.dataModel.jobs[indexPath.row] atIndex:0];
+                          JobList *list = self.dataModel.jobs[indexPath.row];
+                          [self.dataModel.jobs insertObject:list atIndex:0];
                           [self.dataModel.jobs removeObjectAtIndex:(indexPath.row + 1)];
                           [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
                       }];
@@ -523,6 +526,10 @@
     UILabel *textLabel = (UILabel *)[cell viewWithTag:2];
     textLabel.text = jobList.name;
     
+    CellbackgroundVIew *view = (CellbackgroundVIew *)[cell.contentView viewWithTag:23];
+    [view setColor:jobList.cellColor];
+    
+    [self.tableView reloadData];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

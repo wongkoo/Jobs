@@ -60,21 +60,64 @@
 
 - (void)setColor:(CellColor)cellColor {
     [self configColor:cellColor];
-    [self.layer needsDisplay];
+    [self setNeedsDisplay];
 }
 
 - (void)configColor:(CellColor)cellColor {
     
-    if (cellColor == CellColorWhite) {
-        _startColor = RGB(243.0f, 243.0f, 243.0f);
-        _endColor = RGB(249.0f, 249.0f, 249.0f);
-    } else if (cellColor == CellColorDarkGray) {
-        _startColor = RGB(194.0f, 194.0f, 194.0f);
-        _endColor = RGB(202.0f, 202.0f, 202.0f);
-    } else if (cellColor == CellColorDarkGray) {
-        _startColor = RGB(36.0f, 36.0f, 36.0f);
-        _endColor = RGB(42.0f, 42.0f, 42.0f);
+    switch (cellColor) {
+        case CellColorWhite:
+            _startColor = RGB(243.0f, 243.0f, 243.0f);
+            _endColor = RGB(249.0f, 249.0f, 249.0f);
+            break;
+        case CellColorSliver:
+            _startColor = RGB(194.0f, 194.0f, 194.0f);
+            _endColor = RGB(202.0f, 202.0f, 202.0f);
+            break;
+        case CellColorDarkGray:
+            _startColor = RGB(36.0f, 36.0f, 36.0f);
+            _endColor = RGB(42.0f, 42.0f, 42.0f);
+            break;
+        case CellColorConcrete:
+            _startColor = RGB(77.0f, 77.0f, 77.0f);
+            _endColor = RGB(84.0f, 84.0f, 84.0f);
+            break;
+        case CellColorSky:
+            _startColor = RGB(212.0f, 237.0f, 255.0f);
+            _endColor = RGB(206.0f, 227.0f, 255.0f);
+            break;
+        case CellColorVista:
+            _startColor = RGB(84.0f, 147.0f, 197.0f);
+            _endColor = RGB(74.0f, 121.0f, 181.0f);
+            break;
+        case CellColorDenim:
+            _startColor = RGB(43.0f, 101.0f, 148.0f);
+            _endColor = RGB(37.0f, 67.0f, 133.0f);
+            break;
+        case CellColorMidnight:
+            _startColor = RGB(16.0f, 62.0f, 67.0f);
+            _endColor = RGB(16.0f, 42.0f, 75.0f);
+            break;
+        default:
+            _startColor = RGB(243.0f, 243.0f, 243.0f);
+            _endColor = RGB(249.0f, 249.0f, 249.0f);
+            break;
     }
+    
+    
+//    if (cellColor == CellColorWhite) {
+//        _startColor = RGB(243.0f, 243.0f, 243.0f);
+//        _endColor = RGB(249.0f, 249.0f, 249.0f);
+//    } else if (cellColor == CellColorDarkGray) {
+//        _startColor = RGB(194.0f, 194.0f, 194.0f);
+//        _endColor = RGB(202.0f, 202.0f, 202.0f);
+//    } else if (cellColor == CellColorDarkGray) {
+//        _startColor = RGB(36.0f, 36.0f, 36.0f);
+//        _endColor = RGB(42.0f, 42.0f, 42.0f);
+//    } else if (cellColor == CellColorConcrete) {
+//        _startColor = RGB(77.0f, 77.0f, 77.0f);
+//        _endColor = RGB(84.0f, 84.0f, 84.0f);
+//    }
 }
 
 @end

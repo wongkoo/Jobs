@@ -7,7 +7,11 @@
 //
 
 #import "ListDetailViewController.h"
+#import "ColorSelectViewController.h"
+
 #import "JobList.h"
+
+
 #import "DateAndProcess.h"
 #import "CellbackgroundVIew.h"
 #import "AddProcessView.h"
@@ -17,7 +21,7 @@
 #import "ProcessCell.h"
 #import "ColorSelectCell.h"
 
-@interface ListDetailViewController ()
+@interface ListDetailViewController ()<ColorSelectVCDelegate>
 @property (strong, nonatomic) AddProcessView *processView;
 @end
 
@@ -33,13 +37,25 @@
         _accountOfWebsiteString = self.jobListToEdit.accountOfWebsite;
         _emailString = self.jobListToEdit.email;
         _process = self.jobListToEdit.process;
-        //self.jobListToEdit.items;
+        _reminderOfPasswordString = self.jobListToEdit.reminderOfPassword;
+        _cellColor = self.jobListToEdit.cellColor;
         self.saveBarButton.enabled = YES;
     }else{
         self.title = @"添加公司";
         self.saveBarButton.enabled = NO;
         _process = [[NSMutableArray alloc]initWithCapacity:3];
     }
+    
+    NSLog(@"didload");
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"did appear");
 }
 
 #pragma mark - UITableViewDataSource
@@ -124,27 +140,27 @@
 }
 
 - (void)configColorForCell:(ColorSelectCell *)cell withIndexPath:(NSIndexPath *)indexPath {
-    cell.cellColor = CellColorDarkGray;
+    cell.cellColor = _cellColor;
 }
 
 - (void)configureElementForCell:(LabelAndTextFieldCell *)cell withIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         cell.label.text = @"公司";
         cell.textField.placeholder = @"Mogujie";
-        cell.textField.text = self.jobListToEdit.name;
+        cell.textField.text = self.companyNameString;
     }else if(indexPath.section == 1) {
         if (indexPath.row == 0) {
             cell.label.text = @"官网帐号";
             cell.textField.placeholder = @"WangMing";
-            cell.textField.text = self.jobListToEdit.accountOfWebsite;
+            cell.textField.text = self.accountOfWebsiteString;
         }else if(indexPath.row == 1) {
             cell.label.text = @"密码提示";
             cell.textField.placeholder = @"DODO's Birthday";
-            cell.textField.text = self.jobListToEdit.reminderOfPassword;
+            cell.textField.text = self.reminderOfPasswordString;
         }else if(indexPath.row == 2) {
             cell.label.text = @"报名邮箱";
             cell.textField.placeholder = @"WangMing@xmail.com";
-            cell.textField.text = self.jobListToEdit.email;
+            cell.textField.text = self.emailString;
         }
     }
     cell.textField.delegate = self;
@@ -262,6 +278,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        ColorSelectViewController *controller = [[ColorSelectViewController alloc] init];
+        controller.cellColor = _cellColor;
+        controller.delegate = self;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 #pragma mark - UITextFieldDelegate
@@ -350,6 +372,7 @@
         jobList.reminderOfPassword = reminderOfPassword;
         jobList.email = emailString;
         jobList.process = _process;
+        jobList.cellColor = _cellColor;
         [self.delegate listDetailViewController:self didFinishAddingJoblist:jobList];
     }else{
         self.jobListToEdit.name = companyNameString;
@@ -357,6 +380,7 @@
         self.jobListToEdit.reminderOfPassword = reminderOfPassword;
         self.jobListToEdit.email = emailString;
         self.jobListToEdit.process = _process;
+        self.jobListToEdit.cellColor = _cellColor;
         [self.delegate listDetailViewController:self didFinishEditingJobList:self.jobListToEdit];
     }
 }
@@ -384,6 +408,12 @@
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     self.tableView.scrollEnabled = NO;
     [self.view addSubview:_processView];
+}
+
+#pragma mark - ColorSelectVCDelegate
+- (void)selectColorInterger:(NSInteger)integer {
+    _cellColor = integer;
+    [self.tableView reloadData];
 }
 
 #pragma mark - AddProcessDelegate

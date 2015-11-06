@@ -11,7 +11,12 @@
 typedef NS_ENUM(NSInteger, CellColor) {
     CellColorWhite = 0,
     CellColorSliver,
-    CellColorDarkGray
+    CellColorConcrete,
+    CellColorDarkGray,
+    CellColorSky,
+    CellColorVista,
+    CellColorDenim,
+    CellColorMidnight
 };
 
 @interface CellbackgroundVIew : UIView

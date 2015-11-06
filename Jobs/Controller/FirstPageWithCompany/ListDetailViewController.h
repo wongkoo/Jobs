@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddProcessView.h"
+#import "CellbackgroundVIew.h"
 
 @class ListDetailViewController;
 @class JobList;
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) NSString *reminderOfPasswordString;
 @property (nonatomic, strong) NSString *emailString;
 @property (nonatomic, strong) NSMutableArray *process;
+@property (nonatomic, assign) CellColor cellColor;
 @property (nonatomic, weak)   IBOutlet UIBarButtonItem *saveBarButton;
 
 @property (nonatomic, weak) id<ListDetailViewControllerDelegate>delegate;

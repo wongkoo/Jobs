@@ -33,6 +33,7 @@
 		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
+		9BE99EF61BEB4FDC00345F46 /* ColorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		9B0551CB1BEB0A2700E09969 /* ColorSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSelectCell.h; path = FirstDetailPage/Cell/ColorSelectCell.h; sourceTree = "<group>"; };
 		9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectCell.m; path = FirstDetailPage/Cell/ColorSelectCell.m; sourceTree = "<group>"; };
+		9BE99EF41BEB4FDC00345F46 /* ColorSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSelectViewController.h; sourceTree = "<group>"; };
+		9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSelectViewController.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +280,8 @@
 				7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */,
 				7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */,
 				723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */,
+				9BE99EF41BEB4FDC00345F46 /* ColorSelectViewController.h */,
+				9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */,
 			);
 			path = FirstPageWithCompany;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
+				9BE99EF61BEB4FDC00345F46 /* ColorSelectViewController.m in Sources */,
 				721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */,
 				72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */,
 				9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */,
