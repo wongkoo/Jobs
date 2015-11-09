@@ -10,7 +10,7 @@
 
 typedef NS_ENUM(NSInteger, CellColor) {
     CellColorWhite = 0,
-    CellColorSliver,
+    CellColorSilver,
     CellColorConcrete,
     CellColorDarkGray,
     CellColorSky,

@@ -70,7 +70,7 @@
             _startColor = RGB(243.0f, 243.0f, 243.0f);
             _endColor = RGB(249.0f, 249.0f, 249.0f);
             break;
-        case CellColorSliver:
+        case CellColorSilver:
             _startColor = RGB(194.0f, 194.0f, 194.0f);
             _endColor = RGB(202.0f, 202.0f, 202.0f);
             break;

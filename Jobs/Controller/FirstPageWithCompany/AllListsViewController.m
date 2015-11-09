@@ -192,13 +192,22 @@
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath{
     [self updateAllApplicationNum];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
-    label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
+//    label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
     
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     
     cell.textLabel.text = jobList.name;
     cell.textLabel.font = [UIFont systemFontOfSize:22.0];
-    cell.textLabel.textColor = [UIColor colorWithRed:130.0/255.0 green:18.0/255.0 blue:13.0/255.0 alpha:1];
+//    cell.textLabel.textColor = [UIColor colorWithRed:130.0/255.0 green:18.0/255.0 blue:13.0/255.0 alpha:1];
+    
+    if (jobList.cellColor == CellColorWhite || jobList.cellColor == CellColorSilver || jobList.cellColor == CellColorSky) {
+        cell.textLabel.textColor = [UIColor blackColor];
+        label.textColor = [UIColor blackColor];
+    }else {
+        cell.textLabel.textColor = [UIColor whiteColor];
+        label.textColor = [UIColor whiteColor];
+    }
+    
     cell.detailTextLabel.textColor =  [UIColor colorWithRed:121.0/255.0 green:67.0/255.0 blue:11.0/255.0 alpha:1];
     
     if ([jobList.items count] != 0) {
@@ -360,9 +369,19 @@
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     if (jobList.deletedFlag == 0) {
         UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
-        label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
-        cell.textLabel.textColor = [UIColor colorWithRed:130.0/255.0 green:18.0/255.0 blue:13.0/255.0 alpha:1];
-        cell.detailTextLabel.textColor =  [UIColor colorWithRed:121.0/255.0 green:67.0/255.0 blue:11.0/255.0 alpha:1];
+//        label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
+//        cell.textLabel.textColor = [UIColor colorWithRed:130.0/255.0 green:18.0/255.0 blue:13.0/255.0 alpha:1];
+//        cell.detailTextLabel.textColor =  [UIColor colorWithRed:121.0/255.0 green:67.0/255.0 blue:11.0/255.0 alpha:1];
+        
+        if (jobList.cellColor == CellColorWhite || jobList.cellColor == CellColorSilver || jobList.cellColor == CellColorSky) {
+            cell.textLabel.textColor = [UIColor blackColor];
+            cell.detailTextLabel.textColor = [UIColor blackColor];
+            label.textColor = [UIColor blackColor];
+        }else {
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.detailTextLabel.textColor = [UIColor whiteColor];
+            label.textColor = [UIColor whiteColor];
+        }
     }else if(jobList.deletedFlag == 1){
         UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
         label.textColor = [UIColor grayColor];
