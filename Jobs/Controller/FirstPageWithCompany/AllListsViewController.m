@@ -7,42 +7,61 @@
 //
 
 #import "AllListsViewController.h"
-#import "JobList.h"
+#import "ListDetailViewController.h"
 #import "ViewController.h"
+
+#import "JobList.h"
 #import "jobsItem.h"
 #import "DataModel.h"
+
 #import "CellbackgroundVIew.h"
 #import <MCSwipeTableViewCell.h>
-#import "AppDelegate.h"
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
 
-@interface AllListsViewController (){
+@interface AllListsViewController ()<ListDetailViewControllerDelegate,UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
+{
     NSInteger cellHeight;
 }
 
-@property (nonatomic, weak)     IBOutlet UILabel *allApplicationNumLabel;
-@property (nonatomic, strong)   UILongPressGestureRecognizer *longPress;
-@property (nonatomic)           BOOL forceTouchAvailable;
-@property (nonatomic, strong)   NSIndexPath *indexPathOfForceTouch;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *statusBarBackgroundView;
+@property (nonatomic, strong) UILabel *allApplicationNumLabel;
+//@property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
+@property (nonatomic, assign) BOOL forceTouchAvailable;
+@property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
 
 @end
 
 @implementation AllListsViewController
 
 
-//- (BOOL)prefersStatusBarHidden {
-//    return YES;
-//}
-
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
 //    NSLog(@"AllListsViewController:didLoad");
     [super viewDidLoad];
+    
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
+    
+    self.allApplicationNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    self.allApplicationNumLabel.textAlignment = NSTextAlignmentCenter;
+    self.allApplicationNumLabel.textColor = [UIColor whOrange];
+    self.allApplicationNumLabel.backgroundColor = [UIColor clearColor];
+    self.tableView.tableFooterView = self.allApplicationNumLabel;
+    
+    self.statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    self.statusBarBackgroundView.backgroundColor = [UIColor whPeterRiver];
+    [self.view addSubview:self.statusBarBackgroundView];
+    
     [self updateAllApplicationNum];
 
     self.tableView.backgroundColor = [UIColor blackColor];
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
     cellHeight = 80;
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
@@ -55,6 +74,7 @@
 //    NSLog(@"AllListsViewController:will");
     
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self updateAllApplicationNum];
     [self.tableView reloadData];
     [self checkForceTouch];
@@ -107,6 +127,7 @@
         controller.delegate = self;
         controller.jobListToEdit = nil;
     }
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (IBAction)backToAllListsViewController:(UIStoryboardSegue *)segue {
