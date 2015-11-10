@@ -223,14 +223,12 @@
 }
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList{
+    
     [self updateAllApplicationNum];
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
     
-//    JobList *jobList = self.dataModel.jobs[indexPath.row];
-    
-    cell.textLabel.text = jobList.name;
-    cell.textLabel.font = [UIFont systemFontOfSize:22.0];
-    
+    NSString *detailString = [[NSString alloc] init];
+    NSString *dateString = [[NSString alloc] init];
+
     if ([jobList.items count] != 0) {
         JobsItem *jobsItem = jobList.items[0];
         
@@ -248,31 +246,43 @@
             NSDateFormatter *dateFormatterToShow = [[NSDateFormatter alloc] init];
             [dateFormatterToShow setDateFormat:@"M月d日 "];
             NSString *showTime = [dateFormatterToShow stringFromDate:jobsItem.dueDate];
-             label.text = [showTime stringByAppendingString:jobsItem.nextTask];
+             dateString = [showTime stringByAppendingString:jobsItem.nextTask];
         }else if((targetTimeValue - nowValue) >= 3 && (targetTimeValue - nowValue) <= 30){
             NSString *string = [NSString stringWithFormat:@"%ld天后 ",(long)(targetTimeValue - nowValue)];
-            label.text =[string stringByAppendingString:jobsItem.nextTask];
+            dateString =[string stringByAppendingString:jobsItem.nextTask];
         }else if((targetTimeValue - nowValue) == 2){
-            label.text = [@"后天 " stringByAppendingString:jobsItem.nextTask];
+            dateString = [@"后天 " stringByAppendingString:jobsItem.nextTask];
         }else if((targetTimeValue - nowValue) == 1){
-            label.text = [@"明天 " stringByAppendingString:jobsItem.nextTask];
+            dateString = [@"明天 " stringByAppendingString:jobsItem.nextTask];
         }else if((targetTimeValue - nowValue) == 0){
-            label.text = [@"今天 " stringByAppendingString:jobsItem.nextTask];
+            dateString = [@"今天 " stringByAppendingString:jobsItem.nextTask];
         }else if((targetTimeValue - nowValue) == -1){
-            label.text=[@"昨天 " stringByAppendingString:jobsItem.nextTask];
+            dateString = [@"昨天 " stringByAppendingString:jobsItem.nextTask];
         }else if((targetTimeValue - nowValue) == -2){
-            label.text=[@"前天 " stringByAppendingString:jobsItem.nextTask];
+            dateString = [@"前天 " stringByAppendingString:jobsItem.nextTask];
         }else if((targetTimeValue - nowValue) <= -3){
-            label.text=[@"几天前 " stringByAppendingString:jobsItem.nextTask];
+            dateString = [@"几天前 " stringByAppendingString:jobsItem.nextTask];
         }
-
-
-        cell.detailTextLabel.text = jobsItem.text;
+        
+        detailString = jobsItem.text;
         
     }else{
-        label.text=@"";
-        cell.detailTextLabel.text = @"暂未申请职位";
+        dateString=@"";
+        detailString = @"暂未申请职位";
     }
+    
+    //标题
+    NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:jobList.name];
+    cell.textLabel.attributedText = titleAttributedString;
+    
+    //副标题
+    NSMutableAttributedString *detailAttrString = [[NSMutableAttributedString alloc] initWithString:detailString];
+    cell.detailTextLabel.attributedText = detailAttrString;
+    
+    //日期
+    UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
+    NSMutableAttributedString *labelAttrString = [[NSMutableAttributedString alloc] initWithString:dateString];
+    label.attributedText = labelAttrString;
 }
 
 - (void)configureSwapeCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList {
@@ -389,24 +399,39 @@
 }
 
 - (void)configureStateOfCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList {
-//    JobList *jobList = self.dataModel.jobs[indexPath.row];
     if (jobList.deletedFlag == 0) {
+        //date
         UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
+        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:label.attributedText];
+        [dateAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, label.attributedText.length)];
+        label.attributedText = dateAttributeString;
+
+        //title
+        NSMutableAttributedString *titleAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.textLabel.attributedText];
+        [titleAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, cell.textLabel.attributedText.length)];
+        cell.textLabel.attributedText = titleAttributeString;
         
-        if (jobList.cellColor == CellColorWhite || jobList.cellColor == CellColorSilver || jobList.cellColor == CellColorSky) {
-            cell.textLabel.textColor = [UIColor blackColor];
-            cell.detailTextLabel.textColor = [UIColor blackColor];
-            label.textColor = [UIColor blackColor];
-        }else {
-            cell.textLabel.textColor = [UIColor whiteColor];
-            cell.detailTextLabel.textColor = [UIColor whiteColor];
-            label.textColor = [UIColor whiteColor];
-        }
+        //detail title
+        NSMutableAttributedString *detailAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.detailTextLabel.attributedText];
+        [detailAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, cell.detailTextLabel.attributedText.length)];
+        cell.detailTextLabel.attributedText = detailAttributeString;
+        
     }else if(jobList.deletedFlag == 1){
+        //data
         UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
-        label.textColor = [UIColor grayColor];
-        cell.textLabel.textColor = [UIColor grayColor];
-        cell.detailTextLabel.textColor =  [UIColor grayColor];
+        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:label.attributedText];
+        [dateAttributeString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, label.attributedText.length)];
+        label.attributedText = dateAttributeString;
+        
+        //title
+        NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.textLabel.attributedText];
+        [titleAttributedString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, cell.textLabel.attributedText.length)];
+        cell.textLabel.attributedText = titleAttributedString;
+        
+        //detail
+        NSMutableAttributedString *detailAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.detailTextLabel.attributedText];
+        [detailAttributedString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, cell.detailTextLabel.attributedText.length)];
+        cell.detailTextLabel.attributedText = detailAttributedString;
     }
     [self updateAllApplicationNum];
 }
