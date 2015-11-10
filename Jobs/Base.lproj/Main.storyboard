@@ -329,39 +329,6 @@
         <scene sceneID="2U7-0b-e4v">
             <objects>
                 <tableViewController storyboardIdentifier="Companys" id="v42-OH-GJd" customClass="AllListsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Qky-1J-av7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" id="gCl-bN-Wxf">
-                            <rect key="frame" x="0.0" y="166" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.0" alpha="0.41000000000000003" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <size key="shadowOffset" width="1" height="0.0"/>
-                        </label>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobLists" rowHeight="80" id="YHM-sc-RdD" customClass="MCSwipeTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="600" height="80"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YHM-sc-RdD" id="nmc-NG-Rul">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="v42-OH-GJd" id="O6V-dn-7Az"/>
-                            <outlet property="delegate" destination="v42-OH-GJd" id="H4S-sV-h2l"/>
-                        </connections>
-                    </tableView>
                     <navigationItem key="navigationItem" title="公司" id="hbE-si-xgk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ccj-ZF-3M8">
                             <connections>
@@ -370,7 +337,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="allApplicationNumLabel" destination="gCl-bN-Wxf" id="PT7-EE-lDQ"/>
                         <segue destination="GHa-u7-5dq" kind="show" identifier="ShowJobList" id="wjb-dL-X8q"/>
                     </connections>
                 </tableViewController>
