@@ -24,7 +24,7 @@
 @interface AllListsViewController ()<ListDetailViewControllerDelegate,UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UIView *statusBarBackgroundView;
+@property (nonatomic, strong) CellbackgroundVIew *statusBarBackgroundView;
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
 @property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
@@ -36,13 +36,15 @@
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self initTableView];
     [self initStatusBar];
     [self checkForceTouch];
 }
 
 - (void)initTableView {
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollsToTop = YES;
@@ -55,16 +57,32 @@
     self.allApplicationNumLabel.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = self.allApplicationNumLabel;
     
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    backgroundView.backgroundColor = [UIColor blackColor];
-    [self.tableView setBackgroundView:backgroundView];
+    self.tableView.backgroundColor = [UIColor whClouds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)initStatusBar {
-    self.statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-    self.statusBarBackgroundView.backgroundColor = [UIColor whPeterRiver];
-    [self.view addSubview:self.statusBarBackgroundView];
+    if (!self.statusBarBackgroundView) {
+        self.statusBarBackgroundView = [[CellbackgroundVIew alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+        [self.view addSubview:self.statusBarBackgroundView];
+    }
+    
+    if (self.dataModel.jobs.count > 0) {
+        JobList *joblist = self.dataModel.jobs[0];
+        [self changeStatusBarWithCellColor:joblist.cellColor];
+    }else{
+        [self changeStatusBarWithCellColor:CellColorWhite];
+    }
+    
+}
+
+- (void)changeStatusBarWithCellColor:(CellColor)cellColor {
+    [self.statusBarBackgroundView setColor:cellColor];
+    if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    }else{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -72,6 +90,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self updateAllApplicationNum];
     [self.tableView reloadData];
+    [self initStatusBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -271,7 +290,7 @@
     UIColor *stickColor = [UIColor whAmethyst];
     
     // Setting the default inactive state color to the tableView background color
-    [cell setDefaultColor:self.tableView.backgroundView.backgroundColor];
+    [cell setDefaultColor:self.tableView.backgroundColor];
     [cell setDelegate:(id)self];
     
     if (jobList.deletedFlag == 0) {
@@ -471,6 +490,20 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return CELL_HEIGHT;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y<0) {
+        [self changeStatusBarWithCellColor:CellColorWhite];
+        return;
+    }
+    
+    int row = (int)(scrollView.contentOffset.y/80);
+    if (row < self.dataModel.jobs.count) {
+        JobList *jobList = self.dataModel.jobs[row];
+        [self changeStatusBarWithCellColor:jobList.cellColor];
+    }
 }
 
 #pragma mark - UINavigationControllerDelegate
