@@ -120,7 +120,13 @@
 }
 
 - (void)updateAllApplicationNum{
-    self.allApplicationNumLabel.text=[NSString stringWithFormat:@"%ld个职位正在进行中",(long)[self.dataModel numberOfUncheckedJobsItem]];
+    NSString *string;
+    if (self.dataModel.jobs.count == 0) {
+        string = @"下拉添加公司";
+    }else{
+        string = [NSString stringWithFormat:@"%ld个职位正在进行中",(long)[self.dataModel numberOfUncheckedJobsItem]];
+    }
+    self.allApplicationNumLabel.text=string;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,13 +140,14 @@
     if ([segue.identifier isEqualToString:@"ShowJobList"]) {
         ViewController *controller = segue.destinationViewController;
         controller.jobList = sender;
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
     }else if([segue.identifier isEqualToString:@"AddJobList"]){
         UINavigationController *navigationController = segue.destinationViewController;
         ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
         controller.jobListToEdit = nil;
     }
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (IBAction)backToAllListsViewController:(UIStoryboardSegue *)segue {
@@ -541,7 +548,7 @@
     
     self.addProcessView.process =  - scrollView.contentOffset.y;
     
-    if (scrollView.contentOffset.y < -108) {
+    if (scrollView.contentOffset.y < -90) {
         [self performSegueWithIdentifier:@"AddJobList" sender:nil];
     }
     
