@@ -271,17 +271,28 @@
         detailString = @"暂未申请职位";
     }
     
+    CellColor cellColor = jobList.cellColor;
+    UIColor *stringColor;
+    if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
+        stringColor = [UIColor blackColor];
+    }else {
+        stringColor = [UIColor whiteColor];
+    }
+    
     //标题
     NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:jobList.name];
+    [titleAttributedString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, jobList.name.length)];
     cell.textLabel.attributedText = titleAttributedString;
     
     //副标题
     NSMutableAttributedString *detailAttrString = [[NSMutableAttributedString alloc] initWithString:detailString];
+    [detailAttrString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, detailString.length)];
     cell.detailTextLabel.attributedText = detailAttrString;
     
     //日期
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
     NSMutableAttributedString *labelAttrString = [[NSMutableAttributedString alloc] initWithString:dateString];
+    [labelAttrString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, dateString.length)];
     label.attributedText = labelAttrString;
 }
 
