@@ -332,7 +332,7 @@
                     <navigationItem key="navigationItem" title="公司" id="hbE-si-xgk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ccj-ZF-3M8">
                             <connections>
-                                <segue destination="cd7-Zc-b8a" kind="presentation" identifier="AddJobList" id="NnO-vn-QSk"/>
+                                <segue destination="cd7-Zc-b8a" kind="presentation" identifier="AddJobList" modalTransitionStyle="crossDissolve" id="NnO-vn-QSk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

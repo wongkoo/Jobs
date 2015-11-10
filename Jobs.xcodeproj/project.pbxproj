@@ -33,6 +33,7 @@
 		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
+		9BC35BC21BF1E2A300903192 /* PullDownProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */; };
 		9BE99EF61BEB4FDC00345F46 /* ColorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,8 @@
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		9B0551CB1BEB0A2700E09969 /* ColorSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSelectCell.h; path = FirstDetailPage/Cell/ColorSelectCell.h; sourceTree = "<group>"; };
 		9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectCell.m; path = FirstDetailPage/Cell/ColorSelectCell.m; sourceTree = "<group>"; };
+		9BC35BC01BF1E2A200903192 /* PullDownProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullDownProcessView.h; path = FirstPage/PullDownProcessView.h; sourceTree = "<group>"; };
+		9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullDownProcessView.m; path = FirstPage/PullDownProcessView.m; sourceTree = "<group>"; };
 		9BE99EF41BEB4FDC00345F46 /* ColorSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSelectViewController.h; sourceTree = "<group>"; };
 		9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSelectViewController.m; sourceTree = "<group>"; };
 		AA73FFA339DDA9BF0142DD25 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,12 +312,22 @@
 		723E8E9E1BAAACAE004D4E8C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				720DC2FD1BB2D23500B82B99 /* UIColorCategory */,
-				721243AF1BAE8BAB0046B060 /* FirstDetailPage */,
+				9BC35BC31BF1E2B900903192 /* FirstPage */,
 				722BB0FC1BB245A8005372A4 /* SecondPage */,
+				720DC2FD1BB2D23500B82B99 /* UIColorCategory */,
 				721243B01BAE8BDB0046B060 /* AllPageCellBackground */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9BC35BC31BF1E2B900903192 /* FirstPage */ = {
+			isa = PBXGroup;
+			children = (
+				9BC35BC01BF1E2A200903192 /* PullDownProcessView.h */,
+				9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */,
+				721243AF1BAE8BAB0046B060 /* FirstDetailPage */,
+			);
+			name = FirstPage;
 			sourceTree = "<group>";
 		};
 		D779B1AC0DE4FF04D4C6710C /* Frameworks */ = {
@@ -472,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				721243B41BAE8CC60046B060 /* AddButtonCell.m in Sources */,
+				9BC35BC21BF1E2A300903192 /* PullDownProcessView.m in Sources */,
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
 				722BB0FF1BB24639005372A4 /* ProcessView.m in Sources */,
 				721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */,

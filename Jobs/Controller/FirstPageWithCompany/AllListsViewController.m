@@ -14,6 +14,7 @@
 #import "jobsItem.h"
 #import "DataModel.h"
 
+#import "PullDownProcessView.h"
 #import "CellbackgroundVIew.h"
 #import <MCSwipeTableViewCell.h>
 #import "UIColor+WHColor.h"
@@ -25,6 +26,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) CellbackgroundVIew *statusBarBackgroundView;
+@property (nonatomic, strong) PullDownProcessView *addProcessView;
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
 @property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
@@ -39,6 +41,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self initTableView];
+    [self initAddProcessView];
     [self initStatusBar];
     [self checkForceTouch];
 }
@@ -59,6 +62,11 @@
     
     self.tableView.backgroundColor = [UIColor whClouds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)initAddProcessView {
+    self.addProcessView = [[PullDownProcessView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 0)];
+    [self.view addSubview:self.addProcessView];
 }
 
 - (void)initStatusBar {
@@ -530,8 +538,14 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    self.addProcessView.process =  - scrollView.contentOffset.y;
+    
+    if (scrollView.contentOffset.y < -108) {
+        [self performSegueWithIdentifier:@"AddJobList" sender:nil];
+    }
+    
     if (scrollView.contentOffset.y<0) {
-        [self changeStatusBarWithCellColor:CellColorWhite];
         return;
     }
     
