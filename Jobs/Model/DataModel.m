@@ -20,6 +20,16 @@
     return itemLd;
 }
 
+- (NSInteger)numberOfDisDeletedJobsList {
+    NSInteger disDeletedNum=0;
+    for(JobList *jobListTemp in self.jobs){
+        if (jobListTemp.deletedFlag == 0) {
+            disDeletedNum ++;
+        }
+    }
+    return disDeletedNum;
+}
+
 - (NSInteger)numberOfUncheckedJobsItem {
     NSInteger tempNum = 0;
     for (JobList *jobList in self.jobs){
@@ -32,6 +42,18 @@
         }
     }
     return tempNum;
+}
+
+- (void)cancelLocalNotificationIndexOfJobs:(NSInteger)index {
+    JobList *jobList = self.jobs[index];
+    for (JobsItem *temp in jobList.items){
+        if (temp.shouldRemind == YES) {
+            UILocalNotification *existingNotification = [temp notificationForThisItem];
+            if (existingNotification != nil) {
+                [[UIApplication sharedApplication]cancelLocalNotification:existingNotification];
+            }
+        }
+    }
 }
 
 - (void)registerDefaults {

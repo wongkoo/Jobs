@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) CellbackgroundVIew *statusBarBackgroundView;
-@property (nonatomic, strong) PullDownProcessView *addProcessView;
+@property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
 @property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
@@ -41,8 +41,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self initTableView];
-    [self initAddProcessView];
-    [self initStatusBar];
+    [self initPullDownProcessView];
     [self checkForceTouch];
 }
 
@@ -64,9 +63,9 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-- (void)initAddProcessView {
-    self.addProcessView = [[PullDownProcessView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 0)];
-    [self.view addSubview:self.addProcessView];
+- (void)initPullDownProcessView {
+    self.pullDownProcessView = [[PullDownProcessView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 0)];
+    [self.view addSubview:self.pullDownProcessView];
 }
 
 - (void)initStatusBar {
@@ -158,7 +157,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CompanyCell";
     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (!cell) {
@@ -239,7 +238,7 @@
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList{
     
-    [self updateAllApplicationNum];
+//    [self updateAllApplicationNum];
     
     NSString *detailString = [[NSString alloc] init];
     NSString *dateString = [[NSString alloc] init];
@@ -471,62 +470,35 @@
 
 - (void)deleteCell:(MCSwipeTableViewCell *)cell{
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [self cancelLocalNotificationIndex:indexPath.row];
+    [self.dataModel cancelLocalNotificationIndexOfJobs:indexPath.row];
     [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-}
-
-- (void)cancelLocalNotificationIndex:(NSInteger)index{
-    JobList *jobList = self.dataModel.jobs[index];
-    for (JobsItem *temp in jobList.items){
-        if (temp.shouldRemind == YES) {
-            UILocalNotification *existingNotification = [temp notificationForThisItem];
-            if (existingNotification != nil) {
-                [[UIApplication sharedApplication]cancelLocalNotification:existingNotification];
-            }
-        }
-    }
 }
 
 - (void)changeStateofCell:(MCSwipeTableViewCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
-    NSInteger disDeletedNum=0;
-    for(JobList *jobListTemp in self.dataModel.jobs){
-        if (jobListTemp.deletedFlag == 0) {
-            disDeletedNum ++;
-        }else{
-            break;
-        }
-    }
-    if (disDeletedNum == 0) {
-        disDeletedNum =1;
-    }
-    if (jobList.deletedFlag == 0) {
-        jobList.deletedFlag =1;
-        [self configureStateOfCell:cell withJobList:jobList];
-        [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
-        [self.dataModel.jobs insertObject:jobList atIndex:disDeletedNum-1];
-        NSIndexPath *bottomIndexPath = [NSIndexPath indexPathForRow:disDeletedNum-1 inSection:0];
-        [self.tableView moveRowAtIndexPath:indexPath toIndexPath:bottomIndexPath];
-        [self.tableView scrollToRowAtIndexPath:bottomIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    }else if(jobList.deletedFlag == 1){
-        jobList.deletedFlag = 0;
-        [self configureStateOfCell:cell withJobList:jobList];
-        [self configureSwapeCell:cell withJobList:jobList];
-        [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
-        [self.dataModel.jobs insertObject:jobList atIndex:0];
-        NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.tableView moveRowAtIndexPath:indexPath toIndexPath:firstIndexPath];
-        [self.tableView scrollToRowAtIndexPath:firstIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    NSInteger disDeletedNum = [self.dataModel numberOfDisDeletedJobsList];
+    
+    jobList.deletedFlag = !jobList.deletedFlag;
+    [self configureStateOfCell:cell withJobList:jobList];
+    [self configureSwapeCell:cell withJobList:jobList];
+    [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
+    
+    NSInteger insertIndex;
+    NSIndexPath *desIndexPath;
+    
+    if (jobList.deletedFlag == 1) {
+        insertIndex = disDeletedNum - 1;
+        desIndexPath = [NSIndexPath indexPathForRow:disDeletedNum-1 inSection:0];
+    }else if(jobList.deletedFlag == 0){
+        insertIndex = 0;
+        desIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     }
     
-    NSInteger sum = [self.tableView numberOfRowsInSection:0];
-    for (NSInteger i = 0; i < sum; ++i) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        MCSwipeTableViewCell *cell = (MCSwipeTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        [self configureSwapeCell:cell withJobList:jobList];
-    }
+    [self.dataModel.jobs insertObject:jobList atIndex:insertIndex];
+    [self.tableView moveRowAtIndexPath:indexPath toIndexPath:desIndexPath];
+    [self.tableView scrollToRowAtIndexPath:desIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -546,7 +518,7 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    self.addProcessView.process =  - scrollView.contentOffset.y;
+    self.pullDownProcessView.process =  - scrollView.contentOffset.y;
     
     if (scrollView.contentOffset.y < -90) {
         [self performSegueWithIdentifier:@"AddJobList" sender:nil];

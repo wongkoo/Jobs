@@ -17,6 +17,8 @@
 - (void)setIndexOfSelectedJobList:(NSInteger)index;
 - (void)setBOOLforPerformActionForShortcutItem:(BOOL)bl; //为了解决 当前VC为ViewController，进入后台，再使用3Dtouch的Add Company后，无法跳转到第一页的情况。
 - (NSInteger)numberOfUncheckedJobsItem;
+- (NSInteger)numberOfDisDeletedJobsList;
+- (void)cancelLocalNotificationIndexOfJobs:(NSInteger)index;
 + (NSInteger)nextJobsItemId;
 
 @end

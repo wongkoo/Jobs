@@ -45,8 +45,6 @@
         self.saveBarButton.enabled = NO;
         _process = [[NSMutableArray alloc]initWithCapacity:3];
     }
-    
-    NSLog(@"didload");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,7 +53,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSLog(@"did appear");
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 #pragma mark - UITableViewDataSource
