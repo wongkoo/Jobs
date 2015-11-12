@@ -27,6 +27,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) CellbackgroundVIew *statusBarBackgroundView;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
+@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
 @property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
@@ -54,16 +55,44 @@
     [self.view addSubview:self.tableView];
     
     self.allApplicationNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    self.allApplicationNumLabel.font = [UIFont systemFontOfSize:15];
     self.allApplicationNumLabel.textAlignment = NSTextAlignmentCenter;
-    self.allApplicationNumLabel.textColor = [UIColor whOrange];
+    self.allApplicationNumLabel.textColor = [UIColor whMidnightBlue];
     self.allApplicationNumLabel.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = self.allApplicationNumLabel;
-    
-    self.tableView.backgroundColor = [UIColor whClouds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    UIView *backgroundView = [[UIView alloc] init];
+    backgroundView.backgroundColor = [UIColor whClouds];
+    self.tableView.backgroundView = backgroundView;
+    
+    UIImageView *logoView = [[UIImageView alloc] init];
+    UIImage *image = [UIImage imageNamed:@"icon"];
+    logoView.image = image;
+    [backgroundView addSubview:logoView];
+    [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(backgroundView.mas_centerX);
+        make.bottom.equalTo(backgroundView.mas_bottom).offset(-70);
+        make.height.equalTo(@60);
+        make.width.equalTo(@60);
+    }];
+    
+    for (UIView *subview in self.tableView.subviews)
+    {
+        if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewWrapperView"])
+        {
+            subview.backgroundColor = [UIColor whClouds];
+        }
+    }
 }
 
 - (void)initPullDownProcessView {
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    self.visualEffectView.alpha = 0;
+    [self.view addSubview:self.visualEffectView];
+    
     self.pullDownProcessView = [[PullDownProcessView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 0)];
     [self.view addSubview:self.pullDownProcessView];
 }
@@ -194,7 +223,7 @@
     [cell.contentView addSubview:label];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(cell.mas_right).offset(-10);
+        make.right.equalTo(cell.mas_right).offset(-15);
         make.centerY.equalTo(cell.mas_centerY);
         make.height.equalTo(@40);
     }];
@@ -240,7 +269,7 @@
 
     NSString *detailString = [[NSString alloc] init];
     NSString *dateString = [[NSString alloc] init];
-
+    BOOL showsHours = NO;
     if ([jobList.items count] != 0) {
         JobsItem *jobsItem = jobList.items[0];
     
@@ -263,6 +292,7 @@
                     dateFrontString = @"已经 ";
                 }else{
                     dateFrontString = [NSString stringWithFormat:@"%.1f小时后 ",[dueDate timeIntervalSinceNow]/3600];
+                    showsHours = YES;
                 }
             } else if (day < 2) {
                 dateFrontString = @"明天 ";
@@ -296,6 +326,7 @@
     //标题
     NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:jobList.name];
     [titleAttributedString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, jobList.name.length)];
+    [titleAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, jobList.name.length)];
     cell.textLabel.attributedText = titleAttributedString;
     
     //副标题
@@ -307,6 +338,12 @@
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
     NSMutableAttributedString *labelAttrString = [[NSMutableAttributedString alloc] initWithString:dateString];
     [labelAttrString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, dateString.length)];
+    if ( ![dateString isEqualToString:@""] && dateString.length >= 2) {
+        [labelAttrString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(dateString.length - 2, 2)];
+    }
+    if (showsHours) {
+        [labelAttrString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(3, 3)];
+    }
     label.attributedText = labelAttrString;
 }
 
@@ -517,6 +554,13 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     self.pullDownProcessView.process =  - scrollView.contentOffset.y;
+    
+    if (scrollView.contentOffset.y < 0) {
+        self.visualEffectView.alpha = - scrollView.contentOffset.y/60;
+        self.visualEffectView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }else{
+        self.visualEffectView.frame = CGRectZero;
+    }
     
     if (scrollView.contentOffset.y < -90) {
         [self performSegueWithIdentifier:@"AddJobList" sender:nil];

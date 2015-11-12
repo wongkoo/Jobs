@@ -38,7 +38,6 @@
     }
     
     self.backgroundColor = [UIColor colorWithRed:(236.0 - process)/255.0 green:(240.0 - process*1.2)/255.0 blue:(241.0 - process*1.3)/255.0 alpha:1.0];
-    NSLog(@"%f",process);
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, process);
 
     _process = process;
