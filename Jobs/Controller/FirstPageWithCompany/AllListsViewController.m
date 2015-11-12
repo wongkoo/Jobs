@@ -68,7 +68,7 @@
     [self.view addSubview:self.pullDownProcessView];
 }
 
-- (void)initStatusBar {
+- (void)configureStatusBar {
     if (!self.statusBarBackgroundView) {
         self.statusBarBackgroundView = [[CellbackgroundVIew alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
         [self.view addSubview:self.statusBarBackgroundView];
@@ -97,7 +97,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self updateAllApplicationNum];
     [self.tableView reloadData];
-    [self initStatusBar];
+    [self configureStatusBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -311,7 +311,6 @@
 }
 
 - (void)configureSwapeCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList {
-//    JobList *jobList= self.dataModel.jobs[indexPath.row];
     UIView *checkView = [self viewWithImageName:@"check"];
     UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
     
@@ -355,7 +354,6 @@
                           UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
                           ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
-//                          JobList *jobList = self.dataModel.jobs[indexPath.row];
                           controller.jobListToEdit = jobList;
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
@@ -370,6 +368,7 @@
                           [self.dataModel.jobs insertObject:list atIndex:0];
                           [self.dataModel.jobs removeObjectAtIndex:(indexPath.row + 1)];
                           [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                          [self configureStatusBar];
                           NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
                           [self.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
                       }];
@@ -401,7 +400,6 @@
                           UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
                           ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
-//                          JobList *jobList = self.dataModel.jobs[indexPath.row];
                           controller.jobListToEdit = jobList;
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
@@ -414,7 +412,6 @@
                           UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
                           ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
-//                          JobList *jobList = self.dataModel.jobs[indexPath.row];
                           controller.jobListToEdit = jobList;
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
@@ -498,6 +495,7 @@
     
     [self.dataModel.jobs insertObject:jobList atIndex:insertIndex];
     [self.tableView moveRowAtIndexPath:indexPath toIndexPath:desIndexPath];
+    [self configureStatusBar];
     [self.tableView scrollToRowAtIndexPath:desIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
@@ -546,7 +544,6 @@
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
     
     _indexPathOfForceTouch = [self.tableView indexPathForCell:(MCSwipeTableViewCell *)previewingContext.sourceView];
-//    _indexPathOfForceTouch = [self.tableView indexPathForRowAtPoint:location];
     [self.tableView deselectRowAtIndexPath:_indexPathOfForceTouch animated:NO];
     
     if ([self.presentedViewController isKindOfClass:[ViewController class]]) {
@@ -592,7 +589,6 @@
 }
 
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList{
-  //  NSInteger newRowIndex = [self.dataModel.jobs count];
     [self.dataModel.jobs insertObject:jobList atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSArray *indexPaths = @[indexPath];
@@ -603,18 +599,7 @@
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList{
     NSInteger index = [self.dataModel.jobs indexOfObject:jobList];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    //cell.textLabel.text = jobList.name;
-    //JobList *jobList = self.dataModel.jobs[indexPath.row];
-    
-    UILabel *textLabel = (UILabel *)[cell viewWithTag:2];
-    textLabel.text = jobList.name;
-    
-    CellbackgroundVIew *view = (CellbackgroundVIew *)[cell.contentView viewWithTag:23];
-    [view setColor:jobList.cellColor];
-    
-    [self.tableView reloadData];
-    
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
