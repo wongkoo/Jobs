@@ -237,47 +237,47 @@
 }
 
 - (void)configureTextForCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList{
-    
-//    [self updateAllApplicationNum];
-    
+
     NSString *detailString = [[NSString alloc] init];
     NSString *dateString = [[NSString alloc] init];
 
     if ([jobList.items count] != 0) {
         JobsItem *jobsItem = jobList.items[0];
+    
+        NSDate *nowDate = [NSDate date];
+        NSDateFormatter *referenceFormatter = [[NSDateFormatter alloc] init];
+        [referenceFormatter setDateFormat:@"yyyy/MMdd"];
+        NSString *referenceString = [referenceFormatter stringFromDate:nowDate];
+        NSDate *referenceDate = [referenceFormatter dateFromString:referenceString]; //00：00 of today
         
-        NSDate *  senddate=[NSDate date];
-        NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMdd"];
-
-        NSString *now=[dateFormatter stringFromDate:senddate];
-        NSString *targetTime = [dateFormatter stringFromDate:jobsItem.dueDate];
+        NSDate *dueDate = jobsItem.dueDate;
+        NSTimeInterval timeInterval = [dueDate timeIntervalSinceDate:referenceDate];
+        NSTimeInterval day = timeInterval/3600/24;
         
-        NSInteger nowValue = [now integerValue];
-        NSInteger targetTimeValue = [targetTime integerValue];
-        
-        if((targetTimeValue - nowValue) >= 31){
-            NSDateFormatter *dateFormatterToShow = [[NSDateFormatter alloc] init];
-            [dateFormatterToShow setDateFormat:@"M月d日 "];
-            NSString *showTime = [dateFormatterToShow stringFromDate:jobsItem.dueDate];
-             dateString = [showTime stringByAppendingString:jobsItem.nextTask];
-        }else if((targetTimeValue - nowValue) >= 3 && (targetTimeValue - nowValue) <= 30){
-            NSString *string = [NSString stringWithFormat:@"%ld天后 ",(long)(targetTimeValue - nowValue)];
-            dateString =[string stringByAppendingString:jobsItem.nextTask];
-        }else if((targetTimeValue - nowValue) == 2){
-            dateString = [@"后天 " stringByAppendingString:jobsItem.nextTask];
-        }else if((targetTimeValue - nowValue) == 1){
-            dateString = [@"明天 " stringByAppendingString:jobsItem.nextTask];
-        }else if((targetTimeValue - nowValue) == 0){
-            dateString = [@"今天 " stringByAppendingString:jobsItem.nextTask];
-        }else if((targetTimeValue - nowValue) == -1){
-            dateString = [@"昨天 " stringByAppendingString:jobsItem.nextTask];
-        }else if((targetTimeValue - nowValue) == -2){
-            dateString = [@"前天 " stringByAppendingString:jobsItem.nextTask];
-        }else if((targetTimeValue - nowValue) <= -3){
-            dateString = [@"几天前 " stringByAppendingString:jobsItem.nextTask];
+        NSString *dateFrontString = [[NSString alloc] init];
+        if (day < 0) {
+            dateFrontString = @"已经 ";
+        }else{
+            if (day<1) {
+                if ([dueDate timeIntervalSinceNow] < 0) {
+                    dateFrontString = @"已经 ";
+                }else{
+                    dateFrontString = [NSString stringWithFormat:@"%.1f小时后 ",[dueDate timeIntervalSinceNow]/3600];
+                }
+            } else if (day < 2) {
+                dateFrontString = @"明天 ";
+            } else if (day < 3) {
+                dateFrontString = @"后天 ";
+            } else if (day < 10) {
+                dateFrontString = [NSString stringWithFormat:@"%d天后 ",(int)day];
+            } else {
+                NSDateFormatter *dateFormatterToShow = [[NSDateFormatter alloc] init];
+                [dateFormatterToShow setDateFormat:@"M月d日 "];
+                dateFrontString = [dateFormatterToShow stringFromDate:jobsItem.dueDate];
+            }
         }
         
+        dateString = [dateFrontString stringByAppendingString:jobsItem.nextTask];
         detailString = jobsItem.text;
         
     }else{
