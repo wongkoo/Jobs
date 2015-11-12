@@ -15,6 +15,7 @@
 #import "DataModel.h"
 
 #import "PullDownProcessView.h"
+#import "PureColorBackgroundView.h"
 #import "CellbackgroundVIew.h"
 #import <MCSwipeTableViewCell.h>
 #import "UIColor+WHColor.h"
@@ -25,12 +26,13 @@
 @interface AllListsViewController ()<ListDetailViewControllerDelegate,UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) CellbackgroundVIew *statusBarBackgroundView;
+@property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
 @property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
 @property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
+@property (nonatomic, assign) CGPoint panPoint;
 @end
 
 @implementation AllListsViewController
@@ -61,7 +63,7 @@
     self.allApplicationNumLabel.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = self.allApplicationNumLabel;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    [self.tableView.panGestureRecognizer addTarget:self action:@selector(paned:)];
     
     UIView *backgroundView = [[UIView alloc] init];
     backgroundView.backgroundColor = [UIColor whClouds];
@@ -99,7 +101,7 @@
 
 - (void)configureStatusBar {
     if (!self.statusBarBackgroundView) {
-        self.statusBarBackgroundView = [[CellbackgroundVIew alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+        self.statusBarBackgroundView = [[PureColorBackgroundView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
         [self.view addSubview:self.statusBarBackgroundView];
     }
     
@@ -113,7 +115,7 @@
 }
 
 - (void)changeStatusBarWithCellColor:(CellColor)cellColor {
-    [self.statusBarBackgroundView setColor:cellColor];
+    self.statusBarBackgroundView.pureColor = (PureColor)cellColor;
     if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }else{
@@ -552,8 +554,8 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    self.pullDownProcessView.process =  - scrollView.contentOffset.y;
+    self.pullDownProcessView.pullColor = self.statusBarBackgroundView.backgroundColor;
+    self.pullDownProcessView.point = CGPointMake(_panPoint.x, -scrollView.contentOffset.y);
     
     if (scrollView.contentOffset.y < 0) {
         self.visualEffectView.alpha = - scrollView.contentOffset.y/60;
@@ -575,6 +577,10 @@
         JobList *jobList = self.dataModel.jobs[row];
         [self changeStatusBarWithCellColor:jobList.cellColor];
     }
+}
+
+- (void)paned:(UIPanGestureRecognizer *)gesture {
+    self.panPoint = [gesture locationInView:self.view];
 }
 
 #pragma mark - UINavigationControllerDelegate

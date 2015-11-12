@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PullDownProcessView : UIView
-@property (nonatomic, assign) float process;
+@property (nonatomic, strong) UIColor *pullColor;
+@property (nonatomic, assign) CGPoint point;
 @end
