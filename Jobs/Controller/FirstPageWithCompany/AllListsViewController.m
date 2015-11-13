@@ -28,11 +28,11 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
-@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
 @property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
 @property (nonatomic, assign) CGPoint panPoint;
+@property (nonatomic, assign) BOOL pulled;
 @end
 
 @implementation AllListsViewController
@@ -90,11 +90,6 @@
 }
 
 - (void)initPullDownProcessView {
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    self.visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    self.visualEffectView.alpha = 0;
-    [self.view addSubview:self.visualEffectView];
-    
     self.pullDownProcessView = [[PullDownProcessView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 0)];
     [self.view addSubview:self.pullDownProcessView];
 }
@@ -554,33 +549,43 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.pullDownProcessView.pullColor = self.statusBarBackgroundView.backgroundColor;
-    self.pullDownProcessView.point = CGPointMake(_panPoint.x, -scrollView.contentOffset.y);
+    CGFloat y = scrollView.contentOffset.y;
+    CGPoint point = self.panPoint;
+    point.y = -y;
+    self.panPoint = point;
     
-    if (scrollView.contentOffset.y < 0) {
-        self.visualEffectView.alpha = - scrollView.contentOffset.y/60;
-        self.visualEffectView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    if (self.pulled) {
+        [self refreshPullDownView];
+    }
+    
+    if (y <= 0) {
+        self.pulled = YES;
+        
+        if (scrollView.contentOffset.y < -90) {
+            [self performSegueWithIdentifier:@"AddJobList" sender:nil];
+        }
     }else{
-        self.visualEffectView.frame = CGRectZero;
-    }
-    
-    if (scrollView.contentOffset.y < -90) {
-        [self performSegueWithIdentifier:@"AddJobList" sender:nil];
-    }
-    
-    if (scrollView.contentOffset.y<0) {
-        return;
-    }
-    
-    int row = (int)(scrollView.contentOffset.y/80);
-    if (row < self.dataModel.jobs.count) {
-        JobList *jobList = self.dataModel.jobs[row];
-        [self changeStatusBarWithCellColor:jobList.cellColor];
+        self.pulled = NO;;
+        int row = (int)(scrollView.contentOffset.y/80);
+        if (row < self.dataModel.jobs.count) {
+            JobList *jobList = self.dataModel.jobs[row];
+            [self changeStatusBarWithCellColor:jobList.cellColor];
+        }
     }
 }
 
+- (void)refreshPullDownView {
+    self.pullDownProcessView.pullColor = self.statusBarBackgroundView.backgroundColor;
+    self.pullDownProcessView.point = self.panPoint;
+}
+
 - (void)paned:(UIPanGestureRecognizer *)gesture {
-    self.panPoint = [gesture locationInView:self.view];
+    if (self.pulled) {
+        CGPoint point = self.panPoint;
+        point.x = [gesture locationInView:self.tableView].x;
+        self.panPoint = point;
+        [self refreshPullDownView];
+    }
 }
 
 #pragma mark - UINavigationControllerDelegate
