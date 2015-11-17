@@ -561,7 +561,7 @@
     if (y <= 0) {
         self.pulled = YES;
         
-        if (scrollView.contentOffset.y < -90) {
+        if (scrollView.contentOffset.y < -110) {
             [self performSegueWithIdentifier:@"AddJobList" sender:nil];
         }
     }else{
