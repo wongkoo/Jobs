@@ -20,6 +20,7 @@
 #import <MCSwipeTableViewCell.h>
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
+#import "AllListsCompanyCell.h"
 
 #define CELL_HEIGHT 80
 
@@ -184,50 +185,44 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"CompanyCell";
-    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    AllListsCompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (!cell) {
-        cell = [self swipeTableViewCellWithIdentifier:CellIdentifier];
-    }
-    
-    [self configureElementsForCell:cell withIndexPath:indexPath];
-    
-    return cell;
-}
+        cell = [[AllListsCompanyCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+        __weak id weakSelf = self;
+        cell.listCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
+            AllListsViewController *mySelf = weakSelf;
+            UINavigationController *navigationController = [mySelf.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
+            ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
+            controller.delegate = weakSelf;
+            AllListsCompanyCell *myCell = (AllListsCompanyCell *)cell;
+            controller.jobListToEdit = myCell.jobList;
+            [weakSelf presentViewController:navigationController animated:YES completion:nil];
+        };
+        
+        cell.stickCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
 
-- (MCSwipeTableViewCell *)swipeTableViewCellWithIdentifier:(NSString *)identifier {
-    MCSwipeTableViewCell *cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
-    
-    // iOS 7 separator
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        cell.separatorInset = UIEdgeInsetsZero;
+            AllListsCompanyCell *myCell = (AllListsCompanyCell *)cell;
+            AllListsViewController *mySelf = weakSelf;
+            [mySelf.dataModel.jobs insertObject:myCell.jobList atIndex:0];
+            [mySelf.dataModel.jobs removeObjectAtIndex:(indexPath.row + 1)];
+            [mySelf.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [weakSelf configureStatusBar];
+            NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [mySelf.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        };
+        
+        cell.crossCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
+            [weakSelf deleteCell:(AllListsCompanyCell *)cell];
+        };
+        
+        cell.checkCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
+            [weakSelf changeStateofCell:(AllListsCompanyCell *)cell];
+        };
     }
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    CellbackgroundVIew *backView = [[CellbackgroundVIew alloc] initWithColor:CellColorDarkGray];
-    backView.tag = 23;
-    [cell.contentView addSubview:backView];
-    [backView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(cell.mas_left);
-        make.right.equalTo(cell.mas_right);
-        make.top.equalTo(cell.mas_top);
-        make.bottom.equalTo(cell.mas_bottom);
-    }];
-    
-    UILabel *label =[[UILabel alloc]init];
-    label.font = [UIFont boldSystemFontOfSize:18];
-    label.tag = 123;
-    [cell.contentView addSubview:label];
-    label.translatesAutoresizingMaskIntoConstraints = NO;
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(cell.mas_right).offset(-15);
-        make.centerY.equalTo(cell.mas_centerY);
-        make.height.equalTo(@40);
-    }];
-    
-    if (_forceTouchAvailable) {
-        [self registerForPreviewingWithDelegate:self sourceView:cell];
-    }
+    cell.jobList = self.dataModel.jobs[indexPath.row];
     
     return cell;
 }
@@ -248,286 +243,37 @@
     editingStyle = UITableViewCellEditingStyleInsert;
 }
 
-#pragma mark - ConfigCellElements
-- (void)configureElementsForCell:(MCSwipeTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
-    JobList *jobList = self.dataModel.jobs[indexPath.row];
-    [self configureColorForCell:cell withJobList:jobList];
-    [self configureTextForCell:cell withJobList:jobList];
-    [self configureStateOfCell:cell withJobList:jobList];
-    [self configureSwapeCell:cell withJobList:jobList];
-}
+#pragma mark - CellCallBack
 
-- (void)configureColorForCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList {
-    CellbackgroundVIew *view = (CellbackgroundVIew *)[cell.contentView viewWithTag:23];
-    [view setColor:jobList.cellColor];
-}
-
-- (void)configureTextForCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList{
-
-    NSString *detailString = [[NSString alloc] init];
-    NSString *dateString = [[NSString alloc] init];
-    BOOL showsHours = NO;
-    if ([jobList.items count] != 0) {
-        JobsItem *jobsItem = jobList.items[0];
-    
-        NSDate *nowDate = [NSDate date];
-        NSDateFormatter *referenceFormatter = [[NSDateFormatter alloc] init];
-        [referenceFormatter setDateFormat:@"yyyy/MMdd"];
-        NSString *referenceString = [referenceFormatter stringFromDate:nowDate];
-        NSDate *referenceDate = [referenceFormatter dateFromString:referenceString]; //00：00 of today
-        
-        NSDate *dueDate = jobsItem.dueDate;
-        NSTimeInterval timeInterval = [dueDate timeIntervalSinceDate:referenceDate];
-        NSTimeInterval day = timeInterval/3600/24;
-        
-        NSString *dateFrontString = [[NSString alloc] init];
-        if (day < 0) {
-            dateFrontString = @"已经 ";
-        }else{
-            if (day<1) {
-                if ([dueDate timeIntervalSinceNow] < 0) {
-                    dateFrontString = @"已经 ";
-                }else{
-                    dateFrontString = [NSString stringWithFormat:@"%.1f小时后 ",[dueDate timeIntervalSinceNow]/3600];
-                    showsHours = YES;
-                }
-            } else if (day < 2) {
-                dateFrontString = @"明天 ";
-            } else if (day < 3) {
-                dateFrontString = @"后天 ";
-            } else if (day < 10) {
-                dateFrontString = [NSString stringWithFormat:@"%d天后 ",(int)day];
-            } else {
-                NSDateFormatter *dateFormatterToShow = [[NSDateFormatter alloc] init];
-                [dateFormatterToShow setDateFormat:@"M月d日 "];
-                dateFrontString = [dateFormatterToShow stringFromDate:jobsItem.dueDate];
-            }
-        }
-        
-        dateString = [dateFrontString stringByAppendingString:jobsItem.nextTask];
-        detailString = jobsItem.text;
-        
-    }else{
-        dateString=@"";
-        detailString = @"暂未申请职位";
-    }
-    
-    CellColor cellColor = jobList.cellColor;
-    UIColor *stringColor;
-    if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
-        stringColor = [UIColor blackColor];
-    }else {
-        stringColor = [UIColor whiteColor];
-    }
-    
-    //标题
-    NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:jobList.name];
-    [titleAttributedString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, jobList.name.length)];
-    [titleAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, jobList.name.length)];
-    cell.textLabel.attributedText = titleAttributedString;
-    
-    //副标题
-    NSMutableAttributedString *detailAttrString = [[NSMutableAttributedString alloc] initWithString:detailString];
-    [detailAttrString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, detailString.length)];
-    cell.detailTextLabel.attributedText = detailAttrString;
-    
-    //日期
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
-    NSMutableAttributedString *labelAttrString = [[NSMutableAttributedString alloc] initWithString:dateString];
-    [labelAttrString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, dateString.length)];
-    if ( ![dateString isEqualToString:@""] && dateString.length >= 2) {
-        [labelAttrString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(dateString.length - 2, 2)];
-    }
-    if (showsHours) {
-        [labelAttrString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(3, 3)];
-    }
-    label.attributedText = labelAttrString;
-}
-
-- (void)configureSwapeCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList {
-    UIView *checkView = [self viewWithImageName:@"check"];
-    UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
-    
-    UIView *crossView = [self viewWithImageName:@"cross"];
-    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-    
-    UIView *listView = [self viewWithImageName:@"list"];
-    UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
-    
-    UIView *stickView = [self viewWithImageName:@"stick"];
-    UIColor *stickColor = [UIColor whAmethyst];
-    
-    // Setting the default inactive state color to the tableView background color
-    [cell setDefaultColor:self.tableView.backgroundColor];
-    [cell setDelegate:(id)self];
-    
-    if (jobList.deletedFlag == 0) {
-        [cell setSwipeGestureWithView:checkView
-                                color:greenColor
-                                 mode:MCSwipeTableViewCellModeSwitch
-                                state:MCSwipeTableViewCellState1
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-                          
-                          [self changeStateofCell:cell];
-                      }];
-        [cell setSwipeGestureWithView:checkView
-                                color:greenColor
-                                 mode:MCSwipeTableViewCellModeSwitch
-                                state:MCSwipeTableViewCellState2
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-                          
-                          [self changeStateofCell:cell];
-                      }];
-        
-        [cell setSwipeGestureWithView:listView
-                                color:brownColor
-                                 mode:MCSwipeTableViewCellModeExit
-                                state:MCSwipeTableViewCellState3
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-                          
-                          UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
-                          ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
-                          controller.delegate = self;
-                          controller.jobListToEdit = jobList;
-                          [self presentViewController:navigationController animated:YES completion:nil];
-                      }];
-        
-        [cell setSwipeGestureWithView:stickView
-                                color:stickColor
-                                 mode:MCSwipeTableViewCellModeSwitch
-                                state:MCSwipeTableViewCellState4
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-                          NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-                          JobList *list = self.dataModel.jobs[indexPath.row];
-                          [self.dataModel.jobs insertObject:list atIndex:0];
-                          [self.dataModel.jobs removeObjectAtIndex:(indexPath.row + 1)];
-                          [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                          [self configureStatusBar];
-                          NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                          [self.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-                      }];
-        
-        
-    }else if(jobList.deletedFlag == 1){
-        [cell setSwipeGestureWithView:checkView
-                                color:[UIColor whPeterRiver]
-                                 mode:MCSwipeTableViewCellModeSwitch
-                                state:MCSwipeTableViewCellState1
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-                          
-                          [self changeStateofCell:cell];
-                      }];
-        [cell setSwipeGestureWithView:crossView
-                                color:redColor
-                                 mode:MCSwipeTableViewCellModeExit
-                                state:MCSwipeTableViewCellState2
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-                          
-                          [self deleteCell:cell];
-                      }];
-        [cell setSwipeGestureWithView:listView
-                                color:brownColor
-                                 mode:MCSwipeTableViewCellModeExit
-                                state:MCSwipeTableViewCellState3
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-                          
-                          UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
-                          ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
-                          controller.delegate = self;
-                          controller.jobListToEdit = jobList;
-                          [self presentViewController:navigationController animated:YES completion:nil];
-                      }];
-        [cell setSwipeGestureWithView:listView
-                                color:brownColor
-                                 mode:MCSwipeTableViewCellModeExit
-                                state:MCSwipeTableViewCellState4
-                      completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-                          
-                          UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
-                          ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
-                          controller.delegate = self;
-                          controller.jobListToEdit = jobList;
-                          [self presentViewController:navigationController animated:YES completion:nil];
-                      }];
-    }
-    cell.firstTrigger = 0.25;
-    cell.secondTrigger = 0.4;
-}
-
-- (void)configureStateOfCell:(MCSwipeTableViewCell *)cell withJobList:(JobList *)jobList {
-    if (jobList.deletedFlag == 0) {
-        //date
-        UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
-        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:label.attributedText];
-        [dateAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, label.attributedText.length)];
-        label.attributedText = dateAttributeString;
-
-        //title
-        NSMutableAttributedString *titleAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.textLabel.attributedText];
-        [titleAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, cell.textLabel.attributedText.length)];
-        cell.textLabel.attributedText = titleAttributeString;
-        
-        //detail title
-        NSMutableAttributedString *detailAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.detailTextLabel.attributedText];
-        [detailAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, cell.detailTextLabel.attributedText.length)];
-        cell.detailTextLabel.attributedText = detailAttributeString;
-        
-    }else if(jobList.deletedFlag == 1){
-        //data
-        UILabel *label = (UILabel *)[cell.contentView viewWithTag:123];
-        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:label.attributedText];
-        [dateAttributeString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, label.attributedText.length)];
-        label.attributedText = dateAttributeString;
-        
-        //title
-        NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.textLabel.attributedText];
-        [titleAttributedString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, cell.textLabel.attributedText.length)];
-        cell.textLabel.attributedText = titleAttributedString;
-        
-        //detail
-        NSMutableAttributedString *detailAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString:cell.detailTextLabel.attributedText];
-        [detailAttributedString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, cell.detailTextLabel.attributedText.length)];
-        cell.detailTextLabel.attributedText = detailAttributedString;
-    }
-    [self updateAllApplicationNum];
-}
-
-- (UIView *)viewWithImageName:(NSString *)imageName {
-    UIImage *image = [UIImage imageNamed:imageName];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.contentMode = UIViewContentModeCenter;
-    return imageView;
-}
-
-- (void)deleteCell:(MCSwipeTableViewCell *)cell{
+- (void)deleteCell:(AllListsCompanyCell *)cell{
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.dataModel cancelLocalNotificationIndexOfJobs:indexPath.row];
     [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
-- (void)changeStateofCell:(MCSwipeTableViewCell *)cell {
+- (void)changeStateofCell:(AllListsCompanyCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    JobList *jobList = self.dataModel.jobs[indexPath.row];
     NSInteger disDeletedNum = [self.dataModel numberOfDisDeletedJobsList];
     
-    jobList.deletedFlag = !jobList.deletedFlag;
-    [self configureStateOfCell:cell withJobList:jobList];
-    [self configureSwapeCell:cell withJobList:jobList];
+    cell.jobList.deletedFlag = !cell.jobList.deletedFlag;
+    [cell reloadData];
+    [self updateAllApplicationNum];
+    
     [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
     
     NSInteger insertIndex;
     NSIndexPath *desIndexPath;
     
-    if (jobList.deletedFlag == 1) {
+    if (cell.jobList.deletedFlag == 1) {
         insertIndex = disDeletedNum - 1;
         desIndexPath = [NSIndexPath indexPathForRow:disDeletedNum-1 inSection:0];
-    }else if(jobList.deletedFlag == 0){
+    }else if(cell.jobList.deletedFlag == 0){
         insertIndex = 0;
         desIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     }
     
-    [self.dataModel.jobs insertObject:jobList atIndex:insertIndex];
+    [self.dataModel.jobs insertObject:cell.jobList atIndex:insertIndex];
     [self.tableView moveRowAtIndexPath:indexPath toIndexPath:desIndexPath];
     [self configureStatusBar];
     [self.tableView scrollToRowAtIndexPath:desIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];

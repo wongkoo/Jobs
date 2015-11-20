@@ -15,14 +15,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" id="wUc-E8-8oq">
-                            <rect key="frame" x="0.0" y="64" width="600" height="55"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.0" alpha="0.40999999999999998" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <connections>
                             <outlet property="dataSource" destination="GHa-u7-5dq" id="O4e-Nq-e7k"/>
                             <outlet property="delegate" destination="GHa-u7-5dq" id="GAh-OS-2re"/>
@@ -36,7 +28,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="detailTextView" destination="wUc-E8-8oq" id="OB2-U1-jNs"/>
                         <segue destination="ucZ-nG-2Ul" kind="unwind" identifier="backToAllListsViewController" unwindAction="backToAllListsViewController:" id="UVb-CB-ZAT"/>
                     </connections>
                 </tableViewController>

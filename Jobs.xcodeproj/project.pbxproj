@@ -33,6 +33,7 @@
 		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
+		9B3AA6F01BFC70D900B1B9A2 /* AllListsCompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AA6EF1BFC70D900B1B9A2 /* AllListsCompanyCell.m */; };
 		9B957AD41BF4B4F10058C796 /* PureColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */; };
 		9BC35BC21BF1E2A300903192 /* PullDownProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */; };
 		9BE99EF61BEB4FDC00345F46 /* ColorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */; };
@@ -100,6 +101,8 @@
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		9B0551CB1BEB0A2700E09969 /* ColorSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSelectCell.h; path = FirstDetailPage/Cell/ColorSelectCell.h; sourceTree = "<group>"; };
 		9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectCell.m; path = FirstDetailPage/Cell/ColorSelectCell.m; sourceTree = "<group>"; };
+		9B3AA6EE1BFC70D900B1B9A2 /* AllListsCompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllListsCompanyCell.h; path = FirstPage/AllListsCompanyCell.h; sourceTree = "<group>"; };
+		9B3AA6EF1BFC70D900B1B9A2 /* AllListsCompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllListsCompanyCell.m; path = FirstPage/AllListsCompanyCell.m; sourceTree = "<group>"; };
 		9B957AD21BF4B4F10058C796 /* PureColorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureColorBackgroundView.h; sourceTree = "<group>"; };
 		9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PureColorBackgroundView.m; sourceTree = "<group>"; };
 		9BC35BC01BF1E2A200903192 /* PullDownProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullDownProcessView.h; path = FirstPage/PullDownProcessView.h; sourceTree = "<group>"; };
@@ -326,11 +329,13 @@
 		9BC35BC31BF1E2B900903192 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
+				9B3AA6EE1BFC70D900B1B9A2 /* AllListsCompanyCell.h */,
+				9B3AA6EF1BFC70D900B1B9A2 /* AllListsCompanyCell.m */,
 				9BC35BC01BF1E2A200903192 /* PullDownProcessView.h */,
 				9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */,
-				721243AF1BAE8BAB0046B060 /* FirstDetailPage */,
 				9B957AD21BF4B4F10058C796 /* PureColorBackgroundView.h */,
 				9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */,
+				721243AF1BAE8BAB0046B060 /* FirstDetailPage */,
 			);
 			name = FirstPage;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,
+				9B3AA6F01BFC70D900B1B9A2 /* AllListsCompanyCell.m in Sources */,
 				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
 				9BE99EF61BEB4FDC00345F46 /* ColorSelectViewController.m in Sources */,
 				721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */,

@@ -8,7 +8,9 @@
 
 #import "PureColorBackgroundView.h"
 #import "UIColor+WHColor.h"
+
 @implementation PureColorBackgroundView
+
 - (void)setPureColor:(PureColor)pureColor {
     switch (pureColor) {
         case PureColorColorWhite:

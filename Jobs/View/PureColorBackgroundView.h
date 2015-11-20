@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "CellbackgroundVIew.h"
+
 typedef NS_ENUM(NSInteger, PureColor) {
     PureColorColorWhite = 0,
     PureColorColorSilver,
@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, PureColor) {
     PureColorDenim,
     PureColorMidnight
 };
+
 @interface PureColorBackgroundView : UIView
 @property (nonatomic, assign) PureColor pureColor;
 @end
