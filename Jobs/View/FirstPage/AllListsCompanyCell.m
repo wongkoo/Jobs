@@ -15,9 +15,14 @@
 @interface AllListsCompanyCell ()
 @property (nonatomic, strong) UILabel *processLabel;
 @property (nonatomic, strong) CellbackgroundVIew *cellBackgroundView;
+
 @end
 
 @implementation AllListsCompanyCell
+
++ (NSString *)reuseIdentifier {
+    return NSStringFromClass([self class]);
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -54,6 +59,7 @@
 
 - (void)setJobList:(JobList *)jobList {
     _jobList = jobList;
+    
     [self reloadData];
 }
 

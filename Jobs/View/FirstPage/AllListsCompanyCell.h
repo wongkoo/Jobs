@@ -17,6 +17,7 @@
 @property (nonatomic, copy) MCSwipeCompletionBlock crossCompletetionBlock;
 @property (nonatomic, copy) MCSwipeCompletionBlock checkCompletetionBlock;
 
++ (NSString *)reuseIdentifier;
 - (void)reloadData;
 
 @end

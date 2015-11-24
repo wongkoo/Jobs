@@ -16,8 +16,6 @@
 
 #import "PullDownProcessView.h"
 #import "PureColorBackgroundView.h"
-#import "CellbackgroundVIew.h"
-#import <MCSwipeTableViewCell.h>
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
 #import "AllListsCompanyCell.h"
@@ -141,7 +139,6 @@
         _forceTouchAvailable = YES;
     }else{
         _forceTouchAvailable = NO;
-        NSLog(@"3D Touch is not available on this device. Sorry!");
     }
 }
 
@@ -184,11 +181,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *CellIdentifier = @"CompanyCell";
-    AllListsCompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    AllListsCompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:[AllListsCompanyCell reuseIdentifier]];
     
     if (!cell) {
-        cell = [[AllListsCompanyCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[AllListsCompanyCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[AllListsCompanyCell reuseIdentifier]];
         
         __weak id weakSelf = self;
         cell.listCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
@@ -223,6 +219,10 @@
     }
     
     cell.jobList = self.dataModel.jobs[indexPath.row];
+    
+    if (_forceTouchAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:cell];
+    }
     
     return cell;
 }
@@ -281,7 +281,7 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.dataModel setIndexOfSelectedJobList:indexPath.row];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -335,7 +335,7 @@
 }
 
 #pragma mark - UINavigationControllerDelegate
--(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (viewController == self) {
         [self.dataModel setIndexOfSelectedJobList:-1];
     }

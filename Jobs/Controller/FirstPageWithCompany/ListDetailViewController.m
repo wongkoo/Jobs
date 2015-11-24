@@ -120,7 +120,7 @@
             cell.title = @"背景颜色";
             [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
         }
-        [self configColorForCell:(ColorSelectCell *)cell withIndexPath:(NSIndexPath *)indexPath];
+        cell.cellColor = _cellColor;
         return cell;
     }
     
@@ -135,10 +135,6 @@
         [self configureElementForCell:cell withIndexPath:indexPath];
         return cell;
     }
-}
-
-- (void)configColorForCell:(ColorSelectCell *)cell withIndexPath:(NSIndexPath *)indexPath {
-    cell.cellColor = _cellColor;
 }
 
 - (void)configureElementForCell:(LabelAndTextFieldCell *)cell withIndexPath:(NSIndexPath *)indexPath {
@@ -191,7 +187,6 @@
     layTopRowAction1.backgroundColor = [UIColor redColor];
     
     UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-//        NSLog(@"点击了编辑");
         DateAndProcess *dateAndProcess = [_process objectAtIndex:indexPath.row];
         [self addProcessViewWithString:dateAndProcess.string Date:dateAndProcess.date Index:indexPath.row];
         [tableView setEditing:NO animated:YES];
@@ -202,24 +197,14 @@
     return arr;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        return;
-    }else{
-        return;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     [_process exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
 }
 
 
 
 // Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2 && indexPath.row != [_process count]) {
         return YES;
     }else{
@@ -263,7 +248,6 @@
     [view addSubview:label];
     
     return view;
-    
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
@@ -333,19 +317,18 @@
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [self.view endEditing:YES];
 }
 
 
 
 #pragma mark - IBAction
-- (IBAction)cancel:(id)sender{
+- (IBAction)cancel:(id)sender {
     [self.delegate listDetailViewControllerDidCancel:self];
 }
 
-- (IBAction)save:(id)sender{
+- (IBAction)save:(id)sender {
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
