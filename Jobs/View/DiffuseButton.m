@@ -7,6 +7,7 @@
 //
 
 #import "DiffuseButton.h"
+#import "UIColor+WHColor.h"
 #import <Masonry.h>
 
 @interface DiffuseButton () {
@@ -21,6 +22,8 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) CGFloat radius;
 @property (nonatomic, strong) UIColor *color;
+
+@property (nonatomic, strong) UIView *animationView;
 
 @end
 
@@ -43,27 +46,47 @@
     
     self.circle = [[CAShapeLayer alloc] init];
     self.path = [UIBezierPath bezierPath];
-    self.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2) radius:self.radius startAngle:0 endAngle:2*M_PI clockwise:NO];
+    self.path = [self bigCirclePath];
     self.circle.path = self.path.CGPath;
     self.circle.fillColor = self.color.CGColor;
     self.circle.strokeColor = self.color.CGColor;
     self.circle.backgroundColor = self.color.CGColor;
     [self.layer addSublayer:self.circle];
+
+    self.animationView = [[UIView alloc] initWithFrame:CGRectMake([self diagonalLength], 0, 10, 10)];
+    [self addSubview:self.animationView];
+    
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(doAnimation)];
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.animationView.frame = CGRectMake(0, 0, 1, 1);
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [displayLink invalidate];
+        }
+    }];
+    
     
     self.centerTitleLabel = [[UILabel alloc] init];
     self.centerTitleLabel.text = self.title;
+    self.centerTitleLabel.textColor = [UIColor whClouds];
     [self addSubview:self.centerTitleLabel];
     [self.centerTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
     }];
 }
 
+- (void)doAnimation {
+    CALayer *animationLayer = [self.animationView.layer presentationLayer];
+    CGRect rect = [[animationLayer valueForKeyPath:@"frame"]CGRectValue];
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2) radius:self.radius + rect.origin.x startAngle:0 endAngle:2*M_PI clockwise:NO];
+    self.circle.path = path.CGPath;
+}
+
 - (void)sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
-    UIWindow *window = self.window;
-    CGFloat width = window.frame.size.width;
-    CGFloat height = window.frame.size.height;
-    CGFloat length =sqrt(width * width + height * height);
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2) radius:length startAngle:0 endAngle:6.29 clockwise:NO];
+    UIBezierPath *path = [self bigCirclePath];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -86,5 +109,17 @@
     [super sendAction:_action to:_target forEvent:_event];
 }
 
+- (UIBezierPath *)bigCirclePath {
+    CGFloat length = [self diagonalLength];
+    return  [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2) radius:length startAngle:0 endAngle:6.29 clockwise:NO];
+}
+
+- (CGFloat)diagonalLength {
+    CGRect rect = [UIScreen mainScreen].bounds;
+    CGFloat width = rect.size.width;
+    CGFloat height = rect.size.height;
+    CGFloat length = sqrt(width * width + height * height);
+    return length;
+}
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiffuseButton : UIButton
+@interface DiffuseButton : UIControl
 
 - (id)initWithTitle:(NSString *)title radius:(CGFloat)radius color:(UIColor *)color;
 - (void)drawButton;

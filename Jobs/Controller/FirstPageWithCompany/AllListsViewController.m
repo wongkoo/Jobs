@@ -190,11 +190,27 @@
 
 - (void)shareScreenShot {
     
-    UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);  //NO，YES 控制是否透明
-    [self.tableView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+//    UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);  //NO，YES 控制是否透明
+//    [self.tableView.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
     
+    UIImage* image = nil;
+    UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);
+    {
+        CGPoint savedContentOffset = self.tableView.contentOffset;
+        CGRect savedFrame = self.tableView.frame;
+        
+        self.tableView.contentOffset = CGPointZero;
+        self.tableView.frame = CGRectMake(0, 0, self.tableView.contentSize.width, self.tableView.contentSize.height);
+        
+        [self.tableView.layer renderInContext: UIGraphicsGetCurrentContext()];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        self.tableView.contentOffset = savedContentOffset;
+        self.tableView.frame = savedFrame;
+    }
+    UIGraphicsEndImageContext();
     
     ShareViewController *shareViewController = [[ShareViewController alloc] init];
     shareViewController.sharedImage = image;

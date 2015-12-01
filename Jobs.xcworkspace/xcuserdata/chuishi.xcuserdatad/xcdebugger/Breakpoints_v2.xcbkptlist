@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Jobs/Controller/ShareViewController.m"
-            timestampString = "470664849.306744"
+            filePath = "Jobs/Controller/FirstPageWithCompany/AllListsViewController.m"
+            timestampString = "470672294.605479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-handleDisplayLink"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "-shareScreenShot"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
