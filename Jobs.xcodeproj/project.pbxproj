@@ -35,6 +35,8 @@
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
 		9B3AA6F01BFC70D900B1B9A2 /* AllListsCompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AA6EF1BFC70D900B1B9A2 /* AllListsCompanyCell.m */; };
 		9B957AD41BF4B4F10058C796 /* PureColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */; };
+		9B95D65E1C04802D002F66B3 /* DiffuseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95D65D1C04802D002F66B3 /* DiffuseButton.m */; };
+		9B95D69C1C0DB39A002F66B3 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */; };
 		9BC35BC21BF1E2A300903192 /* PullDownProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */; };
 		9BE99EF61BEB4FDC00345F46 /* ColorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */; };
 /* End PBXBuildFile section */
@@ -105,6 +107,10 @@
 		9B3AA6EF1BFC70D900B1B9A2 /* AllListsCompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllListsCompanyCell.m; path = FirstPage/AllListsCompanyCell.m; sourceTree = "<group>"; };
 		9B957AD21BF4B4F10058C796 /* PureColorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureColorBackgroundView.h; sourceTree = "<group>"; };
 		9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PureColorBackgroundView.m; sourceTree = "<group>"; };
+		9B95D65C1C04802D002F66B3 /* DiffuseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffuseButton.h; sourceTree = "<group>"; };
+		9B95D65D1C04802D002F66B3 /* DiffuseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffuseButton.m; sourceTree = "<group>"; };
+		9B95D69A1C0DB39A002F66B3 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		9BC35BC01BF1E2A200903192 /* PullDownProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullDownProcessView.h; path = FirstPage/PullDownProcessView.h; sourceTree = "<group>"; };
 		9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullDownProcessView.m; path = FirstPage/PullDownProcessView.m; sourceTree = "<group>"; };
 		9BE99EF41BEB4FDC00345F46 /* ColorSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSelectViewController.h; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 				723E8E9D1BAA9EEF004D4E8C /* IntroPage */,
 				723E8E9B1BAA9E8A004D4E8C /* FirstPageWithCompany */,
 				723E8E9C1BAA9EC7004D4E8C /* SecondPageInCompany */,
+				9B95D69A1C0DB39A002F66B3 /* ShareViewController.h */,
+				9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -322,6 +330,8 @@
 				722BB0FC1BB245A8005372A4 /* SecondPage */,
 				720DC2FD1BB2D23500B82B99 /* UIColorCategory */,
 				721243B01BAE8BDB0046B060 /* AllPageCellBackground */,
+				9B95D65C1C04802D002F66B3 /* DiffuseButton.h */,
+				9B95D65D1C04802D002F66B3 /* DiffuseButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -504,6 +514,7 @@
 				721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */,
 				72C884081BC284F00046DA81 /* CountdownView.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
+				9B95D65E1C04802D002F66B3 /* DiffuseButton.m in Sources */,
 				720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,
@@ -518,6 +529,7 @@
 				723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
+				9B95D69C1C0DB39A002F66B3 /* ShareViewController.m in Sources */,
 				7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

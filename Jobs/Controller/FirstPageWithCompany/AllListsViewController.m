@@ -9,6 +9,7 @@
 #import "AllListsViewController.h"
 #import "ListDetailViewController.h"
 #import "ViewController.h"
+#import "ShareViewController.h"
 
 #import "JobList.h"
 #import "jobsItem.h"
@@ -16,6 +17,7 @@
 
 #import "PullDownProcessView.h"
 #import "PureColorBackgroundView.h"
+#import "DiffuseButton.h"
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
 #import "AllListsCompanyCell.h"
@@ -26,6 +28,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
+@property (nonatomic, strong) DiffuseButton *shareButton;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
@@ -42,9 +45,15 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    [self initViews];
+    [self checkForceTouch];
+}
+
+- (void)initViews {
     [self initTableView];
     [self initPullDownProcessView];
-    [self checkForceTouch];
+    [self initStatusBar];
+    [self initShareButton];
 }
 
 - (void)initTableView {
@@ -93,12 +102,33 @@
     [self.view addSubview:self.pullDownProcessView];
 }
 
-- (void)configureStatusBar {
+- (void)initStatusBar {
     if (!self.statusBarBackgroundView) {
         self.statusBarBackgroundView = [[PureColorBackgroundView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
         [self.view addSubview:self.statusBarBackgroundView];
     }
-    
+}
+
+- (void)initShareButton {
+    self.shareButton = [[DiffuseButton alloc] initWithTitle:@"S" radius:20 color:[UIColor whBelizeHole]];
+    [self.view addSubview:_shareButton];
+    [_shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.bottom.equalTo(self.view).offset(-20);
+        make.height.width.equalTo(@40);
+    }];
+    [_shareButton drawButton];
+    [_shareButton addTarget:self action:@selector(shareScreenShot) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)configureShareButton {
+    if (self.shareButton.superview == nil) {
+        self.shareButton = nil;
+        [self initShareButton];
+    }
+}
+
+- (void)configureStatusBar {
     if (self.dataModel.jobs.count > 0) {
         JobList *joblist = self.dataModel.jobs[0];
         [self changeStatusBarWithCellColor:joblist.cellColor];
@@ -123,6 +153,7 @@
     [self updateAllApplicationNum];
     [self.tableView reloadData];
     [self configureStatusBar];
+    [self configureShareButton];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -157,8 +188,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Segue
+- (void)shareScreenShot {
+    
+    UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);  //NO，YES 控制是否透明
+    [self.tableView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    ShareViewController *shareViewController = [[ShareViewController alloc] init];
+    shareViewController.sharedImage = image;
+    shareViewController.finishBlock = ^(void){
+        [self initShareButton];
+    };
+    [self.view addSubview:shareViewController.view];
+    [self addChildViewController:shareViewController];
+}
 
+#pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"ShowJobList"]) {
         ViewController *controller = segue.destinationViewController;
