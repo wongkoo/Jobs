@@ -24,6 +24,7 @@
 }
 
 - (void)initPullLayer {
+    self.clipsToBounds = YES;
     self.pullLayer = [[CAShapeLayer alloc] init];
     self.pullLayer.fillColor = [UIColor whiteColor].CGColor;
     self.pullLayer.shadowOffset = CGSizeMake(4, 4);

@@ -374,7 +374,7 @@
             [self performSegueWithIdentifier:@"AddJobList" sender:nil];
         }
     }else{
-        self.pulled = NO;;
+        self.pulled = NO;
         int row = (int)(scrollView.contentOffset.y/80);
         if (row < self.dataModel.jobs.count) {
             JobList *jobList = self.dataModel.jobs[row];
