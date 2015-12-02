@@ -1,5 +1,0 @@
-#include "UIColor+BFPaperColors.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/UIColor+BFPaperColors" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BFPaperCheckbox" "${PODS_ROOT}/Headers/Public/EAIntroView" "${PODS_ROOT}/Headers/Public/EARestrictedScrollView" "${PODS_ROOT}/Headers/Public/MCSwipeTableViewCell" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/UIColor+BFPaperColors" "${PODS_ROOT}/Headers/Public/pop"
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES

@@ -248,6 +248,7 @@
     
     if (!cell) {
         cell = [[AllListsCompanyCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[AllListsCompanyCell reuseIdentifier]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         __weak id weakSelf = self;
         cell.listCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){

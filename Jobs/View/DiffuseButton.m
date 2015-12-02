@@ -43,6 +43,7 @@
     [self.superview bringSubviewToFront:self];
     self.layer.cornerRadius = self.radius;
     self.clipsToBounds = NO;
+    self.enabled = NO;
     
     self.circle = [[CAShapeLayer alloc] init];
     self.path = [UIBezierPath bezierPath];
@@ -58,12 +59,13 @@
     
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(doAnimation)];
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-
+    
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.animationView.frame = CGRectMake(0, 0, 1, 1);
     } completion:^(BOOL finished) {
         if (finished) {
             [displayLink invalidate];
+            self.enabled = YES;
         }
     }];
     
@@ -101,12 +103,13 @@
     _action = action;
     _target = target;
     _event = event;
+    self.enabled = NO;;
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     self.centerTitleLabel.hidden = YES;
-    [self removeFromSuperview];
     [super sendAction:_action to:_target forEvent:_event];
+    [self removeFromSuperview];
 }
 
 - (UIBezierPath *)bigCirclePath {
