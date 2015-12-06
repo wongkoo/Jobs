@@ -54,19 +54,17 @@
     self.circle.backgroundColor = self.color.CGColor;
     [self.layer addSublayer:self.circle];
 
-    self.animationView = [[UIView alloc] initWithFrame:CGRectMake([self diagonalLength], 0, 10, 10)];
+    self.animationView = [[UIView alloc] initWithFrame:CGRectMake([self diagonalLength], 0, 0, 0)];
     [self addSubview:self.animationView];
     
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(doAnimation)];
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.animationView.frame = CGRectMake(0, 0, 1, 1);
+        self.animationView.frame = CGRectMake(0, 0, 0, 0);
     } completion:^(BOOL finished) {
-        if (finished) {
             [displayLink invalidate];
             self.enabled = YES;
-        }
     }];
     
     
