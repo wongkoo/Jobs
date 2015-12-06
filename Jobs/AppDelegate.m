@@ -13,6 +13,13 @@
 #import "JobsItem.h"
 #import "IntroPageViewController.h"
 
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import "WXApi.h"
+
+static NSString * const WechatAppID = @"wxa3f12a36193aaecf";
+static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
+
 @interface AppDelegate ()
 @end
 
@@ -38,6 +45,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self registerShareSDK];
     
     UIApplicationShortcutItem *item = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
     if (item) {
@@ -129,6 +138,33 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveData];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)registerShareSDK {
+    [ShareSDK registerApp:@"cfd0b3db4733"
+          activePlatforms:@[@(SSDKPlatformSubTypeWechatTimeline),
+                            @(SSDKPlatformSubTypeWechatSession),@(SSDKPlatformTypeWechat)]
+                 onImport:^(SSDKPlatformType platformType) {
+                     switch (platformType) {
+                         case SSDKPlatformTypeWechat:
+                             [ShareSDKConnector connectWeChat:[WXApi class]];
+                             break;
+                             
+                         default:
+                             break;
+                     }
+                 }
+
+          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
+              switch (platformType) {
+                  case SSDKPlatformTypeWechat:
+                      [appInfo SSDKSetupWeChatByAppId:WechatAppID appSecret:WechatAppSecret];
+                      break;
+                      
+                  default:
+                      break;
+              }
+          }];
 }
 
 @end

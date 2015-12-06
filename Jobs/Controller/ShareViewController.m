@@ -10,6 +10,10 @@
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
 
+#import <ShareSDK/NSMutableDictionary+SSDKShare.h>
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+
 static const CGFloat kCrossButtonWidth = 30;
 
 @interface ShareViewController ()
@@ -50,7 +54,8 @@ static const CGFloat kCrossButtonWidth = 30;
     UIButton *sharedButton = [[UIButton alloc] initWithFrame:CGRectMake(-self.view.frame.size.width, self.view.frame.size.height - 100, self.view.frame.size.width - 40, 50)];
     sharedButton.layer.cornerRadius = 5;
     sharedButton.backgroundColor = [UIColor redColor];
-    [sharedButton setTitle:@"分享到微信" forState:UIControlStateNormal];
+    [sharedButton setTitle:@"分享到微信朋友圈" forState:UIControlStateNormal];
+    [sharedButton addTarget:self action:@selector(shareWechat) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sharedButton];
     
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.4 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -67,6 +72,69 @@ static const CGFloat kCrossButtonWidth = 30;
     }];
 }
 
+- (void)shareWechat {
+
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+
+    [shareParams SSDKSetupShareParamsByText:@"By Jobs"
+                                     images:self.sharedImage
+                                        url:[NSURL URLWithString:@"https://itunes.apple.com/us/app/jobs/id1016317328?l=zh&ls=1&mt=8"]
+                                      title:@"Jobs"
+                                       type:SSDKContentTypeImage];
+    
+    [shareParams SSDKSetupWeChatParamsByText:@"My Jobs."
+                                       title:@"Jobs"
+                                         url:[NSURL URLWithString:@"https://itunes.apple.com/us/app/jobs/id1016317328?l=zh&ls=1&mt=8"]
+                                  thumbImage:nil
+                                       image:self.sharedImage
+                                musicFileURL:nil
+                                     extInfo:nil
+                                    fileData:nil
+                                emoticonData:nil
+                                        type:SSDKContentTypeImage
+                          forPlatformSubType:SSDKPlatformSubTypeWechatTimeline];
+    
+    [ShareSDK share:SSDKPlatformSubTypeWechatTimeline
+         parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+         switch (state) {
+             case SSDKResponseStateSuccess:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                     message:nil
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateFail:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                     message:[NSString stringWithFormat:@"%@", error]
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateCancel:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享已取消"
+                                                                     message:nil
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             default:
+                 break;
+         }
+         
+     }];
+    
+}
 - (void)close {
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
