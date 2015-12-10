@@ -8,14 +8,11 @@
 
 #import "CellbackgroundVIew.h"
 
-@protocol ColorSelectVCDelegate <NSObject>
-@optional
-- (void)selectColorInterger:(NSInteger)integer;
-@end
+typedef void(^SelectedBlock)(NSInteger integer);
 
-@interface ColorSelectViewController : UITableViewController <UITabBarControllerDelegate,UITableViewDataSource,ColorSelectVCDelegate>
+@interface ColorSelectViewController : UITableViewController 
 
 @property (nonatomic, assign) CellColor cellColor;
-@property (nonatomic, weak) id<ColorSelectVCDelegate> delegate;
+@property (nonatomic, copy) SelectedBlock selectedBlock;
 
 @end

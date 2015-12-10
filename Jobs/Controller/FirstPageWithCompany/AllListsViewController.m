@@ -22,7 +22,7 @@
 #import "Masonry.h"
 #import "AllListsCompanyCell.h"
 
-#define CELL_HEIGHT 80
+static const NSInteger CELL_HEIGHT = 80;
 
 @interface AllListsViewController ()<ListDetailViewControllerDelegate,UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -189,12 +189,6 @@
 }
 
 - (void)shareScreenShot {
-    
-//    UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);  //NO，YES 控制是否透明
-//    [self.tableView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-    
     UIImage* image = nil;
     UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);
     {
@@ -450,7 +444,7 @@
 
 #pragma mark - ListDetailViewControllerDelegate
 - (void)listDetailViewControllerDidCancel:(ListDetailViewController *)controller{
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList{

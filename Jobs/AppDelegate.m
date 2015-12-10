@@ -150,7 +150,7 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
 
 - (ShadowNavController *)currentNavigationController {
     UIViewController *rootController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    ShadowNavController *nav;
+    ShadowNavController *nav = nil;
     if ([rootController isKindOfClass:[ShadowNavController class]]) {
         nav = (ShadowNavController *)rootController;
     } else if ([rootController isKindOfClass:[UITabBarController class]]) {

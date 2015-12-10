@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Jobs/Controller/FirstPageWithCompany/AllListsViewController.m"
-            timestampString = "470672294.605479"
+            timestampString = "471454766.076115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "-shareScreenShot"
             landmarkType = "5">
          </BreakpointContent>

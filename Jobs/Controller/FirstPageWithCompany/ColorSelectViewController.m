@@ -10,6 +10,9 @@
 #import "UIColor+WHColor.h"
 #import <Masonry.h>
 
+@interface ColorSelectViewController ()<UITabBarControllerDelegate,UITableViewDataSource>
+@end
+
 @implementation ColorSelectViewController
 
 - (void)viewDidLoad {
@@ -17,9 +20,12 @@
 }
 
 
+
 #pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate selectColorInterger:indexPath.row];
+    self.selectedBlock(indexPath.row);
+    self.selectedBlock = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -27,7 +33,10 @@
     return 70;
 }
 
+
+
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 8;
 }

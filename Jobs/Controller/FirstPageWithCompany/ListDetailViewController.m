@@ -21,7 +21,7 @@
 #import "ProcessCell.h"
 #import "ColorSelectCell.h"
 
-@interface ListDetailViewController ()<ColorSelectVCDelegate>
+@interface ListDetailViewController ()
 @property (strong, nonatomic) AddProcessView *processView;
 @end
 
@@ -263,7 +263,13 @@
     if (indexPath.section == 0 && indexPath.row == 1) {
         ColorSelectViewController *controller = [[ColorSelectViewController alloc] init];
         controller.cellColor = _cellColor;
-        controller.delegate = self;
+        
+        __weak typeof(self) weakSelf =  self;
+        controller.selectedBlock = ^(NSInteger integer) {
+            weakSelf.cellColor = integer;
+            [weakSelf.tableView reloadData];
+        };
+        
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
@@ -325,6 +331,7 @@
 
 #pragma mark - IBAction
 - (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self.delegate listDetailViewControllerDidCancel:self];
 }
 
@@ -391,11 +398,7 @@
     [self.view addSubview:_processView];
 }
 
-#pragma mark - ColorSelectVCDelegate
-- (void)selectColorInterger:(NSInteger)integer {
-    _cellColor = integer;
-    [self.tableView reloadData];
-}
+
 
 #pragma mark - AddProcessDelegate
 - (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date Index:(NSInteger)index{
