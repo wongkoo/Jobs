@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <EAIntroView/EAIntroView.h>
+@class ShadowNavController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate,EAIntroDelegate>
 @property (strong, nonatomic) UIWindow *window;
+
++ (AppDelegate *)sharedInstance;
+- (ShadowNavController *)currentNavigationController;
+
 @end
 

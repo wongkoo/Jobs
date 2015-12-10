@@ -12,6 +12,7 @@
 #import "JobList.h"
 #import "JobsItem.h"
 #import "IntroPageViewController.h"
+#import "ShadowNavController.h"
 
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
@@ -25,6 +26,10 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
 
 @implementation AppDelegate{
     DataModel *_dataModel;
+}
+
++ (AppDelegate *)sharedInstance {
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler NS_AVAILABLE_IOS(9_0) {
@@ -103,15 +108,6 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
     [UIApplication sharedApplication].shortcutItems = items;
 }
 
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
 - (void)saveData{
     [_dataModel saveJobs];
 }
@@ -119,25 +115,10 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [self saveData];
     [application setApplicationIconBadgeNumber:[_dataModel numberOfUncheckedJobsItem]];
-    
-//    [self createDynamicShortcutItems];
-
-//    NSLog(@"DidEnterBackground");
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-//    NSLog(@"WillEnterForground");
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-//    NSLog(@"DidBecomeActive");
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveData];
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 - (void)registerShareSDK {
@@ -165,6 +146,26 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
                       break;
               }
           }];
+}
+
+- (ShadowNavController *)currentNavigationController {
+    UIViewController *rootController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    ShadowNavController *nav;
+    if ([rootController isKindOfClass:[ShadowNavController class]]) {
+        nav = (ShadowNavController *)rootController;
+    } else if ([rootController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabbarController = (UITabBarController *)rootController;
+        if ([tabbarController.selectedViewController isKindOfClass:[ShadowNavController class]]) {
+            nav = (ShadowNavController *)tabbarController.selectedViewController;
+        }
+    }
+    if (nav.topViewController.presentedViewController) {
+        UIViewController *presentedVC = nav.topViewController.presentedViewController;
+        if ([presentedVC isKindOfClass:[ShadowNavController class]]) {
+            nav = (ShadowNavController *)presentedVC;
+        }
+    }
+    return nav;
 }
 
 @end
