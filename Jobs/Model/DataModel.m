@@ -75,25 +75,12 @@
 }
 
 - (void)registerDefaults {
-//    NSDictionary *dictionary = @{@"JobIndex":@-1,@"FirstTime":@YES,@"JobsItemId":@0};
-//    [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
     [self setBOOLforPerformActionForShortcutItem:NO];
 }
 
 - (void)setBOOLforPerformActionForShortcutItem:(BOOL)bl {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:bl forKey:@"PerformActionForShortcutItem"];
-}
-
-- (void)handleFirstTime {
-//    BOOL firstTime = [[NSUserDefaults standardUserDefaults]boolForKey:@"FirstTime"];
-//    if(firstTime){
-//        JobList *jobList = [[JobList alloc]init];
-//        jobList.name = @"List";
-//        [self.jobs addObject:jobList];
-//        [self setIndexOfSelectedJobList:0];
-//        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FirstTime"];
-//    }
 }
 
 - (void)updateShouldRemind {

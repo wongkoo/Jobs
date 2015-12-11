@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DateAndProcess : NSObject<NSCoding>
+@interface DateAndProcess : NSObject
 @property (nonatomic, copy) NSString *string;
 @property (nonatomic, copy) NSDate *date;
 @end

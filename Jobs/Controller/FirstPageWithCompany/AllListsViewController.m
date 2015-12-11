@@ -247,8 +247,8 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
         if (sender) {
             controller.jobListToEdit = sender;
             controller.listDetailType = ListDetailTypeEdit;
-            controller.editJobListReloadBlock = ^(JobList *jobList) {
-                [weakSelf listDetailEditJobListReload:jobList];
+            controller.editJobListReloadBlock = ^(JobList *fromJobList, JobList *toJobList) {
+                [weakSelf listDetailEditReloadFromJobList:fromJobList toJobList:toJobList];
             };
         }else{
             controller.listDetailType = ListDetailTypeAdd;
@@ -485,8 +485,9 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)listDetailEditJobListReload:(JobList *)jobList {
-    NSInteger index = [self.dataModel.jobs indexOfObject:jobList];
+- (void)listDetailEditReloadFromJobList:(JobList *)fromJobList toJobList:(JobList *)toJobList {
+    NSInteger index = [self.dataModel.jobs indexOfObject:fromJobList];
+    [self.dataModel.jobs replaceObjectAtIndex:index withObject:toJobList];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }

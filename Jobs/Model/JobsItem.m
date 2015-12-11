@@ -10,6 +10,8 @@
 #import "DataModel.h"
 #import <UIKit/UIKit.h>
 
+@interface JobsItem () <NSCoding, NSCopying>
+@end
 @implementation JobsItem
 
 - (id)init{
@@ -53,6 +55,9 @@
 }
 
 
+
+#pragma mark - NSCoding
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if( (self = [super init]) ) {
@@ -76,7 +81,19 @@
     [aCoder encodeInteger:self.itemId forKey:@"ItemId"];
 }
 
-- (void)dealloc{
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    JobsItem *copyJobsItem = [[JobsItem alloc] init];
+    copyJobsItem.text = self.text;
+    copyJobsItem.nextTask = self.nextTask;
+    copyJobsItem.checked = self.checked;
+    copyJobsItem.dueDate = self.dueDate;
+    copyJobsItem.shouldRemind = self.shouldRemind;
+    copyJobsItem.itemId = self.itemId;
+    return copyJobsItem;
 }
 
 @end

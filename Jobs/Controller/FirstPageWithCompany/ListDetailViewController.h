@@ -18,20 +18,11 @@ typedef NS_ENUM(NSInteger, ListDetailType){
 @class JobList;
 
 typedef void (^AddJobListInsertZeroBlock)(JobList *jobList);
-typedef void (^EditJobListReloadBlock)(JobList *jobList);
+typedef void (^EditJobListReloadBlock)(JobList *fromJobList, JobList *toJobList);
 
 @interface ListDetailViewController : UITableViewController
 
-@property (nonatomic, strong) NSString *companyNameString;
-@property (nonatomic, strong) NSString *accountOfWebsiteString;
-@property (nonatomic, strong) NSString *reminderOfPasswordString;
-@property (nonatomic, strong) NSString *emailString;
-@property (nonatomic, strong) NSMutableArray *process;
-@property (nonatomic, assign) CellColor cellColor;
-
-
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
-
 @property (nonatomic, strong) JobList *jobListToEdit;
 @property (nonatomic, assign) ListDetailType listDetailType;
 @property (nonatomic, copy) AddJobListInsertZeroBlock addJobListInsertZeroBlock;

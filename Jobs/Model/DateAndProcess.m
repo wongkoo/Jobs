@@ -8,9 +8,13 @@
 
 #import "DateAndProcess.h"
 
+@interface DateAndProcess ()<NSCoding, NSCopying>
+@end
 @implementation DateAndProcess
 
 
+
+#pragma mark - NSCoding
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -25,6 +29,17 @@
 {
     [aCoder encodeObject:self.string forKey:@"String"];
     [aCoder encodeObject:self.date forKey:@"Date"];
+}
+
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    DateAndProcess *copyDateAndProcess = [[DateAndProcess alloc] init];
+    copyDateAndProcess.string = self.string;
+    copyDateAndProcess.date = self.date;
+    return copyDateAndProcess;
 }
 
 @end

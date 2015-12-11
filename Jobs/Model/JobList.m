@@ -8,10 +8,14 @@
 
 #import "JobList.h"
 #import "JobsItem.h"
+#import "DateAndProcess.h"
+
+@interface JobList () <NSCoding, NSCopying>
+@end
 @implementation JobList
 
--(id)init{
-    if((self = [super init])){
+- (id)init {
+    if((self = [super init])) {
         self.items =[[NSMutableArray alloc] initWithCapacity:20];
         self.process = [[NSMutableArray alloc] initWithCapacity:3];
         self.deletedFlag = 0;
@@ -19,7 +23,7 @@
     return self;
 }
 
-- (int)countUncheckedItems{
+- (int)countUncheckedItems {
     int count =0;
     for(JobsItem *item in self.items){
         if (!item.checked) {
@@ -29,7 +33,11 @@
     return count;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder{
+
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super init])) {
         self.name = [aDecoder decodeObjectForKey:@"Name"];
         self.items = [aDecoder decodeObjectForKey:@"Items"];
@@ -40,14 +48,11 @@
         self.deletedFlag = [aDecoder decodeBoolForKey:@"DeletedFlag"];
         self.addPositionBy3DTouch = [aDecoder decodeBoolForKey:@"AddPositionBy3DTouch"];
         self.cellColor = [aDecoder decodeIntegerForKey:@"CellColor"];
-//耻辱！！！！！！
-//        self.name = [aDecoder decodeObjectForKey:@"Name"];
-//        self.name = [aDecoder decodeObjectForKey:@"Items"];
     }
     return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder{
+- (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.name forKey:@"Name"];
     [aCoder encodeObject:self.items forKey:@"Items"];
     [aCoder encodeObject:self.accountOfWebsite forKey:@"AccountOfWebsite"];
@@ -58,6 +63,25 @@
     [aCoder encodeBool:self.addPositionBy3DTouch forKey:@"AddPositionBy3DTouch"];
     [aCoder encodeInteger:self.cellColor forKey:@"CellColor"];
 }
+
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    JobList *copyJobList = [[JobList alloc] init];
+    copyJobList.name = self.name;
+    copyJobList.accountOfWebsite = self.accountOfWebsite;
+    copyJobList.reminderOfPassword = self.reminderOfPassword;
+    copyJobList.email = self.email;
+    copyJobList.deletedFlag = self.deletedFlag;
+    copyJobList.addPositionBy3DTouch = self.addPositionBy3DTouch;
+    copyJobList.cellColor = self.cellColor;
+    copyJobList.items = [[NSMutableArray alloc] initWithArray:self.items copyItems:YES];
+    copyJobList.process = [[NSMutableArray alloc] initWithArray:self.process copyItems:YES];
+    return copyJobList;
+}
+
 
 @end
 
