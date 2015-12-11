@@ -12,7 +12,7 @@
 @interface AllListsCompanyCell : MCSwipeTableViewCell
 
 @property (nonatomic, strong) JobList *jobList;
-@property (nonatomic, copy) MCSwipeCompletionBlock listCompletetionBlock;
+@property (nonatomic, copy) MCSwipeCompletionBlock editCompletetionBlock;
 @property (nonatomic, copy) MCSwipeCompletionBlock stickCompletetionBlock;
 @property (nonatomic, copy) MCSwipeCompletionBlock crossCompletetionBlock;
 @property (nonatomic, copy) MCSwipeCompletionBlock checkCompletetionBlock;

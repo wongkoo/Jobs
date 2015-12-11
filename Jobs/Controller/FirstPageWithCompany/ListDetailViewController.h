@@ -7,19 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddProcessView.h"
 #import "CellbackgroundVIew.h"
+
+typedef NS_ENUM(NSInteger, ListDetailType){
+    ListDetailTypeAdd,
+    ListDetailTypeEdit
+};
 
 @class ListDetailViewController;
 @class JobList;
 
-@protocol ListDetailViewControllerDelegate <NSObject>
-- (void)listDetailViewControllerDidCancel:(ListDetailViewController *)controller;
-- (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList;
-- (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList;
-@end
+typedef void (^AddJobListInsertZeroBlock)(JobList *jobList);
+typedef void (^EditJobListReloadBlock)(JobList *jobList);
 
-@interface ListDetailViewController : UITableViewController<UITextFieldDelegate,UIScrollViewDelegate,AddProcessViewDelegate>
+@interface ListDetailViewController : UITableViewController
 
 @property (nonatomic, strong) NSString *companyNameString;
 @property (nonatomic, strong) NSString *accountOfWebsiteString;
@@ -27,10 +28,14 @@
 @property (nonatomic, strong) NSString *emailString;
 @property (nonatomic, strong) NSMutableArray *process;
 @property (nonatomic, assign) CellColor cellColor;
-@property (nonatomic, weak)   IBOutlet UIBarButtonItem *saveBarButton;
 
-@property (nonatomic, weak) id<ListDetailViewControllerDelegate>delegate;
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
+
 @property (nonatomic, strong) JobList *jobListToEdit;
+@property (nonatomic, assign) ListDetailType listDetailType;
+@property (nonatomic, copy) AddJobListInsertZeroBlock addJobListInsertZeroBlock;
+@property (nonatomic, copy) EditJobListReloadBlock editJobListReloadBlock;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;

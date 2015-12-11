@@ -21,7 +21,7 @@
 #import "ProcessCell.h"
 #import "ColorSelectCell.h"
 
-@interface ListDetailViewController ()
+@interface ListDetailViewController () <UITextFieldDelegate,UIScrollViewDelegate,AddProcessViewDelegate>
 @property (strong, nonatomic) AddProcessView *processView;
 @end
 
@@ -330,9 +330,9 @@
 
 
 #pragma mark - IBAction
+
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.delegate listDetailViewControllerDidCancel:self];
 }
 
 - (IBAction)save:(id)sender {
@@ -363,7 +363,11 @@
         jobList.email = emailString;
         jobList.process = _process;
         jobList.cellColor = _cellColor;
-        [self.delegate listDetailViewController:self didFinishAddingJoblist:jobList];
+        
+        if (self.addJobListInsertZeroBlock) {
+            self.addJobListInsertZeroBlock(jobList);
+        }
+        
     }else{
         self.jobListToEdit.name = companyNameString;
         self.jobListToEdit.accountOfWebsite = accountOfWebsite;
@@ -371,7 +375,10 @@
         self.jobListToEdit.email = emailString;
         self.jobListToEdit.process = _process;
         self.jobListToEdit.cellColor = _cellColor;
-        [self.delegate listDetailViewController:self didFinishEditingJobList:self.jobListToEdit];
+        
+        if (self.editJobListReloadBlock) {
+            self.editJobListReloadBlock(self.jobListToEdit);
+        }
     }
 }
 

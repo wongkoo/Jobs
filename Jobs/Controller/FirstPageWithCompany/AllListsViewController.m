@@ -23,8 +23,10 @@
 #import "AllListsCompanyCell.h"
 
 static const NSInteger CELL_HEIGHT = 80;
+static NSString * const SegueAddOrEditIdentifier = @"AddJobList";
+static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 
-@interface AllListsViewController ()<ListDetailViewControllerDelegate,UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface AllListsViewController ()<UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
@@ -42,7 +44,9 @@ static const NSInteger CELL_HEIGHT = 80;
 @implementation AllListsViewController
 
 
+
 #pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -50,6 +54,27 @@ static const NSInteger CELL_HEIGHT = 80;
     [self initViews];
     [self checkForceTouch];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self updateAllApplicationNum];
+    [self.tableView reloadData];
+    [self configureStatusBar];
+    [self configureShareButton];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+
+
+#pragma mark - InitViews
 
 - (void)initViews {
     [self initTableView];
@@ -123,6 +148,10 @@ static const NSInteger CELL_HEIGHT = 80;
     [_shareButton addTarget:self action:@selector(shareScreenShot) forControlEvents:UIControlEventTouchUpInside];
 }
 
+
+
+#pragma mark - ConfigViews
+
 - (void)configureShareButton {
     if (self.shareButton.superview == nil) {
         self.shareButton = nil;
@@ -149,19 +178,6 @@ static const NSInteger CELL_HEIGHT = 80;
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self updateAllApplicationNum];
-    [self.tableView reloadData];
-    [self configureStatusBar];
-    [self configureShareButton];
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
-
 - (void)checkForceTouch {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 9.0) {
         _forceTouchAvailable = NO;
@@ -183,11 +199,6 @@ static const NSInteger CELL_HEIGHT = 80;
         string = [NSString stringWithFormat:@"%ld个职位正在进行中",(long)[self.dataModel numberOfUncheckedJobsItem]];
     }
     self.allApplicationNumLabel.text=string;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)shareScreenShot {
@@ -217,17 +228,34 @@ static const NSInteger CELL_HEIGHT = 80;
     [self addChildViewController:shareViewController];
 }
 
+
+
 #pragma mark - Segue
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"ShowJobList"]) {
+    if ([segue.identifier isEqualToString:SegueShowJobListIdentifier]) {
         ViewController *controller = segue.destinationViewController;
         controller.jobList = sender;
         [self.navigationController setNavigationBarHidden:NO animated:YES];
-    }else if([segue.identifier isEqualToString:@"AddJobList"]){
+        
+    }else if([segue.identifier isEqualToString:SegueAddOrEditIdentifier]){
+        
         UINavigationController *navigationController = segue.destinationViewController;
         ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
-        controller.delegate = self;
-        controller.jobListToEdit = nil;
+        __weak typeof(self) weakSelf = self;
+        
+        if (sender) {
+            controller.jobListToEdit = sender;
+            controller.listDetailType = ListDetailTypeEdit;
+            controller.editJobListReloadBlock = ^(JobList *jobList) {
+                [weakSelf listDetailEditJobListReload:jobList];
+            };
+        }else{
+            controller.listDetailType = ListDetailTypeAdd;
+            controller.addJobListInsertZeroBlock = ^(JobList *jobList){
+                [weakSelf listDetailAddJobListInsert:jobList];
+            };
+        }
     }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
@@ -235,6 +263,8 @@ static const NSInteger CELL_HEIGHT = 80;
 - (IBAction)backToAllListsViewController:(UIStoryboardSegue *)segue {
     
 }
+
+
 
 #pragma mark - UITableViewDataSource
 
@@ -246,27 +276,15 @@ static const NSInteger CELL_HEIGHT = 80;
         cell = [[AllListsCompanyCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[AllListsCompanyCell reuseIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        __weak id weakSelf = self;
-        cell.listCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-            AllListsViewController *mySelf = weakSelf;
-            UINavigationController *navigationController = [mySelf.storyboard instantiateViewControllerWithIdentifier:@"ListNavigationController"];
-            ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
-            controller.delegate = weakSelf;
+        __weak typeof(self) weakSelf =  self;
+        
+        cell.editCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
             AllListsCompanyCell *myCell = (AllListsCompanyCell *)cell;
-            controller.jobListToEdit = myCell.jobList;
-            [weakSelf presentViewController:navigationController animated:YES completion:nil];
+            [weakSelf performSegueWithIdentifier:SegueAddOrEditIdentifier sender:myCell.jobList];
         };
         
         cell.stickCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-
-            AllListsCompanyCell *myCell = (AllListsCompanyCell *)cell;
-            AllListsViewController *mySelf = weakSelf;
-            [mySelf.dataModel.jobs insertObject:myCell.jobList atIndex:0];
-            [mySelf.dataModel.jobs removeObjectAtIndex:(indexPath.row + 1)];
-            [mySelf.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-            [weakSelf configureStatusBar];
-            NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [mySelf.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [weakSelf stickCell:(AllListsCompanyCell *)cell];
         };
         
         cell.crossCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
@@ -303,9 +321,21 @@ static const NSInteger CELL_HEIGHT = 80;
     editingStyle = UITableViewCellEditingStyleInsert;
 }
 
+
+
 #pragma mark - CellCallBack
 
-- (void)deleteCell:(AllListsCompanyCell *)cell{
+- (void)stickCell:(AllListsCompanyCell *)cell {
+    NSInteger index = [self.dataModel.jobs indexOfObject:cell.jobList];
+    [self.dataModel.jobs insertObject:cell.jobList atIndex:0];
+    [self.dataModel.jobs removeObjectAtIndex:(index + 1)];
+    [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [self configureStatusBar];
+    NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)deleteCell:(AllListsCompanyCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.dataModel cancelLocalNotificationIndexOfJobs:indexPath.row];
     [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
@@ -345,7 +375,7 @@ static const NSInteger CELL_HEIGHT = 80;
     [self.dataModel setIndexOfSelectedJobList:indexPath.row];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
+    [self performSegueWithIdentifier:SegueShowJobListIdentifier sender:jobList];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -368,7 +398,7 @@ static const NSInteger CELL_HEIGHT = 80;
         self.pulled = YES;
         
         if (scrollView.contentOffset.y < -110) {
-            [self performSegueWithIdentifier:@"AddJobList" sender:nil];
+            [self performSegueWithIdentifier:SegueAddOrEditIdentifier sender:nil];
         }
     }else{
         self.pulled = NO;
@@ -425,7 +455,7 @@ static const NSInteger CELL_HEIGHT = 80;
     [self.dataModel setIndexOfSelectedJobList:_indexPathOfForceTouch.row];
     JobList *jobList = self.dataModel.jobs[_indexPathOfForceTouch.row];
     [self.tableView deselectRowAtIndexPath:_indexPathOfForceTouch animated:NO];
-    [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
+    [self performSegueWithIdentifier:SegueShowJobListIdentifier sender:jobList];
 
 }
 
@@ -441,25 +471,26 @@ static const NSInteger CELL_HEIGHT = 80;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     JobList *jobList = self.dataModel.jobs[indexPath.row];
     joblist.addPositionBy3DTouch = YES;
-    [self performSegueWithIdentifier:@"ShowJobList" sender:jobList];
+    [self performSegueWithIdentifier:SegueShowJobListIdentifier sender:jobList];
 }
 
-#pragma mark - ListDetailViewControllerDelegate
-- (void)listDetailViewControllerDidCancel:(ListDetailViewController *)controller{
-}
 
-- (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList{
+
+#pragma mark - ListDetailViewControllerCallBack
+
+- (void)listDetailAddJobListInsert:(JobList *)jobList {
     [self.dataModel.jobs insertObject:jobList atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList{
+- (void)listDetailEditJobListReload:(JobList *)jobList {
     NSInteger index = [self.dataModel.jobs indexOfObject:jobList];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
 
 
 

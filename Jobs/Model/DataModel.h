@@ -10,7 +10,7 @@
 
 @interface DataModel : NSObject
 
-@property(nonatomic, strong)NSMutableArray *jobs;
+@property (nonatomic, strong) NSMutableArray *jobs;
 
 + (DataModel *)sharedInstance;
 

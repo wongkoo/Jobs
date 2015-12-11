@@ -196,7 +196,7 @@
     UIView *crossView = [self viewWithImageName:@"cross"];
     UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
     
-    UIView *listView = [self viewWithImageName:@"list"];
+    UIView *editView = [self viewWithImageName:@"list"];
     UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
     
     UIView *stickView = [self viewWithImageName:@"stick"];
@@ -219,11 +219,11 @@
                                 state:MCSwipeTableViewCellState2
                       completionBlock:self.checkCompletetionBlock];
         
-        [self setSwipeGestureWithView:listView
+        [self setSwipeGestureWithView:editView
                                 color:brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
-                      completionBlock:self.listCompletetionBlock];
+                      completionBlock:self.editCompletetionBlock];
         
         [self setSwipeGestureWithView:stickView
                                 color:stickColor
@@ -245,17 +245,17 @@
                                 state:MCSwipeTableViewCellState2
                       completionBlock:self.crossCompletetionBlock];
         
-        [self setSwipeGestureWithView:listView
+        [self setSwipeGestureWithView:editView
                                 color:brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
-                      completionBlock:self.listCompletetionBlock];
+                      completionBlock:self.editCompletetionBlock];
         
-        [self setSwipeGestureWithView:listView
+        [self setSwipeGestureWithView:editView
                                 color:brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState4
-                      completionBlock:self.listCompletetionBlock];
+                      completionBlock:self.editCompletetionBlock];
     }
     self.firstTrigger = 0.25;
     self.secondTrigger = 0.4;
