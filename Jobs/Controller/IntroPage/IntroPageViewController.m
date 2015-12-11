@@ -73,8 +73,6 @@ static NSString * const sampleDescription4 = @"简单，在细节中。向左滑
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
 
-    AllListsViewController *controller = navigationController.viewControllers[0];
-    controller.dataModel = self._dataModel;
     navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:navigationController animated:YES completion:nil];
 }

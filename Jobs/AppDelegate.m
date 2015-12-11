@@ -22,11 +22,10 @@ static NSString * const WechatAppID = @"wxa3f12a36193aaecf";
 static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
 
 @interface AppDelegate ()
+@property (nonatomic, strong) DataModel *dataModel;
 @end
 
-@implementation AppDelegate{
-    DataModel *_dataModel;
-}
+@implementation AppDelegate
 
 + (AppDelegate *)sharedInstance {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -42,11 +41,10 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
         AllListsViewController *controller = navigationController.viewControllers[0];
-        controller.dataModel = _dataModel;
         self.window.rootViewController = navigationController;
         [controller performSegueWithIdentifier:@"AddJobList" sender:nil];
     }
-    [_dataModel setBOOLforPerformActionForShortcutItem:YES];
+    [self.dataModel setBOOLforPerformActionForShortcutItem:YES];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -67,21 +65,16 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
         [[UIApplication sharedApplication]registerUserNotificationSettings:setting];
     }
 
-    _dataModel = [[DataModel alloc]init];
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         IntroPageViewController *introPageViewController = [[IntroPageViewController alloc]init];
-        introPageViewController._dataModel = _dataModel;
         self.window.rootViewController = introPageViewController;
     }else{
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
-        
-        AllListsViewController *controller = navigationController.viewControllers[0];
-        controller.dataModel = _dataModel;
         self.window.rootViewController = navigationController;
     }
     [self.window makeKeyAndVisible];
@@ -89,36 +82,14 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
     return YES;
 }
 
-- (void)createDynamicShortcutItems {
-    
-    UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd];
-    
-    // create several (dynamic) shortcut items
-    UIApplicationShortcutItem *item1 = [[UIApplicationShortcutItem alloc]initWithType:@"Item 1" localizedTitle:@"Item 1"];
-    UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc]initWithType:@"Type2"
-                                                                       localizedTitle:@"Hello"
-                                                                    localizedSubtitle:@"Go hello"
-                                                                                 icon:icon
-                                                                             userInfo:NULL];
-    
-    // add all items to an array
-    NSArray *items = @[item1, item2];
-    
-    // add the array to our app
-    [UIApplication sharedApplication].shortcutItems = items;
-}
-
-- (void)saveData{
-    [_dataModel saveJobs];
-}
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self saveData];
-    [application setApplicationIconBadgeNumber:[_dataModel numberOfUncheckedJobsItem]];
+    [self.dataModel saveJobs];
+    [application setApplicationIconBadgeNumber:[self.dataModel numberOfUncheckedJobsItem]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self saveData];
+    [self.dataModel saveJobs];
+    [application setApplicationIconBadgeNumber:[self.dataModel numberOfUncheckedJobsItem]];
 }
 
 - (void)registerShareSDK {
@@ -166,6 +137,17 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
         }
     }
     return nav;
+}
+
+
+
+#pragma mark - Getter 
+
+- (DataModel *)dataModel {
+    if (!_dataModel) {
+        _dataModel = [DataModel sharedInstance];
+    }
+    return _dataModel;
 }
 
 @end

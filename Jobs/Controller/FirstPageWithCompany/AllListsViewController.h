@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class  DataModel;
-
 @interface AllListsViewController : UIViewController
-
-@property(nonatomic, strong)DataModel *dataModel;
 
 - (IBAction)backToAllListsViewController:(UIStoryboardSegue *)segue;
 

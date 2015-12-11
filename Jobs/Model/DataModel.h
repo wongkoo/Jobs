@@ -12,6 +12,8 @@
 
 @property(nonatomic, strong)NSMutableArray *jobs;
 
++ (DataModel *)sharedInstance;
+
 - (void)saveJobs;
 - (NSInteger)indexOfSelectedJobList;
 - (void)setIndexOfSelectedJobList:(NSInteger)index;

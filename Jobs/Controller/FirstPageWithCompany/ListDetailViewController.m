@@ -353,6 +353,8 @@
     cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString *emailString = cell.textField.text;
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     if (self.jobListToEdit == nil) {
         JobList *jobList = [[JobList alloc]init];
         jobList.name = companyNameString;

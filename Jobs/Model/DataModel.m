@@ -12,12 +12,30 @@
 
 @implementation DataModel
 
++ (DataModel *)sharedInstance {
+    static DataModel *sharedDataModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedDataModel = [[self alloc] init];
+    });
+    return sharedDataModel;
+}
+
 + (NSInteger)nextJobsItemId {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger itemLd = [userDefaults integerForKey:@"JobsItemId"];
     [userDefaults setInteger:itemLd + 1 forKey:@"JobsItemId"];
     [userDefaults synchronize];
     return itemLd;
+}
+
+- (id)init {
+    if ((self = [super init])) {
+        [self loadJobs];
+        [self updateShouldRemind];
+        [self registerDefaults];
+    }
+    return self;
 }
 
 - (NSInteger)numberOfDisDeletedJobsList {
@@ -76,16 +94,6 @@
 //        [self setIndexOfSelectedJobList:0];
 //        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FirstTime"];
 //    }
-}
-
-- (id)init {
-    if ((self = [super init])) {
-        [self loadJobs];
-        [self updateShouldRemind];
-        [self registerDefaults];
-//        [self handleFirstTime];
-    }
-    return self;
 }
 
 - (void)updateShouldRemind {

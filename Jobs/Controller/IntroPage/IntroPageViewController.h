@@ -10,5 +10,4 @@
 #import <EAIntroView/EAIntroView.h>
 #import "DataModel.h"
 @interface IntroPageViewController : UIViewController<EAIntroDelegate>
-@property (nonatomic, strong) DataModel *_dataModel;
 @end

@@ -30,6 +30,8 @@ static const NSInteger CELL_HEIGHT = 80;
 @property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
 @property (nonatomic, strong) DiffuseButton *shareButton;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
+
+@property (nonatomic, strong) DataModel *dataModel;                     ///< dataModel should be used bu self.dataModel
 @property (nonatomic, strong) UILabel *allApplicationNumLabel;
 @property (nonatomic, assign) BOOL forceTouchAvailable;
 @property (nonatomic, strong) NSIndexPath *indexPathOfForceTouch;
@@ -444,7 +446,6 @@ static const NSInteger CELL_HEIGHT = 80;
 
 #pragma mark - ListDetailViewControllerDelegate
 - (void)listDetailViewControllerDidCancel:(ListDetailViewController *)controller{
-//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingJoblist:(JobList *)jobList{
@@ -452,14 +453,22 @@ static const NSInteger CELL_HEIGHT = 80;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingJobList:(JobList *)jobList{
     NSInteger index = [self.dataModel.jobs indexOfObject:jobList];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+
+#pragma mark - Getter
+
+- (DataModel *)dataModel {
+    if (!_dataModel) {
+        _dataModel = [DataModel sharedInstance];
+    }
+    return _dataModel;
+}
 @end
