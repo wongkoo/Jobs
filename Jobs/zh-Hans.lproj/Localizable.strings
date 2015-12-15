@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings
+  Jobs
+
+  Created by 锤石 on 15/12/15.
+  Copyright © 2015年 王振辉. All rights reserved.
+*/
+
+
+
+//公司列表页
+"AllListViewController Company" = "公司";
+"AllListViewController Pull down to add company" = "下拉添加公司";
+"AllListViewController Under way position number: %ld" = "%ld个职位正在进行中";
+
+//公司列表页单元格
+"AllListCompanyCell Already" = "已经 ";
+"AllListCompanyCell %.1fhours later" = "%.1f小时后 ";
+"AllListCompanyCell Tomorrow" = "明天 ";
+"AllListComPanyCell Day After Tomorrow" = "后天 ";
+"AllListCompanyCell days later" = "%d天后 ";
+"AllListCompanyCell M/d" = "M月d日 ";
+"AllListCompanyCell Haven't apply for a position" = "暂未申请职位";
+
+//公司编辑页
+"ListDetailViewController Add Company" = "添加公司";
+"ListDetailViewController Edit Company" = "编辑公司";
+"ListDetailViewController Company" = "公司";
+"ListDetailViewController Background Color" = "背景颜色";
+"ListDetailViewController Web Account" = "官网帐号";
+"ListDetailViewController Password Hint" = "密码提示";
+"ListDetailViewController Email" = "报名邮箱";
+"ListDetailViewController Optional*" = "选填*";
+"ListDetailViewController Recruitment Process" = "招聘流程";
+"ListDetailViewController Delete" = "删除";
+"ListDetailViewController Edit" = "编辑";
+"ListDetailViewController Date" = "MM月dd日hh:mm";
+"ListDetailViewController Save" = "保存";
+"ListDetailViewController Cancel" = "取消";
+//公司编辑页-过程页面
+"AddProcessView Fill in process" = "填写流程";
+"AddProcessView Save" = "保存";
+"AddProcessView Cancel" = "取消";
+"AddProcessView Date*" = "*日期（可选）";

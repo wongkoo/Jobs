@@ -33,6 +33,7 @@
 		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
+		9B11E9701C2018610095FD28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B11E9721C2018610095FD28 /* Localizable.strings */; };
 		9B3AA6F01BFC70D900B1B9A2 /* AllListsCompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AA6EF1BFC70D900B1B9A2 /* AllListsCompanyCell.m */; };
 		9B957AD41BF4B4F10058C796 /* PureColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */; };
 		9B95D65E1C04802D002F66B3 /* DiffuseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95D65D1C04802D002F66B3 /* DiffuseButton.m */; };
@@ -121,6 +122,9 @@
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		9B0551CB1BEB0A2700E09969 /* ColorSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSelectCell.h; path = FirstDetailPage/Cell/ColorSelectCell.h; sourceTree = "<group>"; };
 		9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectCell.m; path = FirstDetailPage/Cell/ColorSelectCell.m; sourceTree = "<group>"; };
+		9B11E9711C2018610095FD28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B11E9731C20188B0095FD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B11E9741C2018AF0095FD28 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9B3AA6EE1BFC70D900B1B9A2 /* AllListsCompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllListsCompanyCell.h; path = FirstPage/AllListsCompanyCell.h; sourceTree = "<group>"; };
 		9B3AA6EF1BFC70D900B1B9A2 /* AllListsCompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllListsCompanyCell.m; path = FirstPage/AllListsCompanyCell.m; sourceTree = "<group>"; };
 		9B957AD21BF4B4F10058C796 /* PureColorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureColorBackgroundView.h; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 			children = (
 				7237F5BB1B1EE68F00F1DFD9 /* Info.plist */,
 				7237F5BC1B1EE68F00F1DFD9 /* main.m */,
+				9B11E9721C2018610095FD28 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 7237F5AE1B1EE68F00F1DFD9;
 			productRefGroup = 7237F5B81B1EE68F00F1DFD9 /* Products */;
@@ -563,6 +569,7 @@
 				9BCE0F011C10881B00F85461 /* ShareSDK.bundle in Resources */,
 				9BCE0F051C10881B00F85461 /* ShareSDKUI.bundle in Resources */,
 				7237F5CB1B1EE68F00F1DFD9 /* LaunchScreen.xib in Resources */,
+				9B11E9701C2018610095FD28 /* Localizable.strings in Resources */,
 				9BCE0EFF1C10881B00F85461 /* read_me.txt in Resources */,
 				7237F5C81B1EE68F00F1DFD9 /* Images.xcassets in Resources */,
 			);
@@ -693,6 +700,16 @@
 				7237F5CA1B1EE68F00F1DFD9 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		9B11E9721C2018610095FD28 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B11E9711C2018610095FD28 /* Base */,
+				9B11E9731C20188B0095FD28 /* en */,
+				9B11E9741C2018AF0095FD28 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

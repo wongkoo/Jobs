@@ -378,6 +378,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelBarButton" destination="Chz-TV-Dec" id="S9D-mS-Cox"/>
                         <outlet property="saveBarButton" destination="Yut-1f-IkU" id="njN-Q6-Zeo"/>
                     </connections>
                 </tableViewController>

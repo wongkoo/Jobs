@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings
+  Jobs
+
+  Created by 锤石 on 15/12/15.
+  Copyright © 2015年 王振辉. All rights reserved.
+*/
+
+
+
+//Company List
+"AllListViewController Company" = "Company";
+"AllListViewController Pull down to add company" = "Pull down to add company";
+"AllListViewController Under way position number: %ld" = "Under way position number: %ld";
+
+//Company Cell
+"AllListCompanyCell Already" = "Already ";
+"AllListCompanyCell %.1fhours later" = "%.1fhours later ";
+"AllListCompanyCell Tomorrow" = "Tomorrow ";
+"AllListComPanyCell Day After Tomorrow" = "Day after tom ";
+"AllListCompanyCell days later" = "%ddays later ";
+"AllListCompanyCell M/d" = "M/d ";
+"AllListCompanyCell Haven't apply for a position" = "Haven't apply for a position";
+
+//Company Edit
+"ListDetailViewController Add Company" = "Add Company";
+"ListDetailViewController Edit Company" = "Edit Company";
+"ListDetailViewController Company" = "Company";
+"ListDetailViewController Background Color" = "BackColor";
+"ListDetailViewController Web Account" = "Account";
+"ListDetailViewController Password Hint" = "Pw Hint";
+"ListDetailViewController Email" = "Email";
+"ListDetailViewController Optional*" = "Optional*";
+"ListDetailViewController Recruitment Process" = "Recruitment Process*";
+"ListDetailViewController Delete" = "Delete";
+"ListDetailViewController Edit" = "Edit";
+"ListDetailViewController Date" = "MM/dd/hh:mm";
+"ListDetailViewController Save" = "Save";
+"ListDetailViewController Cancel" = "Cancel";
+//Company Edit-Add Process
+"AddProcessView Fill in process" = "Fill in process";
+"AddProcessView Save" = "Save";
+"AddProcessView Cancel" = "Cancel";
+"AddProcessView Date*" = "*Date(Optional)";

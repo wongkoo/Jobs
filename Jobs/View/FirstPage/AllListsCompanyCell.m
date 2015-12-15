@@ -93,24 +93,24 @@
         
         NSString *dateFrontString = [[NSString alloc] init];
         if (day < 0) {
-            dateFrontString = @"已经 ";
+            dateFrontString = NSLocalizedString(@"AllListCompanyCell Already", @"已经 ");
         }else{
             if (day<1) {
                 if ([dueDate timeIntervalSinceNow] < 0) {
-                    dateFrontString = @"已经 ";
+                    dateFrontString = NSLocalizedString(@"AllListCompanyCell Already", @"已经 ");
                 }else{
-                    dateFrontString = [NSString stringWithFormat:@"%.1f小时后 ",[dueDate timeIntervalSinceNow]/3600];
+                    dateFrontString = [NSString stringWithFormat:NSLocalizedString(@"AllListCompanyCell %.1fhours later", @"%.1f小时后 "),[dueDate timeIntervalSinceNow]/3600];
                     showsHours = YES;
                 }
             } else if (day < 2) {
-                dateFrontString = @"明天 ";
+                dateFrontString = NSLocalizedString(@"AllListCompanyCell Tomorrow", @"明天 ");
             } else if (day < 3) {
-                dateFrontString = @"后天 ";
+                dateFrontString = NSLocalizedString(@"AllListComPanyCell Day After Tomorrow", @"后天 ");
             } else if (day < 10) {
-                dateFrontString = [NSString stringWithFormat:@"%d天后 ",(int)day];
+                dateFrontString = [NSString stringWithFormat:NSLocalizedString(@"AllListCompanyCell days later", @"%d天后 "),(int)day];
             } else {
                 NSDateFormatter *dateFormatterToShow = [[NSDateFormatter alloc] init];
-                [dateFormatterToShow setDateFormat:@"M月d日 "];
+                [dateFormatterToShow setDateFormat:NSLocalizedString(@"AllListCompanyCell M/d", @"M月d日 ")];
                 dateFrontString = [dateFormatterToShow stringFromDate:jobsItem.dueDate];
             }
         }
@@ -120,7 +120,7 @@
         
     }else{
         dateString=@"";
-        detailString = @"暂未申请职位";
+        detailString = NSLocalizedString(@"AllListCompanyCell Haven't apply for a position", @"暂未申请职位");
     }
     
     CellColor cellColor = self.jobList.cellColor;

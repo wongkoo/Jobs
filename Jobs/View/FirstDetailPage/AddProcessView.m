@@ -73,7 +73,7 @@
                                                               40)];
     _textField.borderStyle = UITextBorderStyleRoundedRect;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    _textField.placeholder = @"填写流程";
+    _textField.placeholder = NSLocalizedString(@"AddProcessView Fill in process", @"填写流程");
     _textField.delegate = self;
     [_dialogBackground addSubview:_textField];
 
@@ -82,7 +82,7 @@
                                    _dialogBackground.bounds.size.height/2,
                                    _dialogBackground.bounds.size.width/2,
                                    30);
-    [_timeButton setTitle:@"*Time(Optional)" forState:UIControlStateNormal];
+    [_timeButton setTitle:NSLocalizedString(@"AddProcessView Date*", @"*日期（可选）") forState:UIControlStateNormal];
     [_timeButton addTarget:self action:@selector(showDatePicker) forControlEvents:UIControlEventTouchUpInside];
     [_dialogBackground addSubview:_timeButton];
     
@@ -94,7 +94,7 @@
     cancelButton.backgroundColor = [UIColor grayColor];
     [cancelButton setTitleColor:[UIColor lightTextColor] forState:UIControlStateNormal];
     cancelButton.layer.cornerRadius = 5;
-    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancelButton setTitle: NSLocalizedString(@"AddProcessView Cancel", @"Cancel") forState:UIControlStateNormal];
     [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     [_dialogBackground addSubview:cancelButton];
     
@@ -106,7 +106,7 @@
     _saveButton.backgroundColor = [UIColor grayColor];
     [_saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _saveButton.layer.cornerRadius = 5;
-    [_saveButton setTitle:@"save" forState:UIControlStateNormal];
+    [_saveButton setTitle:NSLocalizedString(@"AddProcessView Save", @"Save") forState:UIControlStateNormal];
     [_saveButton addTarget:self action:@selector(save) forControlEvents:UIControlEventTouchUpInside];
     _saveButton.enabled = NO;
     [_dialogBackground addSubview:_saveButton];

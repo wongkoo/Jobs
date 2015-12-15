@@ -50,6 +50,7 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.title = NSLocalizedString(@"AllListViewController Company", @"公司");
     
     [self initViews];
     [self checkForceTouch];
@@ -194,9 +195,9 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 - (void)updateAllApplicationNum{
     NSString *string;
     if (self.dataModel.jobs.count == 0) {
-        string = @"下拉添加公司";
+        string = NSLocalizedString(@"AllListViewController Pull down to add company", @"下拉添加公司");
     }else{
-        string = [NSString stringWithFormat:@"%ld个职位正在进行中",(long)[self.dataModel numberOfUncheckedJobsItem]];
+        string = [NSString stringWithFormat:NSLocalizedString(@"AllListViewController Under way position number: %ld", @"%ld个职位正在进行中"),(long)[self.dataModel numberOfUncheckedJobsItem]];
     }
     self.allApplicationNumLabel.text=string;
 }

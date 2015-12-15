@@ -35,14 +35,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.saveBarButton.title = NSLocalizedString(@"ListDetailViewController Save", @"保存");
+    self.cancelBarButton.title = NSLocalizedString(@"ListDetailViewController Cancel", @"取消");
+    
     if (self.listDetailType == ListDetailTypeEdit) {
-        self.title = @"编辑公司";
+        self.title = NSLocalizedString(@"ListDetailViewController Edit Company", @"编辑公司");
         self.saveBarButton.enabled = YES;
         
         self.p_jobList = self.jobListToEdit;
         self.jobListToEdit = [self.p_jobList copy];
     }else if (self.listDetailType == ListDetailTypeAdd) {
-        self.title = @"添加公司";
+        self.title = NSLocalizedString(@"ListDetailViewController Add Company", @"添加公司");
         self.saveBarButton.enabled = NO;
         
         self.jobListToEdit = [[JobList alloc] init];
@@ -119,7 +122,7 @@
             DateAndProcess *dateAndProcess = [self.jobListToEdit.process objectAtIndex:indexPath.row];
             
             NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"MM月dd日hh:mm"];
+            [dateFormatter setDateFormat:NSLocalizedString(@"ListDetailViewController Date", @"MM月dd日hh:mm")];
             NSString *dateString=[dateFormatter stringFromDate:dateAndProcess.date];
             
             cell.timeLabel.text = dateString;
@@ -133,7 +136,7 @@
         ColorSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:ColorCellIdentifier];
         if (!cell) {
             cell = [[ColorSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ColorCellIdentifier];
-            cell.title = @"背景颜色";
+            cell.title = NSLocalizedString(@"ListDetailViewController Background Color", @"背景颜色");
             [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
         }
         cell.cellColor = self.jobListToEdit.cellColor;
@@ -155,20 +158,20 @@
 
 - (void)configureElementForCell:(LabelAndTextFieldCell *)cell withIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        cell.label.text = @"公司";
+        cell.label.text = NSLocalizedString(@"ListDetailViewController Company", @"公司");
         cell.textField.placeholder = @"Mogujie";
         cell.textField.text = self.jobListToEdit.name;
     }else if(indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell.label.text = @"官网帐号";
+            cell.label.text = NSLocalizedString(@"ListDetailViewController Web Account", @"官网帐号");
             cell.textField.placeholder = @"WangMing";
             cell.textField.text = self.jobListToEdit.accountOfWebsite;
         }else if(indexPath.row == 1) {
-            cell.label.text = @"密码提示";
+            cell.label.text = NSLocalizedString(@"ListDetailViewController Password Hint", @"密码提示");
             cell.textField.placeholder = @"DODO's Birthday";
             cell.textField.text = self.jobListToEdit.reminderOfPassword;
         }else if(indexPath.row == 2) {
-            cell.label.text = @"报名邮箱";
+            cell.label.text = NSLocalizedString(@"ListDetailViewController Email", @"报名邮箱");
             cell.textField.placeholder = @"WangMing@xmail.com";
             cell.textField.text = self.jobListToEdit.email;
         }
@@ -195,18 +198,22 @@
 }
 
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewRowAction *layTopRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    UITableViewRowAction *layTopRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
+                                                                                title:NSLocalizedString(@"ListDetailViewController Delete", @"删除")
+                                                                              handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         [self.jobListToEdit.process removeObjectAtIndex:indexPath.row];
         [tableView setEditing:NO animated:YES];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }];
+                                                                              }];
     layTopRowAction1.backgroundColor = [UIColor redColor];
     
-    UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
+                                                                                title:NSLocalizedString(@"ListDetailViewController Edit", @"编辑")
+                                                                              handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         DateAndProcess *dateAndProcess = [self.jobListToEdit.process objectAtIndex:indexPath.row];
         [self addProcessViewWithString:dateAndProcess.string Date:dateAndProcess.date Index:indexPath.row];
         [tableView setEditing:NO animated:YES];
-    }];
+                                                                              }];
     layTopRowAction2.backgroundColor = [UIColor orangeColor];
     
     NSArray *arr = @[layTopRowAction1,layTopRowAction2];
@@ -254,14 +261,14 @@
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(16.0,
                              10.0,
-                             100.0,
+                             200.0,
                              20.0);
     label.textColor = [UIColor grayColor];
     label.font = [UIFont systemFontOfSize:17.0];
     if (section == 1) {
-        label.text = @"选填*";
+        label.text = NSLocalizedString(@"ListDetailViewController Optional*", @"选填*");
     }else if(section == 2) {
-        label.text = @"招聘流程*";
+        label.text = NSLocalizedString(@"ListDetailViewController Recruitment Process", @"招聘流程*");
     }
     label.backgroundColor = [UIColor clearColor];
     [view addSubview:label];
@@ -449,6 +456,11 @@
 - (void)addProcrssViewDidCancel {
     self.navigationItem.leftBarButtonItem.enabled = YES;
     self.tableView.scrollEnabled = YES;
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    self.jobListToEdit.name = cell.textField.text;
+    
     if (self.jobListToEdit.name.length>0) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }

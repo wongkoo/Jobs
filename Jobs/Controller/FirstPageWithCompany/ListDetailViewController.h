@@ -23,6 +23,7 @@ typedef void (^EditJobListReloadBlock)(JobList *fromJobList, JobList *toJobList)
 @interface ListDetailViewController : UITableViewController
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBarButton;
 @property (nonatomic, strong) JobList *jobListToEdit;
 @property (nonatomic, assign) ListDetailType listDetailType;
 @property (nonatomic, copy) AddJobListInsertZeroBlock addJobListInsertZeroBlock;
