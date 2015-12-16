@@ -12,7 +12,7 @@
 
 ## iPhone Screenshot
 
-![1](http://a5.mzstatic.com/us/r30/Purple7/v4/89/58/40/8958408d-b660-deed-f78f-2395b7ddb8a5/screen322x572.jpeg)
+![1](https://github.com/wongkoo/Jobs/blob/master/Presentation/CompanyList.jpg)
 ![2](http://a4.mzstatic.com/us/r30/Purple7/v4/27/29/36/272936d7-23a2-b56b-07b1-b641fc00ba0b/screen322x572.jpeg)
 ![3](http://a1.mzstatic.com/us/r30/Purple7/v4/11/32/e0/1132e015-7ab3-af3b-9f65-6523139ecbea/screen322x572.jpeg)
 ![4](http://a5.mzstatic.com/us/r30/Purple7/v4/46/40/42/4640421c-7f36-0a6d-06b1-c98be1749652/screen322x572.jpeg)
@@ -55,6 +55,12 @@ Thanks for:
 [Masonry](https://github.com/SnapKit/Masonry)
 
 [WHChartView](https://github.com/wongkoo/WHChartView)
+
+##Donation
+
+Easy come, easy go. 
+
+![](https://github.com/wongkoo/Jobs/blob/master/Presentation/WeChatPay.jpg)
 
 ## License
 
