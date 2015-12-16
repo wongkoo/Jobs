@@ -16,6 +16,14 @@
 
 @implementation ColorSelectCell
 
++ (NSString *)reuseIdentifier {
+    return NSStringFromClass([self class]);
+}
+
+
+
+#pragma mark - Initialization
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {

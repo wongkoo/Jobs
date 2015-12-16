@@ -11,4 +11,6 @@
 @interface AddButtonCell : UITableViewCell
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) UIButton *sortButton;
+
++ (NSString *)reuseIdentifier;
 @end

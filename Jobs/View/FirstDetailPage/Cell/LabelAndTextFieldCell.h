@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LabelAndTextFieldCell : UITableViewCell
-@property (nonatomic, strong)   UILabel *label;
-@property (nonatomic, strong)   UITextField *textField;
+@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UITextField *textField;
+
++ (NSString *)reuseIdentifier;
 @end

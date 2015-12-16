@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CellbackgroundVIew.h"
 @interface ColorSelectCell : UITableViewCell
-
 @property (nonatomic, assign) CellColor cellColor;
 @property (nonatomic, copy) NSString *title;
 
++ (NSString *)reuseIdentifier;
 @end

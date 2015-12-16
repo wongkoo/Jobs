@@ -10,6 +10,12 @@
 #import "Masonry.h"
 @implementation LabelAndTextFieldCell
 
++ (NSString *)reuseIdentifier {
+    return NSStringFromClass([self class]);
+}
+
+
+
 #pragma mark - Initialization
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
