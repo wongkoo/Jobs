@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ItemDetailViewController.h"
+#import "PositionDetailViewController.h"
 #import <BFPaperCheckbox.h>
 #import "CountdownView.h"
 
@@ -18,7 +18,7 @@
 - (void)addPositionInJoblist:(JobList *)joblist;
 @end
 
-@interface ViewController : UITableViewController <ItemDetailViewControllerDelegate,BFPaperCheckboxDelegate,CountdownViewDelegate>
+@interface PositionListViewController : UITableViewController <ItemDetailViewControllerDelegate,BFPaperCheckboxDelegate,CountdownViewDelegate>
 
 @property (nonatomic, strong)JobList *jobList;
 @property(nonatomic, weak)  id <ViewController3DTouchDelegate>delegate;

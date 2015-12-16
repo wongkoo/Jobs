@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -9,7 +8,7 @@
         <!--JobsItems-->
         <scene sceneID="QpQ-u0-xmH">
             <objects>
-                <tableViewController id="GHa-u7-5dq" customClass="ViewController" sceneMemberID="viewController">
+                <tableViewController id="GHa-u7-5dq" customClass="PositionListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vxc-M7-aAQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +37,7 @@
         <!--添加事项-->
         <scene sceneID="3HU-ia-18Y">
             <objects>
-                <tableViewController id="0Tk-RS-lIH" customClass="ItemDetailViewController" sceneMemberID="viewController">
+                <tableViewController id="0Tk-RS-lIH" customClass="PositionDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1y4-RO-eMi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,7 +300,7 @@
         <!--公司-->
         <scene sceneID="2U7-0b-e4v">
             <objects>
-                <tableViewController storyboardIdentifier="Companys" id="v42-OH-GJd" customClass="AllListsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Companys" id="v42-OH-GJd" customClass="CompanyListViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="公司" id="hbE-si-xgk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ccj-ZF-3M8">
                             <connections>
@@ -354,7 +353,7 @@
         <!--添加公司-->
         <scene sceneID="gtV-vz-Anv">
             <objects>
-                <tableViewController id="AW3-EZ-QfR" customClass="ListDetailViewController" sceneMemberID="viewController">
+                <tableViewController id="AW3-EZ-QfR" customClass="CompanyDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yrR-m1-TUb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

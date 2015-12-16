@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 王振辉. All rights reserved.
 //
 
-#import "ListDetailViewController.h"
+#import "CompanyDetailViewController.h"
 #import "ColorSelectViewController.h"
 
 #import "JobList.h"
@@ -53,12 +53,12 @@ static const CGFloat kCellHeight = 60;
 static const CGFloat kHeaderHeight = 30;
 static const CGFloat kFooterHeight = 0;
 
-@interface ListDetailViewController () <UITextFieldDelegate,UIScrollViewDelegate,AddProcessViewDelegate>
+@interface CompanyDetailViewController () <UITextFieldDelegate,UIScrollViewDelegate,AddProcessViewDelegate>
 @property (nonatomic, strong) AddProcessView *processView;
 @property (nonatomic, strong) JobList *p_jobList;
 @end
 
-@implementation ListDetailViewController
+@implementation CompanyDetailViewController
 
 
 

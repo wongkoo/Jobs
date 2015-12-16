@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 王振辉. All rights reserved.
 //
 
-#import "ItemDetailViewController.h"
+#import "PositionDetailViewController.h"
 #import "JobsItem.h"
 #import "CellbackgroundVIew.h"
-@interface ItemDetailViewController ()
+@interface PositionDetailViewController ()
 @end
 
-@implementation ItemDetailViewController{
+@implementation PositionDetailViewController{
     NSDate *_dueDate;
     BOOL _datePickerVisible;
 }

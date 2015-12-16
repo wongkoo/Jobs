@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllListsViewController : UIViewController
+@interface CompanyListViewController : UIViewController
 
 - (IBAction)backToAllListsViewController:(UIStoryboardSegue *)segue;
 

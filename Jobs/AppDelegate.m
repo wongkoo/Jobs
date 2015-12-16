@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AllListsViewController.h"
+#import "CompanyListViewController.h"
 #import "DataModel.h"
 #import "JobList.h"
 #import "JobsItem.h"
@@ -40,7 +40,7 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
     if([shortcutItem.type isEqualToString:@"AddJobList"]){
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
-        AllListsViewController *controller = navigationController.viewControllers[0];
+        CompanyListViewController *controller = navigationController.viewControllers[0];
         self.window.rootViewController = navigationController;
         [controller performSegueWithIdentifier:@"AddJobList" sender:nil];
     }

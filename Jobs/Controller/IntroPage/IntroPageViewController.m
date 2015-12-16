@@ -9,7 +9,7 @@
 #import "IntroPageViewController.h"
 #import <EAIntroView/EAIntroView.h>
 #import "AppDelegate.h"
-#import "AllListsViewController.h"
+#import "CompanyListViewController.h"
 
 static NSString * const sampleDescription1 = @"HR打电话的时候，我再也不会忘记当初报的是哪个职位了。";
 static NSString * const sampleDescription2 = @"灰色公司任务向右“短滑”恢复。";

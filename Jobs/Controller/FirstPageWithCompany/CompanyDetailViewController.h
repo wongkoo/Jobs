@@ -14,13 +14,13 @@ typedef NS_ENUM(NSInteger, ListDetailType){
     ListDetailTypeEdit
 };
 
-@class ListDetailViewController;
+@class CompanyDetailViewController;
 @class JobList;
 
 typedef void (^AddJobListInsertZeroBlock)(JobList *jobList);
 typedef void (^EditJobListReloadBlock)(JobList *fromJobList, JobList *toJobList);
 
-@interface ListDetailViewController : UITableViewController
+@interface CompanyDetailViewController : UITableViewController
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBarButton;

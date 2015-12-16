@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 //1.在对象B的.h中定义⼀一个@protocol 代理
-@class ItemDetailViewController;
+@class PositionDetailViewController;
 @class JobsItem;
 
 @protocol ItemDetailViewControllerDelegate <NSObject>
-- (void) itemDetailViewControllerdidCancel:(ItemDetailViewController *)controller;
-- (void) itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item;
-- (void) itemDetailViewController:(ItemDetailViewController *)controller didFinishEditingItem:(JobsItem *)item;
+- (void) itemDetailViewControllerdidCancel:(PositionDetailViewController *)controller;
+- (void) itemDetailViewController:(PositionDetailViewController *)controller didFinishAddingItem:(JobsItem *)item;
+- (void) itemDetailViewController:(PositionDetailViewController *)controller didFinishEditingItem:(JobsItem *)item;
 @end
 
-@interface ItemDetailViewController : UITableViewController<UITextFieldDelegate>
+@interface PositionDetailViewController : UITableViewController<UITextFieldDelegate>
 
 @property (nonatomic, strong) JobsItem *itemToEdit;
 @property (nonatomic, strong) NSString *companyName;

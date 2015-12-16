@@ -4,18 +4,26 @@
 
 ## Description
 
-  **应届生们，面对各种公司各种职位，各种官网账号，不同的邮箱，当大家海投的时候，是否感到混乱难以梳理？**
+Dear fresh graduates, are you always feeling lost in various varieties of companies and job opportunities, dazzled official accounts and confusing e-mail addresses which drives you mad? Although there seems to be so too many options for you to choose, you feel difficult to send out own resumes?    
 
-  **Jobs来了！哪个公司，哪个职位，面试笔试等提醒，轻松应对hr的突然来电，不再忘记当初自己报了哪个职位。选填官网账号、报名邮箱、密码提示，轻松存储本地。**
+Don’t worry, here Jobs APP comes! It gives you the remind of information of which company you can choose, which job you can take,which interviews and written tests you can participate in. You will not feel worried when HR’s phone comes suddenly and you will never forget which position you have sent out.    
 
-  **Jobs，让求职清醒而高效。**
+Jobs--be your best job’s servant! Optional official account, registration emails, password prompt, and the easy way to store the information in your computer. Do what you want.    
+
+Click it and download it,you will feel more effective and released!
+
+
 
 ## iPhone Screenshot
 
 ![1](https://github.com/wongkoo/Jobs/blob/master/Presentation/CompanyList.jpg)
+
 ![2](http://a4.mzstatic.com/us/r30/Purple7/v4/27/29/36/272936d7-23a2-b56b-07b1-b641fc00ba0b/screen322x572.jpeg)
+
 ![3](http://a1.mzstatic.com/us/r30/Purple7/v4/11/32/e0/1132e015-7ab3-af3b-9f65-6523139ecbea/screen322x572.jpeg)
+
 ![4](http://a5.mzstatic.com/us/r30/Purple7/v4/46/40/42/4640421c-7f36-0a6d-06b1-c98be1749652/screen322x572.jpeg)
+
 ![5](http://a4.mzstatic.com/us/r30/Purple1/v4/03/e2/98/03e29836-28a8-36ba-22fa-47f47e8fb4d8/screen322x572.jpeg)
 
 ## iTunesPreview
@@ -28,11 +36,11 @@
 > 
 > Category: Productivity  
 > 
-> Updated: Jul 18, 2015  
+> Updated: Dec 04, 2015 
 > 
-> Version: 1.0.1  
+> Version: 1.2.1  
 > 
-> Size: 5.5 MB  
+> Size: 6.1 MB 
 > 
 > Language: English  
 > 
@@ -41,6 +49,8 @@
 > © wongkoo  
 > 
 > Rated 4+  
+>
+> Compatibility: Requires iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
 ## Thanks
 
@@ -56,7 +66,7 @@ Thanks for:
 
 [WHChartView](https://github.com/wongkoo/WHChartView)
 
-##Donation
+## Donation
 
 Easy come, easy go. 
 

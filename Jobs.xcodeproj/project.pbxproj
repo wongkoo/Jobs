@@ -17,17 +17,17 @@
 		722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722DED0A1BAE422A00FCA061 /* LabelAndTextFieldCell.m */; };
 		7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BC1B1EE68F00F1DFD9 /* main.m */; };
 		7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */; };
-		7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5C21B1EE68F00F1DFD9 /* ViewController.m */; };
+		7237F5C31B1EE68F00F1DFD9 /* PositionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5C21B1EE68F00F1DFD9 /* PositionListViewController.m */; };
 		7237F5C61B1EE68F00F1DFD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7237F5C41B1EE68F00F1DFD9 /* Main.storyboard */; };
 		7237F5C81B1EE68F00F1DFD9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */; };
 		7237F5CB1B1EE68F00F1DFD9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7237F5C91B1EE68F00F1DFD9 /* LaunchScreen.xib */; };
 		7237F5D71B1EE68F00F1DFD9 /* JobsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5D61B1EE68F00F1DFD9 /* JobsTests.m */; };
 		7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E11B1F389F00F1DFD9 /* JobsItem.m */; };
-		7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */; };
-		7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */; };
+		7237F5E51B1FE92300F1DFD9 /* PositionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E41B1FE92300F1DFD9 /* PositionDetailViewController.m */; };
+		7237F5E81B20A57A00F1DFD9 /* CompanyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5E71B20A57A00F1DFD9 /* CompanyListViewController.m */; };
 		7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5EA1B20AE1A00F1DFD9 /* JobList.m */; };
 		7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237F5F21B2202B500F1DFD9 /* DataModel.m */; };
-		723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */; };
+		723E8EA61BAAB876004D4E8C /* CompanyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E8EA51BAAB876004D4E8C /* CompanyDetailViewController.m */; };
 		72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFA1BAE8E2500F99325 /* ProcessCell.m */; };
 		72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 72913AFD1BAED6C700F99325 /* DateAndProcess.m */; };
 		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; };
@@ -91,8 +91,8 @@
 		7237F5BC1B1EE68F00F1DFD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7237F5BE1B1EE68F00F1DFD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7237F5BF1B1EE68F00F1DFD9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7237F5C11B1EE68F00F1DFD9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7237F5C21B1EE68F00F1DFD9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7237F5C11B1EE68F00F1DFD9 /* PositionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PositionListViewController.h; sourceTree = "<group>"; };
+		7237F5C21B1EE68F00F1DFD9 /* PositionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PositionListViewController.m; sourceTree = "<group>"; };
 		7237F5C51B1EE68F00F1DFD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7237F5CA1B1EE68F00F1DFD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -101,17 +101,17 @@
 		7237F5D61B1EE68F00F1DFD9 /* JobsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsTests.m; sourceTree = "<group>"; };
 		7237F5E01B1F389F00F1DFD9 /* JobsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsItem.h; sourceTree = "<group>"; };
 		7237F5E11B1F389F00F1DFD9 /* JobsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsItem.m; sourceTree = "<group>"; };
-		7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
-		7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
-		7237F5E61B20A57A00F1DFD9 /* AllListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllListsViewController.h; sourceTree = "<group>"; };
-		7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllListsViewController.m; sourceTree = "<group>"; };
+		7237F5E31B1FE92300F1DFD9 /* PositionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionDetailViewController.h; sourceTree = "<group>"; };
+		7237F5E41B1FE92300F1DFD9 /* PositionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionDetailViewController.m; sourceTree = "<group>"; };
+		7237F5E61B20A57A00F1DFD9 /* CompanyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyListViewController.h; sourceTree = "<group>"; };
+		7237F5E71B20A57A00F1DFD9 /* CompanyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyListViewController.m; sourceTree = "<group>"; };
 		7237F5E91B20AE1A00F1DFD9 /* JobList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobList.h; sourceTree = "<group>"; };
 		7237F5EA1B20AE1A00F1DFD9 /* JobList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobList.m; sourceTree = "<group>"; };
-		7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
+		7237F5EE1B212AF300F1DFD9 /* CompanyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyDetailViewController.h; sourceTree = "<group>"; };
 		7237F5F11B2202B500F1DFD9 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		7237F5F21B2202B500F1DFD9 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		723E8EA21BAAADF2004D4E8C /* AddProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddProcessView.h; path = FirstDetailPage/AddProcessView.h; sourceTree = "<group>"; };
-		723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
+		723E8EA51BAAB876004D4E8C /* CompanyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyDetailViewController.m; sourceTree = "<group>"; };
 		72913AF91BAE8E2500F99325 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessCell.h; path = FirstDetailPage/Cell/ProcessCell.h; sourceTree = "<group>"; };
 		72913AFA1BAE8E2500F99325 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessCell.m; path = FirstDetailPage/Cell/ProcessCell.m; sourceTree = "<group>"; };
 		72913AFC1BAED6C700F99325 /* DateAndProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndProcess.h; sourceTree = "<group>"; };
@@ -341,35 +341,37 @@
 			children = (
 				721243AB1BAE824D0046B060 /* NavigationController */,
 				723E8E9D1BAA9EEF004D4E8C /* IntroPage */,
-				723E8E9B1BAA9E8A004D4E8C /* FirstPageWithCompany */,
-				723E8E9C1BAA9EC7004D4E8C /* SecondPageInCompany */,
+				723E8E9B1BAA9E8A004D4E8C /* CompanyList */,
+				723E8E9C1BAA9EC7004D4E8C /* PositionList */,
 				9B95D69A1C0DB39A002F66B3 /* ShareViewController.h */,
 				9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		723E8E9B1BAA9E8A004D4E8C /* FirstPageWithCompany */ = {
+		723E8E9B1BAA9E8A004D4E8C /* CompanyList */ = {
 			isa = PBXGroup;
 			children = (
-				7237F5E61B20A57A00F1DFD9 /* AllListsViewController.h */,
-				7237F5E71B20A57A00F1DFD9 /* AllListsViewController.m */,
-				7237F5EE1B212AF300F1DFD9 /* ListDetailViewController.h */,
-				723E8EA51BAAB876004D4E8C /* ListDetailViewController.m */,
+				7237F5E61B20A57A00F1DFD9 /* CompanyListViewController.h */,
+				7237F5E71B20A57A00F1DFD9 /* CompanyListViewController.m */,
+				7237F5EE1B212AF300F1DFD9 /* CompanyDetailViewController.h */,
+				723E8EA51BAAB876004D4E8C /* CompanyDetailViewController.m */,
 				9BE99EF41BEB4FDC00345F46 /* ColorSelectViewController.h */,
 				9BE99EF51BEB4FDC00345F46 /* ColorSelectViewController.m */,
 			);
+			name = CompanyList;
 			path = FirstPageWithCompany;
 			sourceTree = "<group>";
 		};
-		723E8E9C1BAA9EC7004D4E8C /* SecondPageInCompany */ = {
+		723E8E9C1BAA9EC7004D4E8C /* PositionList */ = {
 			isa = PBXGroup;
 			children = (
-				7237F5C11B1EE68F00F1DFD9 /* ViewController.h */,
-				7237F5C21B1EE68F00F1DFD9 /* ViewController.m */,
-				7237F5E31B1FE92300F1DFD9 /* ItemDetailViewController.h */,
-				7237F5E41B1FE92300F1DFD9 /* ItemDetailViewController.m */,
+				7237F5C11B1EE68F00F1DFD9 /* PositionListViewController.h */,
+				7237F5C21B1EE68F00F1DFD9 /* PositionListViewController.m */,
+				7237F5E31B1FE92300F1DFD9 /* PositionDetailViewController.h */,
+				7237F5E41B1FE92300F1DFD9 /* PositionDetailViewController.m */,
 			);
+			name = PositionList;
 			path = SecondPageInCompany;
 			sourceTree = "<group>";
 		};
@@ -643,7 +645,7 @@
 				7237F5EB1B20AE1A00F1DFD9 /* JobList.m in Sources */,
 				722BB0FF1BB24639005372A4 /* ProcessView.m in Sources */,
 				721243AA1BAE82450046B060 /* ShadowNavController.m in Sources */,
-				7237F5C31B1EE68F00F1DFD9 /* ViewController.m in Sources */,
+				7237F5C31B1EE68F00F1DFD9 /* PositionListViewController.m in Sources */,
 				721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */,
 				72C884081BC284F00046DA81 /* CountdownView.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
@@ -652,18 +654,18 @@
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,
 				9B3AA6F01BFC70D900B1B9A2 /* AllListsCompanyCell.m in Sources */,
-				7237F5E81B20A57A00F1DFD9 /* AllListsViewController.m in Sources */,
+				7237F5E81B20A57A00F1DFD9 /* CompanyListViewController.m in Sources */,
 				9BE99EF61BEB4FDC00345F46 /* ColorSelectViewController.m in Sources */,
 				721C419D1B25812F00947326 /* CellbackgroundVIew.m in Sources */,
 				72913AFE1BAED6C700F99325 /* DateAndProcess.m in Sources */,
 				9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */,
 				722DED0B1BAE422A00FCA061 /* LabelAndTextFieldCell.m in Sources */,
 				72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */,
-				723E8EA61BAAB876004D4E8C /* ListDetailViewController.m in Sources */,
+				723E8EA61BAAB876004D4E8C /* CompanyDetailViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
 				9B95D69C1C0DB39A002F66B3 /* ShareViewController.m in Sources */,
-				7237F5E51B1FE92300F1DFD9 /* ItemDetailViewController.m in Sources */,
+				7237F5E51B1FE92300F1DFD9 /* PositionDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

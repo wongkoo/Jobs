@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 王振辉. All rights reserved.
 //
 
-#import "AllListsViewController.h"
-#import "ListDetailViewController.h"
-#import "ViewController.h"
+#import "CompanyListViewController.h"
+#import "CompanyDetailViewController.h"
+#import "PositionListViewController.h"
 #import "ShareViewController.h"
 
 #import "JobList.h"
@@ -26,11 +26,11 @@ static const NSInteger CELL_HEIGHT = 80;
 static NSString * const SegueAddOrEditIdentifier = @"AddJobList";
 static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 
-@interface AllListsViewController ()<UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface CompanyListViewController ()<UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
-@property (nonatomic, strong) DiffuseButton *shareButton;
+@property (nonatomic, strong) DiffuseButton *menuButton;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
 
 @property (nonatomic, strong) DataModel *dataModel;                     ///< dataModel should be used bu self.dataModel
@@ -41,7 +41,7 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 @property (nonatomic, assign) BOOL pulled;
 @end
 
-@implementation AllListsViewController
+@implementation CompanyListViewController
 
 
 
@@ -81,7 +81,7 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
     [self initTableView];
     [self initPullDownProcessView];
     [self initStatusBar];
-    [self initShareButton];
+    [self initMenuButton];
 }
 
 - (void)initTableView {
@@ -137,16 +137,16 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
     }
 }
 
-- (void)initShareButton {
-    self.shareButton = [[DiffuseButton alloc] initWithTitle:@"S" radius:20 color:[UIColor whBelizeHole]];
-    [self.view addSubview:_shareButton];
-    [_shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
+- (void)initMenuButton {
+    self.menuButton = [[DiffuseButton alloc] initWithTitle:@"S" radius:20 color:[UIColor whBelizeHole]];
+    [self.view addSubview:self.menuButton];
+    [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(20);
         make.bottom.equalTo(self.view).offset(-20);
         make.height.width.equalTo(@40);
     }];
-    [_shareButton drawButton];
-    [_shareButton addTarget:self action:@selector(shareScreenShot) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuButton drawButton];
+    [self.menuButton addTarget:self action:@selector(shareScreenShot) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -154,9 +154,9 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 #pragma mark - ConfigViews
 
 - (void)configureShareButton {
-    if (self.shareButton.superview == nil) {
-        self.shareButton = nil;
-        [self initShareButton];
+    if (self.menuButton.superview == nil) {
+        self.menuButton = nil;
+        [self initMenuButton];
     }
 }
 
@@ -223,7 +223,7 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
     ShareViewController *shareViewController = [[ShareViewController alloc] init];
     shareViewController.sharedImage = image;
     shareViewController.finishBlock = ^(void){
-        [self initShareButton];
+        [self initMenuButton];
     };
     [self.view addSubview:shareViewController.view];
     [self addChildViewController:shareViewController];
@@ -235,14 +235,14 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:SegueShowJobListIdentifier]) {
-        ViewController *controller = segue.destinationViewController;
+        PositionListViewController *controller = segue.destinationViewController;
         controller.jobList = sender;
         [self.navigationController setNavigationBarHidden:NO animated:YES];
         
     }else if([segue.identifier isEqualToString:SegueAddOrEditIdentifier]){
         
         UINavigationController *navigationController = segue.destinationViewController;
-        ListDetailViewController *controller = (ListDetailViewController *)navigationController.topViewController;
+        CompanyDetailViewController *controller = (CompanyDetailViewController *)navigationController.topViewController;
         __weak typeof(self) weakSelf = self;
         
         if (sender) {
@@ -438,14 +438,14 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
     _indexPathOfForceTouch = [self.tableView indexPathForCell:(MCSwipeTableViewCell *)previewingContext.sourceView];
     [self.tableView deselectRowAtIndexPath:_indexPathOfForceTouch animated:NO];
     
-    if ([self.presentedViewController isKindOfClass:[ViewController class]]) {
-        ViewController *previewController = (ViewController *)self.presentedViewController;
+    if ([self.presentedViewController isKindOfClass:[PositionListViewController class]]) {
+        PositionListViewController *previewController = (PositionListViewController *)self.presentedViewController;
         previewController.jobList = self.dataModel.jobs[_indexPathOfForceTouch.row];
         previewController.delegate = self;
         return nil;
     }
     
-    ViewController *previewController = [[ViewController alloc]init];
+    PositionListViewController *previewController = [[PositionListViewController alloc]init];
     previewController.jobList  = self.dataModel.jobs[_indexPathOfForceTouch.row];
     previewController.delegate = self;
     return previewController;

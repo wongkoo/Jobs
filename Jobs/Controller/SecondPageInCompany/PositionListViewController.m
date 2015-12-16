@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 王振辉. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "ItemDetailViewController.h"
-#import "AllListsViewController.h"
+#import "PositionListViewController.h"
+#import "PositionDetailViewController.h"
+#import "CompanyListViewController.h"
 #import "JobsItem.h"
 #import "JobList.h"
 #import "CellbackgroundVIew.h"
@@ -18,7 +18,7 @@
 #import "UIColor+BFPaperColors.h"
 #import <Masonry.h>
 
-@interface ViewController(){
+@interface PositionListViewController(){
     NSInteger cellHeight;
 }
 
@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NSMutableArray *checkboxs;
 @end
 
-@implementation ViewController
+@implementation PositionListViewController
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -103,12 +103,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"AddItem"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
+        PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
         controller.companyName = self.jobList.name;
     }else if([segue.identifier isEqualToString:@"EditItem"]){
         UINavigationController *navigationController = segue.destinationViewController;
-        ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
+        PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         controller.itemToEdit = self.jobList.items[indexPath.row];
@@ -219,7 +219,7 @@
                       completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                           
                           UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemNavigationController"];
-                          ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
+                          PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
                           controller.companyName = self.jobList.name;
                           controller.itemToEdit = jobsItem;
@@ -241,7 +241,7 @@
                       completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                           
                           UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemNavigationController"];
-                          ItemDetailViewController *controller = (ItemDetailViewController *)navigationController.topViewController;
+                          PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
                           controller.companyName = self.jobList.name;
                           controller.itemToEdit = jobsItem;
@@ -359,14 +359,14 @@
     // setup a list of preview actions
     UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"添加职位" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
         
-        ViewController *viewController = (ViewController *)previewViewController;
+        PositionListViewController *viewController = (PositionListViewController *)previewViewController;
         [viewController.delegate addPositionInJoblist:viewController.jobList];
 
     }];
     
     UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"删除本公司" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
         
-        ViewController *viewController = (ViewController *)previewViewController;
+        PositionListViewController *viewController = (PositionListViewController *)previewViewController;
         [viewController.delegate deleteJoblist:viewController.jobList];
     }];
     
@@ -431,11 +431,11 @@
 
 #pragma mark - ItemDetailViewControllerDelegate
 
-- (void)itemDetailViewControllerdidCancel:(ItemDetailViewController *)controller{
+- (void)itemDetailViewControllerdidCancel:(PositionDetailViewController *)controller{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(JobsItem *)item{
+- (void)itemDetailViewController:(PositionDetailViewController *)controller didFinishAddingItem:(JobsItem *)item{
 
     [self.jobList.items insertObject:item atIndex:0];
     
@@ -459,7 +459,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)itemDetailViewController:(ItemDetailViewController *)controller didFinishEditingItem:(JobsItem *)item{
+- (void)itemDetailViewController:(PositionDetailViewController *)controller didFinishEditingItem:(JobsItem *)item{
     NSInteger index = [self.jobList.items indexOfObject:item];
     NSIndexPath *indexPath =  [NSIndexPath indexPathForRow:index inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
