@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^FinishBlock)(void);
-
 @interface ShareViewController : UIViewController
 
 @property (nonatomic, strong) UIImage *sharedImage;
-@property (nonatomic, copy) FinishBlock finishBlock;
 
 @end

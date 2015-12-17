@@ -136,9 +136,7 @@ static const CGFloat kCrossButtonWidth = 30;
     
 }
 - (void)close {
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
-    self.finishBlock();
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

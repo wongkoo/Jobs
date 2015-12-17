@@ -16,7 +16,6 @@
 #import "DataModel.h"
 
 #import "PullDownProcessView.h"
-//#import "PureColorBackgroundView.h"
 #import "DiffuseButton.h"
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
@@ -29,7 +28,6 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 @interface CompanyListViewController ()<UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-//@property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
 @property (nonatomic, strong) DiffuseButton *menuButton;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
 
@@ -61,7 +59,6 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self updateAllApplicationNum];
     [self.tableView reloadData];
-//    [self configureStatusBar];
     [self configPullDownProcessView];
     [self configureShareButton];
 }
@@ -81,11 +78,11 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 - (void)initViews {
     [self initTableView];
     [self initPullDownProcessView];
-//    [self initStatusBar];
     [self initMenuButton];
 }
 
 - (void)initTableView {
+    //TableView
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -93,6 +90,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     self.tableView.showsVerticalScrollIndicator =NO;
     [self.view addSubview:self.tableView];
     
+    //TableViewFooterView
     self.allApplicationNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
     self.allApplicationNumLabel.font = [UIFont systemFontOfSize:15];
     self.allApplicationNumLabel.textAlignment = NSTextAlignmentCenter;
@@ -102,10 +100,12 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView.panGestureRecognizer addTarget:self action:@selector(paned:)];
     
+    //TableView background
     UIView *backgroundView = [[UIView alloc] init];
     backgroundView.backgroundColor = [UIColor whClouds];
     self.tableView.backgroundView = backgroundView;
     
+    //Jobs's icon in TableView background
     UIImageView *logoView = [[UIImageView alloc] init];
     UIImage *image = [UIImage imageNamed:@"icon"];
     logoView.image = image;
@@ -117,6 +117,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
         make.width.equalTo(@60);
     }];
     
+    //UITableViewWrapperView Background which cover Jobs's icon
     for (UIView *subview in self.tableView.subviews)
     {
         if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewWrapperView"])
@@ -131,15 +132,9 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     [self.view addSubview:self.pullDownProcessView];
 }
 
-//- (void)initStatusBar {
-//    if (!self.statusBarBackgroundView) {
-//        self.statusBarBackgroundView = [[PureColorBackgroundView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-//        [self.view addSubview:self.statusBarBackgroundView];
-//    }
-//}
-
 - (void)initMenuButton {
-    self.menuButton = [[DiffuseButton alloc] initWithTitle:@"S" radius:20 color:[UIColor whBelizeHole]];
+    self.menuButton = [[DiffuseButton alloc] initWithTitle:@"" radius:20 color:[UIColor whBelizeHole]];
+    
     [self.view addSubview:self.menuButton];
     [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(20);
@@ -147,7 +142,17 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
         make.height.width.equalTo(@40);
     }];
     [self.menuButton drawButton];
-    [self.menuButton addTarget:self action:@selector(shareScreenShot) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImageView *logoView = [[UIImageView alloc] init];
+    UIImage *image = [UIImage imageNamed:@"list"];
+    logoView.image = image;
+    [self.menuButton addSubview:logoView];
+    [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.menuButton);
+        make.width.height.equalTo(@12);
+    }];
+    
+    [self.menuButton addTarget:self action:@selector(menuButtonTapped) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -160,16 +165,6 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
         [self initMenuButton];
     }
 }
-
-//- (void)configureStatusBar {
-//    if (self.dataModel.companyList.count > 0) {
-//        Company *company = self.dataModel.companyList[0];
-//        [self changeStatusBarWithCellColor:company.cellColor];
-//    }else{
-//        [self changeStatusBarWithCellColor:CellColorWhite];
-//    }
-//    
-//}
 
 - (void)configPullDownProcessView {
     if (self.dataModel.companyList.count > 0) {
@@ -188,15 +183,6 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
 }
-
-//- (void)changeStatusBarWithCellColor:(CellColor)cellColor {
-//    self.statusBarBackgroundView.pureColor = (PureColor)cellColor;
-//    if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
-//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    }else{
-//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    }
-//}
 
 - (void)checkForceTouch {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 9.0) {
@@ -221,7 +207,11 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     self.allApplicationNumLabel.text=string;
 }
 
-- (void)shareScreenShot {
+
+
+#pragma mark - MenuButtonAction
+
+- (void)menuButtonTapped {
     UIImage* image = nil;
     UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);
     {
@@ -241,11 +231,8 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     
     ShareViewController *shareViewController = [[ShareViewController alloc] init];
     shareViewController.sharedImage = image;
-    shareViewController.finishBlock = ^(void){
-        [self initMenuButton];
-    };
-    [self.view addSubview:shareViewController.view];
-    [self addChildViewController:shareViewController];
+    
+    [self.navigationController pushViewController:shareViewController animated:NO];
 }
 
 
@@ -389,6 +376,8 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     [self.tableView scrollToRowAtIndexPath:desIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
+
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -398,12 +387,14 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     [self performSegueWithIdentifier:SegueShowPositionIdentifier sender:company];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return CELL_HEIGHT;
 }
 
+
+
 #pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat y = scrollView.contentOffset.y;
     CGPoint point = self.panPoint;
@@ -411,7 +402,6 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     self.panPoint = point;
     
     if (self.pulled) {
-//        [self refreshPullDownView];
         self.pullDownProcessView.point = self.panPoint;
     }
     
@@ -431,29 +421,29 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     }
 }
 
-//- (void)refreshPullDownView {
-//    self.pullDownProcessView.pullColor = self.statusBarBackgroundView.backgroundColor;
-//    self.pullDownProcessView.point = self.panPoint;
-//}
-
 - (void)paned:(UIPanGestureRecognizer *)gesture {
     if (self.pulled) {
         CGPoint point = self.panPoint;
         point.x = [gesture locationInView:self.tableView].x;
         self.panPoint = point;
         self.pullDownProcessView.point = self.panPoint;
-//        [self refreshPullDownView];
     }
 }
 
+
+
 #pragma mark - UINavigationControllerDelegate
+
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (viewController == self) {
         [self.dataModel setIndexOfSelectedCompany:-1];
     }
 }
 
+
+
 #pragma mark - UIViewControllerPreviewingDelegate
+
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
     
     _indexPathOfForceTouch = [self.tableView indexPathForCell:(MCSwipeTableViewCell *)previewingContext.sourceView];
@@ -481,7 +471,10 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 
 }
 
+
+
 #pragma mark - ViewController3DTouchDelegate
+
 - (void)deleteCompany:(Company *)company {
     NSInteger index = [self.dataModel.companyList indexOfObject:company];
     [self.dataModel.companyList removeObject:company];
