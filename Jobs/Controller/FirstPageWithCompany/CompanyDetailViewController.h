@@ -15,19 +15,19 @@ typedef NS_ENUM(NSInteger, ListDetailType){
 };
 
 @class CompanyDetailViewController;
-@class JobList;
+@class Company;
 
-typedef void (^AddJobListInsertZeroBlock)(JobList *jobList);
-typedef void (^EditJobListReloadBlock)(JobList *fromJobList, JobList *toJobList);
+typedef void (^AddCompanyInsertZeroBlock)(Company *company);
+typedef void (^EditCompanyReloadBlock)(Company *fromCompany, Company *toCompany);
 
 @interface CompanyDetailViewController : UITableViewController
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBarButton;
-@property (nonatomic, strong) JobList *jobListToEdit;
+@property (nonatomic, strong) Company *companyToEdit;
 @property (nonatomic, assign) ListDetailType listDetailType;
-@property (nonatomic, copy) AddJobListInsertZeroBlock addJobListInsertZeroBlock;
-@property (nonatomic, copy) EditJobListReloadBlock editJobListReloadBlock;
+@property (nonatomic, copy) AddCompanyInsertZeroBlock addCompanyInsertZeroBlock;
+@property (nonatomic, copy) EditCompanyReloadBlock editCompanyReloadBlock;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;

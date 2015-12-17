@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "CompanyListViewController.h"
 #import "DataModel.h"
-#import "JobList.h"
+#import "Company.h"
 #import "JobsItem.h"
 #import "IntroPageViewController.h"
 #import "ShadowNavController.h"
@@ -20,6 +20,7 @@
 
 static NSString * const WechatAppID = @"wxa3f12a36193aaecf";
 static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
+static NSString * const AddCompanyIdentifier = @"AddCompany";
 
 @interface AppDelegate ()
 @property (nonatomic, strong) DataModel *dataModel;
@@ -37,12 +38,12 @@ static NSString * const WechatAppSecret = @"abea2564dc23436212b01036d53c21fa";
         return;
     }
     
-    if([shortcutItem.type isEqualToString:@"AddJobList"]){
+    if([shortcutItem.type isEqualToString:AddCompanyIdentifier]){
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"FirstNavigationController"];
         CompanyListViewController *controller = navigationController.viewControllers[0];
         self.window.rootViewController = navigationController;
-        [controller performSegueWithIdentifier:@"AddJobList" sender:nil];
+        [controller performSegueWithIdentifier:AddCompanyIdentifier sender:nil];
     }
     [self.dataModel setBOOLforPerformActionForShortcutItem:YES];
 }

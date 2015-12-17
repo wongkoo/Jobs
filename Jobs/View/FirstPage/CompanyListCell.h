@@ -7,11 +7,11 @@
 //
 
 #import "MCSwipeTableViewCell.h"
-#import "JobList.h"
+#import "Company.h"
 
-@interface AllListsCompanyCell : MCSwipeTableViewCell
+@interface CompanyListCell : MCSwipeTableViewCell
 
-@property (nonatomic, strong) JobList *jobList;
+@property (nonatomic, strong) Company *company;
 @property (nonatomic, copy) MCSwipeCompletionBlock editCompletetionBlock;
 @property (nonatomic, copy) MCSwipeCompletionBlock stickCompletetionBlock;
 @property (nonatomic, copy) MCSwipeCompletionBlock crossCompletetionBlock;

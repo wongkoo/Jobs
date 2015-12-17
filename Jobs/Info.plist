@@ -64,7 +64,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>添加公司</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>AddJobList</string>
+			<string>AddCompany</string>
 		</dict>
 	</array>
 	<key>UILaunchImageFile~iphone</key>

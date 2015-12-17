@@ -7,7 +7,7 @@
 //
 
 #import "DataModel.h"
-#import "JobList.h"
+#import "Company.h"
 #import "JobsItem.h"
 
 @implementation DataModel
@@ -38,10 +38,10 @@
     return self;
 }
 
-- (NSInteger)numberOfDisDeletedJobsList {
+- (NSInteger)numberOfDisDeletedCompany {
     NSInteger disDeletedNum=0;
-    for(JobList *jobListTemp in self.jobs){
-        if (jobListTemp.deletedFlag == 0) {
+    for(Company *companyTemp in self.companyList){
+        if (companyTemp.deletedFlag == 0) {
             disDeletedNum ++;
         }
     }
@@ -50,9 +50,9 @@
 
 - (NSInteger)numberOfUncheckedJobsItem {
     NSInteger tempNum = 0;
-    for (JobList *jobList in self.jobs){
-        if(jobList.deletedFlag == 0){
-            for(JobsItem *jobsItem in jobList.items){
+    for (Company *company in self.companyList){
+        if(company.deletedFlag == 0){
+            for(JobsItem *jobsItem in company.positions){
                 if (jobsItem.checked == 0) {
                     tempNum ++;
                 }
@@ -63,8 +63,8 @@
 }
 
 - (void)cancelLocalNotificationIndexOfJobs:(NSInteger)index {
-    JobList *jobList = self.jobs[index];
-    for (JobsItem *temp in jobList.items){
+    Company *company = self.companyList[index];
+    for (JobsItem *temp in company.positions){
         if (temp.shouldRemind == YES) {
             UILocalNotification *existingNotification = [temp notificationForThisItem];
             if (existingNotification != nil) {
@@ -84,8 +84,8 @@
 }
 
 - (void)updateShouldRemind {
-    for (JobList *jobList in self.jobs){
-        for (JobsItem *jobsItem in jobList.items) {
+    for (Company *company in self.companyList){
+        for (JobsItem *jobsItem in company.positions) {
             if (jobsItem.shouldRemind == YES && [jobsItem.dueDate timeIntervalSinceNow] <= 0) {
                     jobsItem.shouldRemind = NO;
             }
@@ -93,11 +93,11 @@
     }
 }
 
-- (NSInteger)indexOfSelectedJobList {
+- (NSInteger)indexOfSelectedCompany {
     return [[NSUserDefaults standardUserDefaults]integerForKey:@"JobIndex"];
 }
 
-- (void)setIndexOfSelectedJobList:(NSInteger)index {
+- (void)setIndexOfSelectedCompany:(NSInteger)index {
     [[NSUserDefaults standardUserDefaults]setInteger:index forKey:@"JobIndex"];
 }
 
@@ -108,13 +108,13 @@
 }
 
 -(NSString *)dataFilePath {
-    return [[self documentsDirectory]stringByAppendingPathComponent:@"JobsV20151111.plist"];
+    return [[self documentsDirectory]stringByAppendingPathComponent:@"JobsV20151217.plist"];
 }
 
 - (void)saveJobs {
     NSMutableData *data = [[NSMutableData alloc]init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
-    [archiver encodeObject:_jobs forKey:@"Jobs"];
+    [archiver encodeObject:_companyList forKey:@"Jobs"];
     [archiver finishEncoding];
     [data writeToFile:[self dataFilePath] atomically:YES];
 }
@@ -124,10 +124,10 @@
     if ([[NSFileManager defaultManager]fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc]initWithContentsOfFile:path];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
-        self.jobs = [unarchiver decodeObjectForKey:@"Jobs"];
+        self.companyList = [unarchiver decodeObjectForKey:@"Jobs"];
         [unarchiver finishDecoding];
     }else{
-        self.jobs = [[NSMutableArray alloc]initWithCapacity:10];
+        self.companyList = [[NSMutableArray alloc]initWithCapacity:10];
     }
 }
 

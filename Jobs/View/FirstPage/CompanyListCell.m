@@ -6,19 +6,19 @@
 //  Copyright © 2015年 王振辉. All rights reserved.
 //
 
-#import "AllListsCompanyCell.h"
+#import "CompanyListCell.h"
 #import "Masonry.h"
 #import "CellbackgroundVIew.h"
 #import "JobsItem.h"
 #import "UIColor+WHColor.h"
 
-@interface AllListsCompanyCell ()
+@interface CompanyListCell ()
 @property (nonatomic, strong) UILabel *processLabel;
 @property (nonatomic, strong) CellbackgroundVIew *cellBackgroundView;
 
 @end
 
-@implementation AllListsCompanyCell
+@implementation CompanyListCell
 
 + (NSString *)reuseIdentifier {
     return NSStringFromClass([self class]);
@@ -57,8 +57,8 @@
     }];
 }
 
-- (void)setJobList:(JobList *)jobList {
-    _jobList = jobList;
+- (void)setCompany:(Company *)company {
+    _company = company;
     
     [self reloadData];
 }
@@ -71,15 +71,15 @@
 }
 
 - (void)configureColor {
-    [self.cellBackgroundView setColor:self.jobList.cellColor];
+    [self.cellBackgroundView setColor:self.company.cellColor];
 }
 
 - (void)configureText {
     NSString *detailString = [[NSString alloc] init];
     NSString *dateString = [[NSString alloc] init];
     BOOL showsHours = NO;
-    if ([self.jobList.items count] != 0) {
-        JobsItem *jobsItem = self.jobList.items[0];
+    if ([self.company.positions count] != 0) {
+        JobsItem *jobsItem = self.company.positions[0];
         
         NSDate *nowDate = [NSDate date];
         NSDateFormatter *referenceFormatter = [[NSDateFormatter alloc] init];
@@ -123,7 +123,7 @@
         detailString = NSLocalizedString(@"AllListCompanyCell Haven't apply for a position", @"暂未申请职位");
     }
     
-    CellColor cellColor = self.jobList.cellColor;
+    CellColor cellColor = self.company.cellColor;
     UIColor *stringColor;
     if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
         stringColor = [UIColor blackColor];
@@ -132,9 +132,9 @@
     }
     
     //标题
-    NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:self.jobList.name];
-    [titleAttributedString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, self.jobList.name.length)];
-    [titleAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, self.jobList.name.length)];
+    NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:self.company.name];
+    [titleAttributedString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, self.company.name.length)];
+    [titleAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, self.company.name.length)];
     self.textLabel.attributedText = titleAttributedString;
     
     //副标题
@@ -155,7 +155,7 @@
 }
 
 - (void)configureState {
-    if (self.jobList.deletedFlag == 0) {
+    if (self.company.deletedFlag == 0) {
         //date
         NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:self.processLabel.attributedText];
         [dateAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, self.processLabel.attributedText.length)];
@@ -171,7 +171,7 @@
         [detailAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, self.detailTextLabel.attributedText.length)];
         self.detailTextLabel.attributedText = detailAttributeString;
         
-    }else if(self.jobList.deletedFlag == 1){
+    }else if(self.company.deletedFlag == 1){
         //data
         NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:self.processLabel.attributedText];
         [dateAttributeString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, self.processLabel.attributedText.length)];
@@ -206,7 +206,7 @@
     [self setDefaultColor:[UIColor whClouds]];
     [self setDelegate:(id)self];
     
-    if (self.jobList.deletedFlag == 0) {
+    if (self.company.deletedFlag == 0) {
         [self setSwipeGestureWithView:checkView
                                 color:greenColor
                                  mode:MCSwipeTableViewCellModeSwitch
@@ -232,7 +232,7 @@
                       completionBlock:self.stickCompletetionBlock];
         
         
-    }else if(self.jobList.deletedFlag == 1){
+    }else if(self.company.deletedFlag == 1){
         [self setSwipeGestureWithView:checkView
                                 color:[UIColor whPeterRiver]
                                  mode:MCSwipeTableViewCellModeSwitch

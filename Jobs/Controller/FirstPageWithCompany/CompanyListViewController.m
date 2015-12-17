@@ -11,7 +11,7 @@
 #import "PositionListViewController.h"
 #import "ShareViewController.h"
 
-#import "JobList.h"
+#import "Company.h"
 #import "jobsItem.h"
 #import "DataModel.h"
 
@@ -20,11 +20,11 @@
 #import "DiffuseButton.h"
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
-#import "AllListsCompanyCell.h"
+#import "CompanyListCell.h"
 
 static const NSInteger CELL_HEIGHT = 80;
-static NSString * const SegueAddOrEditIdentifier = @"AddJobList";
-static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
+static NSString * const SegueAddOrEditIdentifier = @"AddCompany";
+static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 
 @interface CompanyListViewController ()<UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -161,9 +161,9 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 }
 
 - (void)configureStatusBar {
-    if (self.dataModel.jobs.count > 0) {
-        JobList *joblist = self.dataModel.jobs[0];
-        [self changeStatusBarWithCellColor:joblist.cellColor];
+    if (self.dataModel.companyList.count > 0) {
+        Company *company = self.dataModel.companyList[0];
+        [self changeStatusBarWithCellColor:company.cellColor];
     }else{
         [self changeStatusBarWithCellColor:CellColorWhite];
     }
@@ -194,7 +194,7 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 
 - (void)updateAllApplicationNum{
     NSString *string;
-    if (self.dataModel.jobs.count == 0) {
+    if (self.dataModel.companyList.count == 0) {
         string = NSLocalizedString(@"AllListViewController Pull down to add company", @"下拉添加公司");
     }else{
         string = [NSString stringWithFormat:NSLocalizedString(@"AllListViewController Under way position number: %ld", @"%ld个职位正在进行中"),(long)[self.dataModel numberOfUncheckedJobsItem]];
@@ -234,9 +234,9 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:SegueShowJobListIdentifier]) {
+    if ([segue.identifier isEqualToString:SegueShowPositionIdentifier]) {
         PositionListViewController *controller = segue.destinationViewController;
-        controller.jobList = sender;
+        controller.company = sender;
         [self.navigationController setNavigationBarHidden:NO animated:YES];
         
     }else if([segue.identifier isEqualToString:SegueAddOrEditIdentifier]){
@@ -246,15 +246,15 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
         __weak typeof(self) weakSelf = self;
         
         if (sender) {
-            controller.jobListToEdit = sender;
+            controller.companyToEdit = sender;
             controller.listDetailType = ListDetailTypeEdit;
-            controller.editJobListReloadBlock = ^(JobList *fromJobList, JobList *toJobList) {
-                [weakSelf listDetailEditReloadFromJobList:fromJobList toJobList:toJobList];
+            controller.editCompanyReloadBlock = ^(Company *fromCompany, Company *toCompany) {
+                [weakSelf companyDetailEditReloadFromCompany:fromCompany toCompany:toCompany];
             };
         }else{
             controller.listDetailType = ListDetailTypeAdd;
-            controller.addJobListInsertZeroBlock = ^(JobList *jobList){
-                [weakSelf listDetailAddJobListInsert:jobList];
+            controller.addCompanyInsertZeroBlock = ^(Company *company){
+                [weakSelf companyDetailAddCompanyInsert:company];
             };
         }
     }
@@ -271,33 +271,33 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    AllListsCompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:[AllListsCompanyCell reuseIdentifier]];
+    CompanyListCell *cell = [tableView dequeueReusableCellWithIdentifier:[CompanyListCell reuseIdentifier]];
     
     if (!cell) {
-        cell = [[AllListsCompanyCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[AllListsCompanyCell reuseIdentifier]];
+        cell = [[CompanyListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[CompanyListCell reuseIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         __weak typeof(self) weakSelf =  self;
         
         cell.editCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-            AllListsCompanyCell *myCell = (AllListsCompanyCell *)cell;
-            [weakSelf performSegueWithIdentifier:SegueAddOrEditIdentifier sender:myCell.jobList];
+            CompanyListCell *myCell = (CompanyListCell *)cell;
+            [weakSelf performSegueWithIdentifier:SegueAddOrEditIdentifier sender:myCell.company];
         };
         
         cell.stickCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-            [weakSelf stickCell:(AllListsCompanyCell *)cell];
+            [weakSelf stickCell:(CompanyListCell *)cell];
         };
         
         cell.crossCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-            [weakSelf deleteCell:(AllListsCompanyCell *)cell];
+            [weakSelf deleteCell:(CompanyListCell *)cell];
         };
         
         cell.checkCompletetionBlock = ^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode){
-            [weakSelf changeStateofCell:(AllListsCompanyCell *)cell];
+            [weakSelf changeStateofCell:(CompanyListCell *)cell];
         };
     }
     
-    cell.jobList = self.dataModel.jobs[indexPath.row];
+    cell.company = self.dataModel.companyList[indexPath.row];
     
     if (_forceTouchAvailable) {
         [self registerForPreviewingWithDelegate:self sourceView:cell];
@@ -307,7 +307,7 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataModel.jobs count];
+    return [self.dataModel.companyList count];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -326,45 +326,45 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 
 #pragma mark - CellCallBack
 
-- (void)stickCell:(AllListsCompanyCell *)cell {
-    NSInteger index = [self.dataModel.jobs indexOfObject:cell.jobList];
-    [self.dataModel.jobs insertObject:cell.jobList atIndex:0];
-    [self.dataModel.jobs removeObjectAtIndex:(index + 1)];
+- (void)stickCell:(CompanyListCell *)cell {
+    NSInteger index = [self.dataModel.companyList indexOfObject:cell.company];
+    [self.dataModel.companyList insertObject:cell.company atIndex:0];
+    [self.dataModel.companyList removeObjectAtIndex:(index + 1)];
     [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [self configureStatusBar];
     NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
-- (void)deleteCell:(AllListsCompanyCell *)cell {
+- (void)deleteCell:(CompanyListCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.dataModel cancelLocalNotificationIndexOfJobs:indexPath.row];
-    [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
+    [self.dataModel.companyList removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
-- (void)changeStateofCell:(AllListsCompanyCell *)cell {
+- (void)changeStateofCell:(CompanyListCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    NSInteger disDeletedNum = [self.dataModel numberOfDisDeletedJobsList];
+    NSInteger disDeletedNum = [self.dataModel numberOfDisDeletedCompany];
     
-    cell.jobList.deletedFlag = !cell.jobList.deletedFlag;
+    cell.company.deletedFlag = !cell.company.deletedFlag;
     [cell reloadData];
     [self updateAllApplicationNum];
     
-    [self.dataModel.jobs removeObjectAtIndex:indexPath.row];
+    [self.dataModel.companyList removeObjectAtIndex:indexPath.row];
     
     NSInteger insertIndex;
     NSIndexPath *desIndexPath;
     
-    if (cell.jobList.deletedFlag == 1) {
+    if (cell.company.deletedFlag == 1) {
         insertIndex = disDeletedNum - 1;
         desIndexPath = [NSIndexPath indexPathForRow:disDeletedNum-1 inSection:0];
-    }else if(cell.jobList.deletedFlag == 0){
+    }else if(cell.company.deletedFlag == 0){
         insertIndex = 0;
         desIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     }
     
-    [self.dataModel.jobs insertObject:cell.jobList atIndex:insertIndex];
+    [self.dataModel.companyList insertObject:cell.company atIndex:insertIndex];
     [self.tableView moveRowAtIndexPath:indexPath toIndexPath:desIndexPath];
     [self configureStatusBar];
     [self.tableView scrollToRowAtIndexPath:desIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
@@ -373,10 +373,10 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.dataModel setIndexOfSelectedJobList:indexPath.row];
-    JobList *jobList = self.dataModel.jobs[indexPath.row];
+    [self.dataModel setIndexOfSelectedCompany:indexPath.row];
+    Company *company = self.dataModel.companyList[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:SegueShowJobListIdentifier sender:jobList];
+    [self performSegueWithIdentifier:SegueShowPositionIdentifier sender:company];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -404,9 +404,9 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
     }else{
         self.pulled = NO;
         int row = (int)(scrollView.contentOffset.y/80);
-        if (row < self.dataModel.jobs.count) {
-            JobList *jobList = self.dataModel.jobs[row];
-            [self changeStatusBarWithCellColor:jobList.cellColor];
+        if (row < self.dataModel.companyList.count) {
+            Company *company = self.dataModel.companyList[row];
+            [self changeStatusBarWithCellColor:company.cellColor];
         }
     }
 }
@@ -428,7 +428,7 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
 #pragma mark - UINavigationControllerDelegate
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (viewController == self) {
-        [self.dataModel setIndexOfSelectedJobList:-1];
+        [self.dataModel setIndexOfSelectedCompany:-1];
     }
 }
 
@@ -440,55 +440,52 @@ static NSString * const SegueShowJobListIdentifier = @"ShowJobList";
     
     if ([self.presentedViewController isKindOfClass:[PositionListViewController class]]) {
         PositionListViewController *previewController = (PositionListViewController *)self.presentedViewController;
-        previewController.jobList = self.dataModel.jobs[_indexPathOfForceTouch.row];
+        previewController.company = self.dataModel.companyList[_indexPathOfForceTouch.row];
         previewController.delegate = self;
         return nil;
     }
     
     PositionListViewController *previewController = [[PositionListViewController alloc]init];
-    previewController.jobList  = self.dataModel.jobs[_indexPathOfForceTouch.row];
+    previewController.company  = self.dataModel.companyList[_indexPathOfForceTouch.row];
     previewController.delegate = self;
     return previewController;
 }
 
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
     
-    [self.dataModel setIndexOfSelectedJobList:_indexPathOfForceTouch.row];
-    JobList *jobList = self.dataModel.jobs[_indexPathOfForceTouch.row];
+    [self.dataModel setIndexOfSelectedCompany:_indexPathOfForceTouch.row];
+    Company *company = self.dataModel.companyList[_indexPathOfForceTouch.row];
     [self.tableView deselectRowAtIndexPath:_indexPathOfForceTouch animated:NO];
-    [self performSegueWithIdentifier:SegueShowJobListIdentifier sender:jobList];
+    [self performSegueWithIdentifier:SegueShowPositionIdentifier sender:company];
 
 }
 
 #pragma mark - ViewController3DTouchDelegate
-- (void)deleteJoblist:(JobList *)joblist {
-    NSInteger index = [self.dataModel.jobs indexOfObject:joblist];
-    [self.dataModel.jobs removeObject:joblist];
+- (void)deleteCompany:(Company *)company {
+    NSInteger index = [self.dataModel.companyList indexOfObject:company];
+    [self.dataModel.companyList removeObject:company];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
-- (void)addPositionInJoblist:(JobList *)joblist {
-    NSInteger index = [self.dataModel.jobs indexOfObject:joblist];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    JobList *jobList = self.dataModel.jobs[indexPath.row];
-    joblist.addPositionBy3DTouch = YES;
-    [self performSegueWithIdentifier:SegueShowJobListIdentifier sender:jobList];
+- (void)addPositionInCompany:(Company *)company {
+    company.addPositionBy3DTouch = YES;
+    [self performSegueWithIdentifier:SegueShowPositionIdentifier sender:company];
 }
 
 
 
 #pragma mark - ListDetailViewControllerCallBack
 
-- (void)listDetailAddJobListInsert:(JobList *)jobList {
-    [self.dataModel.jobs insertObject:jobList atIndex:0];
+- (void)companyDetailAddCompanyInsert:(Company *)company {
+    [self.dataModel.companyList insertObject:company atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSArray *indexPaths = @[indexPath];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)listDetailEditReloadFromJobList:(JobList *)fromJobList toJobList:(JobList *)toJobList {
-    NSInteger index = [self.dataModel.jobs indexOfObject:fromJobList];
-    [self.dataModel.jobs replaceObjectAtIndex:index withObject:toJobList];
+- (void)companyDetailEditReloadFromCompany:(Company *)fromCompany toCompany:(Company *)toCompany {
+    NSInteger index = [self.dataModel.companyList indexOfObject:fromCompany];
+    [self.dataModel.companyList replaceObjectAtIndex:index withObject:toCompany];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }

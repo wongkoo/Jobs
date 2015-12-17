@@ -9,7 +9,7 @@
 #import "CompanyDetailViewController.h"
 #import "ColorSelectViewController.h"
 
-#import "JobList.h"
+#import "Company.h"
 
 
 #import "DateAndProcess.h"
@@ -55,7 +55,7 @@ static const CGFloat kFooterHeight = 0;
 
 @interface CompanyDetailViewController () <UITextFieldDelegate,UIScrollViewDelegate,AddProcessViewDelegate>
 @property (nonatomic, strong) AddProcessView *processView;
-@property (nonatomic, strong) JobList *p_jobList;
+@property (nonatomic, strong) Company *p_company;
 @end
 
 @implementation CompanyDetailViewController
@@ -74,19 +74,19 @@ static const CGFloat kFooterHeight = 0;
         self.title = NSLocalizedString(@"ListDetailViewController Edit Company", @"编辑公司");
         self.saveBarButton.enabled = YES;
         
-        self.p_jobList = self.jobListToEdit;
-        self.jobListToEdit = [self.p_jobList copy];
+        self.p_company = self.companyToEdit;
+        self.companyToEdit = [self.p_company copy];
     }else if (self.listDetailType == ListDetailTypeAdd) {
         self.title = NSLocalizedString(@"ListDetailViewController Add Company", @"添加公司");
         self.saveBarButton.enabled = NO;
         
-        self.jobListToEdit = [[JobList alloc] init];
-        self.jobListToEdit.name = @"";
-        self.jobListToEdit.accountOfWebsite = @"";
-        self.jobListToEdit.email = @"";
-        self.jobListToEdit.reminderOfPassword = @"";
-        self.jobListToEdit.process = [[NSMutableArray alloc]initWithCapacity:3];
-        self.jobListToEdit.cellColor = CellColorWhite;
+        self.companyToEdit = [[Company alloc] init];
+        self.companyToEdit.name = @"";
+        self.companyToEdit.accountOfWebsite = @"";
+        self.companyToEdit.email = @"";
+        self.companyToEdit.reminderOfPassword = @"";
+        self.companyToEdit.process = [[NSMutableArray alloc]initWithCapacity:3];
+        self.companyToEdit.cellColor = CellColorWhite;
     }
 }
 
@@ -114,7 +114,7 @@ static const CGFloat kFooterHeight = 0;
     }else if(section == ListDetailSectionTypeOptional) {
         return kOptionalSectionNum;
     }else if(section == ListDetailSectionTypeProcess){
-        return [self.jobListToEdit.process count] + kProcessSectionBasicNum;
+        return [self.companyToEdit.process count] + kProcessSectionBasicNum;
     }else {
         return kNullSectionNum;
     }
@@ -130,14 +130,14 @@ static const CGFloat kFooterHeight = 0;
     //processCell
     if (indexPath.section == ListDetailSectionTypeProcess) {
 
-        if (indexPath.row == [self.jobListToEdit.process count]) {
+        if (indexPath.row == [self.companyToEdit.process count]) {
             AddButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:AddButtonCellIdentifier];
             if (!cell) {
                 cell = [[AddButtonCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AddButtonCellIdentifier];
                 [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             }
             
-            if ([self.jobListToEdit.process count] > 0) {
+            if ([self.companyToEdit.process count] > 0) {
                 cell.sortButton.hidden = NO;
             }else{
                 cell.sortButton.hidden = YES;
@@ -153,7 +153,7 @@ static const CGFloat kFooterHeight = 0;
                 [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             }
             
-            DateAndProcess *dateAndProcess = [self.jobListToEdit.process objectAtIndex:indexPath.row];
+            DateAndProcess *dateAndProcess = [self.companyToEdit.process objectAtIndex:indexPath.row];
             
             NSDateFormatter  *dateFormatter=[[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:NSLocalizedString(@"ListDetailViewController Date", @"MM月dd日hh:mm")];
@@ -173,7 +173,7 @@ static const CGFloat kFooterHeight = 0;
             cell.title = NSLocalizedString(@"ListDetailViewController Background Color", @"背景颜色");
             [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
         }
-        cell.cellColor = self.jobListToEdit.cellColor;
+        cell.cellColor = self.companyToEdit.cellColor;
         return cell;
     }
     
@@ -194,20 +194,20 @@ static const CGFloat kFooterHeight = 0;
     if (indexPath.section == ListDetailSectionTypeRequired) {
         cell.label.text = NSLocalizedString(@"ListDetailViewController Company", @"公司");
         cell.textField.placeholder = @"Mogujie";
-        cell.textField.text = self.jobListToEdit.name;
+        cell.textField.text = self.companyToEdit.name;
     }else if(indexPath.section == ListDetailSectionTypeOptional) {
         if (indexPath.row == OptionalSectionCellTypeAccount) {
             cell.label.text = NSLocalizedString(@"ListDetailViewController Web Account", @"官网帐号");
             cell.textField.placeholder = @"WangMing";
-            cell.textField.text = self.jobListToEdit.accountOfWebsite;
+            cell.textField.text = self.companyToEdit.accountOfWebsite;
         }else if(indexPath.row == OptionalSectionCellTypeKeyHint) {
             cell.label.text = NSLocalizedString(@"ListDetailViewController Password Hint", @"密码提示");
             cell.textField.placeholder = @"DODO's Birthday";
-            cell.textField.text = self.jobListToEdit.reminderOfPassword;
+            cell.textField.text = self.companyToEdit.reminderOfPassword;
         }else if(indexPath.row == OptionalSectionCellTypeEmail) {
             cell.label.text = NSLocalizedString(@"ListDetailViewController Email", @"报名邮箱");
             cell.textField.placeholder = @"WangMing@xmail.com";
-            cell.textField.text = self.jobListToEdit.email;
+            cell.textField.text = self.companyToEdit.email;
         }
     }
     cell.textField.delegate = self;
@@ -218,7 +218,7 @@ static const CGFloat kFooterHeight = 0;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == ListDetailSectionTypeProcess && indexPath.row != [self.jobListToEdit.process count]) {
+    if (indexPath.section == ListDetailSectionTypeProcess && indexPath.row != [self.companyToEdit.process count]) {
         return YES;
     }
     return NO;
@@ -235,7 +235,7 @@ static const CGFloat kFooterHeight = 0;
     UITableViewRowAction *layTopRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
                                                                                 title:NSLocalizedString(@"ListDetailViewController Delete", @"删除")
                                                                               handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                                                                  [self.jobListToEdit.process removeObjectAtIndex:indexPath.row];
+                                                                                  [self.companyToEdit.process removeObjectAtIndex:indexPath.row];
                                                                                   [tableView setEditing:NO animated:YES];
                                                                                   [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
                                                                               }];
@@ -244,7 +244,7 @@ static const CGFloat kFooterHeight = 0;
     UITableViewRowAction *layTopRowAction2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
                                                                                 title:NSLocalizedString(@"ListDetailViewController Edit", @"编辑")
                                                                               handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                                                                  DateAndProcess *dateAndProcess = [self.jobListToEdit.process objectAtIndex:indexPath.row];
+                                                                                  DateAndProcess *dateAndProcess = [self.companyToEdit.process objectAtIndex:indexPath.row];
                                                                                   [self addProcessViewWithString:dateAndProcess.string Date:dateAndProcess.date Index:indexPath.row];
                                                                                   [tableView setEditing:NO animated:YES];
                                                                               }];
@@ -255,14 +255,14 @@ static const CGFloat kFooterHeight = 0;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    [self.jobListToEdit.process exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
+    [self.companyToEdit.process exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
 }
 
 
 
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == ListDetailSectionTypeProcess && indexPath.row != [self.jobListToEdit.process count]) {
+    if (indexPath.section == ListDetailSectionTypeProcess && indexPath.row != [self.companyToEdit.process count]) {
         return YES;
     }else{
         return NO;
@@ -311,7 +311,7 @@ static const CGFloat kFooterHeight = 0;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
-    if (sourceIndexPath.section == proposedDestinationIndexPath.section && proposedDestinationIndexPath.row != [self.jobListToEdit.process count]) {
+    if (sourceIndexPath.section == proposedDestinationIndexPath.section && proposedDestinationIndexPath.row != [self.companyToEdit.process count]) {
         return proposedDestinationIndexPath;
     }else{
         return sourceIndexPath;
@@ -322,11 +322,11 @@ static const CGFloat kFooterHeight = 0;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == ListDetailSectionTypeRequired && indexPath.row == RequiredSectionCellTypeColor) {
         ColorSelectViewController *controller = [[ColorSelectViewController alloc] init];
-        controller.cellColor = self.jobListToEdit.cellColor;
+        controller.cellColor = self.companyToEdit.cellColor;
         
         __weak typeof(self) weakSelf =  self;
         controller.selectedBlock = ^(NSInteger integer) {
-            weakSelf.jobListToEdit.cellColor = integer;
+            weakSelf.companyToEdit.cellColor = integer;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:RequiredSectionCellTypeColor inSection:ListDetailSectionTypeRequired];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         };
@@ -395,12 +395,12 @@ static const CGFloat kFooterHeight = 0;
     [self dismissViewControllerAnimated:YES completion:nil];
     
     if (self.listDetailType == ListDetailTypeAdd) {
-        if (self.addJobListInsertZeroBlock) {
-            self.addJobListInsertZeroBlock(self.jobListToEdit);
+        if (self.addCompanyInsertZeroBlock) {
+            self.addCompanyInsertZeroBlock(self.companyToEdit);
         }
     }else if (self.listDetailType == ListDetailTypeEdit) {
-        if (self.editJobListReloadBlock) {
-            self.editJobListReloadBlock(self.p_jobList, self.jobListToEdit);
+        if (self.editCompanyReloadBlock) {
+            self.editCompanyReloadBlock(self.p_company, self.companyToEdit);
         }
     }
 }
@@ -412,19 +412,19 @@ static const CGFloat kFooterHeight = 0;
 - (void)saveText {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:RequiredSectionCellTypeTitle inSection:ListDetailSectionTypeRequired];
     LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    self.jobListToEdit.name = cell.textField.text;
+    self.companyToEdit.name = cell.textField.text;
     
     indexPath = [NSIndexPath indexPathForRow:OptionalSectionCellTypeAccount inSection:ListDetailSectionTypeOptional];
     cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    self.jobListToEdit.accountOfWebsite = cell.textField.text;
+    self.companyToEdit.accountOfWebsite = cell.textField.text;
     
     indexPath = [NSIndexPath indexPathForRow:OptionalSectionCellTypeKeyHint inSection:ListDetailSectionTypeOptional];
     cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    self.jobListToEdit.reminderOfPassword = cell.textField.text;
+    self.companyToEdit.reminderOfPassword = cell.textField.text;
     
     indexPath = [NSIndexPath indexPathForRow:OptionalSectionCellTypeEmail inSection:ListDetailSectionTypeOptional];
     cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    self.jobListToEdit.email = cell.textField.text;
+    self.companyToEdit.email = cell.textField.text;
 }
 
 
@@ -465,7 +465,7 @@ static const CGFloat kFooterHeight = 0;
 - (void)addProcrssViewDidSavedWithString:(NSString *)string Date:(NSDate *)date Index:(NSInteger)index{
     [self addProcrssViewDidCancel];
     
-    NSIndexPath *buttonIndexPath = [NSIndexPath indexPathForRow:[self.jobListToEdit.process count] inSection:ListDetailSectionTypeProcess];
+    NSIndexPath *buttonIndexPath = [NSIndexPath indexPathForRow:[self.companyToEdit.process count] inSection:ListDetailSectionTypeProcess];
     AddButtonCell *cell = [self.tableView cellForRowAtIndexPath:buttonIndexPath];
     cell.sortButton.hidden = NO;
     
@@ -473,14 +473,14 @@ static const CGFloat kFooterHeight = 0;
     dateAndProcess.string = string;
     dateAndProcess.date = date;
     if (index == kAddProcessViewNULL) {
-        [self.jobListToEdit.process addObject:dateAndProcess];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.jobListToEdit.process count] - kProcessSectionBasicNum inSection:ListDetailSectionTypeProcess];
+        [self.companyToEdit.process addObject:dateAndProcess];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.companyToEdit.process count] - kProcessSectionBasicNum inSection:ListDetailSectionTypeProcess];
         NSArray *indexPaths = @[indexPath];
         [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else{
-        [self.jobListToEdit.process removeObjectAtIndex:index];
-        [self.jobListToEdit.process insertObject:dateAndProcess atIndex:index];
+        [self.companyToEdit.process removeObjectAtIndex:index];
+        [self.companyToEdit.process insertObject:dateAndProcess atIndex:index];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:ListDetailSectionTypeProcess];
         NSArray *indexPaths = @[indexPath];
         [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -493,9 +493,9 @@ static const CGFloat kFooterHeight = 0;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:RequiredSectionCellTypeTitle inSection:ListDetailSectionTypeRequired];
     LabelAndTextFieldCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    self.jobListToEdit.name = cell.textField.text;
+    self.companyToEdit.name = cell.textField.text;
     
-    if (self.jobListToEdit.name.length > 0) {
+    if (self.companyToEdit.name.length > 0) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }
 }

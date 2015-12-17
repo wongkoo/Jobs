@@ -1,5 +1,5 @@
 //
-//  JobList.h
+//  Company.h
 //  Jobs
 //
 //  Created by 王振辉 on 15/6/5.
@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "CellbackgroundVIew.h"
 
-@interface JobList : NSObject
+@interface Company : NSObject
 
-@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableArray *positions;
 @property (nonatomic, copy  ) NSString *name;
 @property (nonatomic, copy  ) NSString *accountOfWebsite;
 @property (nonatomic, copy  ) NSString *reminderOfPassword;

@@ -10,16 +10,16 @@
 
 @interface DataModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray *jobs;
+@property (nonatomic, strong) NSMutableArray *companyList;
 
 + (DataModel *)sharedInstance;
 
 - (void)saveJobs;
-- (NSInteger)indexOfSelectedJobList;
-- (void)setIndexOfSelectedJobList:(NSInteger)index;
+- (NSInteger)indexOfSelectedCompany;
+- (void)setIndexOfSelectedCompany:(NSInteger)index;
 - (void)setBOOLforPerformActionForShortcutItem:(BOOL)bl; //为了解决 当前VC为ViewController，进入后台，再使用3Dtouch的Add Company后，无法跳转到第一页的情况。
 - (NSInteger)numberOfUncheckedJobsItem;
-- (NSInteger)numberOfDisDeletedJobsList;
+- (NSInteger)numberOfDisDeletedCompany;
 - (void)cancelLocalNotificationIndexOfJobs:(NSInteger)index;
 + (NSInteger)nextJobsItemId;
 

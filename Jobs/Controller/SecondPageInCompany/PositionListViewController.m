@@ -10,7 +10,7 @@
 #import "PositionDetailViewController.h"
 #import "CompanyListViewController.h"
 #import "JobsItem.h"
-#import "JobList.h"
+#import "Company.h"
 #import "CellbackgroundVIew.h"
 #import "ProcessView.h"
 #import <MCSwipeTableViewCell.h>
@@ -39,7 +39,7 @@
     [self popIfPerformActionForShortcutItem];
     [super viewDidLoad];
     cellHeight = 100;
-    self.title = self.jobList.name;
+    self.title = self.company.name;
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
@@ -50,9 +50,9 @@
     [self initDetailTextView];
     
     //用于检测是否是公司Cell被重按之后 上移点击添加职位按钮。
-    if (self.jobList.addPositionBy3DTouch == YES) {
+    if (self.company.addPositionBy3DTouch == YES) {
         [self performSegueWithIdentifier:@"AddItem" sender:nil];
-        self.jobList.addPositionBy3DTouch = NO;
+        self.company.addPositionBy3DTouch = NO;
     }
 }
 
@@ -67,8 +67,8 @@
 
 - (void)initCheckboxs{
     self.checkboxs = [[NSMutableArray alloc]initWithCapacity:20];
-    for (NSInteger i =0; i<[self.jobList.items count]; ++i) {
-        JobsItem *item =self.jobList.items[i];
+    for (NSInteger i =0; i<[self.company.positions count]; ++i) {
+        JobsItem *item =self.company.positions[i];
         BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.view.bounds.size.width-cellHeight, 0, cellHeight, cellHeight)];
         checkbox.tag = i;
         if (item.checked == 0) {
@@ -83,14 +83,14 @@
 
 - (void)initDetailTextView{
     self.detailTextView.text = @" ";
-    if (![self.jobList.accountOfWebsite isEqualToString:@""]) {
-        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"官网账号：%@\n",self.jobList.accountOfWebsite];
+    if (![self.company.accountOfWebsite isEqualToString:@""]) {
+        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"官网账号：%@\n",self.company.accountOfWebsite];
     }
-    if (![self.jobList.reminderOfPassword isEqualToString:@""]) {
-        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"密码提示：%@\n",self.jobList.reminderOfPassword];
+    if (![self.company.reminderOfPassword isEqualToString:@""]) {
+        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"密码提示：%@\n",self.company.reminderOfPassword];
     }
-    if (![self.jobList.email isEqualToString:@""]) {
-        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"报名邮箱：%@",self.jobList.email];
+    if (![self.company.email isEqualToString:@""]) {
+        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"报名邮箱：%@",self.company.email];
     }
 }
 
@@ -105,25 +105,25 @@
         UINavigationController *navigationController = segue.destinationViewController;
         PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
-        controller.companyName = self.jobList.name;
+        controller.companyName = self.company.name;
     }else if([segue.identifier isEqualToString:@"EditItem"]){
         UINavigationController *navigationController = segue.destinationViewController;
         PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
         controller.delegate = self;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        controller.itemToEdit = self.jobList.items[indexPath.row];
-        controller.companyName = self.jobList.name;
+        controller.itemToEdit = self.company.positions[indexPath.row];
+        controller.companyName = self.company.name;
     }
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.jobList.items count];
+    return [self.company.positions count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsItem *item = self.jobList.items[indexPath.row];
+    JobsItem *item = self.company.positions[indexPath.row];
     static NSString *CellIdentifier = @"Cell";
     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
@@ -192,7 +192,7 @@
 }
 
 - (void)configureCell:(MCSwipeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    JobsItem *jobsItem = self.jobList.items[indexPath.row];
+    JobsItem *jobsItem = self.company.positions[indexPath.row];
     UIView *crossView = [self viewWithImageName:@"cross"];
     UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
     UIView *listView = [self viewWithImageName:@"list"];
@@ -221,7 +221,7 @@
                           UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemNavigationController"];
                           PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
-                          controller.companyName = self.jobList.name;
+                          controller.companyName = self.company.name;
                           controller.itemToEdit = jobsItem;
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
@@ -243,7 +243,7 @@
                           UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemNavigationController"];
                           PositionDetailViewController *controller = (PositionDetailViewController *)navigationController.topViewController;
                           controller.delegate = self;
-                          controller.companyName = self.jobList.name;
+                          controller.companyName = self.company.name;
                           controller.itemToEdit = jobsItem;
                           [self presentViewController:navigationController animated:YES completion:nil];
                       }];
@@ -253,7 +253,7 @@
 }
 
 - (void)configureStateOfCell:(MCSwipeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsItem *jobsItem = self.jobList.items[indexPath.row];
+    JobsItem *jobsItem = self.company.positions[indexPath.row];
     if (jobsItem.checked == 0) {
         UILabel *label = (UILabel *)[cell.contentView viewWithTag:124];
         label.textColor =  [UIColor colorWithRed:213.0/255.0 green:73.0/255.0 blue:22.0/255.0 alpha:1];
@@ -284,7 +284,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     [self cancelLocalNotificationIndex:indexPath.row];
-    [self.jobList.items removeObjectAtIndex:indexPath.row];
+    [self.company.positions removeObjectAtIndex:indexPath.row];
     [self.checkboxs removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     
@@ -298,7 +298,7 @@
 }
 
 - (void)cancelLocalNotificationIndex:(NSInteger)index{
-    JobsItem *temp = [self.jobList.items objectAtIndex:index];
+    JobsItem *temp = [self.company.positions objectAtIndex:index];
     UILocalNotification *existingNotification = [temp notificationForThisItem];
     if (existingNotification != nil) {
         [[UIApplication sharedApplication]cancelLocalNotification:existingNotification];
@@ -307,10 +307,10 @@
 
 - (void)changeStateofCell:(MCSwipeTableViewCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    JobsItem *jobsItem = self.jobList.items[indexPath.row];
+    JobsItem *jobsItem = self.company.positions[indexPath.row];
     BFPaperCheckbox *checkbox = self.checkboxs[indexPath.row];
     NSInteger disDeletedNum=0;
-    for(JobsItem *jobsItemTemp in self.jobList.items){
+    for(JobsItem *jobsItemTemp in self.company.positions){
         if (jobsItemTemp.checked == 0) {
             disDeletedNum ++;
         }else{
@@ -323,8 +323,8 @@
         if (jobsItem.checked == 0) {
         jobsItem.checked =1;
         [self configureStateOfCell:cell forRowAtIndexPath:indexPath];
-        [self.jobList.items removeObjectAtIndex:indexPath.row];
-        [self.jobList.items insertObject:jobsItem atIndex:disDeletedNum-1];
+        [self.company.positions removeObjectAtIndex:indexPath.row];
+        [self.company.positions insertObject:jobsItem atIndex:disDeletedNum-1];
         [self.checkboxs removeObjectAtIndex:indexPath.row];
         [self.checkboxs insertObject:checkbox atIndex:disDeletedNum -1];
         NSIndexPath *bottomIndexPath = [NSIndexPath indexPathForRow:disDeletedNum-1 inSection:0];
@@ -333,8 +333,8 @@
         jobsItem.checked = 0;
         [self configureStateOfCell:cell forRowAtIndexPath:indexPath];
         [self configureCell:cell forRowAtIndexPath:indexPath];
-        [self.jobList.items removeObjectAtIndex:indexPath.row];
-        [self.jobList.items insertObject:jobsItem atIndex:0];
+        [self.company.positions removeObjectAtIndex:indexPath.row];
+        [self.company.positions insertObject:jobsItem atIndex:0];
         [self.checkboxs removeObjectAtIndex:indexPath.row];
         [self.checkboxs insertObject:checkbox atIndex:0];
         NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -360,14 +360,14 @@
     UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"添加职位" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
         
         PositionListViewController *viewController = (PositionListViewController *)previewViewController;
-        [viewController.delegate addPositionInJoblist:viewController.jobList];
+        [viewController.delegate addPositionInCompany:viewController.company];
 
     }];
     
     UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"删除本公司" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
         
         PositionListViewController *viewController = (PositionListViewController *)previewViewController;
-        [viewController.delegate deleteJoblist:viewController.jobList];
+        [viewController.delegate deleteCompany:viewController.company];
     }];
     
     NSArray *actions = @[action1, action2];
@@ -382,10 +382,10 @@
 }
 
 - (void)createView:(NSIndexPath *)indexPath{
-    JobsItem *item = self.jobList.items[indexPath.row];
+    JobsItem *item = self.company.positions[indexPath.row];
     
     CountdownView *countdownView = [[CountdownView alloc]init];
-    countdownView.companyNameString = self.jobList.name;
+    countdownView.companyNameString = self.company.name;
     countdownView.dueDate = item.dueDate;
     countdownView.nextTaskString = item.nextTask;
     countdownView.jobNameString = item.text;
@@ -406,12 +406,12 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     ProcessView *footerView = [[ProcessView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 80)];
-    footerView.process = self.jobList.process;
+    footerView.process = self.company.process;
     return footerView;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.jobList.items removeObjectAtIndex:indexPath.row];
+    [self.company.positions removeObjectAtIndex:indexPath.row];
     NSArray *indexPaths = @[indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -437,7 +437,7 @@
 
 - (void)itemDetailViewController:(PositionDetailViewController *)controller didFinishAddingItem:(JobsItem *)item{
 
-    [self.jobList.items insertObject:item atIndex:0];
+    [self.company.positions insertObject:item atIndex:0];
     
     BFPaperCheckbox *checkbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(self.tableView.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight)];
     checkbox.frame =CGRectMake(self.tableView.bounds.size.width/8*7, cellHeight/2, cellHeight, cellHeight);
@@ -460,7 +460,7 @@
 }
 
 - (void)itemDetailViewController:(PositionDetailViewController *)controller didFinishEditingItem:(JobsItem *)item{
-    NSInteger index = [self.jobList.items indexOfObject:item];
+    NSInteger index = [self.company.positions indexOfObject:item];
     NSIndexPath *indexPath =  [NSIndexPath indexPathForRow:index inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
