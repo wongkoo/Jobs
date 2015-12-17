@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, PureColor) {
+    PureColorColorWhite = 0,
+    PureColorColorSilver,
+    PureColorConcrete,
+    PureColorDarkGray,
+    PureColorSky,
+    PureColorVista,
+    PureColorDenim,
+    PureColorMidnight
+};
+
 @interface PullDownProcessView : UIView
-@property (nonatomic, strong) UIColor *pullColor;
+@property (nonatomic, assign) PureColor pureColor;
 @property (nonatomic, assign) CGPoint point;
 @end

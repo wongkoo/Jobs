@@ -16,7 +16,7 @@
 #import "DataModel.h"
 
 #import "PullDownProcessView.h"
-#import "PureColorBackgroundView.h"
+//#import "PureColorBackgroundView.h"
 #import "DiffuseButton.h"
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
@@ -29,7 +29,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 @interface CompanyListViewController ()<UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
+//@property (nonatomic, strong) PureColorBackgroundView *statusBarBackgroundView;
 @property (nonatomic, strong) DiffuseButton *menuButton;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
 
@@ -61,7 +61,8 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self updateAllApplicationNum];
     [self.tableView reloadData];
-    [self configureStatusBar];
+//    [self configureStatusBar];
+    [self configPullDownProcessView];
     [self configureShareButton];
 }
 
@@ -80,7 +81,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 - (void)initViews {
     [self initTableView];
     [self initPullDownProcessView];
-    [self initStatusBar];
+//    [self initStatusBar];
     [self initMenuButton];
 }
 
@@ -126,16 +127,16 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 }
 
 - (void)initPullDownProcessView {
-    self.pullDownProcessView = [[PullDownProcessView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 0)];
+    self.pullDownProcessView = [[PullDownProcessView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
     [self.view addSubview:self.pullDownProcessView];
 }
 
-- (void)initStatusBar {
-    if (!self.statusBarBackgroundView) {
-        self.statusBarBackgroundView = [[PureColorBackgroundView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-        [self.view addSubview:self.statusBarBackgroundView];
-    }
-}
+//- (void)initStatusBar {
+//    if (!self.statusBarBackgroundView) {
+//        self.statusBarBackgroundView = [[PureColorBackgroundView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+//        [self.view addSubview:self.statusBarBackgroundView];
+//    }
+//}
 
 - (void)initMenuButton {
     self.menuButton = [[DiffuseButton alloc] initWithTitle:@"S" radius:20 color:[UIColor whBelizeHole]];
@@ -160,24 +161,42 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     }
 }
 
-- (void)configureStatusBar {
+//- (void)configureStatusBar {
+//    if (self.dataModel.companyList.count > 0) {
+//        Company *company = self.dataModel.companyList[0];
+//        [self changeStatusBarWithCellColor:company.cellColor];
+//    }else{
+//        [self changeStatusBarWithCellColor:CellColorWhite];
+//    }
+//    
+//}
+
+- (void)configPullDownProcessView {
     if (self.dataModel.companyList.count > 0) {
         Company *company = self.dataModel.companyList[0];
-        [self changeStatusBarWithCellColor:company.cellColor];
+        [self changePullDownProcessViewWithCellColor:company.cellColor];
     }else{
-        [self changeStatusBarWithCellColor:CellColorWhite];
+        [self changePullDownProcessViewWithCellColor:CellColorWhite];
     }
-    
 }
 
-- (void)changeStatusBarWithCellColor:(CellColor)cellColor {
-    self.statusBarBackgroundView.pureColor = (PureColor)cellColor;
+- (void)changePullDownProcessViewWithCellColor:(CellColor)cellColor {
+    self.pullDownProcessView.pureColor = (PureColor)cellColor;
     if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }else{
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
 }
+
+//- (void)changeStatusBarWithCellColor:(CellColor)cellColor {
+//    self.statusBarBackgroundView.pureColor = (PureColor)cellColor;
+//    if (cellColor == CellColorWhite || cellColor == CellColorSilver || cellColor == CellColorSky) {
+//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    }else{
+//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    }
+//}
 
 - (void)checkForceTouch {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 9.0) {
@@ -247,12 +266,12 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
         
         if (sender) {
             controller.companyToEdit = sender;
-            controller.listDetailType = ListDetailTypeEdit;
+            controller.companyDetailOpenType = CompanyDetailOpenTypeEdit;
             controller.editCompanyReloadBlock = ^(Company *fromCompany, Company *toCompany) {
                 [weakSelf companyDetailEditReloadFromCompany:fromCompany toCompany:toCompany];
             };
         }else{
-            controller.listDetailType = ListDetailTypeAdd;
+            controller.companyDetailOpenType = CompanyDetailOpenTypeAdd;
             controller.addCompanyInsertZeroBlock = ^(Company *company){
                 [weakSelf companyDetailAddCompanyInsert:company];
             };
@@ -331,7 +350,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     [self.dataModel.companyList insertObject:cell.company atIndex:0];
     [self.dataModel.companyList removeObjectAtIndex:(index + 1)];
     [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:cell] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [self configureStatusBar];
+    [self configPullDownProcessView];
     NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
@@ -366,7 +385,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     
     [self.dataModel.companyList insertObject:cell.company atIndex:insertIndex];
     [self.tableView moveRowAtIndexPath:indexPath toIndexPath:desIndexPath];
-    [self configureStatusBar];
+    [self configPullDownProcessView];
     [self.tableView scrollToRowAtIndexPath:desIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
@@ -392,7 +411,8 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     self.panPoint = point;
     
     if (self.pulled) {
-        [self refreshPullDownView];
+//        [self refreshPullDownView];
+        self.pullDownProcessView.point = self.panPoint;
     }
     
     if (y <= 0) {
@@ -406,22 +426,23 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
         int row = (int)(scrollView.contentOffset.y/80);
         if (row < self.dataModel.companyList.count) {
             Company *company = self.dataModel.companyList[row];
-            [self changeStatusBarWithCellColor:company.cellColor];
+            [self changePullDownProcessViewWithCellColor:company.cellColor];
         }
     }
 }
 
-- (void)refreshPullDownView {
-    self.pullDownProcessView.pullColor = self.statusBarBackgroundView.backgroundColor;
-    self.pullDownProcessView.point = self.panPoint;
-}
+//- (void)refreshPullDownView {
+//    self.pullDownProcessView.pullColor = self.statusBarBackgroundView.backgroundColor;
+//    self.pullDownProcessView.point = self.panPoint;
+//}
 
 - (void)paned:(UIPanGestureRecognizer *)gesture {
     if (self.pulled) {
         CGPoint point = self.panPoint;
         point.x = [gesture locationInView:self.tableView].x;
         self.panPoint = point;
-        [self refreshPullDownView];
+        self.pullDownProcessView.point = self.panPoint;
+//        [self refreshPullDownView];
     }
 }
 

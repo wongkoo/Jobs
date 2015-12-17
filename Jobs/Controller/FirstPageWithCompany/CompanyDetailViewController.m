@@ -70,13 +70,13 @@ static const CGFloat kFooterHeight = 0;
     self.saveBarButton.title = NSLocalizedString(@"ListDetailViewController Save", @"保存");
     self.cancelBarButton.title = NSLocalizedString(@"ListDetailViewController Cancel", @"取消");
     
-    if (self.listDetailType == ListDetailTypeEdit) {
+    if (self.companyDetailOpenType == CompanyDetailOpenTypeEdit) {
         self.title = NSLocalizedString(@"ListDetailViewController Edit Company", @"编辑公司");
         self.saveBarButton.enabled = YES;
         
         self.p_company = self.companyToEdit;
         self.companyToEdit = [self.p_company copy];
-    }else if (self.listDetailType == ListDetailTypeAdd) {
+    }else if (self.companyDetailOpenType == CompanyDetailOpenTypeAdd) {
         self.title = NSLocalizedString(@"ListDetailViewController Add Company", @"添加公司");
         self.saveBarButton.enabled = NO;
         
@@ -394,11 +394,11 @@ static const CGFloat kFooterHeight = 0;
     [self saveText];
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    if (self.listDetailType == ListDetailTypeAdd) {
+    if (self.companyDetailOpenType == CompanyDetailOpenTypeAdd) {
         if (self.addCompanyInsertZeroBlock) {
             self.addCompanyInsertZeroBlock(self.companyToEdit);
         }
-    }else if (self.listDetailType == ListDetailTypeEdit) {
+    }else if (self.companyDetailOpenType == CompanyDetailOpenTypeEdit) {
         if (self.editCompanyReloadBlock) {
             self.editCompanyReloadBlock(self.p_company, self.companyToEdit);
         }

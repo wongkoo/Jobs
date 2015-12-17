@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CellbackgroundVIew.h"
 
-typedef NS_ENUM(NSInteger, ListDetailType){
-    ListDetailTypeAdd,
-    ListDetailTypeEdit
+typedef NS_ENUM(NSInteger, CompanyDetailOpenType){
+    CompanyDetailOpenTypeAdd,
+    CompanyDetailOpenTypeEdit
 };
 
 @class CompanyDetailViewController;
@@ -25,7 +25,7 @@ typedef void (^EditCompanyReloadBlock)(Company *fromCompany, Company *toCompany)
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *saveBarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBarButton;
 @property (nonatomic, strong) Company *companyToEdit;
-@property (nonatomic, assign) ListDetailType listDetailType;
+@property (nonatomic, assign) CompanyDetailOpenType companyDetailOpenType;
 @property (nonatomic, copy) AddCompanyInsertZeroBlock addCompanyInsertZeroBlock;
 @property (nonatomic, copy) EditCompanyReloadBlock editCompanyReloadBlock;
 
