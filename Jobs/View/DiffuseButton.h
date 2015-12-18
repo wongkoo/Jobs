@@ -10,7 +10,7 @@
 
 @interface DiffuseButton : UIControl
 
-- (id)initWithTitle:(NSString *)title radius:(CGFloat)radius color:(UIColor *)color;
+- (id)initWithRadius:(CGFloat)radius backgroundColor:(UIColor *)backgroundColor lineColor:(UIColor *)lineColor;
 - (void)drawButton;
 
 @end

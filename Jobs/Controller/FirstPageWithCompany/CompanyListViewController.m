@@ -133,7 +133,8 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 }
 
 - (void)initMenuButton {
-    self.menuButton = [[DiffuseButton alloc] initWithTitle:@"" radius:20 color:[UIColor whBelizeHole]];
+//    self.menuButton = [[DiffuseButton alloc] initWithTitle:@"" radius:20 color:[UIColor whBelizeHole]];
+    self.menuButton = [[DiffuseButton alloc] initWithRadius:20 backgroundColor:[UIColor whBelizeHole] lineColor:[UIColor whSilver]];
     
     [self.view addSubview:self.menuButton];
     [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -143,14 +144,14 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     }];
     [self.menuButton drawButton];
     
-    UIImageView *logoView = [[UIImageView alloc] init];
-    UIImage *image = [UIImage imageNamed:@"list"];
-    logoView.image = image;
-    [self.menuButton addSubview:logoView];
-    [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.menuButton);
-        make.width.height.equalTo(@12);
-    }];
+//    UIImageView *logoView = [[UIImageView alloc] init];
+//    UIImage *image = [UIImage imageNamed:@"list"];
+//    logoView.image = image;
+//    [self.menuButton addSubview:logoView];
+//    [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.menuButton);
+//        make.width.height.equalTo(@12);
+//    }];
     
     [self.menuButton addTarget:self action:@selector(menuButtonTapped) forControlEvents:UIControlEventTouchUpInside];
 }

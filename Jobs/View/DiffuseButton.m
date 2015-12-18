@@ -10,115 +10,173 @@
 #import "UIColor+WHColor.h"
 #import <Masonry.h>
 
-@interface DiffuseButton () {
-    SEL _action;
-    id _target;
-    UIEvent *_event;
-}
-@property (nonatomic, strong) CAShapeLayer *circle;
-@property (nonatomic, strong) UIBezierPath *path;
-@property (nonatomic, strong) UILabel *centerTitleLabel;
+@interface DiffuseButton ()
 
-@property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) CGFloat radius;
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, assign) CGFloat zoomInScale;
 
-@property (nonatomic, strong) UIView *animationView;
+@property (nonatomic, strong) UIColor *circleColor;
+@property (nonatomic, strong) UIColor *lineColor;
+
+@property (nonatomic, strong) UIView *circleView;
+@property (nonatomic, strong) CAShapeLayer *menuShapLayer;
+@property (nonatomic, strong) UIBezierPath *menuPath;
 
 @end
 
 @implementation DiffuseButton
 
-- (id)initWithTitle:(NSString *)title radius:(CGFloat)radius color:(UIColor *)color {
+
+
+#pragma mark - Init
+
+- (id)initWithRadius:(CGFloat)radius backgroundColor:(UIColor *)backgroundColor lineColor:(UIColor *)lineColor {
     if (self = [super init]) {
-        self.title = title;
         self.radius = radius;
-        self.color = color;
+        self.circleColor = backgroundColor;
+        self.lineColor = lineColor;
     }
     return self;
 }
 
 - (void)drawButton {
     [self layoutIfNeeded];
+    [self initParams];
+    [self initCircleView];
+    [self initMenuLine];
+    [self startCircleAnimation];
+    [self startMenuLineAnimation];
+}
+
+- (void)initParams {
     [self.superview bringSubviewToFront:self];
+    
+    self.backgroundColor = [UIColor clearColor];
     self.layer.cornerRadius = self.radius;
     self.clipsToBounds = NO;
     self.enabled = NO;
-    
-    self.circle = [[CAShapeLayer alloc] init];
-    self.path = [UIBezierPath bezierPath];
-    self.path = [self bigCirclePath];
-    self.circle.path = self.path.CGPath;
-    self.circle.fillColor = self.color.CGColor;
-    self.circle.strokeColor = self.color.CGColor;
-    self.circle.backgroundColor = self.color.CGColor;
-    [self.layer addSublayer:self.circle];
-
-    self.animationView = [[UIView alloc] initWithFrame:CGRectMake([self diagonalLength], 0, 0, 0)];
-    [self addSubview:self.animationView];
-    
-    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(doAnimation)];
-    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.animationView.frame = CGRectMake(0, 0, 0, 0);
-    } completion:^(BOOL finished) {
-            [displayLink invalidate];
-            self.enabled = YES;
-    }];
-    
-    
-    self.centerTitleLabel = [[UILabel alloc] init];
-    self.centerTitleLabel.text = self.title;
-    self.centerTitleLabel.textColor = [UIColor whClouds];
-    [self addSubview:self.centerTitleLabel];
-    [self.centerTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self);
-    }];
+    self.zoomInScale = [self diagonalLength]/self.radius;
 }
 
-- (void)doAnimation {
-    CALayer *animationLayer = [self.animationView.layer presentationLayer];
-    CGRect rect = [[animationLayer valueForKeyPath:@"frame"]CGRectValue];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2) radius:self.radius + rect.origin.x startAngle:0 endAngle:2*M_PI clockwise:NO];
-    self.circle.path = path.CGPath;
+- (void)initCircleView {
+    self.circleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.height, self.frame.size.width)];
+    self.circleView.backgroundColor = self.circleColor;
+    self.circleView.layer.cornerRadius = self.radius;
+    self.circleView.transform = CGAffineTransformScale(self.circleView.transform, self.zoomInScale, self.zoomInScale);
+    [self addSubview:self.circleView];
 }
 
-- (void)sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
-    UIBezierPath *path = [self bigCirclePath];
+- (void)initMenuLine {
+    self.menuPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.radius, self.radius) radius:self.radius startAngle:0 endAngle:M_1_PI * 2 clockwise:NO];
+    
+    self.menuShapLayer = [CAShapeLayer layer];
+    self.menuShapLayer.strokeColor = [UIColor redColor].CGColor;
+    self.menuShapLayer.fillColor = [UIColor clearColor].CGColor;
+    self.menuShapLayer.lineWidth = 2;
+    self.menuShapLayer.path = self.menuPath.CGPath;
+    
+    [self.layer addSublayer:self.menuShapLayer];
+}
+
+
+
+#pragma mark - StartAnimation
+
+- (void)startCircleAnimation {
+    [UIView animateWithDuration:1
+                          delay:0
+         usingSpringWithDamping:0.6
+          initialSpringVelocity:8
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.circleView.transform = CGAffineTransformScale(self.circleView.transform,1/self.zoomInScale,1/self.zoomInScale);
+                     } completion:^(BOOL finished) {
+                         self.circleView.hidden = YES;
+                         self.backgroundColor = self.circleColor;
+                         self.enabled = YES;
+                     }];
+    
+}
+
+- (void)startMenuLineAnimation {
+    
+    CGFloat length = self.frame.size.width / 2;
+    CGPoint b = CGPointMake(self.frame.size.width/4, self.radius);
+    CGPoint a = CGPointMake(b.x, b.y - self.frame.size.height/6);
+    CGPoint c = CGPointMake(b.x, b.y + self.frame.size.height/6);
+    
+    UIBezierPath *tempPath = [UIBezierPath bezierPath];
+    [tempPath moveToPoint:a];
+    [tempPath addLineToPoint:CGPointMake(a.x + length, a.y)];
+    [tempPath moveToPoint:b];
+    [tempPath addLineToPoint:CGPointMake(b.x + length, b.y)];
+    [tempPath moveToPoint:c];
+    [tempPath addLineToPoint:CGPointMake(c.x + length, c.y)];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.fromValue = (__bridge id _Nullable)(self.menuPath.CGPath);
+    animation.toValue = (__bridge id _Nullable)(tempPath.CGPath);
     animation.duration = 0.3;
-    animation.fromValue = (__bridge id _Nullable)(self.circle.path);
-    animation.toValue = (__bridge id _Nullable)(path.CGPath);
-    animation.delegate = self;
-    [self.circle addAnimation:animation forKey:@"animation"];
-    self.path = path;
-    self.circle.path = self.path.CGPath;
+    [self.menuShapLayer addAnimation:animation forKey:@"MenuStartAnimation"];
+    self.menuPath = tempPath;
+    self.menuShapLayer.path = self.menuPath.CGPath;
 
-    _action = action;
-    _target = target;
-    _event = event;
-    self.enabled = NO;;
 }
 
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    self.centerTitleLabel.hidden = YES;
-    [super sendAction:_action to:_target forEvent:_event];
-    [self removeFromSuperview];
+
+
+#pragma mark - Action
+
+- (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
+    self.enabled = NO;
+    self.circleView.hidden = NO;
+    [self endMenuLineAnimation];
+    
+    [UIView animateWithDuration:0.4
+                          delay:0
+         usingSpringWithDamping:1
+          initialSpringVelocity:10
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.circleView.transform = CGAffineTransformScale(self.circleView.transform,self.zoomInScale,self.zoomInScale);
+                     } completion:^(BOOL finished) {
+                         [super sendAction:action to:target forEvent:event];
+                         [self removeFromSuperview];
+                     }];
 }
 
-- (UIBezierPath *)bigCirclePath {
-    CGFloat length = [self diagonalLength];
-    return  [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2) radius:length startAngle:0 endAngle:6.29 clockwise:NO];
+
+
+#pragma mark - EndAnimation
+
+- (void)endMenuLineAnimation {
+    CGFloat length = self.frame.size.width / 2;
+    CGPoint b = CGPointMake(self.frame.size.width/4, self.radius);
+    CGPoint a = CGPointMake(b.x, b.y - self.frame.size.height/6);
+    CGPoint c = CGPointMake(b.x, b.y + self.frame.size.height/6);
+    
+    UIBezierPath *tempPath = [UIBezierPath bezierPath];
+    [tempPath moveToPoint:a];
+    [tempPath addLineToPoint:CGPointMake(c.x + length, c.y)];
+    [tempPath moveToPoint:c];
+    [tempPath addLineToPoint:CGPointMake(a.x + length, a.y)];
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
+    animation.fromValue = (__bridge id _Nullable)(self.menuPath.CGPath);
+    animation.toValue = (__bridge id _Nullable)(tempPath.CGPath);
+    animation.duration = 0.3;
+    [self.menuShapLayer addAnimation:animation forKey:@"MenuEndAnimation"];
+    self.menuPath = tempPath;
+    self.menuShapLayer.path = self.menuPath.CGPath;
 }
+
+
+#pragma mark - CalculateDiagonalLength
 
 - (CGFloat)diagonalLength {
     CGRect rect = [UIScreen mainScreen].bounds;
-    CGFloat width = rect.size.width;
-    CGFloat height = rect.size.height;
+    CGFloat width = rect.size.width - self.frame.origin.x;
+    CGFloat height = self.frame.origin.y;
     CGFloat length = sqrt(width * width + height * height);
     return length;
 }
