@@ -133,8 +133,8 @@ static const CGFloat kCrossButtonWidth = 30;
          }
          
      }];
-    
 }
+
 - (void)close {
     [self.navigationController popViewControllerAnimated:NO];
 }

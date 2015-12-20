@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiffuseButton : UIControl
+typedef void(^MenuSelectedIndexBlock)(NSInteger index);
 
-- (id)initWithRadius:(CGFloat)radius backgroundColor:(UIColor *)backgroundColor lineColor:(UIColor *)lineColor;
+@interface DiffuseButton : UIView
+
+- (id)initWithRadius:(CGFloat)radius
+     backgroundColor:(UIColor *)backgroundColor
+           lineColor:(UIColor *)lineColor
+          menuTitles:(NSArray *)menuTitles
+       selectedblock:(MenuSelectedIndexBlock)block
+               frame:(CGRect)frame;
+
 - (void)drawButton;
+
+- (void)zoomOutReload;
 
 @end

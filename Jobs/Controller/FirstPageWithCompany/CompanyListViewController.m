@@ -57,6 +57,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.menuButton zoomOutReload];
     [self updateAllApplicationNum];
     [self.tableView reloadData];
     [self configPullDownProcessView];
@@ -133,27 +134,19 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 }
 
 - (void)initMenuButton {
-//    self.menuButton = [[DiffuseButton alloc] initWithTitle:@"" radius:20 color:[UIColor whBelizeHole]];
-    self.menuButton = [[DiffuseButton alloc] initWithRadius:20 backgroundColor:[UIColor whBelizeHole] lineColor:[UIColor whSilver]];
+    NSArray *menuTitles = @[@"关于",@"分享"];
+    self.menuButton = [[DiffuseButton alloc] initWithRadius:20
+                                            backgroundColor:[UIColor whBelizeHole]
+                                                  lineColor:[UIColor whiteColor]
+                                                 menuTitles:menuTitles
+                                              selectedblock:^(NSInteger index) {
+                                                  if (index == 1) {
+                                                      [self pushShareViewController];
+                                                  }
+                                              } frame:self.view.frame];
     
     [self.view addSubview:self.menuButton];
-    [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(20);
-        make.bottom.equalTo(self.view).offset(-20);
-        make.height.width.equalTo(@40);
-    }];
     [self.menuButton drawButton];
-    
-//    UIImageView *logoView = [[UIImageView alloc] init];
-//    UIImage *image = [UIImage imageNamed:@"list"];
-//    logoView.image = image;
-//    [self.menuButton addSubview:logoView];
-//    [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.center.equalTo(self.menuButton);
-//        make.width.height.equalTo(@12);
-//    }];
-    
-    [self.menuButton addTarget:self action:@selector(menuButtonTapped) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -212,7 +205,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 
 #pragma mark - MenuButtonAction
 
-- (void)menuButtonTapped {
+- (void)pushShareViewController {
     UIImage* image = nil;
     UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, NO, 0.0);
     {
