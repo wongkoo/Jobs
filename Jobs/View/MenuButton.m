@@ -11,7 +11,6 @@
 #import <Masonry.h>
 
 static const CGFloat kMenuListButtonHeight = 40;
-static const CGFloat kMenuListButtonOffset = 20;
 static const CGFloat kMenuListButtonInterval = 30;
 static const NSInteger kTagOffset = 10;
 static const CGFloat kGoldenRatio = 0.618;
@@ -50,8 +49,9 @@ static const CGFloat kGoldenRatio = 0.618;
      backgroundColor:(UIColor *)backgroundColor
            lineColor:(UIColor *)lineColor
           menuTitles:(NSArray *)menuTitles
+               frame:(CGRect)frame
        selectedblock:(MenuSelectedIndexBlock)block
-               frame:(CGRect)frame {
+                {
     
     if (self = [super initWithFrame:CGRectMake(20, frame.size.height - 60, 40, 40)]) {
         self.radius = radius;
@@ -309,20 +309,21 @@ static const CGFloat kGoldenRatio = 0.618;
     }
     
     NSInteger count = self.menuTitles.count;
-//    CGFloat totalHeight;
-//    
-//    if (count == 1) {
-//        totalHeight = kMenuListButtonHeight;
-//    }else {
-//        totalHeight = count * kMenuListButtonHeight + (count - 1) * kMenuListButtonInterval;
-//    }
+    CGFloat totalHeight;
     
-    CGFloat basicY = self.frame.size.height * (1 - kGoldenRatio);
+    if (count == 1) {
+        totalHeight = kMenuListButtonHeight;
+    }else {
+        totalHeight = count * kMenuListButtonHeight + (count - 1) * kMenuListButtonInterval;
+    }
     
+    CGFloat basicY = (self.frame.size.height - totalHeight)/2;
+    CGFloat buttonWidth = self.frame.size.width * kGoldenRatio;
+    CGFloat buttonOffset = (self.frame.size.width - buttonWidth) /2;
     for (int i = 0; i < count; ++i) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(- self.frame.size.width,
                                                                       basicY + i * (kMenuListButtonHeight + kMenuListButtonInterval),
-                                                                      self.frame.size.width - 2 * kMenuListButtonOffset,
+                                                                      buttonWidth,
                                                                       kMenuListButtonHeight)];
         button.backgroundColor = [UIColor whClouds];
         button.tag = kTagOffset + i;
@@ -339,7 +340,7 @@ static const CGFloat kGoldenRatio = 0.618;
               initialSpringVelocity:9
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             button.frame = CGRectMake(kMenuListButtonOffset,
+                             button.frame = CGRectMake(buttonOffset,
                                                        button.frame.origin.y,
                                                        button.frame.size.width,
                                                        button.frame.size.height);

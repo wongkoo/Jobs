@@ -10,83 +10,168 @@
 #import "UIColor+WHColor.h"
 #import <Masonry.h>
 #import <YYText.h>
+#import <WebKit/WebKit.h>
+#import <POP.h>
+#import "UIView+Jobs.h"
+
+static NSString * const kAboutString = @"Jobs\n \nFor you. For the future.\nDesigned by wongkoo.";
+static NSString * const kAboutMeURL = @"http://wongkoo.github.io/about/";
+
+static const CGFloat kLogoHightWidth = 80.0;
+static const CGFloat kYYLabelOffset = 20;
+static const CGFloat kYYLabelHeight = 100;
+static const CGFloat kCloseButtonWidth = 30;
 
 @interface AboutViewController ()
 @property (nonatomic, strong) UIImageView *logoView;
+@property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) YYLabel *textLabel;
+@property (nonatomic, strong) UIButton *closeButton;
+@property (nonatomic, assign) BOOL webViewOpen;
 @end
 
 @implementation AboutViewController
 
+
+
+#pragma mark - ViewLifeCycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whBelizeHole];
+    self.webViewOpen = NO;
     [self initLogo];
+    [self initCloseButton];
     [self initTextView];
-    [self initTapAction];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+
+
+#pragma mark - Init
+
 - (void)initLogo {
-    self.logoView = [[UIImageView alloc] init];
+    self.logoView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.width - kLogoHightWidth)/2, (self.view.height * (1-0.618) - kLogoHightWidth/2), kLogoHightWidth, kLogoHightWidth)];
     UIImage *logo = [UIImage imageNamed:@"icon400"];
     self.logoView.layer.cornerRadius = 10;
     self.logoView.image = logo;
     [self.view addSubview:self.logoView];
-    [self.logoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.view.mas_top).offset(self.view.frame.size.height * (1-0.618));
-        make.width.height.equalTo(@80);
-    }];
+    [self.logoView.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"LogoSpringAnimation"];
 }
 
 - (void)initTextView {
-    
-    NSString *string = @"Jobs\n \nFor you. For the future.\n \nDesigned by wongkoo.";
-    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:string];
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:kAboutString];
     
     //highlight
     YYTextBorder *hightlightBorder = [YYTextBorder borderWithFillColor:[UIColor whPeterRiver] cornerRadius:3];
     YYTextHighlight *hightlight = [YYTextHighlight new];
     [hightlight setColor:[UIColor whiteColor]];
     [hightlight setBackgroundBorder:hightlightBorder];
+    __weak typeof(self) weakSelf = self;
     hightlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-        NSLog(@"tap text range");
+        [weakSelf showWebView];
     };
-    [attributeString yy_setTextHighlight:hightlight range:[string rangeOfString:@"wongkoo"]];
+    [attributeString yy_setTextHighlight:hightlight range:[kAboutString rangeOfString:@"wongkoo"]];
     
     //underLine of wongkoo
-    [attributeString yy_setUnderlineColor:[UIColor blackColor] range:[string rangeOfString:@"wongkoo"]];
-    [attributeString yy_setUnderlineStyle:NSUnderlineStyleSingle range:[string rangeOfString:@"wongkoo"]];
+    [attributeString yy_setUnderlineColor:[UIColor blackColor] range:[kAboutString rangeOfString:@"wongkoo"]];
+    [attributeString yy_setUnderlineStyle:NSUnderlineStyleSingle range:[kAboutString rangeOfString:@"wongkoo"]];
     
     //Font of Jobs
-    [attributeString yy_setFont:[UIFont systemFontOfSize:30] range:[string rangeOfString:@"Jobs"]];
+    [attributeString yy_setFont:[UIFont systemFontOfSize:30] range:[kAboutString rangeOfString:@"Jobs"]];
     
     //TextLabel
-    self.textLabel = [YYLabel new];
+    self.textLabel = [[YYLabel alloc] initWithFrame:CGRectMake(kYYLabelOffset, self.logoView.bottom, self.view.width - 2 * kYYLabelOffset, kYYLabelHeight)];
     self.textLabel.attributedText = attributeString;
     self.textLabel.numberOfLines = 0;
     self.textLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.textLabel];
-    [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.logoView.mas_bottom).offset(10);
-        make.centerX.equalTo(self.view);
-        make.width.equalTo(self.view).offset(-40);
-        make.height.equalTo(@100);
-    }];
+    [self.textLabel.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"YYLabelSringAnimation"];
 }
 
-- (void)initTapAction {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(popSelf)];
-    [self.view addGestureRecognizer:tap];
+- (void)initCloseButton {
+    self.closeButton = [[UIButton alloc] initWithFrame:CGRectMake(self.logoView.right - kCloseButtonWidth/2, self.logoView.top - kCloseButtonWidth/2, kCloseButtonWidth, kCloseButtonWidth)];
+    self.closeButton.layer.cornerRadius = 15;
+    self.closeButton.backgroundColor = [UIColor whAlizarin];
+    [self.closeButton setTitle:@"✕" forState:UIControlStateNormal];
+    [self.closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.closeButton addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.closeButton];
+    [self.closeButton.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"closeButtonSpringAnimation"];
 }
 
-- (void)popSelf {
-    [self.navigationController popViewControllerAnimated:NO];
+
+
+#pragma mark - Action
+
+- (void)closeButtonAction {
+    if (self.webViewOpen) {
+        [self hideWebView];
+    }else{
+        [self.navigationController popViewControllerAnimated:NO];
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
+- (void)moveCloseButton {
+    [self.view bringSubviewToFront:self.closeButton];
+    if (self.webViewOpen) {
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(self.logoView.right - kCloseButtonWidth/2, self.logoView.top - kCloseButtonWidth/2)];
+        anim.springBounciness = 10;
+        anim.springSpeed = 20;
+        [self.closeButton.layer pop_addAnimation:anim forKey:@"CloseButtonMoveOriginAnimation"];
+    }else {
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.width - kCloseButtonWidth, 20)];
+        anim.springBounciness = 10;
+        anim.springSpeed = 20;
+        [self.closeButton.layer pop_addAnimation:anim forKey:@"CloseButtonMoveTopAnimation"];
+    }
 }
+
+- (void)showWebView {
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height - 20)];
+    [self.view addSubview:self.webView];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:kAboutMeURL]]];
+    
+    POPBasicAnimation *basicAnim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
+    basicAnim.duration = 0.3;
+    basicAnim.toValue = @1.0;
+    [self.webView.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"SpringAnimation"];
+    [self.webView.layer pop_addAnimation:basicAnim forKey:@"BasicAnimation"];
+    [self moveCloseButton];
+    self.webViewOpen = YES;
+}
+
+- (void)hideWebView {
+    POPSpringAnimation *springAnim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    springAnim.springBounciness = 10;
+    springAnim.springSpeed = 20;
+    springAnim.fromValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+    springAnim.toValue = [NSValue valueWithCGPoint:CGPointMake(0, 0)];
+    springAnim.completionBlock = ^(POPAnimation *anim, BOOL finished){
+        [self.webView removeFromSuperview];
+        self.webView = nil;
+    };
+    [self.webView.layer pop_addAnimation:springAnim forKey:@"WebViewZoomOutAnimation"];
+    [self moveCloseButton];
+    self.webViewOpen = NO;
+}
+
+
+#pragma mark - returnPOPAnimation
+
+- (POPSpringAnimation *)createScaleXYPOPSpringAnimation {
+    POPSpringAnimation *springAnim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    springAnim.springBounciness = 10;
+    springAnim.springSpeed = 20;
+    springAnim.fromValue = [NSValue valueWithCGPoint:CGPointMake(0, 0)];
+    springAnim.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+    return springAnim;
+}
+
 
 @end

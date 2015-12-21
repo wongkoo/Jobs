@@ -16,8 +16,8 @@ typedef void(^MenuSelectedIndexBlock)(NSInteger index);
      backgroundColor:(UIColor *)backgroundColor
            lineColor:(UIColor *)lineColor
           menuTitles:(NSArray *)menuTitles
-       selectedblock:(MenuSelectedIndexBlock)block
-               frame:(CGRect)frame;
+               frame:(CGRect)frame
+       selectedblock:(MenuSelectedIndexBlock)block;
 
 - (void)drawButton;
 

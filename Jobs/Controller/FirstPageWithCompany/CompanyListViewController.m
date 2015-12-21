@@ -22,6 +22,12 @@
 #import "Masonry.h"
 #import "CompanyListCell.h"
 
+typedef NS_ENUM(NSInteger, MenuSelectedType) {
+    MenuSelectedTypeShare,
+    MenuSelectedTypeGrade,
+    MenuSelectedTypeAbout
+};
+
 static const NSInteger CELL_HEIGHT = 80;
 static NSString * const SegueAddOrEditIdentifier = @"AddCompany";
 static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
@@ -135,19 +141,22 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 }
 
 - (void)initMenuButton {
-    NSArray *menuTitles = @[@"关于",@"分享"];
+    NSArray *menuTitles = @[@"分享我的求职",@"打个分吧",@"关于Jobs"];
     self.menuButton = [[MenuButton alloc] initWithRadius:20
                                             backgroundColor:[UIColor whBelizeHole]
                                                   lineColor:[UIColor whiteColor]
                                                  menuTitles:menuTitles
+                                                   frame:self.view.frame
                                               selectedblock:^(NSInteger index) {
-                                                  if (index == 0) {
+                                                  if (index == MenuSelectedTypeAbout) {
                                                       UIViewController *controller = [[AboutViewController alloc] init];
                                                       [self.navigationController pushViewController:controller animated:NO];
-                                                  }else if (index == 1) {
+                                                  }else if (index == MenuSelectedTypeShare) {
                                                       [self pushShareViewController];
+                                                  }else if (index == MenuSelectedTypeGrade) {
+                                                      
                                                   }
-                                              } frame:self.view.frame];
+                                              }];
     
     [self.view addSubview:self.menuButton];
     [self.menuButton drawButton];

@@ -34,6 +34,7 @@
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
 		9B10BB7E1C27A07F0019C902 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB7D1C27A07F0019C902 /* AboutViewController.m */; };
+		9B10BB821C27FC850019C902 /* UIView+Jobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB811C27FC850019C902 /* UIView+Jobs.m */; };
 		9B11E9701C2018610095FD28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B11E9721C2018610095FD28 /* Localizable.strings */; };
 		9B3AA6F01BFC70D900B1B9A2 /* CompanyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AA6EF1BFC70D900B1B9A2 /* CompanyListCell.m */; };
 		9B957AD41BF4B4F10058C796 /* PureColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */; };
@@ -74,8 +75,8 @@
 /* Begin PBXFileReference section */
 		527D57D792D2DB49EF4329E9 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jobs/Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
 		62DFBA60A62131608C25EDAC /* libPods-Jobs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jobs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		720DC2FE1BB2D23500B82B99 /* UIColor+WHColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WHColor.h"; sourceTree = "<group>"; };
-		720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WHColor.m"; sourceTree = "<group>"; };
+		720DC2FE1BB2D23500B82B99 /* UIColor+WHColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+WHColor.h"; path = "View/UIColorCategory/UIColor+WHColor.h"; sourceTree = "<group>"; };
+		720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+WHColor.m"; path = "View/UIColorCategory/UIColor+WHColor.m"; sourceTree = "<group>"; };
 		721243A81BAE82450046B060 /* ShadowNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShadowNavController.h; path = NavigationController/ShadowNavController.h; sourceTree = "<group>"; };
 		721243A91BAE82450046B060 /* ShadowNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShadowNavController.m; path = NavigationController/ShadowNavController.m; sourceTree = "<group>"; };
 		721243B21BAE8CC60046B060 /* AddButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddButtonCell.h; path = FirstDetailPage/Cell/AddButtonCell.h; sourceTree = "<group>"; };
@@ -125,6 +126,8 @@
 		9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectCell.m; path = FirstDetailPage/Cell/ColorSelectCell.m; sourceTree = "<group>"; };
 		9B10BB7C1C27A07F0019C902 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Menu/AboutViewController.h; sourceTree = "<group>"; };
 		9B10BB7D1C27A07F0019C902 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Menu/AboutViewController.m; sourceTree = "<group>"; };
+		9B10BB801C27FC850019C902 /* UIView+Jobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Jobs.h"; path = "Category/UIView+Jobs.h"; sourceTree = "<group>"; };
+		9B10BB811C27FC850019C902 /* UIView+Jobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Jobs.m"; path = "Category/UIView+Jobs.m"; sourceTree = "<group>"; };
 		9B11E9711C2018610095FD28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9731C20188B0095FD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9741C2018AF0095FD28 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -197,15 +200,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		720DC2FD1BB2D23500B82B99 /* UIColorCategory */ = {
-			isa = PBXGroup;
-			children = (
-				720DC2FE1BB2D23500B82B99 /* UIColor+WHColor.h */,
-				720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */,
-			);
-			path = UIColorCategory;
-			sourceTree = "<group>";
-		};
 		721243AB1BAE824D0046B060 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +284,7 @@
 				7237F5ED1B20AE7E00F1DFD9 /* Controller */,
 				723E8E9E1BAAACAE004D4E8C /* View */,
 				7237F5EC1B20AE5000F1DFD9 /* Model */,
+				9B10BB7F1C27FBCD0019C902 /* Category */,
 				7237F5C71B1EE68F00F1DFD9 /* Images.xcassets */,
 				7237F5C91B1EE68F00F1DFD9 /* LaunchScreen.xib */,
 				7237F5BA1B1EE68F00F1DFD9 /* Supporting Files */,
@@ -391,7 +386,6 @@
 			children = (
 				9BC35BC31BF1E2B900903192 /* CompanyList */,
 				722BB0FC1BB245A8005372A4 /* PositionList */,
-				720DC2FD1BB2D23500B82B99 /* UIColorCategory */,
 				721243B01BAE8BDB0046B060 /* AllPageCellBackground */,
 				9B95D65C1C04802D002F66B3 /* MenuButton.h */,
 				9B95D65D1C04802D002F66B3 /* MenuButton.m */,
@@ -408,6 +402,17 @@
 				9B10BB7D1C27A07F0019C902 /* AboutViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		9B10BB7F1C27FBCD0019C902 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				720DC2FE1BB2D23500B82B99 /* UIColor+WHColor.h */,
+				720DC2FF1BB2D23500B82B99 /* UIColor+WHColor.m */,
+				9B10BB801C27FC850019C902 /* UIView+Jobs.h */,
+				9B10BB811C27FC850019C902 /* UIView+Jobs.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		9BC35BC31BF1E2B900903192 /* CompanyList */ = {
@@ -678,6 +683,7 @@
 				723E8EA61BAAB876004D4E8C /* CompanyDetailViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
+				9B10BB821C27FC850019C902 /* UIView+Jobs.m in Sources */,
 				9B95D69C1C0DB39A002F66B3 /* ShareViewController.m in Sources */,
 				7237F5E51B1FE92300F1DFD9 /* PositionDetailViewController.m in Sources */,
 			);
