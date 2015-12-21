@@ -10,13 +10,14 @@
 #import "CompanyDetailViewController.h"
 #import "PositionListViewController.h"
 #import "ShareViewController.h"
+#import "AboutViewController.h"
 
 #import "Company.h"
 #import "jobsItem.h"
 #import "DataModel.h"
 
 #import "PullDownProcessView.h"
-#import "DiffuseButton.h"
+#import "MenuButton.h"
 #import "UIColor+WHColor.h"
 #import "Masonry.h"
 #import "CompanyListCell.h"
@@ -28,7 +29,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 @interface CompanyListViewController ()<UINavigationControllerDelegate,UIViewControllerPreviewingDelegate,ViewController3DTouchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) DiffuseButton *menuButton;
+@property (nonatomic, strong) MenuButton *menuButton;
 @property (nonatomic, strong) PullDownProcessView *pullDownProcessView;
 
 @property (nonatomic, strong) DataModel *dataModel;                     ///< dataModel should be used bu self.dataModel
@@ -135,12 +136,15 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
 
 - (void)initMenuButton {
     NSArray *menuTitles = @[@"关于",@"分享"];
-    self.menuButton = [[DiffuseButton alloc] initWithRadius:20
+    self.menuButton = [[MenuButton alloc] initWithRadius:20
                                             backgroundColor:[UIColor whBelizeHole]
                                                   lineColor:[UIColor whiteColor]
                                                  menuTitles:menuTitles
                                               selectedblock:^(NSInteger index) {
-                                                  if (index == 1) {
+                                                  if (index == 0) {
+                                                      UIViewController *controller = [[AboutViewController alloc] init];
+                                                      [self.navigationController pushViewController:controller animated:NO];
+                                                  }else if (index == 1) {
                                                       [self pushShareViewController];
                                                   }
                                               } frame:self.view.frame];

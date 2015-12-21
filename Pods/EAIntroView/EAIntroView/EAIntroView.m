@@ -77,6 +77,13 @@
     self.pages = [pagesArray copy];
     
     [self buildFooterView];
+    
+    // Add observer for device orientation:
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
 }
 
 - (void)applyDefaultsToBackgroundImageView:(UIImageView *)backgroundImageView {
@@ -158,9 +165,9 @@
 }
 
 - (void)finishIntroductionAndRemoveSelf {
-	if ([(id)self.delegate respondsToSelector:@selector(introDidFinish:)]) {
-		[self.delegate introDidFinish:self];
-	}
+	// Remove observer for rotation
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
     
     //prevent last page flicker on disappearing
     self.alpha = 0;
@@ -169,6 +176,10 @@
     //removeFromSuperview should be called after a delay
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)0);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        if ([(id)self.delegate respondsToSelector:@selector(introDidFinish:)]) {
+            [self.delegate introDidFinish:self];
+        }
+        
         [self removeFromSuperview];
     });
 }
@@ -201,7 +212,7 @@
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delegate = self;
-        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
     return _scrollView;
 }
@@ -337,28 +348,30 @@
     
     UIButton *tapToNextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     tapToNextButton.frame = pageView.bounds;
+    tapToNextButton.translatesAutoresizingMaskIntoConstraints = NO;
     [tapToNextButton addTarget:self action:@selector(goToNext:) forControlEvents:UIControlEventTouchUpInside];
     [pageView addSubview:tapToNextButton];
     
+    NSMutableArray *constraints = @[].mutableCopy;
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[tapToNextButton]-0-|" options:0 metrics:nil views:@{@"tapToNextButton": tapToNextButton}]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[tapToNextButton]-0-|" options:0 metrics:nil views:@{@"tapToNextButton": tapToNextButton}]];
+    [pageView addConstraints:constraints];
+    
+    UIView *titleImageView;
     if(page.titleIconView) {
-        UIView *titleImageView = page.titleIconView;
-        CGRect rect1 = titleImageView.frame;
-        rect1.origin.x = (self.scrollView.frame.size.width - rect1.size.width)/2;
-        rect1.origin.y = page.titleIconPositionY;
-        titleImageView.frame = rect1;
+        titleImageView = page.titleIconView;
         titleImageView.tag = kTitleImageViewTag;
+        titleImageView.translatesAutoresizingMaskIntoConstraints = NO;
         
         [pageView addSubview:titleImageView];
+        [pageView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topSpace@250-[titleImageView(imageHeight)]" options:NSLayoutFormatAlignAllTop metrics:@{@"imageHeight" : @(page.titleIconView.frame.size.height), @"topSpace" : @(page.titleIconPositionY)} views:@{@"titleImageView" : titleImageView}]];
+        [pageView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[titleImageView(imageWidth)]" options:0 metrics:@{@"imageWidth" : @(page.titleIconView.frame.size.width)} views:@{@"titleImageView" : titleImageView}]];
+        [pageView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[superview]-(<=1)-[titleImageView]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"superview" : pageView, @"titleImageView" : titleImageView}]];
     }
     
+    UILabel *titleLabel;
     if(page.title.length) {
-        NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:page.title attributes:@{ NSFontAttributeName: page.titleFont }];
-        CGRect rect = [attributedText boundingRectWithSize:(CGSize){self.scrollView.frame.size.width - 20, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-        CGFloat titleHeight = ceilf(rect.size.height);
-        
-        CGRect titleLabelFrame = CGRectMake(10, self.bounds.size.height - page.titlePositionY, self.scrollView.frame.size.width - 20, titleHeight);
-        
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:titleLabelFrame];
+        titleLabel = [[UILabel alloc] init];
         titleLabel.text = page.title;
         titleLabel.font = page.titleFont;
         titleLabel.textColor = page.titleColor;
@@ -367,20 +380,18 @@
         titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         titleLabel.numberOfLines = 0;
         titleLabel.tag = kTitleLabelTag;
+        titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         
         [pageView addSubview:titleLabel];
+        NSLayoutConstraint *weakConstraint = [NSLayoutConstraint constraintWithItem:pageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:titleLabel attribute:NSLayoutAttributeTop multiplier:1.0 constant:page.titlePositionY];
+        weakConstraint.priority = UILayoutPriorityDefaultLow;
+        [pageView addConstraint:weakConstraint];
+        [pageView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[titleLabel]-10-|" options:NSLayoutFormatAlignAllTop metrics:nil views:@{@"titleLabel" : titleLabel}]];
     }
     
-    if([page.desc length]) {
-        CGRect descLabelFrame;
-        
-        if(page.descWidth != 0) {
-            descLabelFrame = CGRectMake((self.bounds.size.width - page.descWidth)/2, self.bounds.size.height - page.descPositionY, page.descWidth, 500);
-        } else {
-            descLabelFrame = CGRectMake(0, self.bounds.size.height - page.descPositionY, self.scrollView.frame.size.width, 500);
-        }
-        
-        UITextView *descLabel = [[UITextView alloc] initWithFrame:descLabelFrame];
+    UITextView *descLabel;
+    if(page.desc.length) {
+        descLabel = [[UITextView alloc] init];
         descLabel.text = page.desc;
         descLabel.scrollEnabled = NO;
         descLabel.font = page.descFont;
@@ -389,8 +400,20 @@
         descLabel.textAlignment = NSTextAlignmentCenter;
         descLabel.userInteractionEnabled = NO;
         descLabel.tag = kDescLabelTag;
+        descLabel.translatesAutoresizingMaskIntoConstraints = NO;
         
         [pageView addSubview:descLabel];
+        NSLayoutConstraint *weakConstraint = [NSLayoutConstraint constraintWithItem:pageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:descLabel attribute:NSLayoutAttributeTop multiplier:1.0 constant:page.descPositionY];
+        weakConstraint.priority = UILayoutPriorityDefaultLow;
+        [pageView addConstraint:weakConstraint];
+        [pageView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-descMargin-[descLabel]-descMargin-|" options:NSLayoutFormatAlignAllTop metrics:@{@"descMargin" : @(page.descSideMargin)} views:@{@"descLabel" : descLabel}]];
+    }
+    
+    // Constraints for handling landscape orientation
+    if(titleImageView && titleLabel && descLabel) {
+        [pageView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|->=0-[titleImageView]->=0-[titleLabel]->=0-[descLabel]" options:0 metrics:nil views:@{@"titleImageView" : titleImageView, @"titleLabel" : titleLabel, @"descLabel" : descLabel}]];
+    } else if(!titleImageView && titleLabel && descLabel) {
+        [pageView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|->=0-[titleLabel]->=0-[descLabel]" options:0 metrics:nil views:@{@"titleLabel" : titleLabel, @"descLabel" : descLabel}]];
     }
     
     if(page.subviews) {
@@ -438,7 +461,7 @@
     NSDictionary *views = @{@"titleView" : self.titleView};
     NSDictionary *metrics = @{@"titleViewTopPadding" : @(self.titleViewY), @"titleViewHeight" : @(self.titleView.frame.size.height), @"titleViewWidth" : @(self.titleView.frame.size.width)};
     
-    [self.titleViewConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-titleViewTopPadding-[titleView(titleViewHeight)]" options:NSLayoutFormatAlignAllLeft metrics:metrics views:views]];
+    [self.titleViewConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-titleViewTopPadding@250-[titleView(titleViewHeight)]" options:NSLayoutFormatAlignAllLeft metrics:metrics views:views]];
     [self.titleViewConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[titleView(titleViewWidth)]" options:NSLayoutFormatAlignAllTop metrics:metrics views:views]];
     [self.titleViewConstraints addObject:[NSLayoutConstraint constraintWithItem:self.titleView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
     
@@ -466,10 +489,10 @@
     }
     
     NSDictionary *views = @{@"pageControl" : self.pageControl, @"skipButton" : self.skipButton};
-    NSDictionary *metrics = @{@"pageControlBottomPadding" : @(self.pageControlY - self.pageControl.frame.size.height), @"pageControlHeight" : @(self.pageControl.frame.size.height), @"skipButtonBottomPadding" : @(self.skipButtonY - self.skipButton.frame.size.height), @"skipButtonSideMargin" : @(self.skipButtonSideMargin), @"skipButtonWidth" : @(self.skipButton.frame.size.width), @"skipButtonHeight" : @(self.skipButton.frame.size.height)};
+    NSDictionary *metrics = @{@"pageControlBottomPadding" : @(self.pageControlY - self.pageControl.frame.size.height), @"pageControlHeight" : @(self.pageControl.frame.size.height), @"skipButtonBottomPadding" : @(self.skipButtonY - self.skipButton.frame.size.height), @"skipButtonSideMargin" : @(self.skipButtonSideMargin), @"skipButtonWidth" : @(self.skipButton.frame.size.width)};
     
     [self.footerConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[pageControl]-|" options:NSLayoutFormatAlignAllCenterX metrics:metrics views:views]];
-    [self.footerConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[pageControl(pageControlHeight)]-pageControlBottomPadding-|" options:NSLayoutFormatAlignAllBottom metrics:metrics views:views]];
+    [self.footerConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[pageControl(pageControlHeight)]-pageControlBottomPadding@250-|" options:NSLayoutFormatAlignAllBottom metrics:metrics views:views]];
     
     if (self.skipButton && !self.skipButton.hidden) {
         if(self.skipButtonAlignment == EAViewAlignmentCenter) {
@@ -484,7 +507,7 @@
         if(self.skipButtonY == EA_EMPTY_PROPERTY) {
             [self.footerConstraints addObject:[NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.skipButton attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
         } else {
-            [self.footerConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[skipButton(skipButtonHeight)]-skipButtonBottomPadding-|" options:NSLayoutFormatAlignAllCenterX metrics:metrics views:views]];
+            [self.footerConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[skipButton]-skipButtonBottomPadding-|" options:NSLayoutFormatAlignAllBottom metrics:metrics views:views]];
         }
     }
     
@@ -527,9 +550,9 @@
         if([self pageForIndex:page]) {
             self.alpha = 1.f;
         }
-        
-        [self crossDissolveForOffset:offset];
     }
+    
+    [self crossDissolveForOffset:offset];
     
     if (self.visiblePageIndex < _pages.count) {
         self.pageControl.currentPage = self.visiblePageIndex;
@@ -593,6 +616,53 @@ CGFloat easeOutValue(CGFloat value) {
     }
 }
 
+#pragma mark - Notifications
+
+- (void)deviceOrientationDidChange:(NSNotification *)notification {
+    // Get amount of pages:
+    NSInteger numberOfPages = _pages.count;
+    
+    // Increase with 1 page when feature enabled:
+    if (self.swipeToExit) {
+        numberOfPages = numberOfPages + 1;
+    }
+    
+    // Adjust contentSize of ScrollView:
+    CGSize newContentSize = CGSizeMake(numberOfPages * self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    if(self.scrollView.contentOffset.x > newContentSize.width) {
+        CGPoint newOffset = self.scrollView.contentOffset;
+        if (self.swipeToExit) {
+            newOffset.x = newContentSize.width - (self.scrollView.frame.size.width * 2);
+        } else {
+            newOffset.x = newContentSize.width - self.scrollView.frame.size.width;
+        }
+        self.scrollView.contentOffset = newOffset;
+    }
+    self.scrollView.contentSize = newContentSize;
+    
+    // Adjust frame of each page:
+    NSUInteger i = 0;
+    for (EAIntroPage *page in _pages) {
+        page.pageView.frame = CGRectMake(i * self.scrollView.bounds.size.width,
+                                         0,
+                                         self.scrollView.bounds.size.width,
+                                         self.scrollView.bounds.size.height);
+        i++;
+    }
+    
+    // Adjust scrolling to fit resized page:
+    CGFloat offset = self.currentPageIndex * self.scrollView.frame.size.width;
+    CGRect pageRect = { .origin.x = offset, .origin.y = 0.0, .size.width = self.scrollView.frame.size.width, .size.height = self.scrollView.frame.size.height };
+    [self.scrollView scrollRectToVisible:pageRect animated:NO];
+    
+    // Adjust restricted scroll area:
+    if(!self.scrollingEnabled) {
+        self.scrollView.restrictionArea = CGRectMake(self.visiblePageIndex * self.bounds.size.width, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+    } else {
+        self.scrollView.restrictionArea = CGRectZero;
+    }
+}
+
 #pragma mark - Custom setters
 
 - (void)setScrollingEnabled:(BOOL)scrollingEnabled {
@@ -609,8 +679,12 @@ CGFloat easeOutValue(CGFloat value) {
     _pages = [pages copy];
     [self.scrollView removeFromSuperview];
     self.scrollView = nil;
-    [self buildScrollView];
+    
+    _currentPageIndex = 0;
     self.pageControl.numberOfPages = _pages.count;
+    self.pageControl.currentPage = self.currentPageIndex;
+    
+    [self buildScrollView];
 }
 
 - (void)setBgImage:(UIImage *)bgImage {
@@ -889,9 +963,15 @@ CGFloat easeOutValue(CGFloat value) {
         return;
     }
     
+    _currentPageIndex = currentPageIndex;
+    
     CGFloat offset = currentPageIndex * self.scrollView.frame.size.width;
     CGRect pageRect = { .origin.x = offset, .origin.y = 0.0, .size.width = self.scrollView.frame.size.width, .size.height = self.scrollView.frame.size.height };
     [self.scrollView scrollRectToVisible:pageRect animated:animated];
+    
+    if(!animated) {
+        [self scrollViewDidScroll:self.scrollView];
+    }
 }
 
 - (IBAction)goToNext:(id)sender {

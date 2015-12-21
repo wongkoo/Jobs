@@ -10,7 +10,7 @@
 
 typedef void(^MenuSelectedIndexBlock)(NSInteger index);
 
-@interface DiffuseButton : UIView
+@interface MenuButton : UIView
 
 - (id)initWithRadius:(CGFloat)radius
      backgroundColor:(UIColor *)backgroundColor

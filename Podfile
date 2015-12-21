@@ -7,6 +7,7 @@ pod 'BFPaperCheckbox'
 pod 'EAIntroView'
 pod 'Masonry'
 pod 'pop'
+pod 'YYText'
 end 
 
 target 'JobsTests' do

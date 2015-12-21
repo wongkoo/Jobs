@@ -33,10 +33,11 @@
 		72C884081BC284F00046DA81 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C884071BC284F00046DA81 /* CountdownView.m */; };
 		72FC18951B37A81600920109 /* IntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FC18941B37A81600920109 /* IntroPageViewController.m */; };
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
+		9B10BB7E1C27A07F0019C902 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB7D1C27A07F0019C902 /* AboutViewController.m */; };
 		9B11E9701C2018610095FD28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B11E9721C2018610095FD28 /* Localizable.strings */; };
 		9B3AA6F01BFC70D900B1B9A2 /* CompanyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AA6EF1BFC70D900B1B9A2 /* CompanyListCell.m */; };
 		9B957AD41BF4B4F10058C796 /* PureColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */; };
-		9B95D65E1C04802D002F66B3 /* DiffuseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95D65D1C04802D002F66B3 /* DiffuseButton.m */; };
+		9B95D65E1C04802D002F66B3 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95D65D1C04802D002F66B3 /* MenuButton.m */; };
 		9B95D69C1C0DB39A002F66B3 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */; };
 		9BC35BC21BF1E2A300903192 /* PullDownProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC35BC11BF1E2A300903192 /* PullDownProcessView.m */; };
 		9BCE0EFA1C10881A00F85461 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE0EDD1C10881A00F85461 /* TencentOpenAPI.framework */; };
@@ -122,6 +123,8 @@
 		72FC18941B37A81600920109 /* IntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroPageViewController.m; sourceTree = "<group>"; };
 		9B0551CB1BEB0A2700E09969 /* ColorSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSelectCell.h; path = FirstDetailPage/Cell/ColorSelectCell.h; sourceTree = "<group>"; };
 		9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectCell.m; path = FirstDetailPage/Cell/ColorSelectCell.m; sourceTree = "<group>"; };
+		9B10BB7C1C27A07F0019C902 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Menu/AboutViewController.h; sourceTree = "<group>"; };
+		9B10BB7D1C27A07F0019C902 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Menu/AboutViewController.m; sourceTree = "<group>"; };
 		9B11E9711C2018610095FD28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9731C20188B0095FD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9741C2018AF0095FD28 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -129,8 +132,8 @@
 		9B3AA6EF1BFC70D900B1B9A2 /* CompanyListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyListCell.m; path = FirstPage/CompanyListCell.m; sourceTree = "<group>"; };
 		9B957AD21BF4B4F10058C796 /* PureColorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureColorBackgroundView.h; sourceTree = "<group>"; };
 		9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PureColorBackgroundView.m; sourceTree = "<group>"; };
-		9B95D65C1C04802D002F66B3 /* DiffuseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffuseButton.h; sourceTree = "<group>"; };
-		9B95D65D1C04802D002F66B3 /* DiffuseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffuseButton.m; sourceTree = "<group>"; };
+		9B95D65C1C04802D002F66B3 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuButton.h; sourceTree = "<group>"; };
+		9B95D65D1C04802D002F66B3 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuButton.m; sourceTree = "<group>"; };
 		9B95D69A1C0DB39A002F66B3 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		9BC35BC01BF1E2A200903192 /* PullDownProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullDownProcessView.h; path = FirstPage/PullDownProcessView.h; sourceTree = "<group>"; };
@@ -342,9 +345,8 @@
 				721243AB1BAE824D0046B060 /* NavigationController */,
 				723E8E9D1BAA9EEF004D4E8C /* IntroPage */,
 				723E8E9B1BAA9E8A004D4E8C /* CompanyList */,
+				9B10BB7B1C27A04E0019C902 /* Menu */,
 				723E8E9C1BAA9EC7004D4E8C /* PositionList */,
-				9B95D69A1C0DB39A002F66B3 /* ShareViewController.h */,
-				9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -391,10 +393,21 @@
 				722BB0FC1BB245A8005372A4 /* PositionList */,
 				720DC2FD1BB2D23500B82B99 /* UIColorCategory */,
 				721243B01BAE8BDB0046B060 /* AllPageCellBackground */,
-				9B95D65C1C04802D002F66B3 /* DiffuseButton.h */,
-				9B95D65D1C04802D002F66B3 /* DiffuseButton.m */,
+				9B95D65C1C04802D002F66B3 /* MenuButton.h */,
+				9B95D65D1C04802D002F66B3 /* MenuButton.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9B10BB7B1C27A04E0019C902 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9B95D69A1C0DB39A002F66B3 /* ShareViewController.h */,
+				9B95D69B1C0DB39A002F66B3 /* ShareViewController.m */,
+				9B10BB7C1C27A07F0019C902 /* AboutViewController.h */,
+				9B10BB7D1C27A07F0019C902 /* AboutViewController.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		9BC35BC31BF1E2B900903192 /* CompanyList */ = {
@@ -649,7 +662,8 @@
 				721243B61BAE8D8E0046B060 /* AddProcessView.m in Sources */,
 				72C884081BC284F00046DA81 /* CountdownView.m in Sources */,
 				7237F5F31B2202B500F1DFD9 /* DataModel.m in Sources */,
-				9B95D65E1C04802D002F66B3 /* DiffuseButton.m in Sources */,
+				9B10BB7E1C27A07F0019C902 /* AboutViewController.m in Sources */,
+				9B95D65E1C04802D002F66B3 /* MenuButton.m in Sources */,
 				720DC3001BB2D23500B82B99 /* UIColor+WHColor.m in Sources */,
 				7237F5C01B1EE68F00F1DFD9 /* AppDelegate.m in Sources */,
 				72913AFB1BAE8E2500F99325 /* ProcessCell.m in Sources */,

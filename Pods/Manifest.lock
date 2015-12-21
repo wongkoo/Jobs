@@ -1,13 +1,14 @@
 PODS:
   - BFPaperCheckbox (1.2.7):
     - UIColor+BFPaperColors
-  - EAIntroView (2.7.4):
+  - EAIntroView (2.8.1):
     - EARestrictedScrollView (~> 0.2.0)
   - EARestrictedScrollView (0.2.0)
   - Masonry (0.6.3)
   - MCSwipeTableViewCell (2.1.4)
   - pop (1.0.8)
-  - UIColor+BFPaperColors (1.7.1)
+  - UIColor+BFPaperColors (1.7.2)
+  - YYText (0.9.16)
 
 DEPENDENCIES:
   - BFPaperCheckbox
@@ -15,14 +16,16 @@ DEPENDENCIES:
   - Masonry
   - MCSwipeTableViewCell
   - pop
+  - YYText
 
 SPEC CHECKSUMS:
   BFPaperCheckbox: 55670e5d8dc1e060972b0d1db6380771339451d8
-  EAIntroView: 50b85eedf414260e61330070ffe5947e72493a62
+  EAIntroView: 73abfa89caa311f450af876421d950b96679e845
   EARestrictedScrollView: f86d61e16c61d3e93c84f8e96e83122a2a3b7631
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MCSwipeTableViewCell: 1b303e16c3a26b1982f3a68386e9b8c5fc8344c3
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
-  UIColor+BFPaperColors: b1efa4320e2f56c4b14f73232faf967ba0e5b4a2
+  UIColor+BFPaperColors: 03101fe6c10ed00c6daae7c26553f1de41500853
+  YYText: d6d716cd8b776e1aa57b2ddb5f3495ee7d97ce49
 
 COCOAPODS: 0.39.0
