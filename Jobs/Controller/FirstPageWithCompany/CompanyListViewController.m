@@ -154,7 +154,10 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
                                                   }else if (index == MenuSelectedTypeShare) {
                                                       [self pushShareViewController];
                                                   }else if (index == MenuSelectedTypeGrade) {
-                                                      
+                                                      NSString *appid = @"1016317328";
+                                                      NSString *str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id%@?mt=8",appid ];
+                                                      NSURL *url = [NSURL URLWithString:str];
+                                                      [[UIApplication sharedApplication] openURL:url];
                                                   }
                                               }];
     

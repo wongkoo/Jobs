@@ -55,11 +55,10 @@ static const CGFloat kCloseButtonWidth = 30;
 
 - (void)initLogo {
     self.logoView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.width - kLogoHightWidth)/2, (self.view.height * (1-0.618) - kLogoHightWidth/2), kLogoHightWidth, kLogoHightWidth)];
-    UIImage *logo = [UIImage imageNamed:@"icon400"];
     self.logoView.layer.cornerRadius = 10;
-    self.logoView.image = logo;
+    self.logoView.image = [UIImage imageNamed:@"icon400"];
     [self.view addSubview:self.logoView];
-    [self.logoView.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"LogoSpringAnimation"];
+    [self.logoView.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"LogoViewZoomInSpringAnimation"];
 }
 
 - (void)initTextView {
@@ -89,7 +88,7 @@ static const CGFloat kCloseButtonWidth = 30;
     self.textLabel.numberOfLines = 0;
     self.textLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.textLabel];
-    [self.textLabel.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"YYLabelSringAnimation"];
+    [self.textLabel.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"TextLabelZoomInSringAnimation"];
 }
 
 - (void)initCloseButton {
@@ -100,7 +99,7 @@ static const CGFloat kCloseButtonWidth = 30;
     [self.closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.closeButton addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.closeButton];
-    [self.closeButton.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"closeButtonSpringAnimation"];
+    [self.closeButton.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"CloseButtonZoomInSpringAnimation"];
 }
 
 
@@ -119,34 +118,40 @@ static const CGFloat kCloseButtonWidth = 30;
     [self.view bringSubviewToFront:self.closeButton];
     if (self.webViewOpen) {
         POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
-        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(self.logoView.right - kCloseButtonWidth/2, self.logoView.top - kCloseButtonWidth/2)];
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(self.logoView.right, self.logoView.top)];
         anim.springBounciness = 10;
         anim.springSpeed = 20;
-        [self.closeButton.layer pop_addAnimation:anim forKey:@"CloseButtonMoveOriginAnimation"];
+        [self.closeButton.layer pop_addAnimation:anim forKey:@"CloseButtonMoveOriginSpringAnimation"];
     }else {
         POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
-        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.width - kCloseButtonWidth, 20)];
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.width - kCloseButtonWidth/2, 20 + kCloseButtonWidth/2)];
         anim.springBounciness = 10;
         anim.springSpeed = 20;
-        [self.closeButton.layer pop_addAnimation:anim forKey:@"CloseButtonMoveTopAnimation"];
+        [self.closeButton.layer pop_addAnimation:anim forKey:@"CloseButtonMoveTopSpringAnimation"];
     }
+    self.webViewOpen = !self.webViewOpen;
 }
 
 - (void)showWebView {
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height - 20)];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(kCloseButtonWidth/2, 20 + kCloseButtonWidth/2, self.view.width - kCloseButtonWidth, self.view.height - 40 - kCloseButtonWidth/2)];
     [self.view addSubview:self.webView];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:kAboutMeURL]]];
+    
+    POPSpringAnimation *animation = [self createScaleXYPOPSpringAnimation];
+    animation.completionBlock = ^(POPAnimation *anim, BOOL finished){
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:kAboutMeURL]]];
+    };
+    [self.webView.layer pop_addAnimation:animation forKey:@"WebViewZoomInSpringAnimation"];
     
     POPBasicAnimation *basicAnim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerOpacity];
     basicAnim.duration = 0.3;
     basicAnim.toValue = @1.0;
-    [self.webView.layer pop_addAnimation:[self createScaleXYPOPSpringAnimation] forKey:@"SpringAnimation"];
-    [self.webView.layer pop_addAnimation:basicAnim forKey:@"BasicAnimation"];
+    [self.webView.layer pop_addAnimation:basicAnim forKey:@"WebViewOpacityBasicAnimation"];
+    
     [self moveCloseButton];
-    self.webViewOpen = YES;
 }
 
 - (void)hideWebView {
+    
     POPSpringAnimation *springAnim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     springAnim.springBounciness = 10;
     springAnim.springSpeed = 20;
@@ -156,10 +161,11 @@ static const CGFloat kCloseButtonWidth = 30;
         [self.webView removeFromSuperview];
         self.webView = nil;
     };
-    [self.webView.layer pop_addAnimation:springAnim forKey:@"WebViewZoomOutAnimation"];
+    [self.webView.layer pop_addAnimation:springAnim forKey:@"WebViewZoomOutSpringAnimation"];
+    
     [self moveCloseButton];
-    self.webViewOpen = NO;
 }
+
 
 
 #pragma mark - returnPOPAnimation
