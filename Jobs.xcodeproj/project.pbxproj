@@ -35,6 +35,7 @@
 		9B0551CD1BEB0A2700E09969 /* ColorSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0551CC1BEB0A2700E09969 /* ColorSelectCell.m */; };
 		9B10BB7E1C27A07F0019C902 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB7D1C27A07F0019C902 /* AboutViewController.m */; };
 		9B10BB821C27FC850019C902 /* UIView+Jobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB811C27FC850019C902 /* UIView+Jobs.m */; };
+		9B10BB851C2928950019C902 /* PositionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB841C2928950019C902 /* PositionListCell.m */; };
 		9B11E9701C2018610095FD28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B11E9721C2018610095FD28 /* Localizable.strings */; };
 		9B3AA6F01BFC70D900B1B9A2 /* CompanyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AA6EF1BFC70D900B1B9A2 /* CompanyListCell.m */; };
 		9B957AD41BF4B4F10058C796 /* PureColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */; };
@@ -128,6 +129,8 @@
 		9B10BB7D1C27A07F0019C902 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Menu/AboutViewController.m; sourceTree = "<group>"; };
 		9B10BB801C27FC850019C902 /* UIView+Jobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Jobs.h"; path = "Category/UIView+Jobs.h"; sourceTree = "<group>"; };
 		9B10BB811C27FC850019C902 /* UIView+Jobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Jobs.m"; path = "Category/UIView+Jobs.m"; sourceTree = "<group>"; };
+		9B10BB831C2928950019C902 /* PositionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PositionListCell.h; path = SecondPage/PositionListCell.h; sourceTree = "<group>"; };
+		9B10BB841C2928950019C902 /* PositionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PositionListCell.m; path = SecondPage/PositionListCell.m; sourceTree = "<group>"; };
 		9B11E9711C2018610095FD28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9731C20188B0095FD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9741C2018AF0095FD28 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 		722BB0FC1BB245A8005372A4 /* PositionList */ = {
 			isa = PBXGroup;
 			children = (
+				9B10BB831C2928950019C902 /* PositionListCell.h */,
+				9B10BB841C2928950019C902 /* PositionListCell.m */,
 				722BB0FD1BB24639005372A4 /* ProcessView.h */,
 				722BB0FE1BB24639005372A4 /* ProcessView.m */,
 				72C884061BC284F00046DA81 /* CountdownView.h */,
@@ -683,6 +688,7 @@
 				723E8EA61BAAB876004D4E8C /* CompanyDetailViewController.m in Sources */,
 				7237F5E21B1F389F00F1DFD9 /* JobsItem.m in Sources */,
 				7237F5BD1B1EE68F00F1DFD9 /* main.m in Sources */,
+				9B10BB851C2928950019C902 /* PositionListCell.m in Sources */,
 				9B10BB821C27FC850019C902 /* UIView+Jobs.m in Sources */,
 				9B95D69C1C0DB39A002F66B3 /* ShareViewController.m in Sources */,
 				7237F5E51B1FE92300F1DFD9 /* PositionDetailViewController.m in Sources */,

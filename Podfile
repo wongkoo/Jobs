@@ -3,7 +3,7 @@
 
 target 'Jobs' do
 pod 'MCSwipeTableViewCell'
-pod 'BFPaperCheckbox'
+pod 'BEMCheckBox'
 pod 'EAIntroView'
 pod 'Masonry'
 pod 'pop'

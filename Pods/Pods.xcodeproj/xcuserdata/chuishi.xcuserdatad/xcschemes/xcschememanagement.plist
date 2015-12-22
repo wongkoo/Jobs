@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BFPaperCheckbox.xcscheme</key>
+		<key>BEMCheckBox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>UIColor+BFPaperColors.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>YYText.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13FBC1AF49516B40ECA67692857D4878</key>
+		<key>36E06600598A6336FFC8F8F6D9C37FCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,27 +57,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51F20AACF581AB50F41444869223760F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>539D1990BFF21DAF5F55D29444300A13</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>61E73B5ECFD68A5592AC0D03D47169A2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8981247A296F4F6B12315A1A8C22F2EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8C80F913EE213FA1EE3801FF8CEF0DD4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C92583ADBFADAD7405D39450C4971763</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D1EC2572C5166CE2498C72FAF128EABE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCB77FD46F18A9574D2C84C8DA945F56</key>
 		<dict>
 			<key>primary</key>
 			<true/>
