@@ -17,6 +17,7 @@
 #import "ProcessView.h"
 #import "PositionListCell.h"
 #import "CountdownView.h"
+#import "UIColor+WHColor.h"
 #import <Masonry.h>
 
 
@@ -26,38 +27,58 @@
 
 @implementation PositionListViewController
 
+
+
+#pragma mark - ViewLifeCycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self check3DTouch];
+    [self initViews];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
 
-- (void)viewDidLoad {
-    [self popIfPerformActionForShortcutItem];
-    [super viewDidLoad];
-
-    self.title = self.company.name;
-    
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    [backgroundView setBackgroundColor:[UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0]];
-    [self.tableView setBackgroundView:backgroundView];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [self initDetailTextView];
-    
-    //用于检测是否是公司Cell被重按之后 上移点击添加职位按钮。
-    if (self.company.addPositionBy3DTouch == YES) {
-        [self performSegueWithIdentifier:@"AddItem" sender:nil];
-        self.company.addPositionBy3DTouch = NO;
-    }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
-- (void)popIfPerformActionForShortcutItem {
+
+
+#pragma mark - 3D Touch
+
+- (void)check3DTouch {
+    //from 3D Touch ShortCutItem
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL bl = [userDefaults boolForKey:@"PerformActionForShortcutItem"];
     if (bl) {
         [userDefaults setBool:NO forKey:@"PerformActionForShortcutItem"];
         [self performSegueWithIdentifier:@"backToAllListsViewController" sender:self];
     }
+    
+    //from 3D Touch upglide Add Position
+    if (self.company.addPositionBy3DTouch == YES) {
+        [self performSegueWithIdentifier:@"AddItem" sender:nil];
+        self.company.addPositionBy3DTouch = NO;
+    }
+}
+
+
+
+#pragma mark - Init
+
+- (void)initViews {
+    self.title = self.company.name;
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.frame];
+    [backgroundView setBackgroundColor:[UIColor whClouds]];
+    [self.tableView setBackgroundView:backgroundView];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self initDetailTextView];
 }
 
 - (void)initDetailTextView{
@@ -73,12 +94,10 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Segue
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"AddItem"]) {
         UINavigationController *navigationController = segue.destinationViewController;
@@ -171,7 +190,10 @@
     return actions;
 }
 
+
+
 #pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self createView:indexPath];
