@@ -10,15 +10,6 @@
         <scene sceneID="QpQ-u0-xmH">
             <objects>
                 <tableViewController id="GHa-u7-5dq" customClass="PositionListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vxc-M7-aAQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="GHa-u7-5dq" id="O4e-Nq-e7k"/>
-                            <outlet property="delegate" destination="GHa-u7-5dq" id="GAh-OS-2re"/>
-                        </connections>
-                    </tableView>
                     <navigationItem key="navigationItem" title="JobsItems" id="bG1-bg-awP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PJd-He-GV6">
                             <connections>

@@ -15,7 +15,7 @@
 - (void)addPositionInCompany:(Company *)company;
 @end
 
-@interface PositionListViewController : UITableViewController 
+@interface PositionListViewController : UIViewController
 
 @property (nonatomic, strong) Company *company;
 @property (nonatomic, weak) id <ViewController3DTouchDelegate>delegate;

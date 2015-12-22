@@ -21,8 +21,9 @@
 #import <Masonry.h>
 
 
-@interface PositionListViewController() <ItemDetailViewControllerDelegate,CountdownViewDelegate>
+@interface PositionListViewController() <ItemDetailViewControllerDelegate,CountdownViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UILabel *detailTextView;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation PositionListViewController
@@ -72,13 +73,21 @@
 
 - (void)initViews {
     self.title = self.company.name;
-    
-    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.frame];
-    [backgroundView setBackgroundColor:[UIColor whClouds]];
-    [self.tableView setBackgroundView:backgroundView];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    [self initTableView];
     [self initDetailTextView];
+}
+
+- (void)initTableView {
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableView];
+    
+    //TableView background
+    UIView *backgroundView = [[UIView alloc] init];
+    backgroundView.backgroundColor = [UIColor whClouds];
+    self.tableView.backgroundView = backgroundView;
 }
 
 - (void)initDetailTextView{
