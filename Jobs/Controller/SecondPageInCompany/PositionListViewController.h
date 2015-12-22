@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PositionDetailViewController.h"
-#import "CountdownView.h"
 
 @class Company;
 
@@ -17,7 +15,7 @@
 - (void)addPositionInCompany:(Company *)company;
 @end
 
-@interface PositionListViewController : UITableViewController <ItemDetailViewControllerDelegate,CountdownViewDelegate>
+@interface PositionListViewController : UITableViewController 
 
 @property (nonatomic, strong) Company *company;
 @property (nonatomic, weak) id <ViewController3DTouchDelegate>delegate;
