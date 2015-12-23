@@ -1,6 +1,6 @@
-# Jobs
 
-![icon](https://github.com/wongkoo/Jobs/blob/master/Presentation/icon.png)
+
+![icon](https://github.com/wongkoo/Jobs/blob/master/Presentation/titlePic.png)
 
 ## Description
 
