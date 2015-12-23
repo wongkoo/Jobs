@@ -16,15 +16,8 @@ Click it and download it,you will feel more effective and released!
 
 ## iPhone Screenshot
 
-![1](https://github.com/wongkoo/Jobs/blob/master/Presentation/CompanyList.jpg)
+![1](https://github.com/wongkoo/Jobs/blob/master/Presentation/CompanyList.png)
 
-![2](http://a4.mzstatic.com/us/r30/Purple7/v4/27/29/36/272936d7-23a2-b56b-07b1-b641fc00ba0b/screen322x572.jpeg)
-
-![3](http://a1.mzstatic.com/us/r30/Purple7/v4/11/32/e0/1132e015-7ab3-af3b-9f65-6523139ecbea/screen322x572.jpeg)
-
-![4](http://a5.mzstatic.com/us/r30/Purple7/v4/46/40/42/4640421c-7f36-0a6d-06b1-c98be1749652/screen322x572.jpeg)
-
-![5](http://a4.mzstatic.com/us/r30/Purple1/v4/03/e2/98/03e29836-28a8-36ba-22fa-47f47e8fb4d8/screen322x572.jpeg)
 
 ## iTunesPreview
 
@@ -56,15 +49,16 @@ Click it and download it,you will feel more effective and released!
 
 Thanks for:
 
+[POP](https://github.com/facebook/pop)
+
 [MCSwipeTableViewCell](https://github.com/alikaragoz/MCSwipeTableViewCell)
 
-[BFPaperCheckbox](https://github.com/bfeher/BFPaperCheckbox)
+[BEMCheckBox](https://github.com/Boris-Em/BEMCheckBox)
 
 [EAIntroView](https://github.com/ealeksandrov/EAIntroView)
 
 [Masonry](https://github.com/SnapKit/Masonry)
 
-[WHChartView](https://github.com/wongkoo/WHChartView)
 
 ## Donation
 
