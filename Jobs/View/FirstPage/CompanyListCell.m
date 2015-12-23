@@ -13,6 +13,7 @@
 #import "UIColor+WHColor.h"
 
 @interface CompanyListCell ()
+
 @property (nonatomic, strong) UILabel *processLabel;
 @property (nonatomic, strong) CellbackgroundVIew *cellBackgroundView;
 
@@ -95,7 +96,7 @@
 }
 
 - (void)configureColor {
-    [self.cellBackgroundView setColor:self.company.cellColor];
+    [self.cellBackgroundView setColor:_company.cellColor];
 }
 
 - (void)configureText {
@@ -103,7 +104,7 @@
     NSString *dateString = nil;
     BOOL showsHours = NO;
     if ([self.company.positions count] != 0) {
-        JobsItem *jobsItem = self.company.positions[0];
+        JobsItem *jobsItem = _company.positions[0];
         
         NSDate *nowDate = [NSDate date];
         NSDateFormatter *referenceFormatter = [[NSDateFormatter alloc] init];
@@ -156,9 +157,9 @@
     }
     
     //标题
-    NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:self.company.name];
-    [titleAttributedString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, self.company.name.length)];
-    [titleAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, self.company.name.length)];
+    NSMutableAttributedString *titleAttributedString = [[NSMutableAttributedString alloc] initWithString:_company.name];
+    [titleAttributedString addAttribute:NSForegroundColorAttributeName value:stringColor range:NSMakeRange(0, _company.name.length)];
+    [titleAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(0, _company.name.length)];
     self.textLabel.attributedText = titleAttributedString;
     
     //副标题
@@ -181,8 +182,8 @@
 - (void)configureState {
     if (self.company.deletedFlag == 0) {
         //date
-        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:self.processLabel.attributedText];
-        [dateAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, self.processLabel.attributedText.length)];
+        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:_processLabel.attributedText];
+        [dateAttributeString removeAttribute:NSStrikethroughStyleAttributeName range:NSMakeRange(0, _processLabel.attributedText.length)];
         self.processLabel.attributedText = dateAttributeString;
         
         //title
@@ -197,8 +198,8 @@
         
     }else if(self.company.deletedFlag == 1){
         //data
-        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:self.processLabel.attributedText];
-        [dateAttributeString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, self.processLabel.attributedText.length)];
+        NSMutableAttributedString *dateAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:_processLabel.attributedText];
+        [dateAttributeString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, _processLabel.attributedText.length)];
         self.processLabel.attributedText = dateAttributeString;
         
         //title
@@ -219,25 +220,25 @@
                                 color:_greenColor
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState1
-                      completionBlock:self.checkCompletetionBlock];
+                      completionBlock:_checkCompletetionBlock];
         
         [self setSwipeGestureWithView:_checkView
                                 color:_greenColor
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState2
-                      completionBlock:self.checkCompletetionBlock];
+                      completionBlock:_checkCompletetionBlock];
         
         [self setSwipeGestureWithView:_editView
                                 color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
-                      completionBlock:self.editCompletetionBlock];
+                      completionBlock:_editCompletetionBlock];
         
         [self setSwipeGestureWithView:_stickView
                                 color:_stickColor
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState4
-                      completionBlock:self.stickCompletetionBlock];
+                      completionBlock:_stickCompletetionBlock];
         
         
     }else if(self.company.deletedFlag == 1){
@@ -245,25 +246,25 @@
                                 color:[UIColor whPeterRiver]
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState1
-                      completionBlock:self.checkCompletetionBlock];
+                      completionBlock:_checkCompletetionBlock];
         
         [self setSwipeGestureWithView:_crossView
                                 color:_redColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState2
-                      completionBlock:self.crossCompletetionBlock];
+                      completionBlock:_crossCompletetionBlock];
         
         [self setSwipeGestureWithView:_editView
                                 color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
-                      completionBlock:self.editCompletetionBlock];
+                      completionBlock:_editCompletetionBlock];
         
         [self setSwipeGestureWithView:_editView
                                 color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState4
-                      completionBlock:self.editCompletetionBlock];
+                      completionBlock:_editCompletetionBlock];
     }
 }
 

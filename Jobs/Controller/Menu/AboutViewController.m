@@ -14,7 +14,7 @@
 #import <POP.h>
 #import "UIView+Jobs.h"
 
-static NSString * const kAboutString = @"Jobs\n \nFor you. For the future.\nDesigned by wongkoo.";
+static NSString * const kAboutString = @"Jobs\n \nFor you. For the future.\nDesigned by wongkoo.\nv";
 static NSString * const kAboutMeURL = @"http://wongkoo.github.io/about/";
 
 static const CGFloat kLogoHightWidth = 80.0;
@@ -62,7 +62,10 @@ static const CGFloat kCloseButtonWidth = 30;
 }
 
 - (void)initTextView {
-    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:kAboutString];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *totalString = [kAboutString stringByAppendingString:version];
+    
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:totalString];
     
     //highlight
     YYTextBorder *hightlightBorder = [YYTextBorder borderWithFillColor:[UIColor whPeterRiver] cornerRadius:3];
@@ -73,14 +76,14 @@ static const CGFloat kCloseButtonWidth = 30;
     hightlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
         [weakSelf showWebView];
     };
-    [attributeString yy_setTextHighlight:hightlight range:[kAboutString rangeOfString:@"wongkoo"]];
+    [attributeString yy_setTextHighlight:hightlight range:[totalString rangeOfString:@"wongkoo"]];
     
     //underLine of wongkoo
-    [attributeString yy_setUnderlineColor:[UIColor blackColor] range:[kAboutString rangeOfString:@"wongkoo"]];
-    [attributeString yy_setUnderlineStyle:NSUnderlineStyleSingle range:[kAboutString rangeOfString:@"wongkoo"]];
+    [attributeString yy_setUnderlineColor:[UIColor blackColor] range:[totalString rangeOfString:@"wongkoo"]];
+    [attributeString yy_setUnderlineStyle:NSUnderlineStyleSingle range:[totalString rangeOfString:@"wongkoo"]];
     
     //Font of Jobs
-    [attributeString yy_setFont:[UIFont systemFontOfSize:30] range:[kAboutString rangeOfString:@"Jobs"]];
+    [attributeString yy_setFont:[UIFont systemFontOfSize:30] range:[totalString rangeOfString:@"Jobs"]];
     
     //TextLabel
     self.textLabel = [[YYLabel alloc] initWithFrame:CGRectMake(kYYLabelOffset, self.logoView.bottom, self.view.width - 2 * kYYLabelOffset, kYYLabelHeight)];

@@ -10,10 +10,12 @@
 #import "CellbackgroundVIew.h"
 #import "BEMCheckBox.h"
 #import <Masonry.h>
+#import "UIColor+WHColor.h"
 
 static const CGFloat kCellHeight = 100;
 
 @interface PositionListCell () <BEMCheckBoxDelegate>
+
 @property (nonatomic, strong) CellbackgroundVIew *cellBackgroundView;
 @property (nonatomic, strong) BEMCheckBox *checkBox;
 @property (nonatomic, strong) UILabel *periodLabel;
@@ -21,6 +23,7 @@ static const CGFloat kCellHeight = 100;
 @property (nonatomic, strong) UIView *listView;
 @property (nonatomic, strong) UIColor *redColor;
 @property (nonatomic, strong) UIColor *brownColor;
+
 @end
 
 @implementation PositionListCell
@@ -53,7 +56,7 @@ static const CGFloat kCellHeight = 100;
     //background
     self.cellBackgroundView = [[CellbackgroundVIew alloc] initWithColor:CellColorWhite];
     self.cellBackgroundView.tag = 23;
-    [self.contentView addSubview:self.cellBackgroundView];
+    [self.contentView addSubview:_cellBackgroundView];
     [self.cellBackgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
@@ -61,23 +64,27 @@ static const CGFloat kCellHeight = 100;
         make.bottom.equalTo(self.mas_bottom);
     }];
     
+    //CheckBox
     self.checkBox = [[BEMCheckBox alloc] init];
-//    self.checkBox.onAnimationType = BEMAnimationTypeFill;
-//    self.checkBox.offAnimationType = BEMAnimationTypeFill;
-//    self.checkBox.onFillColor = [UIColor blueColor];
+    self.checkBox.onAnimationType = BEMAnimationTypeFill;
+    self.checkBox.offAnimationType = BEMAnimationTypeFill;
+    self.checkBox.onFillColor = [UIColor whBelizeHole];
+    self.checkBox.onCheckColor = [UIColor whClouds];
+    self.checkBox.onTintColor = [UIColor whBelizeHole];
+    self.checkBox.tintColor = [UIColor whPeterRiver];
     self.checkBox.delegate = self;
-    [self.contentView addSubview:self.checkBox];
+    [self.contentView addSubview:_checkBox];
     [self.checkBox mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.equalTo(self.mas_centerY);
                 make.right.equalTo(self.mas_right).offset(-20);
-                make.width.height.equalTo(@(40));
+                make.width.height.equalTo(@(30));
     }];
-    
     
     //periodLabel
     self.periodLabel = [[UILabel alloc] init];
     self.periodLabel.font = [UIFont systemFontOfSize:18];
-    [self.contentView addSubview:self.periodLabel];
+    self.periodLabel.textAlignment = NSTextAlignmentRight;
+    [self.contentView addSubview:_periodLabel];
     [self.periodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.mas_centerY);
         make.right.equalTo(self.checkBox.mas_left).offset(-20);
@@ -86,6 +93,7 @@ static const CGFloat kCellHeight = 100;
     
     self.textLabel.font = [UIFont systemFontOfSize:22.0];
     
+    //Reuse Image
     _crossView = [self viewWithImageName:@"cross"];
     _redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
     _listView = [self viewWithImageName:@"list"];
@@ -104,20 +112,20 @@ static const CGFloat kCellHeight = 100;
 }
 
 - (void)reloadCheckBox {
-    if (self.position.checked == self.checkBox.on) {
+    if (_position.checked == _checkBox.on) {
         return;
     }else{
-        self.checkBox.on = self.position.checked;
+        self.checkBox.on = _position.checked;
     }
 }
 
 - (void)reloadText {
-    self.periodLabel.text = self.position.nextTask;
-    self.textLabel.text = self.position.text;
+    self.periodLabel.text = _position.nextTask;
+    self.textLabel.text = _position.text;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"M月dd日hh时mm分"];
-    NSString *time = [dateFormatter stringFromDate:self.position.dueDate];
+    NSString *time = [dateFormatter stringFromDate:_position.dueDate];
     if(self.position.shouldRemind == YES){
         self.detailTextLabel.text = [NSString stringWithFormat:@"🕓%@",time];
     }else{
@@ -188,7 +196,7 @@ static const CGFloat kCellHeight = 100;
 #pragma mark - BEMCheckBoxDelegate
 
 - (void)didTapCheckBox:(BEMCheckBox *)checkBox {
-    self.position.checked = checkBox.on;
+    _position.checked = checkBox.on;
     [self reloadData];
 }
 
