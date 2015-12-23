@@ -20,9 +20,10 @@
 #import "UIColor+WHColor.h"
 #import <Masonry.h>
 
+static const CGFloat kDetailLabelHeight = 60;
+static const CGFloat kProcessViewHeight = 80;
 
 @interface PositionListViewController() <ItemDetailViewControllerDelegate,CountdownViewDelegate,UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, weak) IBOutlet UILabel *detailTextView;
 @property (nonatomic, strong) UITableView *tableView;
 @end
 
@@ -74,7 +75,6 @@
 - (void)initViews {
     self.title = self.company.name;
     [self initTableView];
-    [self initDetailTextView];
 }
 
 - (void)initTableView {
@@ -84,23 +84,46 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     
+    //FooterView
+    UIView *footerView = [[UIView alloc] init];
+    self.tableView.tableFooterView = footerView;
+    
+    UILabel *detailLabel = [self detailLabel];
+    [footerView addSubview:detailLabel];
+    footerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, detailLabel.frame.size.height+ kProcessViewHeight);
+    
+    ProcessView *processView = [[ProcessView alloc] initWithFrame:CGRectMake(0, detailLabel.frame.size.height, self.tableView.frame.size.width, kProcessViewHeight)];
+    processView.process = self.company.process;
+    [footerView addSubview:processView];
+    
     //TableView background
     UIView *backgroundView = [[UIView alloc] init];
     backgroundView.backgroundColor = [UIColor whClouds];
     self.tableView.backgroundView = backgroundView;
 }
 
-- (void)initDetailTextView{
-    self.detailTextView.text = @" ";
-    if (![self.company.accountOfWebsite isEqualToString:@""]) {
-        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"官网账号：%@\n",self.company.accountOfWebsite];
+- (UILabel *)detailLabel {
+    UILabel *detailLabel = [[UILabel alloc] init];
+    detailLabel.textAlignment = NSTextAlignmentCenter;
+    detailLabel.font = [UIFont systemFontOfSize:14];
+    detailLabel.textColor = [UIColor whConcrete];
+    detailLabel.numberOfLines = 0;
+    detailLabel.text = @"";
+    NSInteger number = 0;
+    if (self.company.accountOfWebsite && ![self.company.accountOfWebsite isEqualToString:@""]) {
+        number++;
+        detailLabel.text = [detailLabel.text stringByAppendingFormat:@"官网账号：%@\n",self.company.accountOfWebsite];
     }
-    if (![self.company.reminderOfPassword isEqualToString:@""]) {
-        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"密码提示：%@\n",self.company.reminderOfPassword];
+    if (self.company.reminderOfPassword && ![self.company.reminderOfPassword isEqualToString:@""]) {
+        number++;
+        detailLabel.text = [detailLabel.text stringByAppendingFormat:@"密码提示：%@\n",self.company.reminderOfPassword];
     }
-    if (![self.company.email isEqualToString:@""]) {
-        self.detailTextView.text = [self.detailTextView.text stringByAppendingFormat:@"报名邮箱：%@",self.company.email];
+    if (self.company.email && ![self.company.email isEqualToString:@""]) {
+        number++;
+        detailLabel.text = [detailLabel.text stringByAppendingFormat:@"报名邮箱：%@",self.company.email];
     }
+    detailLabel.frame = CGRectMake(0, 0, self.tableView.frame.size.width, kDetailLabelHeight * number/3);
+    return detailLabel;
 }
 
 
@@ -223,19 +246,8 @@
     [self.tableView addSubview:countdownView];
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [PositionListCell cellHeight];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 80;
-}
-
-- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    ProcessView *footerView = [[ProcessView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 80)];
-    footerView.process = self.company.process;
-    return footerView;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

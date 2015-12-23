@@ -16,6 +16,7 @@
 @implementation ColorSelectViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 

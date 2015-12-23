@@ -15,9 +15,12 @@ static const CGFloat kCellHeight = 100;
 
 @interface PositionListCell () <BEMCheckBoxDelegate>
 @property (nonatomic, strong) CellbackgroundVIew *cellBackgroundView;
-//@property (nonatomic, strong) BFPaperCheckbox *checkBox;
 @property (nonatomic, strong) BEMCheckBox *checkBox;
 @property (nonatomic, strong) UILabel *periodLabel;
+@property (nonatomic, strong) UIView *crossView;
+@property (nonatomic, strong) UIView *listView;
+@property (nonatomic, strong) UIColor *redColor;
+@property (nonatomic, strong) UIColor *brownColor;
 @end
 
 @implementation PositionListCell
@@ -58,21 +61,6 @@ static const CGFloat kCellHeight = 100;
         make.bottom.equalTo(self.mas_bottom);
     }];
     
-    //checkBox
-//    self.checkBox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - kCellHeight, 0, kCellHeight, kCellHeight)];
-//    self.checkBox.delegate = self;
-//    [self.checkBox uncheckAnimated:YES];
-//    self.checkBox.rippleFromTapLocation = NO;
-//    self.checkBox.tapCirclePositiveColor = [UIColor paperColorAmber];
-//    self.checkBox.tapCircleNegativeColor = [UIColor paperColorRed];
-//    self.checkBox.checkmarkColor = [UIColor paperColorLightBlue];
-//    [self.contentView addSubview:self.checkBox];
-////    [self.checkBox mas_makeConstraints:^(MASConstraintMaker *make) {
-////        make.centerY.equalTo(self.mas_centerY);
-////        make.centerX.equalTo(self.mas_right).offset(-kCellHeight/2);
-////        make.width.height.equalTo(@(kCellHeight));
-////    }];
-    
     self.checkBox = [[BEMCheckBox alloc] init];
 //    self.checkBox.onAnimationType = BEMAnimationTypeFill;
 //    self.checkBox.offAnimationType = BEMAnimationTypeFill;
@@ -97,6 +85,11 @@ static const CGFloat kCellHeight = 100;
     }];
     
     self.textLabel.font = [UIFont systemFontOfSize:22.0];
+    
+    _crossView = [self viewWithImageName:@"cross"];
+    _redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+    _listView = [self viewWithImageName:@"list"];
+    _brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
 }
 
 
@@ -126,7 +119,7 @@ static const CGFloat kCellHeight = 100;
     [dateFormatter setDateFormat:@"M月dd日hh时mm分"];
     NSString *time = [dateFormatter stringFromDate:self.position.dueDate];
     if(self.position.shouldRemind == YES){
-        self.detailTextLabel.text = [NSString stringWithFormat:@"⏰%@",time];
+        self.detailTextLabel.text = [NSString stringWithFormat:@"🕓%@",time];
     }else{
         self.detailTextLabel.text = [NSString stringWithFormat:@"%@",time];
     }
@@ -145,34 +138,31 @@ static const CGFloat kCellHeight = 100;
 }
 
 - (void)reloadBlock {
-    UIView *crossView = [self viewWithImageName:@"cross"];
-    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-    UIView *listView = [self viewWithImageName:@"list"];
-    UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
+
     if (self.position.checked) {
-        [self setSwipeGestureWithView:crossView
-                                color:redColor
+        [self setSwipeGestureWithView:_crossView
+                                color:_redColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState1
-                      completionBlock:self.deleteCompletionBlock];
+                      completionBlock:_deleteCompletionBlock];
         
-        [self setSwipeGestureWithView:listView
-                                color:brownColor
+        [self setSwipeGestureWithView:_listView
+                                color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
-                      completionBlock:self.editCompletionBlock];
+                      completionBlock:_editCompletionBlock];
     }else {
-        [self setSwipeGestureWithView:crossView
-                                color:redColor
+        [self setSwipeGestureWithView:_crossView
+                                color:_redColor
                                  mode:MCSwipeTableViewCellModeNone
                                 state:MCSwipeTableViewCellState1
                       completionBlock:nil];
         
-        [self setSwipeGestureWithView:listView
-                                color:brownColor
+        [self setSwipeGestureWithView:_listView
+                                color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
-                      completionBlock:self.editCompletionBlock];
+                      completionBlock:_editCompletionBlock];
 
     }
 }
@@ -201,11 +191,5 @@ static const CGFloat kCellHeight = 100;
     self.position.checked = checkBox.on;
     [self reloadData];
 }
-
-//- (void)animationDidStopForCheckBox:(BEMCheckBox *)checkBox {
-//    self.position.checked = checkBox.on;
-//    [self reloadData];
-//}
-
 
 @end

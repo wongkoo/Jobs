@@ -23,6 +23,7 @@ static const CGFloat kCrossButtonWidth = 30;
 @implementation ShareViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.view.backgroundColor = [UIColor whBelizeHole];
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(-self.view.frame.size.width, 50, self.view.frame.size.width - 40, self.view.frame.size.height - 200)];

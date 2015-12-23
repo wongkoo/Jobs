@@ -36,6 +36,7 @@
 		9B10BB7E1C27A07F0019C902 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB7D1C27A07F0019C902 /* AboutViewController.m */; };
 		9B10BB821C27FC850019C902 /* UIView+Jobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB811C27FC850019C902 /* UIView+Jobs.m */; };
 		9B10BB851C2928950019C902 /* PositionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10BB841C2928950019C902 /* PositionListCell.m */; };
+		9B10BB871C2A50330019C902 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B10BB861C2A50330019C902 /* icon.png */; };
 		9B11E9701C2018610095FD28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B11E9721C2018610095FD28 /* Localizable.strings */; };
 		9B3AA6F01BFC70D900B1B9A2 /* CompanyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AA6EF1BFC70D900B1B9A2 /* CompanyListCell.m */; };
 		9B957AD41BF4B4F10058C796 /* PureColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B957AD31BF4B4F10058C796 /* PureColorBackgroundView.m */; };
@@ -131,6 +132,7 @@
 		9B10BB811C27FC850019C902 /* UIView+Jobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Jobs.m"; path = "Category/UIView+Jobs.m"; sourceTree = "<group>"; };
 		9B10BB831C2928950019C902 /* PositionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PositionListCell.h; path = SecondPage/PositionListCell.h; sourceTree = "<group>"; };
 		9B10BB841C2928950019C902 /* PositionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PositionListCell.m; path = SecondPage/PositionListCell.m; sourceTree = "<group>"; };
+		9B10BB861C2A50330019C902 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Images.xcassets/icon.imageset/icon.png; sourceTree = "<group>"; };
 		9B11E9711C2018610095FD28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9731C20188B0095FD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B11E9741C2018AF0095FD28 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		7237F5BA1B1EE68F00F1DFD9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B10BB861C2A50330019C902 /* icon.png */,
 				7237F5BB1B1EE68F00F1DFD9 /* Info.plist */,
 				7237F5BC1B1EE68F00F1DFD9 /* main.m */,
 				9B11E9721C2018610095FD28 /* Localizable.strings */,
@@ -591,6 +594,7 @@
 			files = (
 				9BCE0EFB1C10881A00F85461 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				7237F5C61B1EE68F00F1DFD9 /* Main.storyboard in Resources */,
+				9B10BB871C2A50330019C902 /* icon.png in Resources */,
 				9BCE0F011C10881B00F85461 /* ShareSDK.bundle in Resources */,
 				9BCE0F051C10881B00F85461 /* ShareSDKUI.bundle in Resources */,
 				7237F5CB1B1EE68F00F1DFD9 /* LaunchScreen.xib in Resources */,

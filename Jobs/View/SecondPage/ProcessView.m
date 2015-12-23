@@ -151,9 +151,10 @@
 }
 
 - (void)drawPoint {
+    UIColor *pointColor = [UIColor whSilver];
     if (_numberOfPoint == 1) {
         CALayer *point = [CALayer layer];
-        point.backgroundColor = [UIColor whClouds].CGColor;
+        point.backgroundColor = pointColor.CGColor;
         point.cornerRadius = 4;
         point.position = CGPointMake(_WIDTH/2 -4, _yOfLine);
         point.bounds = CGRectMake(0, 0, 8, 8);
@@ -162,7 +163,7 @@
         pointAnimation.duration = 1.5;
         pointAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         pointAnimation.fromValue = (__bridge id _Nullable)([UIColor clearColor].CGColor);
-        pointAnimation.toValue = (__bridge id _Nullable)([UIColor whClouds].CGColor);
+        pointAnimation.toValue = (__bridge id _Nullable)(pointColor.CGColor);
         pointAnimation.autoreverses = NO;
         [point addAnimation:pointAnimation forKey:@"pointAnimation"];
         
@@ -170,7 +171,7 @@
     }else{
         for (NSInteger i = 0; i < _numberOfPoint; ++i) {
             CALayer *point = [[CALayer alloc]init];
-            point.backgroundColor = [UIColor whClouds].CGColor;
+            point.backgroundColor = pointColor.CGColor;
             point.cornerRadius = 4;
             point.position = CGPointMake(_firstPointX + i*_distanceBetweenPoints, _yOfLine);
             point.bounds = CGRectMake(0, 0, 8, 8);
@@ -179,7 +180,7 @@
             pointAnimation.duration = 1.5;
             pointAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
             pointAnimation.fromValue = (__bridge id _Nullable)([UIColor clearColor].CGColor);
-            pointAnimation.toValue = (__bridge id _Nullable)([UIColor whClouds].CGColor);
+            pointAnimation.toValue = (__bridge id _Nullable)(pointColor.CGColor);
             pointAnimation.autoreverses = NO;
             [point addAnimation:pointAnimation forKey:@"pointAnimation"];
             

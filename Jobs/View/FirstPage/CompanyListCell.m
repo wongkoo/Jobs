@@ -16,6 +16,14 @@
 @property (nonatomic, strong) UILabel *processLabel;
 @property (nonatomic, strong) CellbackgroundVIew *cellBackgroundView;
 
+@property (nonatomic, strong) UIView *checkView;
+@property (nonatomic, strong) UIView *crossView;
+@property (nonatomic, strong) UIView *editView;
+@property (nonatomic, strong) UIView *stickView;
+@property (nonatomic, strong) UIColor *greenColor;
+@property (nonatomic, strong) UIColor *redColor;
+@property (nonatomic, strong) UIColor *brownColor;
+@property (nonatomic, strong) UIColor *stickColor;
 @end
 
 @implementation CompanyListCell
@@ -55,11 +63,27 @@
         make.centerY.equalTo(self.mas_centerY);
         make.height.equalTo(@40);
     }];
+    
+    //Cell swapView
+    _checkView = [self viewWithImageName:@"check"];
+    self.greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
+
+    self.crossView = [self viewWithImageName:@"cross"];
+    self.redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+
+    self.editView = [self viewWithImageName:@"list"];
+    self.brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
+
+    self.stickView = [self viewWithImageName:@"stick"];
+    self.stickColor = [UIColor whAmethyst];
+
+    self.firstTrigger = 0.25;
+    self.secondTrigger = 0.4;
+    [self setDefaultColor:[UIColor whClouds]];
 }
 
 - (void)setCompany:(Company *)company {
     _company = company;
-    
     [self reloadData];
 }
 
@@ -75,8 +99,8 @@
 }
 
 - (void)configureText {
-    NSString *detailString = [[NSString alloc] init];
-    NSString *dateString = [[NSString alloc] init];
+    NSString *detailString = nil;
+    NSString *dateString = nil;
     BOOL showsHours = NO;
     if ([self.company.positions count] != 0) {
         JobsItem *jobsItem = self.company.positions[0];
@@ -91,7 +115,7 @@
         NSTimeInterval timeInterval = [dueDate timeIntervalSinceDate:referenceDate];
         NSTimeInterval day = timeInterval/3600/24;
         
-        NSString *dateFrontString = [[NSString alloc] init];
+        NSString *dateFrontString = nil;
         if (day < 0) {
             dateFrontString = NSLocalizedString(@"AllListCompanyCell Already", @"已经 ");
         }else{
@@ -190,75 +214,57 @@
 }
 
 - (void)configureSwapeStyle {
-    UIView *checkView = [self viewWithImageName:@"check"];
-    UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
-    
-    UIView *crossView = [self viewWithImageName:@"cross"];
-    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-    
-    UIView *editView = [self viewWithImageName:@"list"];
-    UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
-    
-    UIView *stickView = [self viewWithImageName:@"stick"];
-    UIColor *stickColor = [UIColor whAmethyst];
-    
-    // Setting the default inactive state color to the tableView background color
-    [self setDefaultColor:[UIColor whClouds]];
-    [self setDelegate:(id)self];
-    
     if (self.company.deletedFlag == 0) {
-        [self setSwipeGestureWithView:checkView
-                                color:greenColor
+        [self setSwipeGestureWithView:_checkView
+                                color:_greenColor
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState1
                       completionBlock:self.checkCompletetionBlock];
         
-        [self setSwipeGestureWithView:checkView
-                                color:greenColor
+        [self setSwipeGestureWithView:_checkView
+                                color:_greenColor
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState2
                       completionBlock:self.checkCompletetionBlock];
         
-        [self setSwipeGestureWithView:editView
-                                color:brownColor
+        [self setSwipeGestureWithView:_editView
+                                color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
                       completionBlock:self.editCompletetionBlock];
         
-        [self setSwipeGestureWithView:stickView
-                                color:stickColor
+        [self setSwipeGestureWithView:_stickView
+                                color:_stickColor
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState4
                       completionBlock:self.stickCompletetionBlock];
         
         
     }else if(self.company.deletedFlag == 1){
-        [self setSwipeGestureWithView:checkView
+        [self setSwipeGestureWithView:_checkView
                                 color:[UIColor whPeterRiver]
                                  mode:MCSwipeTableViewCellModeSwitch
                                 state:MCSwipeTableViewCellState1
                       completionBlock:self.checkCompletetionBlock];
         
-        [self setSwipeGestureWithView:crossView
-                                color:redColor
+        [self setSwipeGestureWithView:_crossView
+                                color:_redColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState2
                       completionBlock:self.crossCompletetionBlock];
         
-        [self setSwipeGestureWithView:editView
-                                color:brownColor
+        [self setSwipeGestureWithView:_editView
+                                color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState3
                       completionBlock:self.editCompletetionBlock];
         
-        [self setSwipeGestureWithView:editView
-                                color:brownColor
+        [self setSwipeGestureWithView:_editView
+                                color:_brownColor
                                  mode:MCSwipeTableViewCellModeExit
                                 state:MCSwipeTableViewCellState4
                       completionBlock:self.editCompletetionBlock];
     }
-    self.firstTrigger = 0.25;
-    self.secondTrigger = 0.4;
 }
 
 - (UIView *)viewWithImageName:(NSString *)imageName {

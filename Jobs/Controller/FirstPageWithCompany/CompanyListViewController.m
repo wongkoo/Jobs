@@ -115,7 +115,8 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     
     //Jobs's icon in TableView background
     UIImageView *logoView = [[UIImageView alloc] init];
-    UIImage *image = [UIImage imageNamed:@"icon"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"icon" ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
     logoView.image = image;
     [backgroundView addSubview:logoView];
     [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -334,9 +335,9 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    editingStyle = UITableViewCellEditingStyleInsert;
-}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    editingStyle = UITableViewCellEditingStyleInsert;
+//}
 
 
 
@@ -369,7 +370,7 @@ static NSString * const SegueShowPositionIdentifier = @"ShowPosition";
     
     [self.dataModel.companyList removeObjectAtIndex:indexPath.row];
     
-    NSInteger insertIndex;
+    NSInteger insertIndex = 0;
     NSIndexPath *desIndexPath;
     
     if (cell.company.deletedFlag == 1) {
